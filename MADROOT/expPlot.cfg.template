@@ -1,0 +1,56 @@
+#This file contain information of specific experiments to be plotted
+#Copy this file in MADROOT directory
+
+#SINTAXIS:
+#
+#arg="value"   #without whitespace
+#
+#Arguments:
+#
+#experiment="Experiment Name"
+#	minTime="startTime" - it is in hours. 05:30:00 <> 5.5 
+#	maxTime="endTime" - it is in hours    22:45:00 <> 22.75
+#	selectYAxis="Range"|"Altitude"|"Scatter"
+#		minHeight="minRange" || "minAltitud"
+#		maxHeight="maxRange" || "maxAltitud"
+#	parameter="parameter Mnemonic" - parameter one
+#		minValue="minValueData" (minColorMap)
+#		maxValue="maxValueData" (maxColorMap)
+#		colorMap="colorMap"
+#	parameter="parameter Mnemonic" - parameter two
+#		minValue="minValueData" (minColorMap)
+#		maxValue="maxValueData" (maxColorMap)
+#		colorMap="colorMap"
+#
+#	  colorMap values are:
+#     	Spectral, RdYlBu, RdYlGn, RdBu, GnBu, PuOr, PRGn, BrBG, jet, hot, hsv
+#     	Spectral_r, RdYlBu_r, RdYlGn_r, RdBu_r, GnBu_r, PuOr_r, PRGn_r, BrBG_r, jet_r, hot_r, hsv_r
+
+############EXAMPLE##################
+###########FOR JULIA#################
+experiment="150km Region Drifts"
+   minTime="7"
+   maxTime="18"
+	selectYAxis="Altitude"
+	parameter="VIPN"
+	    minValue="-50"
+	    maxValue="50"
+		colorMap="Spectral_r"
+#other parameter for this experiment###
+    parameter="VIPE"
+	    minValue="-200"
+	    maxValue="200"
+		colorMap="Spectral_r"
+##### OTHER EXPERIMENT ##############
+experiment="SpreadF mode"
+   minTime="18"
+   maxTime="31"
+	selectYAxis="Altitude"
+	parameter="VIPN"
+	    minValue="-50"
+	    maxValue="50"
+		colorMap="RdBu_r"
+	parameter="VIPE"
+	    minValue="-100"
+	    maxValue="100"
+		colorMap="RdBu_r"

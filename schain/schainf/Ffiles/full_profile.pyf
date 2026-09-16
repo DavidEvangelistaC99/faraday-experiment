@@ -1,0 +1,765 @@
+!    -*- f90 -*-
+! Note: the context of this file is case sensitive.
+
+python module fdjac2__user__routines 
+    interface fdjac2_user_interface 
+        subroutine fcn(m,n,x,wa,iflag) ! in :full_profile:lmdif1.f:fdjac2:unknown_interface
+            integer, optional,check(len(wa)>=m),depend(wa) :: m=len(wa)
+            integer, optional,check(len(x)>=n),depend(x) :: n=len(x)
+            real dimension(n) :: x
+            real dimension(m) :: wa
+            integer :: iflag
+        end subroutine fcn
+    end interface fdjac2_user_interface
+end python module fdjac2__user__routines
+python module lmdif__user__routines 
+    interface lmdif_user_interface 
+        subroutine fcn(m,n,x,fvec,iflag) ! in :full_profile:lmdif1.f:lmdif:unknown_interface
+            integer, optional,check(len(fvec)>=m),depend(fvec) :: m=len(fvec)
+            integer, optional,check(len(x)>=n),depend(x) :: n=len(x)
+            real dimension(n) :: x
+            real dimension(m) :: fvec
+            integer :: iflag
+        end subroutine fcn
+    end interface lmdif_user_interface
+end python module lmdif__user__routines
+python module full_profile ! in 
+    interface  ! in :full_profile
+        subroutine nnlswrap(power,sigma,temp,perror,ut,nhts) ! in :full_profile:full_profile.f
+            real dimension(nhts) :: power
+            real dimension(512) :: sigma
+            real dimension(512) :: temp
+            real dimension(512) :: perror
+            real :: ut
+            integer, optional,check(len(power)>=nhts),depend(power) :: nhts=len(power)
+        end subroutine nnlswrap
+        subroutine profile(acf_sum,acf_err,power,en,alag,thb2,bfm2,ote,ete,oti,eti,oph,eph,ophe,ephe,range2,ut,nhts,nacf,ibits,acf_avg,status) ! in :full_profile:full_profile.f
+            complex dimension(4,nhts,ibits) :: acf_sum
+            real dimension(nhts,ibits),depend(nhts,ibits) :: acf_err
+            real dimension(nhts),depend(nhts) :: power
+            real dimension(nhts),depend(nhts) :: en
+            real dimension(ibits),depend(ibits) :: alag
+            real dimension(nhts),depend(nhts) :: thb2
+            real dimension(nhts),depend(nhts) :: bfm2
+            real dimension(nacf),depend(nacf) :: ote
+            real dimension(nacf),depend(nacf) :: ete
+            real dimension(nacf),depend(nacf) :: oti
+            real dimension(nacf),depend(nacf) :: eti
+            real dimension(nacf),depend(nacf) :: oph
+            real dimension(nacf),depend(nacf) :: eph
+            real dimension(nacf),depend(nacf) :: ophe
+            real dimension(nacf),depend(nacf) :: ephe
+            real dimension(nhts),depend(nhts) :: range2
+            real :: ut
+            integer, optional,check(shape(acf_sum,1)==nhts),depend(acf_sum) :: nhts=shape(acf_sum,1)
+            integer :: nacf
+            integer, optional,check(shape(acf_sum,2)==ibits),depend(acf_sum) :: ibits=shape(acf_sum,2)
+            complex dimension(nhts,ibits),depend(nhts,ibits) :: acf_avg
+            real :: status
+            real :: chi2
+            real dimension(91) :: densp
+            real dimension(91) :: tep
+            real dimension(91) :: trp
+            real dimension(91) :: tip
+            real dimension(91) :: hfp
+            real dimension(91) :: hefp
+            real dimension(91) :: altp
+            real :: r0
+            real :: dr
+            real :: wl
+            real dimension(16,91) :: plag
+            real dimension(16,91) :: plag_errors
+            real :: sconst
+            real dimension(91) :: edensp
+            real dimension(91) :: etep
+            real dimension(91) :: etip
+            real dimension(91) :: ehfp
+            real dimension(91) :: ehefp
+            real dimension(85) :: bfld_prof
+            real dimension(85) :: alpha_prof
+            integer :: imode
+            real :: uttime
+            real dimension(34) :: ta
+            real dimension(30,5) :: bcoef
+            real :: te
+            real dimension(10) :: ti
+            real dimension(10) :: fi
+            real :: ven
+            real dimension(10) :: vin
+            real :: alpha
+            real :: dens
+            real :: bfld
+            integer :: nion
+            integer dimension(10) :: wi
+            real :: ak
+            common /chisq/ chi2
+            common /fpa/ densp,tep,trp,tip,hfp,hefp,altp,r0,dr,wl
+            common /data/ plag,plag_errors
+            common /sys/ sconst
+            common /errs/ edensp,etep,etip,ehfp,ehefp
+            common /mag/ bfld_prof,alpha_prof
+            common /mode/ imode
+            common /utime/ uttime
+            common /spline/ ta,bcoef
+            common /spec/ te,ti,fi,ven,vin,alpha,dens,bfld,nion,wi,ak
+        end subroutine profile
+        subroutine grid ! in :full_profile:full_profile.f
+            real dimension(34) :: ta
+            real dimension(30,5) :: bcoef
+            real dimension(91) :: densp
+            real dimension(91) :: tep
+            real dimension(91) :: trp
+            real dimension(91) :: tip
+            real dimension(91) :: hfp
+            real dimension(91) :: hefp
+            real dimension(91) :: altp
+            real :: r0
+            real :: dr
+            real :: wl
+            real dimension(16,91) :: plag
+            real dimension(16,91) :: plag_errors
+            real :: sconst
+            real dimension(91) :: edensp
+            real dimension(91) :: etep
+            real dimension(91) :: etip
+            real dimension(91) :: ehfp
+            real dimension(91) :: ehefp
+            real :: te
+            real dimension(10) :: ti
+            real dimension(10) :: fi
+            real :: ven
+            real dimension(10) :: vin
+            real :: alpha
+            real :: dens
+            real :: bfld
+            integer :: nion
+            integer dimension(10) :: wi
+            real :: ak
+            real :: chi2
+            real :: uttime
+            common /spline/ ta,bcoef
+            common /fpa/ densp,tep,trp,tip,hfp,hefp,altp,r0,dr,wl
+            common /data/ plag,plag_errors
+            common /sys/ sconst
+            common /errs/ edensp,etep,etip,ehfp,ehefp
+            common /spec/ te,ti,fi,ven,vin,alpha,dens,bfld,nion,wi,ak
+            common /chisq/ chi2
+            common /utime/ uttime
+        end subroutine grid
+        subroutine propagate(xe) ! in :full_profile:full_profile.f
+            real dimension(150) :: xe
+            real dimension(91) :: densp
+            real dimension(91) :: tep
+            real dimension(91) :: trp
+            real dimension(91) :: tip
+            real dimension(91) :: hfp
+            real dimension(91) :: hefp
+            real dimension(91) :: altp
+            real :: r0
+            real :: dr
+            real :: wl
+            real dimension(16,91) :: plag
+            real dimension(16,91) :: plag_errors
+            real :: sconst
+            real dimension(91) :: edensp
+            real dimension(91) :: etep
+            real dimension(91) :: etip
+            real dimension(91) :: ehfp
+            real dimension(91) :: ehefp
+            real dimension(34) :: ta
+            real dimension(30,5) :: bcoef
+            common /fpa/ densp,tep,trp,tip,hfp,hefp,altp,r0,dr,wl
+            common /data/ plag,plag_errors
+            common /sys/ sconst
+            common /errs/ edensp,etep,etip,ehfp,ehefp
+            common /spline/ ta,bcoef
+        end subroutine propagate
+        subroutine fcn_lpreg(m,n,x,fvec,iflag) ! in :full_profile:full_profile.f
+            integer, optional,check(len(fvec)>=m),depend(fvec) :: m=len(fvec)
+            integer, optional,check(len(x)>=n),depend(x) :: n=len(x)
+            real dimension(n) :: x
+            real dimension(m) :: fvec
+            integer :: iflag
+            real dimension(34) :: ta
+            real dimension(30,5) :: bcoef
+            real dimension(91) :: densp
+            real dimension(91) :: tep
+            real dimension(91) :: trp
+            real dimension(91) :: tip
+            real dimension(91) :: hfp
+            real dimension(91) :: hefp
+            real dimension(91) :: altp
+            real :: r0
+            real :: dr
+            real :: wl
+            real dimension(16,91) :: plag
+            real dimension(16,91) :: plag_errors
+            real :: sconst
+            real dimension(91) :: edensp
+            real dimension(91) :: etep
+            real dimension(91) :: etip
+            real dimension(91) :: ehfp
+            real dimension(91) :: ehefp
+            real :: te
+            real dimension(10) :: ti
+            real dimension(10) :: fi
+            real :: ven
+            real dimension(10) :: vin
+            real :: alpha
+            real :: dens
+            real :: bfld
+            integer :: nion
+            integer dimension(10) :: wi
+            real :: ak
+            real :: chi2
+            real :: uttime
+            common /spline/ ta,bcoef
+            common /fpa/ densp,tep,trp,tip,hfp,hefp,altp,r0,dr,wl
+            common /data/ plag,plag_errors
+            common /sys/ sconst
+            common /errs/ edensp,etep,etip,ehfp,ehefp
+            common /spec/ te,ti,fi,ven,vin,alpha,dens,bfld,nion,wi,ak
+            common /chisq/ chi2
+            common /utime/ uttime
+        end subroutine fcn_lpreg
+        subroutine get_scale(plag2) ! in :full_profile:full_profile.f
+            real dimension(16,75) :: plag2
+            real dimension(91) :: densp
+            real dimension(91) :: tep
+            real dimension(91) :: trp
+            real dimension(91) :: tip
+            real dimension(91) :: hfp
+            real dimension(91) :: hefp
+            real dimension(91) :: altp
+            real :: r0
+            real :: dr
+            real :: wl
+            real dimension(16,91) :: plag
+            real dimension(16,91) :: plag_errors
+            real :: sconst
+            real dimension(91) :: edensp
+            real dimension(91) :: etep
+            real dimension(91) :: etip
+            real dimension(91) :: ehfp
+            real dimension(91) :: ehefp
+            common /fpa/ densp,tep,trp,tip,hfp,hefp,altp,r0,dr,wl
+            common /data/ plag,plag_errors
+            common /sys/ sconst
+            common /errs/ edensp,etep,etip,ehfp,ehefp
+        end subroutine get_scale
+        subroutine lagp(plag,wl,r0,dr,nl,nrange) ! in :full_profile:lagp.f
+            real dimension(nl,nrange) :: plag
+            real :: wl
+            real :: r0
+            real :: dr
+            integer, optional,check(shape(plag,0)==nl),depend(plag) :: nl=shape(plag,0)
+            integer, optional,check(shape(plag,1)==nrange),depend(plag) :: nrange=shape(plag,1)
+            real :: te
+            real dimension(10) :: ti
+            real dimension(10) :: fi
+            real :: ven
+            real dimension(10) :: vin
+            real :: alpha
+            real :: dens
+            real :: bfld
+            integer :: nion
+            integer dimension(10) :: wi
+            real :: ak
+            real dimension(34) :: ta
+            real dimension(30,5) :: bcoef
+            real dimension(85) :: bfld_prof
+            real dimension(85) :: alpha_prof
+            common /spec/ te,ti,fi,ven,vin,alpha,dens,bfld,nion,wi,ak
+            common /spline/ ta,bcoef
+            common /mag/ bfld_prof,alpha_prof
+        end subroutine lagp
+        subroutine lagp_old(plag,wl,r0,dr,nl,nrange) ! in :full_profile:lagp.f
+            real dimension(nl,nrange) :: plag
+            real :: wl
+            real :: r0
+            real :: dr
+            integer, optional,check(shape(plag,0)==nl),depend(plag) :: nl=shape(plag,0)
+            integer, optional,check(shape(plag,1)==nrange),depend(plag) :: nrange=shape(plag,1)
+            real :: te
+            real dimension(10) :: ti
+            real dimension(10) :: fi
+            real :: ven
+            real dimension(10) :: vin
+            real :: alpha
+            real :: dens
+            real :: bfld
+            integer :: nion
+            integer dimension(10) :: wi
+            real :: ak
+            real dimension(34) :: ta
+            real dimension(30,5) :: bcoef
+            real dimension(85) :: bfld_prof
+            real dimension(85) :: alpha_prof
+            common /spec/ te,ti,fi,ven,vin,alpha,dens,bfld,nion,wi,ak
+            common /spline/ ta,bcoef
+            common /mag/ bfld_prof,alpha_prof
+        end subroutine lagp_old
+        function atanh(x) ! in :full_profile:lagp.f
+            real :: x
+            real :: atanh
+        end function atanh
+        subroutine get_spline(alt,dens,te,ti,hf,hef) ! in :full_profile:lagp.f
+            real :: alt
+            real :: dens
+            real :: te
+            real :: ti
+            real :: hf
+            real :: hef
+            real dimension(34) :: ta
+            real dimension(30,5) :: bcoef
+            common /spline/ ta,bcoef
+        end subroutine get_spline
+        function bvalue(t,bcoef,n,k,x,jderiv) ! in :full_profile:lagp.f
+            real dimension(n+k),depend(n,k) :: t
+            real dimension(n) :: bcoef
+            integer, optional,check(len(bcoef)>=n),depend(bcoef) :: n=len(bcoef)
+            integer :: k
+            real :: x
+            integer :: jderiv
+            real :: bvalue
+        end function bvalue
+        subroutine interv(xt,lxt,x,left,mflag) ! in :full_profile:lagp.f
+            real dimension(lxt) :: xt
+            integer, optional,check(len(xt)>=lxt),depend(xt) :: lxt=len(xt)
+            real :: x
+            integer :: left
+            integer :: mflag
+        end subroutine interv
+        subroutine lmdif1(fcn,m,n,x,fvec,tol,info,iwa,wa,lwa) ! in :full_profile:lmdif1.f
+    	    use lmdif__user__routines
+            external fcn
+            integer, optional,check(len(fvec)>=m),depend(fvec) :: m=len(fvec)
+            integer, optional,check(len(x)>=n),depend(x) :: n=len(x)
+            real dimension(n) :: x
+            real dimension(m) :: fvec
+            real :: tol
+            integer :: info
+            integer dimension(n),depend(n) :: iwa
+            real dimension(lwa) :: wa
+            integer, optional,check(len(wa)>=lwa),depend(wa) :: lwa=len(wa)
+        end subroutine lmdif1
+        function enorm(n,x) ! in :full_profile:lmdif1.f
+            integer, optional,check(len(x)>=n),depend(x) :: n=len(x)
+            real dimension(n) :: x
+            real :: enorm
+        end function enorm
+        subroutine fdjac2(fcn,m,n,x,fvec,fjac,ldfjac,iflag,epsfcn,wa) ! in :full_profile:lmdif1.f
+            use fdjac2__user__routines
+            external fcn
+            integer, optional,check(len(fvec)>=m),depend(fvec) :: m=len(fvec)
+            integer, optional,check(len(x)>=n),depend(x) :: n=len(x)
+            real dimension(n) :: x
+            real dimension(m) :: fvec
+            real dimension(ldfjac,n),depend(n) :: fjac
+            integer, optional,check(shape(fjac,0)==ldfjac),depend(fjac) :: ldfjac=shape(fjac,0)
+            integer :: iflag
+            real :: epsfcn
+            real dimension(m),depend(m) :: wa
+        end subroutine fdjac2
+        subroutine lmdif(fcn,m,n,x,fvec,ftol,xtol,gtol,maxfev,epsfcn,diag,mode,factor,nprint,info,nfev,fjac,ldfjac,ipvt,qtf,wa1,wa2,wa3,wa4) ! in :full_profile:lmdif1.f
+            use lmdif__user__routines
+            external fcn
+            integer, optional,check(len(fvec)>=m),depend(fvec) :: m=len(fvec)
+            integer, optional,check(len(x)>=n),depend(x) :: n=len(x)
+            real dimension(n) :: x
+            real dimension(m) :: fvec
+            real :: ftol
+            real :: xtol
+            real :: gtol
+            integer :: maxfev
+            real :: epsfcn
+            real dimension(n),depend(n) :: diag
+            integer :: mode
+            real :: factor
+            integer :: nprint
+            integer :: info
+            integer :: nfev
+            real dimension(ldfjac,n),depend(n) :: fjac
+            integer, optional,check(shape(fjac,0)==ldfjac),depend(fjac) :: ldfjac=shape(fjac,0)
+            integer dimension(n),depend(n) :: ipvt
+            real dimension(n),depend(n) :: qtf
+            real dimension(n),depend(n) :: wa1
+            real dimension(n),depend(n) :: wa2
+            real dimension(n),depend(n) :: wa3
+            real dimension(m),depend(m) :: wa4
+        end subroutine lmdif
+        subroutine lmpar(n,r,ldr,ipvt,diag,qtb,delta,par,x,sdiag,wa1,wa2) ! in :full_profile:lmdif1.f
+            integer, optional,check(shape(r,1)==n),depend(r) :: n=shape(r,1)
+            real dimension(ldr,n) :: r
+            integer, optional,check(shape(r,0)==ldr),depend(r) :: ldr=shape(r,0)
+            integer dimension(n),depend(n) :: ipvt
+            real dimension(n),depend(n) :: diag
+            real dimension(n),depend(n) :: qtb
+            real :: delta
+            real :: par
+            real dimension(n),depend(n) :: x
+            real dimension(n),depend(n) :: sdiag
+            real dimension(n),depend(n) :: wa1
+            real dimension(n),depend(n) :: wa2
+        end subroutine lmpar
+        subroutine qrfac(m,n,a,lda,pivot,ipvt,lipvt,rdiag,acnorm,wa) ! in :full_profile:lmdif1.f
+            integer :: m
+            integer, optional,check(shape(a,1)==n),depend(a) :: n=shape(a,1)
+            real dimension(lda,n) :: a
+            integer, optional,check(shape(a,0)==lda),depend(a) :: lda=shape(a,0)
+            logical :: pivot
+            integer dimension(lipvt) :: ipvt
+            integer, optional,check(len(ipvt)>=lipvt),depend(ipvt) :: lipvt=len(ipvt)
+            real dimension(n),depend(n) :: rdiag
+            real dimension(n),depend(n) :: acnorm
+            real dimension(n),depend(n) :: wa
+        end subroutine qrfac
+        subroutine qrsolv(n,r,ldr,ipvt,diag,qtb,x,sdiag,wa) ! in :full_profile:lmdif1.f
+            integer, optional,check(shape(r,1)==n),depend(r) :: n=shape(r,1)
+            real dimension(ldr,n) :: r
+            integer, optional,check(shape(r,0)==ldr),depend(r) :: ldr=shape(r,0)
+            integer dimension(n),depend(n) :: ipvt
+            real dimension(n),depend(n) :: diag
+            real dimension(n),depend(n) :: qtb
+            real dimension(n),depend(n) :: x
+            real dimension(n),depend(n) :: sdiag
+            real dimension(n),depend(n) :: wa
+        end subroutine qrsolv
+        function spmpar(i) ! in :full_profile:lmdif1.f
+            integer :: i
+            real :: spmpar
+        end function spmpar
+        subroutine bndacc(g,mdg,nb,ip,ir,mt,jt) ! in :full_profile:nnls.f
+            double precision dimension(mdg,*) :: g
+            integer, optional,check(shape(g,0)==mdg),depend(g) :: mdg=shape(g,0)
+            integer :: nb
+            integer :: ip
+            integer :: ir
+            integer :: mt
+            integer :: jt
+        end subroutine bndacc
+        subroutine bndsol(mode,g,mdg,nb,ip,ir,x,n,rnorm) ! in :full_profile:nnls.f
+            integer :: mode
+            double precision dimension(mdg,*) :: g
+            integer, optional,check(shape(g,0)==mdg),depend(g) :: mdg=shape(g,0)
+            integer :: nb
+            integer :: ip
+            integer :: ir
+            double precision dimension(n) :: x
+            integer, optional,check(len(x)>=n),depend(x) :: n=len(x)
+            double precision :: rnorm
+        end subroutine bndsol
+        function diff(x,y) ! in :full_profile:nnls.f
+            double precision :: x
+            double precision :: y
+            double precision :: diff
+        end function diff
+        subroutine g1(a,b,cterm,sterm,sig) ! in :full_profile:nnls.f
+            double precision :: a
+            double precision :: b
+            double precision :: cterm
+            double precision :: sterm
+            double precision :: sig
+        end subroutine g1
+        subroutine g2(cterm,sterm,x,y) ! in :full_profile:nnls.f
+            double precision :: cterm
+            double precision :: sterm
+            double precision :: x
+            double precision :: y
+        end subroutine g2
+        function gen2(anoise) ! in :full_profile:nnls.f
+            double precision :: anoise
+            double precision :: gen2
+        end function gen2
+        subroutine h12(mode,lpivot,l1,m,u,iue,up,c,ice,icv,ncv) ! in :full_profile:nnls.f
+            integer :: mode
+            integer :: lpivot
+            integer :: l1
+            integer :: m
+            double precision dimension(iue,*) :: u
+            integer, optional,check(shape(u,0)==iue),depend(u) :: iue=shape(u,0)
+            double precision :: up
+            double precision dimension(*) :: c
+            integer :: ice
+            integer :: icv
+            integer :: ncv
+        end subroutine h12
+        subroutine hfti(a,mda,m,n,b,mdb,nb,tau,krank,rnorm,h,g,ip) ! in :full_profile:nnls.f
+            double precision dimension(mda,*) :: a
+            integer, optional,check(shape(a,0)==mda),depend(a) :: mda=shape(a,0)
+            integer :: m
+            integer :: n
+            double precision dimension(mdb,*) :: b
+            integer, optional,check(shape(b,0)==mdb),depend(b) :: mdb=shape(b,0)
+            integer :: nb
+            double precision :: tau
+            integer :: krank
+            double precision dimension(*) :: rnorm
+            double precision dimension(*) :: h
+            double precision dimension(*) :: g
+            integer dimension(*) :: ip
+        end subroutine hfti
+        subroutine ldp(g,mdg,m,n,h,x,xnorm,w,index_bn,mode) ! in :full_profile:nnls.f
+            double precision dimension(mdg,*) :: g
+            integer, optional,check(shape(g,0)==mdg),depend(g) :: mdg=shape(g,0)
+            integer :: m
+            integer :: n
+            double precision dimension(*) :: h
+            double precision dimension(*) :: x
+            double precision :: xnorm
+            double precision dimension(*) :: w
+            integer dimension(*) :: index_bn
+            integer :: mode
+        end subroutine ldp
+        subroutine mfeout(a,mda,m,n,names,mode,unit,width) ! in :full_profile:nnls.f
+            double precision dimension(mda,n) :: a
+            integer, optional,check(shape(a,0)==mda),depend(a) :: mda=shape(a,0)
+            integer, optional,check(shape(names,0)==m),depend(names) :: m=shape(names,0)
+            integer, optional,check(shape(a,1)==n),depend(a) :: n=shape(a,1)
+            character dimension(m,(*)) :: names
+            integer :: mode
+            integer :: unit
+            integer :: width
+        end subroutine mfeout
+        subroutine nnls(a,mda,m,n,b,x,rnorm,w,zz,index_bn,mode) ! in :full_profile:nnls.f
+            double precision dimension(mda,*) :: a
+            integer, optional,check(shape(a,0)==mda),depend(a) :: mda=shape(a,0)
+            integer :: m
+            integer :: n
+            double precision dimension(*) :: b
+            double precision dimension(*) :: x
+            double precision :: rnorm
+            double precision dimension(*) :: w
+            double precision dimension(*) :: zz
+            integer dimension(*) :: index_bn
+            integer :: mode
+        end subroutine nnls
+        subroutine qrbd(ipass,q,e,nn,v,mdv,nrv,c,mdc,ncc) ! in :full_profile:nnls.f
+            integer :: ipass
+            double precision dimension(*) :: q
+            double precision dimension(*) :: e
+            integer :: nn
+            double precision dimension(mdv,*) :: v
+            integer, optional,check(shape(v,0)==mdv),depend(v) :: mdv=shape(v,0)
+            integer :: nrv
+            double precision dimension(mdc,*) :: c
+            integer, optional,check(shape(c,0)==mdc),depend(c) :: mdc=shape(c,0)
+            integer :: ncc
+        end subroutine qrbd
+        subroutine sva(a,mda,m,n,mdata,b,sing,kpvec,names,iscale,d,work) ! in :full_profile:nnls.f
+            double precision dimension(mda,n) :: a
+            integer, optional,check(shape(a,0)==mda),depend(a) :: mda=shape(a,0)
+            integer, optional,check(len(b)>=m),depend(b) :: m=len(b)
+            integer, optional,check(shape(a,1)==n),depend(a) :: n=shape(a,1)
+            integer :: mdata
+            double precision dimension(m) :: b
+            double precision dimension(n),depend(n) :: sing
+            integer dimension(4) :: kpvec
+            character dimension(n,(*)),intent(c),depend(n) :: names
+            integer :: iscale
+            double precision dimension(n),depend(n) :: d
+            double precision dimension(2 * n),depend(n) :: work
+        end subroutine sva
+        subroutine svdrs(a,mda,m1,n1,b,mdb,nb,s,work) ! in :full_profile:nnls.f
+            double precision dimension(mda,*) :: a
+            integer, optional,check(shape(a,0)==mda),depend(a) :: mda=shape(a,0)
+            integer :: m1
+            integer, optional,check(shape(work,0)==n1),depend(work) :: n1=shape(work,0)
+            double precision dimension(mdb,*) :: b
+            integer, optional,check(shape(b,0)==mdb),depend(b) :: mdb=shape(b,0)
+            integer :: nb
+            double precision dimension(*) :: s
+            double precision dimension(n1,2) :: work
+        end subroutine svdrs
+        subroutine guess(acf,tau,npts,zero,amin,te,tr) ! in :full_profile:fitacf.f
+            real dimension(npts) :: acf
+            real dimension(npts),depend(npts) :: tau
+            integer, optional,check(len(acf)>=npts),depend(acf) :: npts=len(acf)
+            real :: zero
+            real :: amin
+            real :: te
+            real :: tr
+        end subroutine guess
+        subroutine parab1(x,y,a,b,c) ! in :full_profile:fitacf.f
+            real dimension(3) :: x
+            real dimension(3) :: y
+            real :: a
+            real :: b
+            real :: c
+        end subroutine parab1
+        function cdtr1(depth) ! in :full_profile:fitacf.f
+            real :: depth
+            real :: cdtr1
+        end function cdtr1
+        function czte1(zlag,tr) ! in :full_profile:fitacf.f
+            real :: zlag
+            real :: tr
+            real :: czte1
+        end function czte1
+        subroutine fit(wl,taup,rhop,covar,cinv,sigma2p,paramp,ebp,bfldp,alphap,densp,alt,time,nl,ifitp,ist) ! in :full_profile:fitacf.f
+            real :: wl
+            real dimension(nl) :: taup
+            real dimension(nl),depend(nl) :: rhop
+            real dimension(nl,nl),depend(nl,nl) :: covar
+            real dimension(nl,nl),depend(nl,nl) :: cinv
+            real dimension(nl),depend(nl) :: sigma2p
+            real dimension(10) :: paramp
+            real dimension(10) :: ebp
+            real :: bfldp
+            real :: alphap
+            real :: densp
+            real :: alt
+            real :: time
+            integer, optional,check(len(taup)>=nl),depend(taup) :: nl=len(taup)
+            integer dimension(10) :: ifitp
+            integer :: ist
+            real :: te
+            real dimension(10) :: ti
+            real dimension(10) :: fi
+            real :: ven
+            real dimension(10) :: vin
+            real :: alpha
+            real :: dens
+            real :: bfld
+            integer :: nion
+            integer dimension(10) :: wi
+            real :: ak
+            integer :: imode
+            real dimension(100) :: tau
+            real dimension(100) :: rho
+            real dimension(100) :: sigma2
+            real dimension(10) :: params
+            integer dimension(10) :: ifit
+            real dimension(10000) :: ev
+            common /spec/ te,ti,fi,ven,vin,alpha,dens,bfld,nion,wi,ak
+            common /mode/ imode
+            common /fitter/ tau,rho,sigma2,params,ifit
+            common /trans/ ev
+        end subroutine fit
+        subroutine fcn(m,n,x,fvec,iflag) ! in :full_profile:fitacf.f
+            integer, optional,check(len(fvec)>=m),depend(fvec) :: m=len(fvec)
+            integer, optional,check(len(x)>=n),depend(x) :: n=len(x)
+            real dimension(n) :: x
+            real dimension(m) :: fvec
+            integer :: iflag
+            real :: te
+            real dimension(10) :: ti
+            real dimension(10) :: fi
+            real :: ven
+            real dimension(10) :: vin
+            real :: alpha
+            real :: dens
+            real :: bfld
+            integer :: nion
+            integer dimension(10) :: wi
+            real :: ak
+            real dimension(100) :: tau
+            real dimension(100) :: rho
+            real dimension(100) :: sigma2
+            real dimension(10) :: params
+            integer dimension(10) :: ifit
+            real :: chisq
+            real dimension(10000) :: ev
+            common /spec/ te,ti,fi,ven,vin,alpha,dens,bfld,nion,wi,ak
+            common /fitter/ tau,rho,sigma2,params,ifit
+            common /errs/ chisq
+            common /trans/ ev
+        end subroutine fcn
+        function cj_ion(theta,psi) ! in :full_profile:fitacf.f
+            real :: theta
+            real :: psi
+            complex :: cj_ion
+        end function cj_ion
+        function cj_electron(theta,phi,psi,alpha) ! in :full_profile:fitacf.f
+            real :: theta
+            real :: phi
+            real :: psi
+            real :: alpha
+            integer :: imode
+            complex :: cj_electron
+            common /mode/ imode
+        end function cj_electron
+        function y_ion(theta,psi) ! in :full_profile:fitacf.f
+            real :: theta
+            real :: psi
+            complex :: y_ion
+        end function y_ion
+        function y_electron(theta,phi,psi,alpha) ! in :full_profile:fitacf.f
+            real :: theta
+            real :: phi
+            real :: psi
+            real :: alpha
+            complex :: y_electron
+        end function y_electron
+        function spect1(omega) ! in :full_profile:fitacf.f
+            real :: omega
+            real :: te
+            real dimension(10) :: ti
+            real dimension(10) :: fi
+            real :: ven
+            real dimension(10) :: vin
+            real :: alpha
+            real :: dens
+            real :: bfld
+            integer :: nion
+            integer dimension(10) :: wi
+            real :: ak
+            integer :: imode
+            real :: spect1
+            common /spec/ te,ti,fi,ven,vin,alpha,dens,bfld,nion,wi,ak
+            common /mode/ imode
+        end function spect1
+        subroutine acf2(wl,tau,te1,ti1,fi1,ven1,vin1,wi1,nion1,alpha1,dens1,bfld1,acf) ! in :full_profile:fitacf.f
+            real :: wl
+            real :: tau
+            real :: te1
+            real dimension(nion1) :: ti1
+            real dimension(nion1),depend(nion1) :: fi1
+            real :: ven1
+            real dimension(nion1),depend(nion1) :: vin1
+            integer dimension(nion1),depend(nion1) :: wi1
+            integer, optional,check(len(ti1)>=nion1),depend(ti1) :: nion1=len(ti1)
+            real :: alpha1
+            real :: dens1
+            real :: bfld1
+            real :: acf
+            real :: te
+            real dimension(10) :: ti
+            real dimension(10) :: fi
+            real :: ven
+            real dimension(10) :: vin
+            real :: alpha
+            real :: dens
+            real :: bfld
+            integer :: nion
+            integer dimension(10) :: wi
+            real :: ak
+            common /spec/ te,ti,fi,ven,vin,alpha,dens,bfld,nion,wi,ak
+        end subroutine acf2
+        subroutine gaussq(tau,acf) ! in :full_profile:fitacf.f
+            real :: tau
+            real :: acf
+            real :: te
+            real dimension(10) :: ti
+            real dimension(10) :: fi
+            real :: ven
+            real dimension(10) :: vin
+            real :: alpha
+            real :: dens
+            real :: bfld
+            integer :: nion
+            integer dimension(10) :: wi
+            real :: ak
+            common /spec/ te,ti,fi,ven,vin,alpha,dens,bfld,nion,wi,ak
+        end subroutine gaussq
+        function r1mach(i) ! in :full_profile:r1mach.f
+            integer :: i
+            integer :: cray1
+            real :: r1mach
+            common /d8mach/ cray1
+        end function r1mach
+    end interface 
+end python module full_profile
+
+! This file was auto-generated with f2py (version:2).
+! See http://cens.ioc.ee/projects/f2py2e/

@@ -1,0 +1,41 @@
+[project]
+name = "madrigal"
+version = "3.2.9"
+description = "Madrigal Python API - now uses python 3"
+keywords = ["Madrigal"]
+authors = [
+    {name = "Bill Rideout", email = "brideout@mit.edu"}
+]
+license = {text = "MIT"}
+classifiers = ["License :: OSI Approved :: MIT License"]
+dependencies = [
+    "svn",
+    "numpy",
+    "h5py",
+    "scipy",
+    "django",
+    "libnetcdf<4.9",
+    "netCDF4",
+    "matplotlib",
+    "setupext",
+    "aacgmv2",
+    "filelock",
+    "pymap3d",
+    "sqlparse",
+    "django-bootstrap3",
+    "aacgmv2",
+    "packaging",
+    "madrigalweb"
+    ]
+
+[project.urls]
+"Homepage" = "https://cedar.openmadrigal.org"
+
+[build-system]
+requires = ["setuptools", "wheel", "cython", "numpy"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+py-modules = ["madrigal.admin", "madrigal.cedar", "madrigal.data", "madrigal.derivation",
+                    "madrigal.isprint", "madrigal.metadata", "madrigal.openmadrigal",
+                    "madrigal.ui.madrigalPlot", "madrigal.ui.userData", "madrigal.ui.web"]

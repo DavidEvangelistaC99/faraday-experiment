@@ -1,0 +1,35 @@
+!    -*- f90 -*-
+! Note: the context of this file is case sensitive.
+
+python module fitacf_guess ! in 
+    interface  ! in :fitacf_guess
+        subroutine guess(acf,tau,npts,zero,amin,te,tr) ! in :fitacf_guess:fitacf_guess.f
+            real dimension(npts),intent(in) :: acf
+            real dimension(npts),intent(in) :: tau
+            integer intent(in) :: npts
+            real intent(inout):: zero
+            real intent(inout):: amin
+            real intent(inout):: te
+            real intent(inout):: tr
+        end subroutine guess
+        subroutine parab1(x,y,a,b,c) ! in :fitacf_guess:fitacf_guess.f
+            real dimension(3) :: x
+            real dimension(3) :: y
+            real :: a
+            real :: b
+            real :: c
+        end subroutine parab1
+        function cdtr1(depth) ! in :fitacf_guess:fitacf_guess.f
+            real :: depth
+            real :: cdtr1
+        end function cdtr1
+        function czte1(zlag,tr) ! in :fitacf_guess:fitacf_guess.f
+            real :: zlag
+            real :: tr
+            real :: czte1
+        end function czte1
+    end interface 
+end python module fitacf_guess
+
+! This file was auto-generated with f2py (version:2).
+! See http://cens.ioc.ee/projects/f2py2e/

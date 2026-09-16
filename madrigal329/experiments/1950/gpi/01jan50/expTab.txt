@@ -1,0 +1,1 @@
+9990000010,http://localhost/madrigal/madtoc/experiments/1950/gpi/01jan50,Kp; Ap; 10.7 cm flux; sunspot number etc,999,19500101,000000,20260719,235959,210,0

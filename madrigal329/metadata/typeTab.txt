@@ -1,0 +1,1185 @@
+10,(special for MHR only)
+20,Imager time and filter metadata (image data at www.buimaging.com/data)
+21,ALO Airglow Imager
+1002,~1 min or ~20 s 3-freq night photon counts
+10_1040,VERTICAL VELOCITY COMPONENT ONLY
+1050,Basic Derived Parameters
+1051,Basic Derived Parameters
+1060,Magnetometer data
+10_1101,Faraday Doble pulse  Version 1(7-lags)
+7800_1555,Transcoronal Radio Observations
+1700,Jicamarca Magnetometers
+10_1800,Faraday rotation with alternating code Long Pulse
+5145_1800,FPI wind vector calculation (zenith as reference)
+10_1801,Faraday rotation with alternating code Long pulse (hybrid 1)
+10_1802,Faraday rotation with uncoded Long Pulse (hybrid 2)
+10_1810,Spectral analysis with uncoded Long Pulse
+10_1811,Coherence; spectral width; Doppler from double pulse with Barker subcoding
+11_1850,Bistatic Jicamarca-Paracas radar
+10_1910,Vertical and Zonal Drifts
+10_1911,Averaged Vertical and Zonal Drifts
+10_1912,Special Drift mode
+10_1913,Special Average Drift
+840_1950,Ion Avg drift derived from 150km echoes JULIA mode
+1951,JULIA 150-km echoes
+840_1951,JULIA 150-km echoes
+1961,JULIA Equatorial Spread-F
+840_1961,JULIA Equatorial Spread-F
+13_1971,JASMET winds MLT
+2001,FACF Power profile (pre 1995)
+2002,~1 min [K] densities at night
+2002,FACF Basic derived parameters (pre 1995)
+1040_2002,Spectral fitter - Version 1
+5600_2002,OI-Red 630.0 nm winds
+2010,MRACF Basic Derived Parameters (1995)
+2011,F-region vector ion velocities
+2015,Electron concentration using the 13-baud barker code.
+20_2018,Topside ISR single-ion fit
+21_2018,Topside ISR single-ion fit
+20_2019,Topside ISR two-ion fit
+20_2020,Coded long pulse mode
+21_2020,Coded long pulse mode
+2021,E-region Neutral Winds
+21_2030,MRACF 10-sec Integration Variant
+20_2031,MRACF 10-sec - drop gradient rule - variant
+21_2031,MRACF 10-sec - drop gradient rule - variant
+20_2040,Plasma line - upshifted line only
+21_2040,Plasma line - upshifted line only
+20_2041,Plasma line - up and downshifted lines with differences
+21_2041,Plasma line - up and downshifted lines with differences
+4480_2100,Red line (630.0 nm) photometer
+4481_2101,Green line (557.7 nm) photometer
+3001,INSCAL Basic Derived Parameters
+3002,INSCAL Basic Derived Parameters
+30_3071,INSCAL Basic Derived Parameters
+3101,Two-pulse Data
+3201,HYCOR Basic Derived Parameters - INSCAL (1.0)
+3301,SCAT Basic Derived Parameters - INSCAL (1.0)
+3302,SCAT Basic Derived Parameters - INSCAL (2.0)
+3303,SCAT Basic Derived Parameters - INSCAL (3.0)
+3304,SCAT Basic Derived Parameters - INSCAL (4.0)
+3305,SCAT Basic Derived Parameters - INSCAL (5.0)
+30_3306,SCAT Basic Derived Parameters - INSCAL (5.0)
+3321,SCAT - OASIS 1.x
+3405,MIDAS Basic Derived Parameters - INSCAL (5.0)
+3406,INSCAL (Quicklook) Basic Derived Parameters
+3408,Combined basic parameters file - all antennas and modes
+30_3408,Combined basic parameters file - all antennas and modes
+3410,Combined basic parameters file - all antennas and modes
+30_3410,Combined basic parameters file - all antennas and modes
+30_3415,Plasma line peak densities
+31_3415,Plasma line peak densities
+32_3415,Plasma line peak densities
+30_3416,Plasma line peak densities and hmax
+31_3416,Plasma line peak densities and hmax
+32_3416,Plasma line peak densities and hmax
+30_3420,Zenith single-pulse basic parameters
+32_3420,Zenith single-pulse basic parameters
+30_3425,Zenith alternating-code basic parameters
+32_3425,Zenith alternating-code basic parameters
+30_3430,MISA (steerable) single-pulse basic parameters
+31_3430,MISA (steerable) single-pulse basic parameters
+30_3435,MISA (steerable) alternating-code basic parameters
+31_3435,MISA (steerable) alternating-code basic parameters
+30_3440,Autocorrelation function
+3500,TEC binned 1 degree by 1 degree by 5 min
+8000_3500,TEC binned 1 degree by 1 degree by 5 min
+3505,Line of sight TEC data
+3506,List of sites used in daily TEC data
+3510,PUSCAT electron density profile
+3990,Millstone Hill/UMLCAR Digisonde data
+3999,Millstone Hill/UMLCAR Digisonde data
+2900_4001,SO166 Manually scaled ionospheric parameters
+2950_4010,DSND Realtime ionospheric data analysis
+2951_4010,DSND Realtime ionospheric data analysis
+8300_4101,SGO Magnetometers - XYZ - 1 min
+4201,tridim Nancay/Monpazier/Mende
+4203,tridim Monpaz-Mende(see comment card)
+4205,Nancay
+4206,Nancay
+4207,Nancay
+5000,COMBINED DENSITY (FIXED)
+5001,POWER CHANNEL DENSITY (FIXED)
+5010,MAC (PRISIS) (FIXED)
+5020,OAC (PRISIS) (FIXED)
+5050,COMBINED DENSITY (ELSCAN)
+5051,POWER CHANNEL DENSITY (ELSCAN)
+5060,MAC (PRISIS) (ELSCAN)
+5070,OAC (PRISIS) (ELSCAN)
+5081,Unknown ISR mode
+5082,Unknown ISR mode
+5083,Unknown ISR mode
+5084,Unknown ISR mode
+5100,PHYNAL LP (TANDEN) (FIXED)
+5101,PHYNAL SP (TANDEN) (FIXED)
+5102,PHYNAL SP+LP (TANDEN) (FIXED)
+5103,VAST POWER CHANNEL DATA (FIXED)
+5106,EISCAT POWER FIELD ALIGNED (3POS)
+5110,MAC ZONE 1 (TANDEN/AKIDEN) (FIXED)
+5111,MAC ZONE 2 (TANDEN/AKIDEN) (FIXED)
+5112,MAC ZONE 3 (TANDEN/AKIDEN) (FIXED)
+5113,MAC ZONE 4 (TANDEN/AKIDEN) (FIXED)
+5120,OAC ZONE 1 (TANDEN/AKIDEN) (FIXED)
+5121,OAC ZONE 2 (TANDEN/AKIDEN) (FIXED)
+5122,OAC ZONE 3 (TANDEN/AKIDEN) (FIXED)
+5123,OAC ZONE 4 (TANDEN/AKIDEN) (FIXED)
+5124,ACFIT SPLINE KNOTS (TANDEN) (FIXED)
+5140,EISCAT TEMP; FIELD ALIGNED
+5141,EISCAT LP; RESULTAT
+5150,PHYNAL LP (TANDEN) (ELSCAN)
+5151,PHYNAL SP (TANDEN) (ELSCAN)
+5152,PHYNAL SP+LP (TANDEN) (ELSCAN)
+5160,MAC ZONE 1 (TANDEN/AKIDEN) (ELSCAN)
+5161,MAC ZONE 2 (TANDEN/AKIDEN) (ELSCAN)
+5162,MAC ZONE 3 (TANDEN/AKIDEN) (ELSCAN)
+5163,MAC ZONE 4 (TANDEN/AKIDEN) (ELSCAN)
+5170,OAC ZONE 1 (TANDEN/AKIDEN) (ELSCAN)
+5171,OAC ZONE 2 (TANDEN/AKIDEN) (ELSCAN)
+5172,OAC ZONE 3 (TANDEN/AKIDEN) (ELSCAN)
+5173,OAC ZONE 4 (TANDEN/AKIDEN) (ELSCAN)
+5174,ACFIT SPLINE KNOTS (TANDEN) (ELSCAN)
+5350,PHYNAL LP (TANDEN) (AZSCAN)
+5351,PHYNAL SP (TANDEN) (AZSCAN)
+5352,PHYNAL SP+LP (TANDEN) (AZSCAN)
+5360,MAC ZONE 1 (TANDEN/AKIDEN) (AZSCAN)
+5361,MAC ZONE 2 (TANDEN/AKIDEN) (AZSCAN)
+5371,OAC ZONE 2 (TANDEN/AKIDEN) (AZSCAN)
+5374,ACFIT SPLINE KNOTS (TANDEN) (AZSCAN)
+5400,PHYNAL LP (AKIDEN) (FIXED)
+5401,PHYNAL SP (AKIDEN) (FIXED)
+5402,PHYNAL SP+LP (AKIDEN) (FIXED)
+5450,PHYNAL LP (AKIDEN) (ELSCAN)
+5451,PHYNAL SP (AKIDEN) (ELSCAN)
+5452,PHYNAL SP+LP (AKIDEN) (ELSCAN)
+5500,ACPORT - FITTED GATE DATA FROM MANUAL ANTENNA CONTROL
+5501,ACPORT - FITTED GATE DATA FROM DWELLS
+5502,ACPORT - FITTED GATE DATA FROM AZSCANS
+5503,ACPORT - FITTED GATE DATA FROM ELSCANS
+5504,ACPORT - FITTED GATE DATA FROM COMPOSITE SCANS
+5505,ACPORT - FITTED GATE DATA FROM VSR ELSCANS
+5506,ACPORT - FITTED GATE DATA FROM VSR COMPSCANS
+5520,ACPORT - FITTED GATE DATA (A16) FROM MANUAL ANTENNA CONTROL
+5521,ACPORT - FITTED GATE DATA (A16) FROM DWELLS
+5522,ACPORT - FITTED GATE DATA (A16) FROM AZSCANS
+5523,ACPORT - FITTED GATE DATA (A16) FROM ELSCANS
+5524,ACPORT - FITTED GATE DATA (A16) FROM COMPOSITE SCANS
+5525,ACPORT - FITTED GATE DATA (A16) FROM VSR ELSCANS
+5526,ACPORT - FITTED GATE DATA (A16) FROM VSR COMPSCANS
+5650,PHYNAL LP (AKIDEN) (AZSCAN)
+5651,PHYNAL SP (AKIDEN) (AZSCAN)
+5652,PHYNAL SP+LP (AKIDEN) (AZSCAN)
+5702,CP-M3-A
+5704,CP-M3-B
+5750,AMISR Alternating Code
+5751,AMISR Long Pulse
+5802,CP-M2-A
+5804,CP-M2-B
+5806,CP-M2-C
+5808,CP-M2-D
+5902,CP-M1-A
+5921,Unknown ISR mode
+5922,Unknown ISR mode
+5923,Unknown ISR mode
+5924,Unknown ISR mode
+5950,Long Pulse (480)
+5951,Alternating Code (AC16-30)
+5952,Combination of BC; AC; and LP experiments
+5960,Vector velocity from Long Pulse
+5961,Long Pulse Uncorrected Ne
+5962,Alternating Code Uncorrected Ne
+5963,Barker Code Uncorrected Ne
+5964,Combination of BC; AC; and LP experiment
+5980,ISR spectral values
+6000,Generic GUISDAP output
+72_6001,Generic GUISDAP power profile
+74_6001,Generic GUISDAP power profile
+6008,CP-0-D
+6010,CP-0-E
+6012,CP-0-F
+6014,CP-0-G
+6015,CP-0-H
+6016,CP-0-H
+6041,Generic GUISDAP output
+74_6042,User EISCAT data
+6100,On-An pp resolution 0
+6101,On-An pp resolution 1
+72_6102,On-An pp resolution 2
+6102,On-An pp resolution 2
+6103,On-An pp resolution 3
+6104,On-An pp resolution 4
+6105,On-An pp resolution 5
+6106,On-An pp resolution 6
+6107,On-An pp resolution 7
+6108,On-An pp resolution 8
+6109,On-An pp resolution 9
+6110,On-An pp resolution 0 gridded
+6111,On-An pp resolution 1 gridded
+6112,On-An pp resolution 2 gridded
+6113,On-An pp resolution 3 gridded
+6114,On-An pp resolution 4 gridded
+6115,On-An pp resolution 5 gridded
+6116,On-An pp resolution 6 gridded
+6117,On-An pp resolution 7 gridded
+6118,On-An pp resolution 8 gridded
+6119,On-An pp resolution 9 gridded
+6120,CP-1-J
+6121,CP-1-K
+6122,CP-1-K
+6200,On-An params and ACF 0
+6201,On-An params and ACF 1
+71_6202,On-An params and ACF 2
+72_6202,On-An params and ACF 2
+73_6202,On-An params and ACF 2
+6202,On-An params and ACF 2
+6203,On-An params and ACF 3
+6204,CP-2-B
+6205,CP-2-C
+6206,CP-2-C
+6207,CP-2-D (Power Profile)
+6208,CP-2-D
+6209,CP-2-E (Power Profile)
+6210,On-An params and ACF 0 gridded
+6211,On-An params and ACF 1 gridded
+6212,On-An params and ACF 2 gridded
+6213,On-An params and ACF 3 gridded
+6220,On-An cp6 ACF spectral params
+6300,GUISDAP pp resolution 0
+6301,GUISDAP pp resolution 1
+6302,GUISDAP pp resolution 2
+6303,GUISDAP pp resolution 3
+6304,GUISDAP pp resolution 4
+6305,GUISDAP pp resolution 5
+6306,GUISDAP pp resolution 6
+6307,GUISDAP pp resolution 7
+6308,GUISDAP pp resolution 8
+6309,GUISDAP pp resolution 9
+6310,GUISDAP pp resolution 0 gridded
+6311,GUISDAP pp resolution 1 gridded
+6312,GUISDAP pp resolution 2 gridded
+6313,GUISDAP pp resolution 3 gridded
+6314,GUISDAP pp resolution 4 gridded
+6315,GUISDAP pp resolution 5 gridded
+6316,GUISDAP pp resolution 6 gridded
+6317,GUISDAP pp resolution 7 gridded
+6318,GUISDAP pp resolution 8 gridded
+6319,GUISDAP pp resolution 9 gridded
+6400,GUISDAP params 0
+6401,GUISDAP params 1
+6402,GUISDAP params 2
+6403,GUISDAP params 3
+6404,CP-4-B
+6410,GUISDAP params 0 gridded
+6411,GUISDAP params 1 gridded
+6412,GUISDAP params 2 gridded
+6413,GUISDAP params 3 gridded
+6501,Vector params K
+6502,Vector params U
+6503,Vector params UK
+6504,Vector params S
+6505,Vector params KS
+6506,Vector params US
+6507,Vector params UKS
+6508,Vector params V
+6509,Vector params VK
+6510,Vector params UV
+6511,Vector params UVK
+6512,Vector params VS
+6513,Vector params VKS
+6514,Vector params UVS
+6515,Vector params UVKS
+6516,Vector params Model
+6517,Vector params K+Model
+6518,Vector params U+Model
+6519,Vector params UK+Model
+6520,Vector params S+Model
+6521,Vector params KS+Model
+6522,Vector params US+Model
+6523,Vector params UKS+Model
+6524,Vector params V+Model
+6525,Vector params VK+Model
+6526,Vector params UV+Model
+6527,Vector params UVK+Model 
+6528,Vector params VS+Model
+6529,Vector params VKS+Model
+6530,Vector params UVS+Model
+6531,Vector params UVKS+Model
+6532,Vector params L
+6533,Vector params LK
+6534,Vector params LU
+6535,Vector params LUK
+6536,Vector params LS
+6537,Vector params LKS
+6538,Vector params LUS
+6539,Vector params LUKS
+6540,Vector params LV
+6541,Vector params LVK
+6542,Vector params LUV
+6543,Vector params LUVK
+6544,Vector params LVS
+6545,Vector params LVKS
+6546,Vector params LUVS
+6547,Vector params LUVKS
+6548,Vector params L+Model
+6549,Vector params LK+Model
+6550,Vector params LU+Model
+6551,Vector params LUK+Model
+6552,Vector params LS+Model
+6553,Vector params LKS+Model
+6554,Vector params LUS+Model
+6555,Vector params LUKS+Model
+6556,Vector params LV+Model
+6557,Vector params LVK+Model
+6558,Vector params LUV+Model
+6559,Vector params LUVK+Model
+6560,Vector params LVS+Model
+6561,Vector params LVKS+Model
+6562,Vector params LUVS+Model
+6563,Vector params LUVKS+Model
+6564,Vector params Dynasonde
+6565,Vector params K+Dynasonde
+6566,Vector params U+Dynasonde
+6567,Vector params UK+Dynasonde
+6568,Vector params S+Dynasonde
+6569,Vector params KS+Dynasonde
+6570,Vector params US+Dynasonde
+6571,Vector params UKS+Dynasonde
+6572,Vector params V+Dynasonde
+6573,Vector params VK+Dynasonde
+6574,Vector params UV+Dynasonde
+6575,Vector params UVK+Dynasonde
+6576,Vector params VS+Dynasonde
+6577,Vector params VKS+Dynasonde
+6578,Vector params UVS+Dynasonde
+6579,Vector params UVKS+Dynasonde
+6580,Vector params Model+Dynasonde
+6581,Vector params K+Model+Dynasonde
+6582,Vector params U+Model+Dynasonde
+6583,Vector params UK+Model+Dynasonde
+6584,Vector params S+Model+Dynasonde
+6585,Vector params KS+Model+Dynasonde
+6586,Vector params US+Model+Dynasonde
+6587,Vector params UKS+Model+Dynasonde
+6588,Vector params V+Model+Dynasonde
+6589,Vector params VK+Model+Dynasonde
+6590,Vector params UV+Model+Dynasonde
+6591,Vector params UVK+Model+Dynasonde
+6592,Vector params VS+Model+Dynasonde
+6593,Vector params VKS+Model+Dynasonde
+6594,Vector params UVS+Model+Dynasonde
+6595,Vector params UVKS+Model+Dynasonde
+6596,Vector params L+Dynasonde
+6597,Vector params LK+Dynasonde
+6598,Vector params LU+Dynasonde
+6599,Vector params LUK+Dynasonde
+6600,Vector params LS+Dynasonde
+6601,Vector params LKS+Dynasonde
+6602,Vector params LUS+Dynasonde
+6603,Vector paraks LUKS+Dynasonde
+6604,Vector params LV+Dynasonde
+6605,Vector params LVK+Dynasonde
+6606,Vector params LUV+Dynasonde
+6607,Vector params LUVK+Dynasonde
+6608,Vector params LVS+Dynasonde
+6609,Vector params LVKS+Dynasonde
+6610,Vector params LUVS+Dynasonde
+6611,Vector params LUVKS+Dynasonde
+6612,Vector params L+Model+Dynasonde
+6613,Vector params LU+Model+Dynasonde
+6614,Vector params LUK+Model+Dynasonde
+6615,Vector params LS+Model+Dynasonde
+6616,Vector params LKS+Model+Dynasonde
+6617,Vector params LUS+Model+Dynasonde
+6618,Vector paraks LUKS+Model+Dynasonde
+6619,Vector params LV+Model+Dynasonde
+6620,Vector params LVK+Model+Dynasonde
+6621,Vector params LUV+Model+Dynasonde
+6622,Vector params LUVK+Model+Dynasonde
+6623,Vector params LVS+Model+Dynasonde
+6624,Vector params LVKS+Model+Dynasonde
+6625,Vector params LUVS+Model+Dynasonde
+6626,Vector params LUVKS+Model+Dynasonde
+6701,Vector params gridded K
+6702,Vector params gridded U
+6703,Vector params gridded UK
+6704,Vector params gridded S
+6705,Vector params gridded KS
+6706,Vector params gridded US
+6707,Vector params gridded UKS
+6708,Vector params gridded V
+6709,Vector params gridded VK
+6710,Vector params gridded UV
+6711,Vector params gridded UVK
+6712,Vector params gridded VS
+6713,Vector params gridded VKS
+6714,Vector params gridded UVS
+6715,Vector params gridded UVKS
+6716,Vector params gridded Model
+6717,Vector params gridded K+Model
+6718,Vector params gridded U+Model
+6719,Vector params gridded UK+Model
+6720,Vector params gridded S+Model
+6721,Vector params gridded KS+Model
+6722,Vector params gridded US+Model
+6723,Vector params gridded UKS+Model
+6724,Vector params gridded V+Model
+6725,Vector params gridded VK+Model
+6726,Vector params gridded UV+Model
+6727,Vector params gridded UVK+Model 
+6728,Vector params gridded VS+Model
+6729,Vector params gridded VKS+Model
+6730,Vector params gridded UVS+Model
+6731,Vector params gridded UVKS+Model
+6732,Vector params gridded L
+6733,Vector params gridded LK
+6734,Vector params gridded LU
+6735,Vector params gridded LUK
+6736,Vector params gridded LS
+6737,Vector params gridded LKS
+6738,Vector params gridded LUS
+6739,Vector params gridded LUKS
+6740,Vector params gridded LV
+6741,Vector params gridded LVK
+6742,Vector params gridded LUV
+6743,Vector params gridded LUVK
+6744,Vector params gridded LVS
+6745,Vector params gridded LVKS
+6746,Vector params gridded LUVS
+6747,Vector params gridded LUVKS
+6748,Vector params gridded L+Model
+6749,Vector params gridded LK+Model
+6750,Vector params gridded LU+Model
+6751,Vector params gridded LUK+Model
+6752,Vector params gridded LS+Model
+6753,Vector params gridded LKS+Model
+6754,Vector params gridded LUS+Model
+6755,Vector params gridded LUKS+Model
+6756,Vector params gridded LV+Model
+6757,Vector params gridded LVK+Model
+6758,Vector params gridded LUV+Model
+6759,Vector params gridded LUVK+Model
+6760,Vector params gridded LVS+Model
+6761,Vector params gridded LVKS+Model
+6762,Vector params gridded LUVS+Model
+6763,Vector params gridded LUVKS+Model
+6764,Vector params gridded Dynasonde
+6765,Vector params gridded K+Dynasonde
+6766,Vector params gridded U+Dynasonde
+6767,Vector params gridded UK+Dynasonde
+6768,Vector params gridded S+Dynasonde
+6769,Vector params gridded KS+Dynasonde
+6770,Vector params gridded US+Dynasonde
+6771,Vector params gridded UKS+Dynasonde
+6772,Vector params gridded V+Dynasonde
+6773,Vector params gridded VK+Dynasonde
+6774,Vector params gridded UV+Dynasonde
+6775,Vector params gridded UVK+Dynasonde
+6776,Vector params gridded VS+Dynasonde
+6777,Vector params gridded VKS+Dynasonde
+6778,Vector params gridded UVS+Dynasonde
+6779,Vector params gridded UVKS+Dynasonde
+6780,Vector params gridded Model+Dynasonde
+6781,Vector params gridded K+Model+Dynasonde
+6782,Vector params gridded U+Model+Dynasonde
+6783,Vector params gridded UK+Model+Dynasonde
+6784,Vector params gridded S+Model+Dynasonde
+6785,Vector params gridded KS+Model+Dynasonde
+6786,Vector params gridded US+Model+Dynasonde
+6787,Vector params gridded UKS+Model+Dynasonde
+6788,Vector params gridded V+Model+Dynasonde
+6789,Vector params gridded VK+Model+Dynasonde
+6790,Vector params gridded UV+Model+Dynasonde
+6791,Vector params gridded UVK+Model+Dynasonde
+6792,Vector params gridded VS+Model+Dynasonde
+6793,Vector params gridded VKS+Model+Dynasonde
+6794,Vector params gridded UVS+Model+Dynasonde
+6795,Vector params gridded UVKS+Model+Dynasonde
+6796,Vector params gridded L+Dynasonde
+6797,Vector params gridded LK+Dynasonde
+6798,Vector params gridded LU+Dynasonde
+6799,Vector params gridded LUK+Dynasonde
+6800,Vector params gridded LS+Dynasonde
+6801,Vector params gridded LKS+Dynasonde
+6802,Vector params gridded LUS+Dynasonde
+6803,Vector paraks gridded LUKS+Dynasonde
+6804,Vector params gridded LV+Dynasonde
+6805,Vector params gridded LVK+Dynasonde
+6806,Vector params gridded LUV+Dynasonde
+6807,Vector params gridded LUVK+Dynasonde
+6808,Vector params gridded LVS+Dynasonde
+6809,Vector params gridded LVKS+Dynasonde
+6810,Vector params gridded LUVS+Dynasonde
+6811,Vector params gridded LUVKS+Dynasonde
+6812,Vector params gridded L+Model+Dynasonde
+6813,Vector params gridded LU+Model+Dynasonde
+6814,Vector params gridded LUK+Model+Dynasonde
+6815,Vector params gridded LS+Model+Dynasonde
+6816,Vector params gridded LKS+Model+Dynasonde
+6817,Vector params gridded LUS+Model+Dynasonde
+6818,Vector paraks gridded LUKS+Model+Dynasonde
+6819,Vector params gridded LV+Model+Dynasonde
+6820,Vector params gridded LVK+Model+Dynasonde
+6821,Vector params gridded LUV+Model+Dynasonde
+6822,Vector params gridded LUVK+Model+Dynasonde
+6823,Vector params gridded LVS+Model+Dynasonde
+6824,Vector params gridded LVKS+Model+Dynasonde
+6825,Vector params gridded LUVS+Model+Dynasonde
+6826,Vector params gridded LUVKS+Model+Dynasonde
+6831,Unknown
+6900,HF data pp undecoded
+6901,HF data pp decoded 1
+6902,HF data pp decoded 2
+6903,SP-VI-UHF1
+6904,SP-VI-UHF1
+6905,SP-VI-UHF2
+6906,SP-VI-UHF2
+6907,SP-VI-UHF3
+6908,SP-VI-UHF3
+6909,SP-VI-UHF3
+6910,HF data Doppler profiles res 1
+6911,HF data Doppler profiles res 2
+6920,HF data Faraday rotation profiles
+72_6999,User EISCAT data
+71_7000,User EISCAT data
+72_7000,User EISCAT data
+73_7000,User EISCAT data
+74_7000,User EISCAT data
+7000,User EISCAT data
+7001,Direct data (velocity reference uses vertical measurement)
+5430_7001,Basic lidar parameter data
+5480_7001,Basic lidar parameter data
+5540_7001,Basic lidar parameter data
+7002,Direct data (velocity reference uses combined data)
+5300_7002,Basic lidar parameter data
+5480_7002,Basic lidar parameter data
+7003,Iron mode - 372 nm - 3 min integration
+5300_7003,Basic lidar parameter data
+7100,Red line FPI basic temperture and los wind data
+6380_7004,Rayleigh density
+6380_7005,Rayleigh temperature
+6380_7006,Sodium density
+6380_7007,Sodium temp_15min_int
+6380_7008,Sodium temp_30min_int
+6380_7009,Sodium temp_60min_int_5min_step
+6380_7011,Sodium temp_60min_int_15min_step
+6380_7012,Meridional Wind
+5360_7100,Red line FPI basic temperture and los wind data
+5370_7100,Red line (630.0 nm) Doppler imaging FPI
+7101,Red line FPI higher level vector wind data
+7110,Green line FPI basic temperture and los wind data
+5360_7110,Green line FPI basic temperture and los wind data
+7111,Green line FPI higher level vector wind data
+5140_7150,FPI wind vector calculation (reference: normalized laser to zenith)
+5145_7150,FPI wind vector calculation (reference: normalized laser to zenith)
+5150_7150,FPI wind vector calculation (reference: normalized laser to zenith)
+6206_7150,Basic Sodium lidar parameter data
+7200,Beacon line-of-sight TEC
+7800,Binned meteor data (1 hour x 2 km height step)
+7801,Individual meteor wind data
+7802,Hourly vector least squares fit meteor wind data
+7803,Fit of meteor data to Groves model
+7804,Hourly meteor radar winds
+7805,Daily mean meteor radar winds
+7810,Quasi-two-day wave amplitudes
+7820,Hourly wind velocities between 82 and 98 km
+8000,MU RADAR IS EXPERIMENTS
+8001,MU RADAR IS EXPERIMENTS: POWER PROFILE
+8002,MU RADAR IS EXPERIMENTS: 4-PULSE TEMPERATURE
+8003,MU RADAR IS EXPERIMENTS: 2-PULSE ION VELOCITY
+170_8015,NOAA POES 16-second Particle Flux Data for NOAA-15
+170_8016,NOAA POES 16-second Particle Flux Data for NOAA-16
+170_8017,NOAA POES 16-second Particle Flux Data for NOAA-17
+8030,Common Algorithm 80; version 30
+8031,Common Algorithm 80; version 31
+8033,Common Algorithm 80; version 33
+8034,Common Algorithm 80; version 34
+8035,Common Algorithm 80; version 35 (6 km res.)
+8036,Common Algorithm 80; version 36 (1 min res.)
+8037,Common Algorithm 80; version 37
+8038,Common Algorithm 80; version 38
+8131,Common Algorithm 81; version 31
+45_8132,650 microsec Single-pulse
+45_8133,120 microsec Single-pulse
+45_8134,120 microsec dual pulse
+8200,USU TDIM Model
+100_8800,QuJing radar: GUISDAP Fitted Parameters
+100_8801,ISR
+9000,ACPORT - over-sampled raw Ne; from manual antenna control
+9001,ACPORT - over-sampled raw Ne; from dwells
+9002,ACPORT - over-sampled raw Ne; from azscans
+9003,ACPORT - over-sampled raw Ne; from elscans
+9004,ACPORT - over-sampled raw Ne; from composite scans
+9005,ACPORT - over-sampled raw Ne; from vsr elscans
+9006,ACPORT - over-sampled raw Ne; from vsr compscans
+9801,Basic Derived Parameters
+10002,~30 min Tn values at night
+10012,Green line (~96 km) vertical observations
+10106,F06 1 sec values (ion drift / magnetometer / electron density)
+10107,F07 1 sec values (ion drift / magnetometer / electron density)
+10108,F08 1 sec values (ion drift / magnetometer / electron density)
+10109,F09 1 sec values (ion drift / magnetometer / electron density)
+10110,F10 1 sec values (ion drift / magnetometer / electron density)
+10111,F11 1 sec values (ion drift / magnetometer / electron density)
+10112,F12 1 sec values (ion drift / magnetometer / electron density)
+10113,F13 1 sec values (ion drift / magnetometer / electron density)
+10114,F14 1 sec values (ion drift / magnetometer / electron density)
+10115,F15 1 sec values (ion drift / magnetometer / electron density)
+10116,F16 1 sec values (ion drift / magnetometer / electron density)
+10117,F17 1 sec values (ion drift / magnetometer / electron density)
+10118,F18 1 sec values (ion drift / magnetometer / electron density)
+10119,F19 1 sec values (ion drift / magnetometer / electron density)
+10136,F06 4 sec values (plasma temp / O+ fract / vehicle pot)
+10137,F07 4 sec values (plasma temp / O+ fract / vehicle pot)
+10138,F08 4 sec values (plasma temp / O+ fract / vehicle pot)
+10139,F09 4 sec values (plasma temp / O+ fract / vehicle pot)
+10140,F10 4 sec values (plasma temp / O+ fract / vehicle pot)
+10141,F11 4 sec values (plasma temp / O+ fract / vehicle pot)
+10142,F12 4 sec values (plasma temp / O+ fract / vehicle pot)
+10143,F13 4 sec values (plasma temp / O+ fract / vehicle pot)
+10144,F14 4 sec values (plasma temp / O+ fract / vehicle pot)
+10145,F15 4 sec values (plasma temp / O+ fract / vehicle pot)
+10146,F16 4 sec values (plasma temp / O+ fract / vehicle pot)
+10147,F17 4 sec values (plasma temp / O+ fract / vehicle pot)
+10148,F18 4 sec values (plasma temp / O+ fract / vehicle pot)
+10149,F19 4 sec values (plasma temp / O+ fract / vehicle pot)
+10206,F06 flux/energy values
+10207,F07 flux/energy values
+10208,F08 flux/energy values
+10209,F09 flux/energy values
+10210,F10 flux/energy values
+10211,F11 flux/energy values
+10212,F12 flux/energy values
+10213,F13 flux/energy values
+10214,F14 flux/energy values
+10215,F15 flux/energy values
+10216,F16 flux/energy values
+10217,F17 flux/energy values
+10218,F18 flux/energy values
+10219,F19 flux/energy values
+10236,F06 UT DMSP with quality flags
+10237,F07 UT DMSP with quality flags
+10238,F08 UT DMSP with quality flags
+10239,F09 UT DMSP with quality flags
+10240,F10 UT DMSP with quality flags
+10241,F11 UT SSIES-2 DMSP with quality flags
+10242,F12 UT SSIES-2 DMSP with quality flags
+10243,F13 UT SSIES-2 DMSP with quality flags
+10244,F14 UT SSIES-2 DMSP with quality flags
+10245,F15 UT SSIES-2 DMSP with quality flags
+10246,F16 UT SSIES-3 DMSP with quality flags
+10247,F17 UT SSIES-3 DMSP with quality flags
+10248,F18 UT SSIES-3 DMSP with quality flags
+10249,F19 UT SSIES-3 DMSP with quality flags
+10256,F06 UT SSIES-3 DMSP with quality flags
+10257,F07 UT SSIES-3 DMSP with quality flags
+10258,F08 UT SSIES-3 DMSP with quality flags
+10259,F09 UT SSIES-3 DMSP with quality flags
+10260,F10 UT SSIES-3 DMSP with quality flags
+10261,F11 UT SSIES-3 DMSP with quality flags
+10262,F12 UT SSIES-3 DMSP with quality flags
+10263,F13 UT SSIES-3 DMSP with quality flags
+10264,F14 UT SSIES-3 DMSP with quality flags
+10265,F15 UT SSIES-3 DMSP with quality flags
+10266,F16 UT SSIES-3 DMSP with quality flags
+10267,F17 UT SSIES-3 DMSP with quality flags
+10268,F18 UT SSIES-3 DMSP with quality flags
+10269,F19 UT SSIES-3 DMSP with quality flags
+10281,F11 UT SSIES-2 DMSP with quality flags
+10282,F12 UT SSIES-2 DMSP with quality flags
+10283,F13 UT SSIES-2 DMSP with quality flags
+10284,F14 UT SSIES-2 DMSP with quality flags
+10285,F15 UT SSIES-2 DMSP with quality flags
+10286,F16 UT SSIES-3 DMSP with quality flags
+10287,F17 UT SSIES-3 DMSP with quality flags
+10288,F18 UT SSIES-3 DMSP with quality flags
+10289,F19 UT SSIES-3 DMSP with quality flags
+10300,Hemispherical power values
+10305,F15 UT DMSP with Poynting Flux and quality flags
+10306,F16 UT DMSP with Poynting Flux and quality flags
+10307,F17 UT DMSP with Poynting Flux and quality flags
+10308,F18 UT DMSP with Poynting Flux and quality flags
+10309,F19 UT DMSP with Poynting Flux and quality flags
+8105_10305,Van Allen Probles derived data
+71_12404,User EISCAT data
+72_11100,User EISCAT data
+73_12404,User EISCAT data
+11100,EISCAT user defined or unknown analysis pp resolution 0
+11101,EISCAT user defined or unknown analysis pp resolution 1
+11102,EISCAT user defined or unknown analysis pp resolution 2
+11103,EISCAT user defined or unknown analysis pp resolution 3
+11104,EISCAT user defined or unknown analysis pp resolution 4
+11105,EISCAT user defined or unknown analysis pp resolution 5
+11106,EISCAT user defined or unknown analysis pp resolution 6
+11107,EISCAT user defined or unknown analysis pp resolution 7
+11108,EISCAT user defined or unknown analysis pp resolution 8
+11109,EISCAT user defined or unknown analysis pp resolution 9
+11110,EISCAT user defined or unknown analysis pp resolution 0 gridded
+11111,EISCAT user defined or unknown analysis pp resolution 1 gridded
+11112,EISCAT user defined or unknown analysis pp resolution 2 gridded
+11113,EISCAT user defined or unknown analysis pp resolution 3 gridded
+11114,EISCAT user defined or unknown analysis pp resolution 4 gridded
+11115,EISCAT user defined or unknown analysis pp resolution 5 gridded
+11116,EISCAT user defined or unknown analysis pp resolution 6 gridded
+11117,EISCAT user defined or unknown analysis pp resolution 7 gridded
+11118,EISCAT user defined or unknown analysis pp resolution 8 gridded
+11119,EISCAT user defined or unknown analysis pp resolution 9 gridded
+11200,EISCAT user defined or unknown analysis params and ACF 0
+11201,EISCAT user defined or unknown analysis params and ACF 1
+11202,EISCAT user defined or unknown analysis params and ACF 2
+11203,EISCAT user defined or unknown analysis params and ACF 3
+11210,EISCAT user defined or unknown analysis params and ACF 0 gridded
+11211,EISCAT user defined or unknown analysis params and ACF 1 gridded
+11212,EISCAT user defined or unknown analysis params and ACF 2 gridded
+11213,EISCAT user defined or unknown analysis params and ACF 3 gridded
+13001,ebin 1.x
+13002,ebin 2.x
+13021,SATORI 1.x
+13022,SATORI 2.x
+13101,NEUTEMP 1.x
+13102,NEUTEMP 2.x
+13204,(ebin4) Derived Parameters: F region: winds/electric fields/ion drifts/Ne
+13210,(efwind) Derived Parameters: E+F regions: winds/electric fields/ion drifts
+13300,Gridded data fitted to a uniform spatial and temporal grid - useful for modellers
+30_13301,profileFit test file - basic and velocities - beta
+13305,Derived vector ion velocities
+30_13305,Derived vector ion velocities
+30_13310,ISR basic parameters digitized from contour plots
+32_13310,ISR basic parameters digitized from contour plots
+15011,EPEC/RVEL3PV - RESOLVED VELOCITY FROM 3 POSITIONS
+15012,EPEC - RESOLVED VELOCITY FROM 3 POSITIONS; MULTIPULSE
+15013,VAST - OAC
+15014,VAST - MAC
+15021,EPEC - RESOLVED VELOCITY FROM MULTI-POSITIONS (usually 8; 9 or 11)
+15022,EPEC - 1 CYCLE SUMMARY OF RESOLVED VELOCITY FROM MULTI-POSITIONS
+15023,EPEC - 11 POSITION - GATE JX; JY
+15031,EPEC - AZSCANS
+15041,EPEC - ELSCANS - OAC
+15042,Unknown ISR mode
+15051,CHAMP
+15052,EISCAT VELOCITIES
+15061,UNTANGLE - DENSITY (LOS)
+15062,UNTANGLE - DENSITY (BLEDEN)
+15065,UNTANGLE - FLUX (LOS)
+15066,UNTANGLE - FLUX (LOS)
+15081,Unknown ISR mode
+15082,Unknown ISR mode
+15083,Unknown ISR mode
+15100,FWINDS - F REGION MERIDIONAL NEUTRAL WIND; B PARALLEL ONLY
+15113,EPEC - OAC AROUND SCAN (SCAN4)
+15114,EPEC - OAC AROUND SCAN ROTATED; INV OF EPEC (BLEDEN)
+15115,CWINDS - NEUTRAL DYNAMICS FROM 3 POSITIONS
+15116,CWINDS - ELECTRODYNAMICS FROM 3 POSITIONS; COMBINED PULSES
+15213,EPEC- OAC BINNED AROUND SCAN (SCAN4)
+15312,BLEDEN ELECTRO DYNAMIC (BLEDEN)
+15313,EPEC - OAC AROUND SCAN ROTATED; INV OF SCAN (BLEDEN)
+15413,CWINDS - RESOLVED VELOCITY FROM 3 POSITIONS; LONGPULSE
+15414,CWINDS - RESOLVED VELOCITY FROM 3 POSITIONS; A16 OR MULTIPULSE
+15510,MUSCOX - BLEDEN VEL (VAR OF DATA ) (VEEST)
+15515,MUSCOX - BLEDEN DEN (VAR OF DATA) (VEEST)
+15520,PVEEST - meridional velocity from elscans
+15525,BLEDEN - FIELD-ALIGNED PARAMETERS FROM ELSCANS
+15610,VEL2CMPBIN - RESOLVED VELOCITY FROM COMPOSITE SCANS
+15613,CWINDS - RESOLVED VELOCITY FROM 3 POSITIONS; LONGPULSE
+15614,CWINDS - RESOLVED VELOCITY FROM 3 POSITIONS; A16 OR MULTIPULSE
+15615,CWINDS - NEUTRAL DYNAMICS FROM 3 POSITIONS
+15616,CWINDS - ELECTRODYNAMICS FROM 3 POSITIONS; COMBINED PULSES
+15630,VEL2CMPBIN - RESOLVED VELOCITY FROM COMPSCANS BINNED IN LATITUDE
+15700,BLECONS - Field-aligned conductivities; longpulse; from scans
+15701,BLECONS - Field-aligned conductivities; A16; from scans
+15702,BLECONS - Field-aligned conductivities; combined pulses; from scans
+5190_17000,630.0 nm H-alpha Mapper (WHAM) Fabry-Perot
+17001,Derived data (velocity reference uses vertical measurement)
+1215_17001,Hourly winds
+1220_17001,Tidal analyses of the mean neutral winds
+1240_17001,Hourly winds
+1254_17001,Hourly winds
+1275_17001,30 min winds
+1310_17001,30 min winds
+1320_17001,Winds analyzed in terms of a prevailing and semi-diurnal tidal wind
+1375_17001,30 min winds
+1560_17001,Tidal analyses of the mean neutral winds
+2090_17001,Tidal analyses of the mean neutral winds
+2930_17001,Digisonde analysis
+3010_17001,OH(6-2) band individual temperatures
+5020_17001,Red line in cardinal dirs
+5060_17001,Red line in cardinal dirs
+5140_17001,Quiet monthly meridional velocities
+5160_17001,Red line (630.0 nm) FP
+5190_17001,630.0 nm H-alpha Mapper (WHAM) Fabry-Perot
+5240_17001,Red line in cardinal dirs
+5292_17001,Red line in cardinal dirs
+5460_17001,Red line in cardinal dirs
+5465_17001,Red line in cardinal dirs
+5510_17001,Red line (~240 km) vertical observations
+5700_17001,IR Michelson Interferometer nightglow hydroxyl [OH]
+5720_17001,Old 3-1 band OH Meinel band brightness and temps
+5860_17001,IR Michelson Interferometer nightglow hydroxyl [OH]
+5900_17001,Old 3-1 band OH Meinel band brightness and temps
+5950_17001,Old 3-1 band OH Meinel band brightness and temps
+5980_17001,Old 3-1 band OH Meinel band brightness and temps
+17002,Derived data (velocity reference uses combined data)
+1320_17002,Winds analyzed in terms of a prevailing and semi-diurnal tidal wind
+1560_17002,Tidal analyses of the mean neutral winds
+2890_17002,Digisonde analysis with addn info on number of samples
+2930_17002,Digisonde analysis with addn info on number of samples
+5020_17002,Red line in cardinal dirs
+5060_17002,Green line in cardinal dirs
+5140_17002,Red line in cardinal dirs
+5190_17002,H-alpha Mapper (WHAM) Fabry-Perot
+5465_17002,630.0 nm All-sky scanning Fabry-Perot Spectrometer
+17003,Iron mode - 372 nm - 3 min integration
+1320_17003,Half-hour means of the zonal and meridional winds
+5060_17003,557.7 nm
+5465_17003,557.7 nm All-sky scanning Fabry-Perot Spectrometer
+3320_17004,nightly means - nightglow hydroxyl [OH*]
+5060_17004,840.0 nm
+5160_17010,Red line - all measurements used as zero reference
+17011,daytime lidar long integration
+1320_17011,Winds analyzed in terms of a prevailing and semi-diurnal tidal wind
+5015_17011,Red line (~240 km) multi-directional observations
+5160_17011,Red line - vertical measurements used as zero reference
+5535_17011,Red line (~240 km) cardinal observations
+17012,nightly vectors
+1320_17012,Winds analyzed in terms of a prevailing and semi-diurnal tidal wind
+1320_17013,Tidal analysis
+5160_17020,Red line
+5700_17031,New 3-1 band OH Meinel band brightness and temps
+5700_17042,New 4-2 band OH Meinel band brightness and temps
+17087,87 km nightly Tn aves
+17088,87 km Tn using OH (3_1) Rotational temps
+17089,87 km nightly Tn aves using OH (3_1) Rotational temps
+7191_17094,OH - O2 nightly means at Maui
+17100,nightly climatology aves
+1215_17100,Harmonic analysis of winds
+1221_17100,Harmonic analysis of winds
+1240_17100,Harmonic analysis of winds
+1245_17100,Harmonic analysis of winds
+1270_17100,Harmonic analysis of winds
+1275_17100,Harmonic analysis of winds
+1285_17100,Harmonic analysis of winds
+1310_17100,Harmonic analysis of winds
+1340_17100,Harmonic analysis of winds
+1375_17100,Harmonic analysis of winds
+1390_17100,Harmonic analysis of winds
+1539_17100,Harmonic analysis of winds
+1750_17100,Harmonic analysis of winds
+1775_17100,Harmonic analysis of winds
+17101,7.5/20 min av Na/Tn/Wn profiles
+17102,weekly - mean days - w 8-wk Hamming window
+17103,monthly - mean days - w 8-wk Hamming window
+180_17110,DMSP Auroral Boundary Index
+5000_17111,Red line (~240 km) multi-directional observations
+5015_17111,Red line (~240 km) multi-directional observations
+5005_17201,630.0 nm nightglow FP at 250 km
+6320_17201,daytime lidar
+6340_17201,daytime lidar
+6350_17201,daytime lidar
+6360_17201,daytime lidar
+6370_17201,daytime lidar
+5005_17202,OH 892.0 nm FP at 87 km
+5005_17202,O 557.7 nm at 97 km
+6320_17203,Na lidar - radial winds -
+6350_17203,Na lidar - radial winds -
+6320_17204,Na lidar radial winds reanalysis 2015
+6340_17204,Na lidar radial winds reanalysis 2015
+6320_17205,Na lidar radial winds reanalysis
+6340_17205,Na lidar radial winds reanalysis 2015 high resolution
+6340_17206,Na lidar U-V-W winds
+1790_17208,Andes MR: Zonal and Merid. winds
+1791_17209,Southern Cross MR: Zonal and Merid. winds
+1792_17210,Las Campanas MR: Zonal and Merid. winds
+1793_17208,Andes MR: Zonal and Merid. winds
+1793_17209,Southern Cross MR: Zonal and Merid. winds
+1793_17210,Las Campanas MR: Zonal and Merid. winds
+1787_17211,Buckland Park MR: Zonal and Merid. winds
+1793_17211,Buckland Park MR: Zonal and Merid. winds
+1210_17999,Tidal analysis
+1220_17999,Tidal analysis
+1230_17999,Tidal analysis
+1240_17999,Tidal analysis
+1320_17999,Tidal analysis
+1340_17999,Tidal analysis
+1390_17999,Tidal analysis
+2090_17999,Tidal analysis
+2200_17999,Tidal analysis
+18000,MU RADAR IS EXPERIMENTS: DERIVED PARAMETERS
+4470_18001,Strickland model params for optical calcs
+4473_18002,Strickland model params for optical calcs
+6320_18011,Horizontal winds assuming zero vertical winds
+6320_18012,Horizontal winds assuming zero vertical winds
+10_19000,MST winds
+19100,BLECONS - Field-aligned conductance; longpulse; from scans
+19101,BLECONS - Field-aligned conductance; A16; from scans
+19102,BLECONS - Field aligned conductance; combined pulses; from scans
+19120,PVEEST - Resolved velocity from elscans
+19650,BLECOND - Conductivity from dwell; longpulse at 2 km intervals
+19651,BLECOND - Conductivity from dwell; A16 at 2 km intervals
+19652,BLECOND - Conductivity from dwell; combined pulses at 2 km
+19653,BLECOND - Conductivity from dwell; at fitted gate resolution
+19654,BLECOND - Conductivity from dwell; A16 at fitted gate resolution
+8010_20000,Ionospheric scintillation
+20000,Ionospheric scintillation
+20001,Model output
+1140_20001,ONE HOUR AVERAGED DATA - East beam
+1140_20002,ONE HOUR AVERAGED DATA - North beam
+1140_20003,ONE HOUR AVERAGED DATA - Vertical beam
+1140_20004,ONE HOUR AVERAGED DATA - East and North
+20_30001,ISR Parameters
+22_30001,ISR Parameters
+10_30003,Ionospheric F-region data Electron and Ion temperature
+30006,Disturbance storm time index
+212_30006,DST
+30007,Geophysical Indicies
+30008,Basic Derived Parameters
+20_30008,Basic Derived ISR Parameters
+20_30009,Basic Derived ISR Parameters
+30012,Interplanetary magnetic fields
+120_30012,Interplanetary magnetic field data
+20_30014,Power Profile
+20_30015,ISR Parameters
+22_30015,ISR Parameters
+8400_30012,Topex TEC
+8400_30013,Jason-1 TEC
+8400_30014,Jason-2 TEC
+8400_30015,Jason-3 TEC
+8400_30016,Sentinel 6 TEC
+1000101,Ne From Power - Long Pulse (F-region) - 1 min
+1000102,Ne From Power - Long Pulse (F-region) - 2 min
+1000103,Ne From Power - Long Pulse (F-region) - 3 min
+1000104,Ne From Power - Long Pulse (F-region) - 4 min
+1000105,Ne From Power - Long Pulse (F-region) - 5 min
+1000106,Ne From Power - Long Pulse (F-region) - 6 min
+1000107,Ne From Power - Long Pulse (F-region) - 7 min
+1000108,Ne From Power - Long Pulse (F-region) - 8 min
+1000109,Ne From Power - Long Pulse (F-region) - 9 min
+1000110,Ne From Power - Long Pulse (F-region) - 10 min
+1000111,Ne From Power - Long Pulse (F-region) - 11 min
+1000112,Ne From Power - Long Pulse (F-region) - 12 min
+1000113,Ne From Power - Long Pulse (F-region) - 13 min
+1000114,Ne From Power - Long Pulse (F-region) - 14 min
+1000115,Ne From Power - Long Pulse (F-region) - 15 min
+1000116,Ne From Power - Long Pulse (F-region) - 16 min
+1000117,Ne From Power - Long Pulse (F-region) - 17 min
+1000118,Ne From Power - Long Pulse (F-region) - 18 min
+1000119,Ne From Power - Long Pulse (F-region) - 19 min
+1000120,Ne From Power - Long Pulse (F-region) - 20 min
+1000125,Ne From Power - Long Pulse (F-region) - 30 min
+1000130,Ne From Power - Long Pulse (F-region) - 45 min
+1000135,Ne From Power - Long Pulse (F-region) - 60 min
+1000145,Ne From Power - Long Pulse (F-region) - 120 min
+1000164,Ne From Power - Long Pulse (F-region) - 30 sec
+1000168,Ne From Power - Long Pulse (F-region) - 15 sec
+1000180,Ne From Power - Long Pulse (F-region) - 4 sec
+1000201,Ne From Power - Alternating Code (E-region) - 1 min
+1000202,Ne From Power - Alternating Code (E-region) - 2 min
+1000203,Ne From Power - Alternating Code (E-region) - 3 min
+1000204,Ne From Power - Alternating Code (E-region) - 4 min
+1000205,Ne From Power - Alternating Code (E-region) - 5 min
+1000206,Ne From Power - Alternating Code (E-region) - 6 min
+1000207,Ne From Power - Alternating Code (E-region) - 7 min
+1000208,Ne From Power - Alternating Code (E-region) - 8 min
+1000209,Ne From Power - Alternating Code (E-region) - 9 min
+1000210,Ne From Power - Alternating Code (E-region) - 10 min
+1000211,Ne From Power - Alternating Code (E-region) - 11 min
+1000212,Ne From Power - Alternating Code (E-region) - 12 min
+1000213,Ne From Power - Alternating Code (E-region) - 13 min
+1000214,Ne From Power - Alternating Code (E-region) - 14 min
+1000215,Ne From Power - Alternating Code (E-region) - 15 min
+1000216,Ne From Power - Alternating Code (E-region) - 16 min
+1000217,Ne From Power - Alternating Code (E-region) - 17 min
+1000218,Ne From Power - Alternating Code (E-region) - 18 min
+1000219,Ne From Power - Alternating Code (E-region) - 19 min
+1000220,Ne From Power - Alternating Code (E-region) - 20 min
+1000225,Ne From Power - Alternating Code (E-region) - 30 min
+1000230,Ne From Power - Alternating Code (E-region) - 45 min
+1000235,Ne From Power - Alternating Code (E-region) - 60 min
+1000245,Ne From Power - Alternating Code (E-region) - 120 min
+1000264,Ne From Power - Alternating Code (E-region) - 30 sec
+1000268,Ne From Power - Alternating Code (E-region) - 15 sec
+1000280,Ne From Power - Alternating Code (E-region) - 4 sec
+1000301,Ne From Power - Barker/MPS Code (D-region) - 1 min
+1000302,Ne From Power - Barker/MPS Code (D-region) - 2 min
+1000303,Ne From Power - Barker/MPS Code (D-region) - 3 min
+1000304,Ne From Power - Barker/MPS Code (D-region) - 4 min
+1000305,Ne From Power - Barker/MPS Code (D-region) - 5 min
+1000306,Ne From Power - Barker/MPS Code (D-region) - 6 min
+1000307,Ne From Power - Barker/MPS Code (D-region) - 7 min
+1000308,Ne From Power - Barker/MPS Code (D-region) - 8 min
+1000309,Ne From Power - Barker/MPS Code (D-region) - 9 min
+1000310,Ne From Power - Barker/MPS Code (D-region) - 10 min
+1000311,Ne From Power - Barker/MPS Code (D-region) - 11 min
+1000312,Ne From Power - Barker/MPS Code (D-region) - 12 min
+1000313,Ne From Power - Barker/MPS Code (D-region) - 13 min
+1000314,Ne From Power - Barker/MPS Code (D-region) - 14 min
+1000315,Ne From Power - Barker/MPS Code (D-region) - 15 min
+1000316,Ne From Power - Barker/MPS Code (D-region) - 16 min
+1000317,Ne From Power - Barker/MPS Code (D-region) - 17 min
+1000318,Ne From Power - Barker/MPS Code (D-region) - 18 min
+1000319,Ne From Power - Barker/MPS Code (D-region) - 19 min
+1000320,Ne From Power - Barker/MPS Code (D-region) - 20 min
+1000325,Ne From Power - Barker/MPS Code (D-region) - 30 min
+1000330,Ne From Power - Barker/MPS Code (D-region) - 45 min
+1000335,Ne From Power - Barker/MPS Code (D-region) - 60 min
+1000345,Ne From Power - Barker/MPS Code (D-region) - 120 min
+1000364,Ne From Power - Barker/MPS Code (D-region) - 30 sec
+1000368,Ne From Power - Barker/MPS Code (D-region) - 15 sec
+1000380,Ne From Power - Barker/MPS Code (D-region) - 4 sec
+2000101,Fitted - Long Pulse (F-region) - 1 min
+2000102,Fitted - Long Pulse (F-region) - 2 min
+2000103,Fitted - Long Pulse (F-region) - 3 min
+2000104,Fitted - Long Pulse (F-region) - 4 min
+2000105,Fitted - Long Pulse (F-region) - 5 min
+2000106,Fitted - Long Pulse (F-region) - 6 min
+2000107,Fitted - Long Pulse (F-region) - 7 min
+2000108,Fitted - Long Pulse (F-region) - 8 min
+2000109,Fitted - Long Pulse (F-region) - 9 min
+2000110,Fitted - Long Pulse (F-region) - 10 min
+2000111,Fitted - Long Pulse (F-region) - 11 min
+2000112,Fitted - Long Pulse (F-region) - 12 min
+2000113,Fitted - Long Pulse (F-region) - 13 min
+2000114,Fitted - Long Pulse (F-region) - 14 min
+2000115,Fitted - Long Pulse (F-region) - 15 min
+2000116,Fitted - Long Pulse (F-region) - 16 min
+2000117,Fitted - Long Pulse (F-region) - 17 min
+2000118,Fitted - Long Pulse (F-region) - 18 min
+2000119,Fitted - Long Pulse (F-region) - 19 min
+2000120,Fitted - Long Pulse (F-region) - 20 min
+2000125,Fitted - Long Pulse (F-region) - 30 min
+2000130,Fitted - Long Pulse (F-region) - 45 min
+2000135,Fitted - Long Pulse (F-region) - 60 min
+2000145,Fitted - Long Pulse (F-region) - 120 min
+2000164,Fitted - Long Pulse (F-region) - 30 sec
+2000168,Fitted - Long Pulse (F-region) - 15 sec
+2000180,Fitted - Long Pulse (F-region) - 4 sec
+2000201,Fitted - Alternating Code (E-region) - 1 min
+2000202,Fitted - Alternating Code (E-region) - 2 min
+2000203,Fitted - Alternating Code (E-region) - 3 min
+2000204,Fitted - Alternating Code (E-region) - 4 min
+2000205,Fitted - Alternating Code (E-region) - 5 min
+2000206,Fitted - Alternating Code (E-region) - 6 min
+2000207,Fitted - Alternating Code (E-region) - 7 min
+2000208,Fitted - Alternating Code (E-region) - 8 min
+2000209,Fitted - Alternating Code (E-region) - 9 min
+2000210,Fitted - Alternating Code (E-region) - 10 min
+2000211,Fitted - Alternating Code (E-region) - 11 min
+2000212,Fitted - Alternating Code (E-region) - 12 min
+2000213,Fitted - Alternating Code (E-region) - 13 min
+2000214,Fitted - Alternating Code (E-region) - 14 min
+2000215,Fitted - Alternating Code (E-region) - 15 min
+2000216,Fitted - Alternating Code (E-region) - 16 min
+2000217,Fitted - Alternating Code (E-region) - 17 min
+2000218,Fitted - Alternating Code (E-region) - 18 min
+2000219,Fitted - Alternating Code (E-region) - 19 min
+2000220,Fitted - Alternating Code (E-region) - 20 min
+2000225,Fitted - Alternating Code (E-region) - 30 min
+2000230,Fitted - Alternating Code (E-region) - 45 min
+2000235,Fitted - Alternating Code (E-region) - 60 min
+2000245,Fitted - Alternating Code (E-region) - 120 min
+2000264,Fitted - Alternating Code (E-region) - 30 sec
+2000268,Fitted - Alternating Code (E-region) - 15 sec
+2000280,Fitted - Alternating Code (E-region) - 4 sec
+2000301,Fitted - Barker/MPS Code (D-region) - 1 min
+2000302,Fitted - Barker/MPS Code (D-region) - 2 min
+2000303,Fitted - Barker/MPS Code (D-region) - 3 min
+2000304,Fitted - Barker/MPS Code (D-region) - 4 min
+2000305,Fitted - Barker/MPS Code (D-region) - 5 min
+2000306,Fitted - Barker/MPS Code (D-region) - 6 min
+2000307,Fitted - Barker/MPS Code (D-region) - 7 min
+2000308,Fitted - Barker/MPS Code (D-region) - 8 min
+2000309,Fitted - Barker/MPS Code (D-region) - 9 min
+2000310,Fitted - Barker/MPS Code (D-region) - 10 min
+2000311,Fitted - Barker/MPS Code (D-region) - 11 min
+2000312,Fitted - Barker/MPS Code (D-region) - 12 min
+2000313,Fitted - Barker/MPS Code (D-region) - 13 min
+2000314,Fitted - Barker/MPS Code (D-region) - 14 min
+2000315,Fitted - Barker/MPS Code (D-region) - 15 min
+2000316,Fitted - Barker/MPS Code (D-region) - 16 min
+2000317,Fitted - Barker/MPS Code (D-region) - 17 min
+2000318,Fitted - Barker/MPS Code (D-region) - 18 min
+2000319,Fitted - Barker/MPS Code (D-region) - 19 min
+2000320,Fitted - Barker/MPS Code (D-region) - 20 min
+2000325,Fitted - Barker/MPS Code (D-region) - 30 min
+2000330,Fitted - Barker/MPS Code (D-region) - 45 min
+2000335,Fitted - Barker/MPS Code (D-region) - 60 min
+2000345,Fitted - Barker/MPS Code (D-region) - 120 min
+2000364,Fitted - Barker/MPS Code (D-region) - 30 sec
+2000368,Fitted - Barker/MPS Code (D-region) - 15 sec
+2000380,Fitted - Barker/MPS Code (D-region) - 4 sec
+3000101,Resolved Velocity - Long Pulse (F-region) - 1 min
+3000102,Resolved Velocity - Long Pulse (F-region) - 2 min
+3000103,Resolved Velocity - Long Pulse (F-region) - 3 min
+3000104,Resolved Velocity - Long Pulse (F-region) - 4 min
+3000105,Resolved Velocity - Long Pulse (F-region) - 5 min
+3000106,Resolved Velocity - Long Pulse (F-region) - 6 min
+3000107,Resolved Velocity - Long Pulse (F-region) - 7 min
+3000108,Resolved Velocity - Long Pulse (F-region) - 8 min
+3000109,Resolved Velocity - Long Pulse (F-region) - 9 min
+3000110,Resolved Velocity - Long Pulse (F-region) - 10 min
+3000111,Resolved Velocity - Long Pulse (F-region) - 11 min
+3000112,Resolved Velocity - Long Pulse (F-region) - 12 min
+3000113,Resolved Velocity - Long Pulse (F-region) - 13 min
+3000114,Resolved Velocity - Long Pulse (F-region) - 14 min
+3000115,Resolved Velocity - Long Pulse (F-region) - 15 min
+3000116,Resolved Velocity - Long Pulse (F-region) - 16 min
+3000117,Resolved Velocity - Long Pulse (F-region) - 17 min
+3000118,Resolved Velocity - Long Pulse (F-region) - 18 min
+3000119,Resolved Velocity - Long Pulse (F-region) - 19 min
+3000120,Resolved Velocity - Long Pulse (F-region) - 20 min
+3000125,Resolved Velocity - Long Pulse (F-region) - 30 min
+3000164,Resolved Velocity - Long Pulse (F-region) - 30 sec
+3000201,Resolved Velocity - Alternating Code (E-region) - 1 min
+3000202,Resolved Velocity - Alternating Code (E-region) - 2 min
+3000203,Resolved Velocity - Alternating Code (E-region) - 3 min
+3000204,Resolved Velocity - Alternating Code (E-region) - 4 min
+3000205,Resolved Velocity - Alternating Code (E-region) - 5 min
+3000206,Resolved Velocity - Alternating Code (E-region) - 6 min
+3000207,Resolved Velocity - Alternating Code (E-region) - 7 min
+3000208,Resolved Velocity - Alternating Code (E-region) - 8 min
+3000209,Resolved Velocity - Alternating Code (E-region) - 9 min
+3000210,Resolved Velocity - Alternating Code (E-region) - 10 min
+3000211,Resolved Velocity - Alternating Code (E-region) - 11 min
+3000212,Resolved Velocity - Alternating Code (E-region) - 12 min
+3000213,Resolved Velocity - Alternating Code (E-region) - 13 min
+3000214,Resolved Velocity - Alternating Code (E-region) - 14 min
+3000215,Resolved Velocity - Alternating Code (E-region) - 15 min
+3000216,Resolved Velocity - Alternating Code (E-region) - 16 min
+3000217,Resolved Velocity - Alternating Code (E-region) - 17 min
+3000218,Resolved Velocity - Alternating Code (E-region) - 18 min
+3000219,Resolved Velocity - Alternating Code (E-region) - 19 min
+3000220,Resolved Velocity - Alternating Code (E-region) - 20 min
+3000225,Resolved Velocity - Alternating Code (E-region) - 30 min
+3000264,Resolved Velocity - Alternating Code (E-region) - 30 sec
+3000301,Resolved Velocity - Barker/MPS Code (D-region) - 1 min
+3000302,Resolved Velocity - Barker/MPS Code (D-region) - 2 min
+3000303,Resolved Velocity - Barker/MPS Code (D-region) - 3 min
+3000304,Resolved Velocity - Barker/MPS Code (D-region) - 4 min
+3000305,Resolved Velocity - Barker/MPS Code (D-region) - 5 min
+3000306,Resolved Velocity - Barker/MPS Code (D-region) - 6 min
+3000307,Resolved Velocity - Barker/MPS Code (D-region) - 7 min
+3000308,Resolved Velocity - Barker/MPS Code (D-region) - 8 min
+3000309,Resolved Velocity - Barker/MPS Code (D-region) - 9 min
+3000310,Resolved Velocity - Barker/MPS Code (D-region) - 10 min
+3000311,Resolved Velocity - Barker/MPS Code (D-region) - 11 min
+3000312,Resolved Velocity - Barker/MPS Code (D-region) - 12 min
+3000313,Resolved Velocity - Barker/MPS Code (D-region) - 13 min
+3000314,Resolved Velocity - Barker/MPS Code (D-region) - 14 min
+3000315,Resolved Velocity - Barker/MPS Code (D-region) - 15 min
+3000316,Resolved Velocity - Barker/MPS Code (D-region) - 16 min
+3000317,Resolved Velocity - Barker/MPS Code (D-region) - 17 min
+3000318,Resolved Velocity - Barker/MPS Code (D-region) - 18 min
+3000319,Resolved Velocity - Barker/MPS Code (D-region) - 19 min
+3000320,Resolved Velocity - Barker/MPS Code (D-region) - 20 min
+3000325,Resolved Velocity - Barker/MPS Code (D-region) - 30 min
+3000364,Resolved Velocity - Barker/MPS Code (D-region) - 30 sec
+17560,South Pole Station Fluxgate Magnetometer
+17561,McMurdo Fluxgate Magnetometer
+17570,South Pole Station Riometer
+17571,McMurdo Riometer
+17572,South Pole Station photometer
+17573,McMurdo Photometer
+17574,South Pole Station VLF
+17575,South Pole Station Searchcoil Magnetometer
+17576,McMurdo Searchcoil Magnetometer
+17578,Amateur Radio Signal Report
+17579,SCINDA GPS scintillation data
+17580,SCINDA GEO scintillation data
+17581,South Pole All Sky Imager

@@ -1,0 +1,49 @@
+{% load bootstrap3 %}
+
+{% comment %}
+	Written by Bill Rideout brideout@haystack.mit.edu
+	
+	Template for Madrigal user registration
+	
+	$Id: register.html 4806 2015-02-23 15:49:01Z brideout $
+{% endcomment %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>{% block title %}Madrigal Database{% endblock %}</title>
+</head>
+<body>
+
+	<div class="loader" style="display:none"></div>
+	<div class="container-fluid">
+		{% include "navbar.html" %}
+		
+		<span style="font-weight: bold;">Please enter your name, 
+		email, and affliation below. This information will be saved as a 
+		cookie on your browser, so these fields need only be filled in 
+		once. No password is required.<br><br></span>
+		
+		{% if form.errors %}
+		    <p style="color: red;">
+			Please correct the error{{ form.errors|pluralize }} below.</p>
+		{% endif %}
+		
+		<form method="get">
+		<table class="table table-bordered table-condensed"> 
+			{{ form.as_table }}
+		</table>
+		
+		<div align="center"><input value="Submit" type="submit"></div>
+		</form>
+	
+	</div> <!-- container-fluid -->
+	
+</body>
+</html>

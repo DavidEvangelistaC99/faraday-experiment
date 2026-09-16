@@ -1,0 +1,1 @@
+360000001,http://jro.igp.gob.pe/MADROOT/madtoc/experiments/1963/imf/27nov63,Interplanetary Mag Field and Solar Wind,36,19631127,000000,20200423,235959,120,0

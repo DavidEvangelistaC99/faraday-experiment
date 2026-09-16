@@ -1,0 +1,175 @@
+!    -*- f90 -*-
+! Note: the context of this file is case sensitive.
+
+python module reader__user__routines
+    interface  ! in : reader.c
+        subroutine collision_(densmks, te, freq, alpha2, ye)
+            intent(c) collision_                 ! foo is a C function
+            intent(c)                    ! all foo arguments are 
+                                          ! considered as C based
+            real intent(in) :: densmks(1)          ! x is input array 
+            real intent(in) :: te(1)         ! y is output array
+            real intent(in) :: freq(1)          ! x is input array 
+            real intent(in) :: alpha2(1)         ! y is output array
+            complex intent(in,out) :: ye(1)         ! y is output array
+        end subroutine foo
+    end interface
+end python module reader
+python module lmdif__user__routines 
+    interface lmdif_user_interface 
+        subroutine fcn(m,n,x,fvec,iflag) ! in :fitacf_fit_short:lmdif1.f:lmdif:unknown_interface
+            integer, optional,check(len(fvec)>=m),depend(fvec) :: m=len(fvec)
+            integer, optional,check(len(x)>=n),depend(x) :: n=len(x)
+            real dimension(n) :: x
+            real dimension(m) :: fvec
+            integer :: iflag
+            real :: te
+            real dimension(10) :: ti
+            real dimension(10) :: fi
+            real :: ven
+            real dimension(10) :: vin
+            real :: alpha
+            real :: dens
+            real :: bfld
+            integer :: nion
+            integer dimension(10) :: wi
+            real :: ak
+            real dimension(100) :: tau
+            real dimension(100) :: rho
+            real dimension(100) :: sigma2
+            real dimension(10) :: params
+            integer dimension(10) :: ifit
+            real :: chisq
+            real dimension(10000) :: ev
+            common /spec/ te,ti,fi,ven,vin,alpha,dens,bfld,nion,wi,ak
+            common /fitter/ tau,rho,sigma2,params,ifit
+            common /errs/ chisq
+            common /trans/ ev
+        end subroutine fcn
+    end interface lmdif_user_interface
+end python module lmdif__user__routines
+python module fitacf_fit_short ! in 
+    interface  ! in :fitacf_fit_short
+        subroutine fit(wl,taup,rhop,covar,cinv,sigma2p,paramp,ebp,bfldp,alphap,densp,alt,time,ifitp,ist,nl) ! in :fitacf_fit_short:fitacf_fit_short.f
+            real intent(in):: wl
+            real dimension(nl),intent(in) :: taup
+            real dimension(nl),depend(nl),intent(in) :: rhop
+            real intent(in),dimension(nl,nl),depend(nl,nl) :: covar
+            real intent(in,out),dimension(nl,nl),depend(nl,nl) :: cinv
+            real intent(in,out),dimension(nl),depend(nl) :: sigma2p
+            real intent(in,out),dimension(10) :: paramp
+            real intent(out),dimension(10) :: ebp
+            real intent(in):: bfldp
+            real intent(in):: alphap
+            real intent(in):: densp
+            real intent(in):: alt
+            real intent(in):: time
+            integer intent(in),dimension(10) :: ifitp
+            integer intent(in,out):: ist
+            integer intent(in), check(len(taup)>=nl),depend(taup) :: nl=len(taup)
+            real :: te
+            real dimension(10) :: ti
+            real dimension(10) :: fi
+            real :: ven
+            real dimension(10) :: vin
+            real :: alpha
+            real :: dens
+            real :: bfld
+            integer :: nion
+            integer dimension(10) :: wi
+            real :: ak
+            integer :: imode
+            real dimension(100) :: tau
+            real dimension(100) :: rho
+            real dimension(100) :: sigma2
+            real dimension(10) :: params
+            integer dimension(10) :: ifit
+            real dimension(10000) :: ev
+            common /spec/ te,ti,fi,ven,vin,alpha,dens,bfld,nion,wi,ak
+            common /mode/ imode
+            common /fitter/ tau,rho,sigma2,params,ifit
+            common /trans/ ev
+        end subroutine fit
+        function spect1(omega) ! in :fitacf_fit_short:fitacf_fit_short.f
+            real :: omega
+            real :: te
+            real dimension(10) :: ti
+            real dimension(10) :: fi
+            real :: ven
+            real dimension(10) :: vin
+            real :: alpha
+            real :: dens
+            real :: bfld
+            integer :: nion
+            integer dimension(10) :: wi
+            real :: ak
+            integer :: imode
+            real :: spect1
+            common /spec/ te,ti,fi,ven,vin,alpha,dens,bfld,nion,wi,ak
+            common /mode/ imode
+        end function spect1
+        subroutine gaussq(tau,acf) ! in :fitacf_fit_short:fitacf_fit_short.f
+            real :: tau
+            real :: acf
+            real :: te
+            real dimension(10) :: ti
+            real dimension(10) :: fi
+            real :: ven
+            real dimension(10) :: vin
+            real :: alpha
+            real :: dens
+            real :: bfld
+            integer :: nion
+            integer dimension(10) :: wi
+            real :: ak
+            common /spec/ te,ti,fi,ven,vin,alpha,dens,bfld,nion,wi,ak
+        end subroutine gaussq
+        subroutine lmdif1(fcn,m,n,x,fvec,tol,info,iwa,wa,lwa) ! in :fitacf_fit_short:lmdif1.f
+            use lmdif__user__routines
+            external :: fcn
+            integer, optional,check(len(fvec)>=m),depend(fvec) :: m=len(fvec)
+            integer, optional,check(len(x)>=n),depend(x) :: n=len(x)
+            real dimension(n) :: x
+            real dimension(m) :: fvec
+            real :: tol
+            integer :: info
+            integer dimension(n),depend(n) :: iwa
+            real dimension(lwa) :: wa
+            integer, optional,check(len(wa)>=lwa),depend(wa) :: lwa=len(wa)
+        end subroutine lmdif1
+        subroutine lmdif(fcn,m,n,x,fvec,ftol,xtol,gtol,maxfev,epsfcn,diag,mode,factor,nprint,info,nfev,fjac,ldfjac,ipvt,qtf,wa1,wa2,wa3,wa4) ! in :fitacf_fit_short:lmdif1.f
+            use lmdif__user__routines
+            external :: fcn
+            integer, optional,check(len(fvec)>=m),depend(fvec) :: m=len(fvec)
+            integer, optional,check(len(x)>=n),depend(x) :: n=len(x)
+            real dimension(n) :: x
+            real dimension(m) :: fvec
+            real :: ftol
+            real :: xtol
+            real :: gtol
+            integer :: maxfev
+            real :: epsfcn
+            real dimension(n),depend(n) :: diag
+            integer :: mode
+            real :: factor
+            integer :: nprint
+            integer :: info
+            integer :: nfev
+            real dimension(ldfjac,n),depend(n) :: fjac
+            integer, optional,check(shape(fjac,0)==ldfjac),depend(fjac) :: ldfjac=shape(fjac,0)
+            integer dimension(n),depend(n) :: ipvt
+            real dimension(n),depend(n) :: qtf
+            real dimension(n),depend(n) :: wa1
+            real dimension(n),depend(n) :: wa2
+            real dimension(n),depend(n) :: wa3
+            real dimension(m),depend(m) :: wa4
+        end subroutine lmdif
+        function spmpar(i) ! in :fitacf_fit_short:lmdif1.f
+            integer :: i
+            real :: spmpar
+        end function spmpar
+    end interface 
+end python module fitacf_fit_short
+
+! This file was auto-generated with f2py (version:2).
+! See http://cens.ioc.ee/projects/f2py2e/

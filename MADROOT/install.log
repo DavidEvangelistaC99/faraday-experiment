@@ -1,0 +1,2057 @@
+h5repack installed
+Installing Madrigal in /home/david/Documents/faraday-experiment/MADROOT
+********** setPermissions **********
+Make all files in distribution world readable, and 
+user and group writeable
+Processing README
+Processing MANIFEST
+Processing cachedFiles.ini
+Processing installMadrigal
+Processing required_modules.txt
+Processing testRequirements.py
+Processing setPermissions
+Processing configureSource
+Processing configureScripts
+Processing checkConfig
+Processing madrigal.cfg.template
+Processing expPlot.cfg.template
+Processing testMadrigalBuild.py
+Processing metadata/instTab.txt.original
+Processing metadata/instType.txt.original
+Processing metadata/instParmTab.txt
+Processing metadata/instKindatTab.txt
+Processing metadata/madCatTab.txt
+Processing metadata/parcods.tab
+Processing metadata/parmCodes.txt
+Processing metadata/siteTab.txt.original
+Processing metadata/typeTab.txt.original
+Processing metadata/userdata/users.xml.template
+Processing source/configure.ac
+Processing source/Makefile.am
+Processing source/README
+Processing source/COPYING
+Processing source/INSTALL
+Processing source/madf/remake_source
+Processing source/madf/remake_file
+Processing source/madf/polish.opt
+Processing source/madf/applications/looker1.f
+Processing source/madf/applications/Makefile.am
+Processing source/madf/geolib/testGeolib.out.rock
+Processing source/madf/geolib/Makefile.am
+Processing source/madf/geolib/calndr.f
+Processing source/madf/geolib/dater.f
+Processing source/madf/geolib/dates.f
+Processing source/madf/geolib/iday.f
+Processing source/madf/geolib/izlr.f
+Processing source/madf/geolib/idmyck.f
+Processing source/madf/geolib/jdater.f
+Processing source/madf/geolib/jday.f
+Processing source/madf/geolib/moname.f
+Processing source/madf/geolib/monum.f
+Processing source/madf/geolib/wkname.f
+Processing source/madf/geolib/carmel.f
+Processing source/madf/geolib/convrt.f
+Processing source/madf/geolib/coord.f
+Processing source/madf/geolib/coordf.f
+Processing source/madf/geolib/coordff.f
+Processing source/madf/geolib/csconv.f
+Processing source/madf/geolib/diplat.f
+Processing source/madf/geolib/dsf.f
+Processing source/madf/geolib/gaspct.f
+Processing source/madf/geolib/gdmag.f
+Processing source/madf/geolib/gdran.f
+Processing source/madf/geolib/gdv.f
+Processing source/madf/geolib/gmet.f
+Processing source/madf/geolib/gtd7.f
+Processing source/madf/geolib/hfun.f
+Processing source/madf/geolib/integ.f
+Processing source/madf/geolib/invar.f
+Processing source/madf/geolib/invlat.f
+Processing source/madf/geolib/iterat.f
+Processing source/madf/geolib/lines.f
+Processing source/madf/geolib/lintra.f
+Processing source/madf/geolib/look.f
+Processing source/madf/geolib/milmag.f
+Processing source/madf/geolib/minv.f
+Processing source/madf/geolib/mtran3.f
+Processing source/madf/geolib/point.f
+Processing source/madf/geolib/rfun.f
+Processing source/madf/geolib/rpcart.f
+Processing source/madf/geolib/sprod.f
+Processing source/madf/geolib/startr.f
+Processing source/madf/geolib/geo-cgm.f
+Processing source/madf/geolib/testGeolib.f
+Processing source/madf/geolib/tnf.f
+Processing source/madf/geolib/vadd.f
+Processing source/madf/geolib/vctcnv.f
+Processing source/madf/geolib/vmag.f
+Processing source/madf/geolib/vsub.f
+Processing source/madf/geolib/TS04.f
+Processing source/madf/geolib/Geopack_2008.f
+Processing source/madf/geolib/altitude_to_cgm.f
+Processing source/madf/geolib/blkdat95.f
+Processing source/madf/geolib/cgm_to_altitude.f
+Processing source/madf/geolib/rylm.f
+Processing source/madf/geolib/sfc_convert_geo_coord.f
+Processing source/madf/geolib/solar_loc.f
+Processing source/madf/geolib/eqn_of_time.f
+Processing source/madf/geolib/cnv_sec_mdhms.f
+Processing source/madf/geolib/cnvcoord.f
+Processing source/madf/geolib/sfctest.f
+Processing source/madf/geolib/basis.f
+Processing source/madf/geolib/basis.h
+Processing source/madf/geolib/basis1.h
+Processing source/madf/geolib/basis3.h
+Processing source/madf/geolib/basis4.h
+Processing source/madf/geolib/isrim.f
+Processing source/madf/geolib/conduct.f
+Processing source/madf/geolib/igrf.f
+Processing source/madf/geolib/iridreg.f
+Processing source/madf/geolib/irifun.f
+Processing source/madf/geolib/irisub.f
+Processing source/madf/geolib/iritec.f
+Processing source/madf/geolib/cira.f
+Processing source/madf/geolib/igrf12.f
+Processing source/madf/geolib/gmetbv.f
+Processing source/madf/geolib/tprod.f
+Processing source/madf/geolib/uvect.f
+Processing source/madf/geolib/vprod.f
+Processing source/madf/geolib/vrecip.f
+Processing source/madf/geolib/testISRIM.f
+Processing source/madf/geolib/ursi11.asc
+Processing source/madf/geolib/ursi12.asc
+Processing source/madf/geolib/ursi13.asc
+Processing source/madf/geolib/ursi14.asc
+Processing source/madf/geolib/ursi15.asc
+Processing source/madf/geolib/ursi16.asc
+Processing source/madf/geolib/ursi17.asc
+Processing source/madf/geolib/ursi18.asc
+Processing source/madf/geolib/ursi19.asc
+Processing source/madf/geolib/ursi20.asc
+Processing source/madf/geolib/ursi21.asc
+Processing source/madf/geolib/ursi22.asc
+Processing source/madf/geolib/ccir11.asc
+Processing source/madf/geolib/ccir12.asc
+Processing source/madf/geolib/ccir13.asc
+Processing source/madf/geolib/ccir14.asc
+Processing source/madf/geolib/ccir15.asc
+Processing source/madf/geolib/ccir16.asc
+Processing source/madf/geolib/ccir17.asc
+Processing source/madf/geolib/ccir18.asc
+Processing source/madf/geolib/ccir19.asc
+Processing source/madf/geolib/ccir20.asc
+Processing source/madf/geolib/ccir21.asc
+Processing source/madf/geolib/ccir22.asc
+Processing source/madf/geolib/3D4DCoef/AMCoef4DNe.out
+Processing source/madf/geolib/3D4DCoef/AMCoef4DTe.out
+Processing source/madf/geolib/3D4DCoef/AMCoef4DTi.out
+Processing source/madf/geolib/3D4DCoef/ARCoef3DNe.out
+Processing source/madf/geolib/3D4DCoef/ARCoef3DTe.out
+Processing source/madf/geolib/3D4DCoef/ARCoef3DTi.out
+Processing source/madf/geolib/3D4DCoef/ARCoef3DVo.out
+Processing source/madf/geolib/3D4DCoef/ARCoef4DNe.out
+Processing source/madf/geolib/3D4DCoef/ESCoef3DNe.out
+Processing source/madf/geolib/3D4DCoef/ESCoef3DTe.out
+Processing source/madf/geolib/3D4DCoef/ESCoef3DTi.out
+Processing source/madf/geolib/3D4DCoef/M2Coef3DNe.out
+Processing source/madf/geolib/3D4DCoef/M2Coef3DTe.out
+Processing source/madf/geolib/3D4DCoef/M2Coef3DTi.out
+Processing source/madf/geolib/3D4DCoef/MHCoef3DNe.out
+Processing source/madf/geolib/3D4DCoef/MHCoef3DTe.out
+Processing source/madf/geolib/3D4DCoef/MHCoef3DTi.out
+Processing source/madf/geolib/3D4DCoef/MHCoef3DVo.out
+Processing source/madf/geolib/3D4DCoef/MUCoef3DNe.out
+Processing source/madf/geolib/3D4DCoef/MUCoef3DTe.out
+Processing source/madf/geolib/3D4DCoef/MUCoef3DTi.out
+Processing source/madf/geolib/3D4DCoef/RMCoef3DNe.out
+Processing source/madf/geolib/3D4DCoef/RMCoef4DNe.out
+Processing source/madf/geolib/3D4DCoef/RMCoef4DTe.out
+Processing source/madf/geolib/3D4DCoef/RMCoef4DTi.out
+Processing source/madf/geolib/3D4DCoef/SOCoef3DNe.out
+Processing source/madf/geolib/3D4DCoef/SOCoef3DTe.out
+Processing source/madf/geolib/3D4DCoef/SOCoef3DTi.out
+Processing source/madf/geolib/3D4DCoef/SOCoef3DVo.out
+Processing source/madf/geolib/3D4DCoef/STCoef3DNe.out
+Processing source/madf/geolib/3D4DCoef/STCoef3DTe.out
+Processing source/madf/geolib/3D4DCoef/STCoef3DTi.out
+Processing source/madf/geolib/3D4DCoef/TRCoef3DNe.out
+Processing source/madf/geolib/3D4DCoef/TRCoef3DTe.out
+Processing source/madf/geolib/3D4DCoef/TRCoef3DTi.out
+Processing source/madf/geolib/3D4DCoef/EUCoef4DNe.out
+Processing source/madf/geolib/3D4DCoef/EUCoef4DTe.out
+Processing source/madf/geolib/3D4DCoef/EUCoef4DTi.out
+Processing source/madc/madrec/Makefile.am
+Processing source/madc/madrec/madrec.c
+Processing source/madc/madrec/cedar.c
+Processing source/madc/madrec/cedarIO.c
+Processing source/madc/madrec/maddata.c
+Processing source/madc/madrec/madDeriveEngine.c
+Processing source/madc/madrec/madDeriveMethods.c
+Processing source/madc/madrec/date.c
+Processing source/madc/madrec/geometry.c
+Processing source/madc/madrec/solpos.c
+Processing source/madc/madrec/select.c
+Processing source/madc/madrec/madrecF77.c
+Processing source/madc/madrec/maddataF77.c
+Processing source/madc/madrec/testMadrec.c
+Processing source/madc/madrec/testMadrecSequentialFileIO.c
+Processing source/madc/madrec/testMadrecRandomFileIO.c
+Processing source/madc/madrec/testCedarIO.c
+Processing source/madc/madrec/testCedarIOBoundaries.c
+Processing source/madc/madrec/testCedarMemIO.c
+Processing source/madc/madrec/testMadrecMemIO.c
+Processing source/madc/madrec/testMadrecRand.c
+Processing source/madc/madrec/testCreateRecord.c
+Processing source/madc/madrec/testMaddata.c
+Processing source/madc/madrec/simpleMaddata.c
+Processing source/madc/madrec/simpleNonfileMaddata.c
+Processing source/madc/madrec/testMaddataErrors.c
+Processing source/madc/madrec/translateCedarFile.c
+Processing source/madc/madrec/fileDump.c
+Processing source/madc/madrec/splitCbfFile.c
+Processing source/madc/madrec/repairHC.c
+Processing source/madc/madrec/compareFiles.c
+Processing source/madc/madrec/testParmArray.c
+Processing source/madc/madrec/testGeometry.c
+Processing source/madc/madrec/testMetadata.c
+Processing source/madc/madrec/testDerived.c
+Processing source/madc/madrec/runMadrecDiagnostics
+Processing source/madc/madrec/runMadrecDiagnostics.valgrind
+Processing source/madc/madrec/testMadrec.out.rock
+Processing source/madc/madrec/testMaddata.out.rock
+Processing source/madc/madrec/testParmArray.out.rock
+Processing source/madc/madrec/testGeometry.rock
+Processing source/madc/madrec/testMetadata.out.rock
+Processing source/madc/madrec/testTrace.c
+Processing source/madc/include/cedar.h
+Processing source/madc/include/cedarIO.h
+Processing source/madc/include/date.h
+Processing source/madc/include/madrec.h
+Processing source/madc/include/geometry.h
+Processing source/madc/include/scanpl.h
+Processing source/madc/include/maddata.h
+Processing source/madc/include/madDeriveEngine.h
+Processing source/madc/include/madDeriveMethods.h
+Processing source/madc/include/solpos00.h
+Processing source/madmatlab/MadrigalHdf5File.m
+Processing source/madmatlab/testMadrigalHdf5File.m
+Processing source/madmatlab/testMadrigalMatFile.m
+Processing source/madpy/djangoMad/apps/__init__.py
+Processing source/madpy/djangoMad/apps/cedar/templates/get_log_admin.html
+Processing source/madpy/djangoMad/apps/cedar/templates/get_video_tutorials.html
+Processing source/madpy/djangoMad/apps/cedar/__init__.py
+Processing source/madpy/djangoMad/apps/cedar/forms.py
+Processing source/madpy/djangoMad/apps/cedar/urls.py
+Processing source/madpy/djangoMad/apps/cedar/views.py
+Processing source/madpy/djangoMad/bootstrap_calendar/dist/django-bootstrap-calendar-0.1.0.tar.gz
+Processing source/madpy/djangoMad/djangoMad/__init__.py
+Processing source/madpy/djangoMad/djangoMad/settings.py
+Processing source/madpy/djangoMad/djangoMad/settings_production_template.py
+Processing source/madpy/djangoMad/djangoMad/urls.py
+Processing source/madpy/djangoMad/djangoMad/urls_cedar.py
+Processing source/madpy/djangoMad/djangoMad/wsgi.py
+Processing source/madpy/djangoMad/madweb/__init__.py
+Processing source/madpy/djangoMad/madweb/forms.py
+Processing source/madpy/djangoMad/madweb/static/__init__.py
+Processing source/madpy/djangoMad/madweb/static/bootstrap_calendar/css/bootstrap_calendar.css
+Processing source/madpy/djangoMad/madweb/static/bootstrap_calendar/js/bootstrap_calendar.js
+Processing source/madpy/djangoMad/madweb/static/bootstrap_calendar/js/bootstrap_calendar.min.js
+Processing source/madpy/djangoMad/madweb/static/siteSpecific/Readme.txt
+Processing source/madpy/djangoMad/madweb/static/access_data.jpg
+Processing source/madpy/djangoMad/madweb/static/access_metadata.jpg
+Processing source/madpy/djangoMad/madweb/static/CEDARMadrigalHdf5Format.pdf
+Processing source/madpy/djangoMad/madweb/static/data_model.png
+Processing source/madpy/djangoMad/madweb/static/madrigal_arch.jpeg
+Processing source/madpy/djangoMad/madweb/static/madrigal.css
+Processing source/madpy/djangoMad/madweb/static/next.png
+Processing source/madpy/djangoMad/madweb/static/other_sites.jpg
+Processing source/madpy/djangoMad/madweb/static/previous.png
+Processing source/madpy/djangoMad/madweb/static/run_models.jpg
+Processing source/madpy/djangoMad/madweb/static/up.png
+Processing source/madpy/djangoMad/madweb/static/cedarFormat.pdf
+Processing source/madpy/djangoMad/madweb/static/favicon.ico
+Processing source/madpy/djangoMad/madweb/templates/madweb/advanced_print.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/calendar.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/categories.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/choose_script.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/download_adv_parms_filters_script.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/download_adv_parms_script.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/download_advanced_script.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/download_as_is_script.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/download_as_is.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/download_files_script.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/exp_list.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/file_buttons.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/file_list.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/fileDownload.js
+Processing source/madpy/djangoMad/madweb/templates/madweb/filter_desc.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/ftp_files.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/ftp_formats.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/ftp_instruments.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/ftp_kindats.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/ftp_years.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/generate_download_advanced_javascript.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/generate_download_javascript.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/get_advanced.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/get_advanced_scripts.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/hdf5_time_parms.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/horizontal_select.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/get_metadata.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/index.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/instrument_metadata.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/instruments.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/kindat_metadata.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/list.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/list_experiments.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/list_records.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/list_script.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/looker_conjugate_from_geodetic.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/looker_field_line_from_apex.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/looker_field_line_from_geodetic.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/looker_field_line_from_radar.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/looker_geodetic_to_radar.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/looker_geomagnetic_from_geodetic.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/looker_geomagnetic_from_radar.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/looker_geomagnetic_to_radar.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/looker_main.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/looker_output.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/months.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/madrigal_calculator.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/madrigal_calculator_output.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/parameter_metadata.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/parameter_multiple.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/print_as_is.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/register.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/service.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/show_doi.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/show_experiment.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/show_exp_no_files.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/show_info.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/show_plots.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/single.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/site_metadata.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/validate_alt_grid.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/validate_fl_apex.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/validate_fl_geodetic_point.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/validate_fl_radar_point.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/validate_grid.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/validate_kinst_location.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/validate_radar_grid.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/validate_year.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/view_record_plot.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/years.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/parmDesc.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/madContents.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/madIntroduction.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/whatsNew.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/wt_usersGuide.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/wt_contents.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/wt_whatIsMadrigal.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/wt_dataOrg.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/wt_accessData.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/rt_contents.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/rt_introduction.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/rt_webServices.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/rt_matlab.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/rt_python.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/rt_idl.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/rt_fortran95.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/rr_contents.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/rr_webServices.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/rr_matlab.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/rr_python.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/rr_idl.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/rr_fortran95.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/admin.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/ad_appropriate.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/ad_install.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/ad_upgrade.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/ad_metadata.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/ad_experiments.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/ad_createFiles.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/ad_createExp.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/ad_other.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/ad_logging.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/ad_isprint.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/dev_contents.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/siteSpecific_template.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/madrigal/index.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/madrigal/admin.m.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/madrigal/cedar.m.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/madrigal/data.m.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/madrigal/derivation.m.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/madrigal/isprint.m.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/madrigal/metadata.m.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/madrigal/openmadrigal.m.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/madrigal/ui/index.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/madrigal/ui/madrigalPlot.m.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/madrigal/ui/userData.m.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/madrigal/ui/web.m.html
+Processing source/madpy/djangoMad/madweb/templates/madweb/dev_derivation.html
+Processing source/madpy/djangoMad/madweb/urls.py
+Processing source/madpy/djangoMad/madweb/views.py
+Processing source/madpy/djangoMad/manage.py
+Processing source/madpy/djangoMad/templates/404.html
+Processing source/madpy/djangoMad/templates/500.html
+Processing source/madpy/djangoMad/templates/base.html
+Processing source/madpy/djangoMad/templates/base_single.html
+Processing source/madpy/djangoMad/templates/navbar.html
+Processing source/madpy/djangoMad/templates/parm_popup.html
+Processing source/madpy/scripts/bin/convertToMadrigal3.py
+Processing source/madpy/scripts/bin/exportToHdf.py
+Processing source/madpy/scripts/bin/rebuildInstParmTab.py
+Processing source/madpy/scripts/bin/rebuildInstKindatTab.py
+Processing source/madpy/scripts/bin/checkMetadata.py
+Processing source/madpy/scripts/bin/setAccess
+Processing source/madpy/scripts/bin/isprint
+Processing source/madpy/scripts/bin/isprint_deprecated.py
+Processing source/madpy/scripts/bin/tarExperiments
+Processing source/madpy/scripts/bin/checkGeoUpdate.py
+Processing source/madpy/scripts/bin/updateFileTab.py
+Processing source/madpy/scripts/bin/createExpWithFile.py
+Processing source/madpy/scripts/bin/createRTExp.py
+Processing source/madpy/scripts/bin/addFileToExp.py
+Processing source/madpy/scripts/bin/updateFileInExp.py
+Processing source/madpy/scripts/bin/removeFileFromExp.py
+Processing source/madpy/scripts/bin/changeFileStatus.py
+Processing source/madpy/scripts/bin/changeExpStatus.py
+Processing source/madpy/scripts/bin/createRecordPlots.py
+Processing source/madpy/scripts/bin/updateMaster
+Processing source/madpy/scripts/bin/applyDirConvention.py
+Processing source/madpy/scripts/bin/configureExperiments.py
+Processing source/madpy/scripts/bin/updateExpTimes.py
+Processing source/madpy/scripts/bin/isTrusted.py
+Processing source/madpy/scripts/bin/switchMadrigal.py
+Processing source/madpy/scripts/bin/createCachedFiles.py
+Processing source/madpy/scripts/bin/createCachedHdf5Files.py
+Processing source/madpy/scripts/bin/createMadrigalHdf5FromMatlab.py
+Processing source/madpy/scripts/bin/registrationAdmin.py
+Processing source/madpy/scripts/bin/testWebConfig.py
+Processing source/madpy/scripts/bin/checkParmsCodes.py
+Processing source/madpy/scripts/bin/updateMadDerivations.py
+Processing source/madpy/scripts/bin/checkSiteIs3.py
+Processing source/madpy/setup.py
+Processing source/madpy/madrigal/__init__.py
+Processing source/madpy/madrigal/_derive.c
+Processing source/madpy/madrigal/_Madrec.c
+Processing source/madpy/madrigal/_Madrec.h
+Processing source/madpy/madrigal/admin.py
+Processing source/madpy/madrigal/data.py
+Processing source/madpy/madrigal/metadata_original.py
+Processing source/madpy/madrigal/openmadrigal.py
+Processing source/madpy/madrigal/cedar.py
+Processing source/madpy/madrigal/derivation.py
+Processing source/madpy/madrigal/isprint.py
+Processing source/madpy/madrigal/ui/__init__.py
+Processing source/madpy/madrigal/ui/userData.py
+Processing source/madpy/madrigal/ui/web.py
+Processing source/madpy/madrigal/ui/madrigalPlot.py
+Processing source/madpy/madrigalWeb/setup.py
+Processing source/madpy/madrigalWeb/README
+Processing source/madpy/madrigalWeb/MANIFEST.in
+Processing source/madpy/madrigalWeb/madrigalWeb/__init__.py
+Processing source/madpy/madrigalWeb/madrigalWeb/globalIsprint.py
+Processing source/madpy/madrigalWeb/madrigalWeb/globalDownload.py
+Processing source/madpy/madrigalWeb/madrigalWeb/madrigalWeb.py
+Processing source/madpy/madrigalWeb/madrigalWeb/examples/testMadrigalWebServices.out.rock
+Processing source/madpy/madrigalWeb/madrigalWeb/examples/testMadrigalWebServices.py
+Processing source/madpy/madrigalWeb/madrigalWeb/examples/exampleMadrigalWebServices.py
+Processing lib/README
+Processing bin/README
+********** configureSource **********
+Processing source/madf/geolib/isrim.f
+source/madf/geolib/isrim.f
+          MADDIR = '/home/david/Documents/faraday-experiment/MADROOT'
+    Inserting new definitions in source/madf/geolib/isrim.f
+Processing source/madf/geolib/irifun.f
+source/madf/geolib/irifun.f
+          MADDIR = '/home/david/Documents/faraday-experiment/MADROOT'
+    Inserting new definitions in source/madf/geolib/irifun.f
+Processing source/madf/geolib/irisub.f
+source/madf/geolib/irisub.f
+          MADDIR = '/home/david/Documents/faraday-experiment/MADROOT'
+    Inserting new definitions in source/madf/geolib/irisub.f
+Processing source/madc/include/cedar.h
+source/madc/include/cedar.h
+    #define __MAD_ROOT__ "/home/david/Documents/faraday-experiment/MADROOT"
+    Inserting new definitions in source/madc/include/cedar.h
+Installing source/madf/geolib/ursi11.asc
+Installing source/madf/geolib/ursi12.asc
+Installing source/madf/geolib/ursi13.asc
+Installing source/madf/geolib/ursi14.asc
+Installing source/madf/geolib/ursi15.asc
+Installing source/madf/geolib/ursi16.asc
+Installing source/madf/geolib/ursi17.asc
+Installing source/madf/geolib/ursi18.asc
+Installing source/madf/geolib/ursi19.asc
+Installing source/madf/geolib/ursi20.asc
+Installing source/madf/geolib/ursi21.asc
+Installing source/madf/geolib/ursi22.asc
+Installing source/madf/geolib/ccir11.asc
+Installing source/madf/geolib/ccir12.asc
+Installing source/madf/geolib/ccir13.asc
+Installing source/madf/geolib/ccir14.asc
+Installing source/madf/geolib/ccir15.asc
+Installing source/madf/geolib/ccir16.asc
+Installing source/madf/geolib/ccir17.asc
+Installing source/madf/geolib/ccir18.asc
+Installing source/madf/geolib/ccir19.asc
+Installing source/madf/geolib/ccir20.asc
+Installing source/madf/geolib/ccir21.asc
+Installing source/madf/geolib/ccir22.asc
+********** rebuilding dist with autotools **********
+********** ./configure **********
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /usr/bin/mkdir -p
+checking for gawk... no
+checking for mawk... mawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking whether make supports the include directive... yes (GNU style)
+checking for gcc... gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking whether gcc understands -c and -o together... yes
+checking dependency style of gcc... gcc3
+checking for ar... ar
+checking the archiver (ar) interface... ar
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... x86_64-pc-linux-gnu
+checking how to print strings... printf
+checking for a sed that does not truncate output... /usr/bin/sed
+checking for grep that handles long lines and -e... /usr/bin/grep
+checking for egrep... /usr/bin/grep -E
+checking for fgrep... /usr/bin/grep -F
+checking for ld used by gcc... /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... yes
+checking for BSD- or MS-compatible name lister (nm)... /usr/bin/nm -B
+checking the name lister (/usr/bin/nm -B) interface... BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... 1572864
+checking how to convert x86_64-pc-linux-gnu file names to x86_64-pc-linux-gnu format... func_convert_file_noop
+checking how to convert x86_64-pc-linux-gnu file names to toolchain format... func_convert_file_noop
+checking for /usr/bin/ld option to reload object files... -r
+checking for file... file
+checking for objdump... objdump
+checking how to recognize dependent libraries... pass_all
+checking for dlltool... no
+checking how to associate runtime and link libraries... printf %s\n
+checking for archiver @FILE support... @
+checking for strip... strip
+checking for ranlib... ranlib
+checking command to parse /usr/bin/nm -B output from gcc object... ok
+checking for sysroot... no
+checking for a working dd... /usr/bin/dd
+checking how to truncate binary pipes... /usr/bin/dd bs=4096 count=1
+checking for mt... mt
+checking if mt is a manifest tool... no
+checking how to run the C preprocessor... gcc -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking for dlfcn.h... yes
+checking for objdir... .libs
+checking if gcc supports -fno-rtti -fno-exceptions... no
+checking for gcc option to produce PIC... -fPIC -DPIC
+checking if gcc PIC flag -fPIC -DPIC works... yes
+checking if gcc static flag -static works... yes
+checking if gcc supports -c -o file.o... yes
+checking if gcc supports -c -o file.o... (cached) yes
+checking whether the gcc linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... yes
+checking for gcc... (cached) gcc
+checking whether we are using the GNU C compiler... (cached) yes
+checking whether gcc accepts -g... (cached) yes
+checking for gcc option to accept ISO C89... (cached) none needed
+checking whether gcc understands -c and -o together... (cached) yes
+checking dependency style of gcc... (cached) gcc3
+checking for g77... no
+checking for xlf... no
+checking for f77... f77
+checking whether we are using the GNU Fortran 77 compiler... yes
+checking whether f77 accepts -g... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... yes
+checking for f77 option to produce PIC... -fPIC
+checking if f77 PIC flag -fPIC works... yes
+checking if f77 static flag -static works... yes
+checking if f77 supports -c -o file.o... yes
+checking if f77 supports -c -o file.o... (cached) yes
+checking whether the f77 linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+checking dynamic linker characteristics... (cached) GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking how to get verbose linking output from f77... -v
+checking for Fortran 77 libraries of f77...  -L/usr/lib/gcc/x86_64-linux-gnu/9 -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/9/../../.. -lgfortran -lm -lquadmath
+checking for dummy main to link with Fortran 77 libraries... none
+checking for Fortran 77 name-mangling scheme... lower case, underscore, no extra underscore
+checking size of long... 8
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating madf/geolib/Makefile
+config.status: creating madf/applications/Makefile
+config.status: creating madc/madrec/Makefile
+config.status: creating config.h
+config.status: config.h is unchanged
+config.status: executing depfiles commands
+config.status: executing libtool commands
+********** make clean **********
+Making clean in madf/geolib
+make[1]: Entering directory '/home/david/Documents/faraday-experiment/MADROOT/source/madf/geolib'
+ rm -f testGeolib
+ rm -f sfctest testISRIM
+test -z "libgeo.la" || rm -f libgeo.la
+rm -f ./so_locations
+rm -rf .libs _libs
+rm -f *.o
+rm -f *.lo
+make[1]: Leaving directory '/home/david/Documents/faraday-experiment/MADROOT/source/madf/geolib'
+Making clean in madf/applications
+make[1]: Entering directory '/home/david/Documents/faraday-experiment/MADROOT/source/madf/applications'
+ rm -f looker1
+rm -rf .libs _libs
+rm -f *.o
+rm -f *.lo
+make[1]: Leaving directory '/home/david/Documents/faraday-experiment/MADROOT/source/madf/applications'
+Making clean in madc/madrec
+make[1]: Entering directory '/home/david/Documents/faraday-experiment/MADROOT/source/madc/madrec'
+ rm -f testMadrec
+test -z "libmadrec.la" || rm -f libmadrec.la
+rm -f ./so_locations
+rm -rf .libs _libs
+rm -f *.o
+rm -f *.lo
+make[1]: Leaving directory '/home/david/Documents/faraday-experiment/MADROOT/source/madc/madrec'
+make[1]: Entering directory '/home/david/Documents/faraday-experiment/MADROOT/source'
+rm -rf .libs _libs
+rm -f *.lo
+make[1]: Leaving directory '/home/david/Documents/faraday-experiment/MADROOT/source'
+********** make **********
+make  all-recursive
+make[1]: Entering directory '/home/david/Documents/faraday-experiment/MADROOT/source'
+Making all in madf/geolib
+make[2]: Entering directory '/home/david/Documents/faraday-experiment/MADROOT/source/madf/geolib'
+f77  -g -O2 -c -o testGeolib.o testGeolib.f
+/bin/bash ../../libtool  --tag=F77   --mode=compile f77  -g -O2 -c -o carmel.lo carmel.f
+libtool: compile:  f77 -g -O2 -c carmel.f  -fPIC -o .libs/carmel.o
+libtool: compile:  f77 -g -O2 -c carmel.f -o carmel.o >/dev/null 2>&1
+/bin/bash ../../libtool  --tag=F77   --mode=compile f77  -g -O2 -c -o convrt.lo convrt.f
+libtool: compile:  f77 -g -O2 -c convrt.f  -fPIC -o .libs/convrt.o
+libtool: compile:  f77 -g -O2 -c convrt.f -o convrt.o >/dev/null 2>&1
+/bin/bash ../../libtool  --tag=F77   --mode=compile f77  -g -O2 -c -o coord.lo coord.f
+libtool: compile:  f77 -g -O2 -c coord.f  -fPIC -o .libs/coord.o
+libtool: compile:  f77 -g -O2 -c coord.f -o coord.o >/dev/null 2>&1
+/bin/bash ../../libtool  --tag=F77   --mode=compile f77  -g -O2 -c -o coordf.lo coordf.f
+libtool: compile:  f77 -g -O2 -c coordf.f  -fPIC -o .libs/coordf.o
+libtool: compile:  f77 -g -O2 -c coordf.f -o coordf.o >/dev/null 2>&1
+/bin/bash ../../libtool  --tag=F77   --mode=compile f77  -g -O2 -c -o coordff.lo coordff.f
+libtool: compile:  f77 -g -O2 -c coordff.f  -fPIC -o .libs/coordff.o
+libtool: compile:  f77 -g -O2 -c coordff.f -o coordff.o >/dev/null 2>&1
+/bin/bash ../../libtool  --tag=F77   --mode=compile f77  -g -O2 -c -o csconv.lo csconv.f
+libtool: compile:  f77 -g -O2 -c csconv.f  -fPIC -o .libs/csconv.o
+libtool: compile:  f77 -g -O2 -c csconv.f -o csconv.o >/dev/null 2>&1
+/bin/bash ../../libtool  --tag=F77   --mode=compile f77  -g -O2 -c -o diplat.lo diplat.f
+libtool: compile:  f77 -g -O2 -c diplat.f  -fPIC -o .libs/diplat.o
+libtool: compile:  f77 -g -O2 -c diplat.f -o diplat.o >/dev/null 2>&1
+/bin/bash ../../libtool  --tag=F77   --mode=compile f77  -g -O2 -c -o dsf.lo dsf.f
+libtool: compile:  f77 -g -O2 -c dsf.f  -fPIC -o .libs/dsf.o
+libtool: compile:  f77 -g -O2 -c dsf.f -o dsf.o >/dev/null 2>&1
+/bin/bash ../../libtool  --tag=F77   --mode=compile f77  -g -O2 -c -o gaspct.lo gaspct.f
+libtool: compile:  f77 -g -O2 -c gaspct.f  -fPIC -o .libs/gaspct.o
+libtool: compile:  f77 -g -O2 -c gaspct.f -o gaspct.o >/dev/null 2>&1
+/bin/bash ../../libtool  --tag=F77   --mode=compile f77  -g -O2 -c -o gdmag.lo gdmag.f
+libtool: compile:  f77 -g -O2 -c gdmag.f  -fPIC -o .libs/gdmag.o
+libtool: compile:  f77 -g -O2 -c gdmag.f -o gdmag.o >/dev/null 2>&1
+/bin/bash ../../libtool  --tag=F77   --mode=compile f77  -g -O2 -c -o gdran.lo gdran.f
+libtool: compile:  f77 -g -O2 -c gdran.f  -fPIC -o .libs/gdran.o
+libtool: compile:  f77 -g -O2 -c gdran.f -o gdran.o >/dev/null 2>&1
+/bin/bash ../../libtool  --tag=F77   --mode=compile f77  -g -O2 -c -o gdv.lo gdv.f
+libtool: compile:  f77 -g -O2 -c gdv.f  -fPIC -o .libs/gdv.o
+libtool: compile:  f77 -g -O2 -c gdv.f -o gdv.o >/dev/null 2>&1
+/bin/bash ../../libtool  --tag=F77   --mode=compile f77  -g -O2 -c -o gmet.lo gmet.f
+libtool: compile:  f77 -g -O2 -c gmet.f  -fPIC -o .libs/gmet.o
+libtool: compile:  f77 -g -O2 -c gmet.f -o gmet.o >/dev/null 2>&1
+/bin/bash ../../libtool  --tag=F77   --mode=compile f77  -g -O2 -c -o gtd7.lo gtd7.f
+libtool: compile:  f77 -g -O2 -c gtd7.f  -fPIC -o .libs/gtd7.o
+libtool: compile:  f77 -g -O2 -c gtd7.f -o gtd7.o >/dev/null 2>&1
+/bin/bash ../../libtool  --tag=F77   --mode=compile f77  -g -O2 -c -o hfun.lo hfun.f
+libtool: compile:  f77 -g -O2 -c hfun.f  -fPIC -o .libs/hfun.o
+libtool: compile:  f77 -g -O2 -c hfun.f -o hfun.o >/dev/null 2>&1
+/bin/bash ../../libtool  --tag=F77   --mode=compile f77  -g -O2 -c -o integ.lo integ.f
+libtool: compile:  f77 -g -O2 -c integ.f  -fPIC -o .libs/integ.o
+libtool: compile:  f77 -g -O2 -c integ.f -o integ.o >/dev/null 2>&1
+/bin/bash ../../libtool  --tag=F77   --mode=compile f77  -g -O2 -c -o invar.lo invar.f
+libtool: compile:  f77 -g -O2 -c invar.f  -fPIC -o .libs/invar.o
+libtool: compile:  f77 -g -O2 -c invar.f -o invar.o >/dev/null 2>&1
+/bin/bash ../../libtool  --tag=F77   --mode=compile f77  -g -O2 -c -o invlat.lo invlat.f
+libtool: compile:  f77 -g -O2 -c invlat.f  -fPIC -o .libs/invlat.o
+libtool: compile:  f77 -g -O2 -c invlat.f -o invlat.o >/dev/null 2>&1
+/bin/bash ../../libtool  --tag=F77   --mode=compile f77  -g -O2 -c -o iterat.lo iterat.f
+libtool: compile:  f77 -g -O2 -c iterat.f  -fPIC -o .libs/iterat.o
+libtool: compile:  f77 -g -O2 -c iterat.f -o iterat.o >/dev/null 2>&1
+/bin/bash ../../libtool  --tag=F77   --mode=compile f77  -g -O2 -c -o lines.lo lines.f
+libtool: compile:  f77 -g -O2 -c lines.f  -fPIC -o .libs/lines.o
+libtool: compile:  f77 -g -O2 -c lines.f -o lines.o >/dev/null 2>&1
+/bin/bash ../../libtool  --tag=F77   --mode=compile f77  -g -O2 -c -o lintra.lo lintra.f
+libtool: compile:  f77 -g -O2 -c lintra.f  -fPIC -o .libs/lintra.o
+libtool: compile:  f77 -g -O2 -c lintra.f -o lintra.o >/dev/null 2>&1
+/bin/bash ../../libtool  --tag=F77   --mode=compile f77  -g -O2 -c -o look.lo look.f
+libtool: compile:  f77 -g -O2 -c look.f  -fPIC -o .libs/look.o
+libtool: compile:  f77 -g -O2 -c look.f -o look.o >/dev/null 2>&1
+/bin/bash ../../libtool  --tag=F77   --mode=compile f77  -g -O2 -c -o milmag.lo milmag.f
+libtool: compile:  f77 -g -O2 -c milmag.f  -fPIC -o .libs/milmag.o
+libtool: compile:  f77 -g -O2 -c milmag.f -o milmag.o >/dev/null 2>&1
+/bin/bash ../../libtool  --tag=F77   --mode=compile f77  -g -O2 -c -o minv.lo minv.f
+libtool: compile:  f77 -g -O2 -c minv.f  -fPIC -o .libs/minv.o
+libtool: compile:  f77 -g -O2 -c minv.f -o minv.o >/dev/null 2>&1
+/bin/bash ../../libtool  --tag=F77   --mode=compile f77  -g -O2 -c -o mtran3.lo mtran3.f
+libtool: compile:  f77 -g -O2 -c mtran3.f  -fPIC -o .libs/mtran3.o
+libtool: compile:  f77 -g -O2 -c mtran3.f -o mtran3.o >/dev/null 2>&1
+/bin/bash ../../libtool  --tag=F77   --mode=compile f77  -g -O2 -c -o point.lo point.f
+libtool: compile:  f77 -g -O2 -c point.f  -fPIC -o .libs/point.o
+libtool: compile:  f77 -g -O2 -c point.f -o point.o >/dev/null 2>&1
+/bin/bash ../../libtool  --tag=F77   --mode=compile f77  -g -O2 -c -o rfun.lo rfun.f
+libtool: compile:  f77 -g -O2 -c rfun.f  -fPIC -o .libs/rfun.o
+libtool: compile:  f77 -g -O2 -c rfun.f -o rfun.o >/dev/null 2>&1
+/bin/bash ../../libtool  --tag=F77   --mode=compile f77  -g -O2 -c -o rpcart.lo rpcart.f
+libtool: compile:  f77 -g -O2 -c rpcart.f  -fPIC -o .libs/rpcart.o
+libtool: compile:  f77 -g -O2 -c rpcart.f -o rpcart.o >/dev/null 2>&1
+/bin/bash ../../libtool  --tag=F77   --mode=compile f77  -g -O2 -c -o sprod.lo sprod.f
+libtool: compile:  f77 -g -O2 -c sprod.f  -fPIC -o .libs/sprod.o
+libtool: compile:  f77 -g -O2 -c sprod.f -o sprod.o >/dev/null 2>&1
+/bin/bash ../../libtool  --tag=F77   --mode=compile f77  -g -O2 -c -o startr.lo startr.f
+libtool: compile:  f77 -g -O2 -c startr.f  -fPIC -o .libs/startr.o
+libtool: compile:  f77 -g -O2 -c startr.f -o startr.o >/dev/null 2>&1
+/bin/bash ../../libtool  --tag=F77   --mode=compile f77  -g -O2 -c -o tnf.lo tnf.f
+libtool: compile:  f77 -g -O2 -c tnf.f  -fPIC -o .libs/tnf.o
+libtool: compile:  f77 -g -O2 -c tnf.f -o tnf.o >/dev/null 2>&1
+/bin/bash ../../libtool  --tag=F77   --mode=compile f77  -g -O2 -c -o vadd.lo vadd.f
+libtool: compile:  f77 -g -O2 -c vadd.f  -fPIC -o .libs/vadd.o
+libtool: compile:  f77 -g -O2 -c vadd.f -o vadd.o >/dev/null 2>&1
+/bin/bash ../../libtool  --tag=F77   --mode=compile f77  -g -O2 -c -o vctcnv.lo vctcnv.f
+libtool: compile:  f77 -g -O2 -c vctcnv.f  -fPIC -o .libs/vctcnv.o
+libtool: compile:  f77 -g -O2 -c vctcnv.f -o vctcnv.o >/dev/null 2>&1
+/bin/bash ../../libtool  --tag=F77   --mode=compile f77  -g -O2 -c -o vmag.lo vmag.f
+libtool: compile:  f77 -g -O2 -c vmag.f  -fPIC -o .libs/vmag.o
+libtool: compile:  f77 -g -O2 -c vmag.f -o vmag.o >/dev/null 2>&1
+/bin/bash ../../libtool  --tag=F77   --mode=compile f77  -g -O2 -c -o vsub.lo vsub.f
+libtool: compile:  f77 -g -O2 -c vsub.f  -fPIC -o .libs/vsub.o
+libtool: compile:  f77 -g -O2 -c vsub.f -o vsub.o >/dev/null 2>&1
+/bin/bash ../../libtool  --tag=F77   --mode=compile f77  -g -O2 -c -o geo-cgm.lo geo-cgm.f
+libtool: compile:  f77 -g -O2 -c geo-cgm.f  -fPIC -o .libs/geo-cgm.o
+libtool: compile:  f77 -g -O2 -c geo-cgm.f -o geo-cgm.o >/dev/null 2>&1
+/bin/bash ../../libtool  --tag=F77   --mode=compile f77  -g -O2 -c -o calndr.lo calndr.f
+libtool: compile:  f77 -g -O2 -c calndr.f  -fPIC -o .libs/calndr.o
+libtool: compile:  f77 -g -O2 -c calndr.f -o calndr.o >/dev/null 2>&1
+/bin/bash ../../libtool  --tag=F77   --mode=compile f77  -g -O2 -c -o dater.lo dater.f
+libtool: compile:  f77 -g -O2 -c dater.f  -fPIC -o .libs/dater.o
+libtool: compile:  f77 -g -O2 -c dater.f -o dater.o >/dev/null 2>&1
+/bin/bash ../../libtool  --tag=F77   --mode=compile f77  -g -O2 -c -o dates.lo dates.f
+libtool: compile:  f77 -g -O2 -c dates.f  -fPIC -o .libs/dates.o
+libtool: compile:  f77 -g -O2 -c dates.f -o dates.o >/dev/null 2>&1
+/bin/bash ../../libtool  --tag=F77   --mode=compile f77  -g -O2 -c -o iday.lo iday.f
+libtool: compile:  f77 -g -O2 -c iday.f  -fPIC -o .libs/iday.o
+libtool: compile:  f77 -g -O2 -c iday.f -o iday.o >/dev/null 2>&1
+/bin/bash ../../libtool  --tag=F77   --mode=compile f77  -g -O2 -c -o izlr.lo izlr.f
+libtool: compile:  f77 -g -O2 -c izlr.f  -fPIC -o .libs/izlr.o
+libtool: compile:  f77 -g -O2 -c izlr.f -o izlr.o >/dev/null 2>&1
+/bin/bash ../../libtool  --tag=F77   --mode=compile f77  -g -O2 -c -o idmyck.lo idmyck.f
+libtool: compile:  f77 -g -O2 -c idmyck.f  -fPIC -o .libs/idmyck.o
+libtool: compile:  f77 -g -O2 -c idmyck.f -o idmyck.o >/dev/null 2>&1
+/bin/bash ../../libtool  --tag=F77   --mode=compile f77  -g -O2 -c -o jdater.lo jdater.f
+libtool: compile:  f77 -g -O2 -c jdater.f  -fPIC -o .libs/jdater.o
+libtool: compile:  f77 -g -O2 -c jdater.f -o jdater.o >/dev/null 2>&1
+/bin/bash ../../libtool  --tag=F77   --mode=compile f77  -g -O2 -c -o jday.lo jday.f
+libtool: compile:  f77 -g -O2 -c jday.f  -fPIC -o .libs/jday.o
+libtool: compile:  f77 -g -O2 -c jday.f -o jday.o >/dev/null 2>&1
+/bin/bash ../../libtool  --tag=F77   --mode=compile f77  -g -O2 -c -o moname.lo moname.f
+libtool: compile:  f77 -g -O2 -c moname.f  -fPIC -o .libs/moname.o
+libtool: compile:  f77 -g -O2 -c moname.f -o moname.o >/dev/null 2>&1
+/bin/bash ../../libtool  --tag=F77   --mode=compile f77  -g -O2 -c -o monum.lo monum.f
+libtool: compile:  f77 -g -O2 -c monum.f  -fPIC -o .libs/monum.o
+libtool: compile:  f77 -g -O2 -c monum.f -o monum.o >/dev/null 2>&1
+/bin/bash ../../libtool  --tag=F77   --mode=compile f77  -g -O2 -c -o wkname.lo wkname.f
+libtool: compile:  f77 -g -O2 -c wkname.f  -fPIC -o .libs/wkname.o
+libtool: compile:  f77 -g -O2 -c wkname.f -o wkname.o >/dev/null 2>&1
+/bin/bash ../../libtool  --tag=F77   --mode=compile f77  -g -O2 -c -o TS04.lo TS04.f
+libtool: compile:  f77 -g -O2 -c TS04.f  -fPIC -o .libs/TS04.o
+TS04.f:1023:72:
+
+ 1023 |   1   DBZ=DBZ+F(I)*(2.D0*AS+X*DASDX+Y*DASDY)
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 1 at (1)
+TS04.f:1062:72:
+
+ 1062 |          DO 2 K=1,5
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: Shared DO termination label 2 at (1)
+TS04.f:1534:72:
+
+ 1534 |   2   BPN(M)=-DTT*SSIN(M)/R
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 2 at (1)
+TS04.f:1665:72:
+
+ 1665 |   5    GZ=GZ+HZR*A(L)
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 5 at (1)
+TS04.f:2511:72:
+
+ 2511 |   5    GZ=GZ+HZR*A(L)
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 5 at (1)
+libtool: compile:  f77 -g -O2 -c TS04.f -o TS04.o >/dev/null 2>&1
+/bin/bash ../../libtool  --tag=F77   --mode=compile f77  -g -O2 -c -o Geopack_2008.lo Geopack_2008.f
+libtool: compile:  f77 -g -O2 -c Geopack_2008.f  -fPIC -o .libs/Geopack_2008.o
+libtool: compile:  f77 -g -O2 -c Geopack_2008.f -o Geopack_2008.o >/dev/null 2>&1
+/bin/bash ../../libtool  --tag=F77   --mode=compile f77  -g -O2 -c -o sfc_convert_geo_coord.lo sfc_convert_geo_coord.f
+libtool: compile:  f77 -g -O2 -c sfc_convert_geo_coord.f  -fPIC -o .libs/sfc_convert_geo_coord.o
+libtool: compile:  f77 -g -O2 -c sfc_convert_geo_coord.f -o sfc_convert_geo_coord.o >/dev/null 2>&1
+/bin/bash ../../libtool  --tag=F77   --mode=compile f77  -g -O2 -c -o cgm_to_altitude.lo cgm_to_altitude.f
+libtool: compile:  f77 -g -O2 -c cgm_to_altitude.f  -fPIC -o .libs/cgm_to_altitude.o
+libtool: compile:  f77 -g -O2 -c cgm_to_altitude.f -o cgm_to_altitude.o >/dev/null 2>&1
+/bin/bash ../../libtool  --tag=F77   --mode=compile f77  -g -O2 -c -o altitude_to_cgm.lo altitude_to_cgm.f
+libtool: compile:  f77 -g -O2 -c altitude_to_cgm.f  -fPIC -o .libs/altitude_to_cgm.o
+libtool: compile:  f77 -g -O2 -c altitude_to_cgm.f -o altitude_to_cgm.o >/dev/null 2>&1
+/bin/bash ../../libtool  --tag=F77   --mode=compile f77  -g -O2 -c -o rylm.lo rylm.f
+libtool: compile:  f77 -g -O2 -c rylm.f  -fPIC -o .libs/rylm.o
+libtool: compile:  f77 -g -O2 -c rylm.f -o rylm.o >/dev/null 2>&1
+/bin/bash ../../libtool  --tag=F77   --mode=compile f77  -g -O2 -c -o blkdat95.lo blkdat95.f
+libtool: compile:  f77 -g -O2 -c blkdat95.f  -fPIC -o .libs/blkdat95.o
+libtool: compile:  f77 -g -O2 -c blkdat95.f -o blkdat95.o >/dev/null 2>&1
+/bin/bash ../../libtool  --tag=F77   --mode=compile f77  -g -O2 -c -o isrim.lo isrim.f
+libtool: compile:  f77 -g -O2 -c isrim.f  -fPIC -o .libs/isrim.o
+libtool: compile:  f77 -g -O2 -c isrim.f -o isrim.o >/dev/null 2>&1
+/bin/bash ../../libtool  --tag=F77   --mode=compile f77  -g -O2 -c -o basis.lo basis.f
+libtool: compile:  f77 -g -O2 -c basis.f  -fPIC -o .libs/basis.o
+libtool: compile:  f77 -g -O2 -c basis.f -o basis.o >/dev/null 2>&1
+/bin/bash ../../libtool  --tag=F77   --mode=compile f77  -g -O2 -c -o conduct.lo conduct.f
+libtool: compile:  f77 -g -O2 -c conduct.f  -fPIC -o .libs/conduct.o
+libtool: compile:  f77 -g -O2 -c conduct.f -o conduct.o >/dev/null 2>&1
+/bin/bash ../../libtool  --tag=F77   --mode=compile f77  -g -O2 -c -o irisub.lo irisub.f
+libtool: compile:  f77 -g -O2 -c irisub.f  -fPIC -o .libs/irisub.o
+irisub.f:313:72:
+
+  313 |         do 7397 kk=1,100
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: Shared DO termination label 7397 at (1)
+irisub.f:314:72:
+
+  314 | 7397    OUTF(KI,kk)=-1.
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 7397 at (1)
+irisub.f:317:72:
+
+  317 | 7398    INDAP(KI) = IAP3(KI)
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 7398 at (1)
+irisub.f:320:72:
+
+  320 | 8398    oarr(kind)=-1.
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 8398 at (1)
+irisub.f:322:72:
+
+  322 | 8378    oarr(kind)=-1.
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 8378 at (1)
+irisub.f:324:72:
+
+  324 | 8478    oarr(kind)=-1.
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 8478 at (1)
+irisub.f:327:72:
+
+  327 | 8428    oarr(kind)=-1.
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 8428 at (1)
+irisub.f:513:72:
+
+  513 | 8154          IF(XNAR(JXNAR).GT.0.) TECON(JXNAR)=.TRUE.
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 8154 at (1)
+irisub.f:952:72:
+
+  952 |         DO 20 J=1,13
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: Shared DO termination label 20 at (1)
+irisub.f:955:72:
+
+  955 | 20            FF0(K)=F2(J,I,1)*RR1+F2(J,I,2)*RR2
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 20 at (1)
+irisub.f:962:72:
+
+  962 |         DO 30 J=1,9
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: Shared DO termination label 30 at (1)
+irisub.f:965:72:
+
+  965 | 30            XM0(K)=FM3(J,I,1)*RR1+FM3(J,I,2)*RR2
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 30 at (1)
+irisub.f:1423:72:
+
+ 1423 | 3491             ate(ijk)=teh2
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 3491 at (1)
+irisub.f:1431:72:
+
+ 1431 | 3395              IF(TECON(I)) ATE(I+2)=TEDE(AHH(I+2),XNAR(I),-COV)
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 3395 at (1)
+irisub.f:1444:72:
+
+ 1444 | 1901  STTE1=STTE2
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 1901 at (1)
+irisub.f:1449:72:
+
+ 1449 | 1902     STTE(I)=(ATE(I+1)-ATE(I))/(AHH(I+1)-AHH(I))
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 1902 at (1)
+irisub.f:1625:72:
+
+ 1625 | 7105      MO2(L+1)=PF3O(7+I)+PF3O(8+I)*ZZZ1
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 7105 at (1)
+libtool: compile:  f77 -g -O2 -c irisub.f -o irisub.o >/dev/null 2>&1
+/bin/bash ../../libtool  --tag=F77   --mode=compile f77  -g -O2 -c -o irifun.lo irifun.f
+libtool: compile:  f77 -g -O2 -c irifun.f  -fPIC -o .libs/irifun.o
+irifun.f:748:72:
+
+  748 | 10     D(3,3,I)=D(3,2,I)*MIRREQ(I)
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 10 at (1)
+irifun.f:803:72:
+
+  803 | 30       N0B400=N0B400+C(I)*D(1,SEZBI,I)
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 30 at (1)
+irifun.f:812:72:
+
+  812 | 70       N0B650=N0B650+C(I)*D(2,SEZBI,I)
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 70 at (1)
+irifun.f:821:72:
+
+  821 | 110      N0B100=N0B100+C(I)*D(3,SEZBI,I)
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 110 at (1)
+irifun.f:847:72:
+
+  847 | 220   ST(I)=(ANO(I+1)-ANO(I))/(AH(I+1)-AH(I))
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 220 at (1)
+irifun.f:924:72:
+
+  924 | 10     D(4,3,I)=D(4,2,I)*MIRREQ(I)
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 10 at (1)
+irifun.f:979:72:
+
+  979 | 30       N0B550=N0B550+C(I)*D(1,SEZBI,I)
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 30 at (1)
+irifun.f:988:72:
+
+  988 | 70       N0B900=N0B900+C(I)*D(2,SEZBI,I)
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 70 at (1)
+irifun.f:997:72:
+
+  997 | 110      N0B150=N0B150+C(I)*D(3,SEZBI,I)
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 110 at (1)
+irifun.f:1006:72:
+
+ 1006 | 150     N0B250=N0B250+C(I)*D(4,SEZBI,I)
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 150 at (1)
+irifun.f:1032:72:
+
+ 1032 | 200   ST1=ST2
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 200 at (1)
+irifun.f:1035:72:
+
+ 1035 | 220   ST(I)=(ANO(I+1)-ANO(I))/(AH(I+1)-AH(I))
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 220 at (1)
+irifun.f:1043:72:
+
+ 1043 | 230   SUM=SUM+(ST(I+1)-ST(I))*(AA-BB)*DNO(I)
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 230 at (1)
+irifun.f:1764:72:
+
+ 1764 | 10     D(4,3,I)=D(4,2,I)*MIRREQ(I)
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 10 at (1)
+irifun.f:1773:72:
+
+ 1773 | 20     FB(4,3,I)=FB(4,2,I)*MF107(I)
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 20 at (1)
+irifun.f:1851:72:
+
+ 1851 | 30       T0B550=T0B550+C(I)*D(1,SEZBI,I)
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 30 at (1)
+irifun.f:1854:72:
+
+ 1854 | 40       T1B550=T1B550+CF107(I)*FA(1,SEZBI,I)
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 40 at (1)
+irifun.f:1857:72:
+
+ 1857 | 50       T2B550=T2B550+CF107(I)*FB(1,SEZBI,I)
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 50 at (1)
+irifun.f:1860:72:
+
+ 1860 | 60       T3B550=T3B550+CSZ(I)*SZ(1,SEZB,I)
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 60 at (1)
+irifun.f:1877:72:
+
+ 1877 | 70         T0B900=T0B900+C(I)*D(2,SEZBI,I)
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 70 at (1)
+irifun.f:1880:72:
+
+ 1880 | 80         T1B900=T1B900+CF107(I)*FA(2,SEZBI,I)
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 80 at (1)
+irifun.f:1883:72:
+
+ 1883 | 90         T2B900=T2B900+CF107(I)*FB(2,SEZBI,I)
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 90 at (1)
+irifun.f:1886:72:
+
+ 1886 | 100        T3B900=T3B900+CSZ(I)*SZ(2,SEZB,I)
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 100 at (1)
+irifun.f:1903:72:
+
+ 1903 | 110      T0B150=T0B150+C(I)*D(3,SEZBI,I)
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 110 at (1)
+irifun.f:1906:72:
+
+ 1906 | 120      T1B150=T1B150+CF107(I)*FA(3,SEZBI,I)
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 120 at (1)
+irifun.f:1909:72:
+
+ 1909 | 130      T2B150=T2B150+CF107(I)*FB(3,SEZBI,I)
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 130 at (1)
+irifun.f:1912:72:
+
+ 1912 | 140      T3B150=T3B150+CSZ(I)*SZ(3,SEZB,I)
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 140 at (1)
+irifun.f:1929:72:
+
+ 1929 | 150      T0B250=T0B250+C(I)*D(4,SEZBI,I)
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 150 at (1)
+irifun.f:1932:72:
+
+ 1932 | 160      T1B250=T1B250+CF107(I)*FA(4,SEZBI,I)
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 160 at (1)
+irifun.f:1935:72:
+
+ 1935 | 170      T2B250=T2B250+CF107(I)*FB(4,SEZBI,I)
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 170 at (1)
+irifun.f:1938:72:
+
+ 1938 | 180      T3B250=T3B250+CSZ(I)*SZ(4,SEZB,I)
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 180 at (1)
+irifun.f:1963:72:
+
+ 1963 | 10    K=K+1
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 10 at (1)
+irifun.f:1976:72:
+
+ 1976 | 15    K=K+1
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 15 at (1)
+irifun.f:1981:72:
+
+ 1981 | 18    K=K+1
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 18 at (1)
+irifun.f:2122:72:
+
+ 2122 | 1       STE=STE+A(I)*C(K,IS,I)
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 1 at (1)
+irifun.f:2123:72:
+
+ 2123 | 2     TE(K)=10.**STE
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 2 at (1)
+irifun.f:2130:72:
+
+ 2130 | 11            STE=STE+A(I)*C(4,2,I)
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 11 at (1)
+irifun.f:2140:72:
+
+ 2140 | 3         STE=STE+A(I)*C(2,IS,I)
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 3 at (1)
+irifun.f:2141:72:
+
+ 2141 | 4       TE(J+4)=10.**STE
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 4 at (1)
+irifun.f:2156:72:
+
+ 2156 | 10    K=K+1
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 10 at (1)
+irifun.f:2169:72:
+
+ 2169 | 15    K=K+1
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 15 at (1)
+irifun.f:2174:72:
+
+ 2174 | 18    K=K+1
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 18 at (1)
+irifun.f:2193:72:
+
+ 2193 | 1     SUM=SUM+(ST(I+1)-ST(I))*(AA-BB)*D(I)
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 1 at (1)
+irifun.f:2231:72:
+
+ 2231 | 100     SUM=SUM+(MM(I+1)-MM(I))*(AA-BB)*G(I)
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 100 at (1)
+irifun.f:2291:72:
+
+ 2291 | 100           SUM=SUM+(ST(I+1)-ST(I))*(AA-BB)*XI
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 100 at (1)
+irifun.f:2352:72:
+
+ 2352 | 10    PG1O(K)=FELD(I)
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 10 at (1)
+irifun.f:2370:72:
+
+ 2370 | 10    PG2O(K)=FELD(I)
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 10 at (1)
+irifun.f:2397:72:
+
+ 2397 | 10    PG3O(K)=FELD(I)
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 10 at (1)
+irifun.f:2411:72:
+
+ 2411 | 101   EFE(I)=FIELD(K)
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 101 at (1)
+irifun.f:2414:72:
+
+ 2414 | 111   FE(I)=FIELD(K)
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 111 at (1)
+irifun.f:2881:72:
+
+ 2881 | 1122                diont(i)=0.
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 1122 at (1)
+irifun.f:2973:72:
+
+ 2973 |         DO 8 J=1,6
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: Shared DO termination label 8 at (1)
+irifun.f:2998:72:
+
+ 2998 |           if(hx) 1,2,3
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: Arithmetic IF statement at (1)
+irifun.f:3015:72:
+
+ 3015 | 6               cn(i)=cn(i)/s*100.
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 6 at (1)
+irifun.f:4202:72:
+
+ 4202 | 10     D(3,3,I)=D(3,2,I)*MIRREQ(I)
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 10 at (1)
+irifun.f:4257:72:
+
+ 4257 | 30       N0B400=N0B400+C(I)*D(1,SEZBI,I)
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 30 at (1)
+irifun.f:4266:72:
+
+ 4266 | 70       N0B650=N0B650+C(I)*D(2,SEZBI,I)
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 70 at (1)
+irifun.f:4275:72:
+
+ 4275 | 110      N0B100=N0B100+C(I)*D(3,SEZBI,I)
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 110 at (1)
+irifun.f:4301:72:
+
+ 4301 | 220   ST(I)=(ANO(I+1)-ANO(I))/(AH(I+1)-AH(I))
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 220 at (1)
+irifun.f:4379:72:
+
+ 4379 | 10     D(4,3,I)=D(4,2,I)*MIRREQ(I)
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 10 at (1)
+irifun.f:4434:72:
+
+ 4434 | 30       N0B550=N0B550+C(I)*D(1,SEZBI,I)
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 30 at (1)
+irifun.f:4443:72:
+
+ 4443 | 70       N0B900=N0B900+C(I)*D(2,SEZBI,I)
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 70 at (1)
+irifun.f:4452:72:
+
+ 4452 | 110      N0B150=N0B150+C(I)*D(3,SEZBI,I)
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 110 at (1)
+irifun.f:4461:72:
+
+ 4461 | 150     N0B250=N0B250+C(I)*D(4,SEZBI,I)
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 150 at (1)
+irifun.f:4493:72:
+
+ 4493 | 200   ST1=ST2
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 200 at (1)
+irifun.f:4496:72:
+
+ 4496 | 220   ST(I)=(ANO(I+1)-ANO(I))/(AH(I+1)-AH(I))
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 220 at (1)
+irifun.f:4504:72:
+
+ 4504 | 230   SUM=SUM+(ST(I+1)-ST(I))*(AA-BB)*DNO(I)
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 230 at (1)
+irifun.f:4766:72:
+
+ 4766 |       DO 300 J=1,IHARM
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: Shared DO termination label 300 at (1)
+irifun.f:5090:72:
+
+ 5090 | 10    G(72+K)=FEL2(I)
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 10 at (1)
+irifun.f:5111:72:
+
+ 5111 | 100   H(I)=G(I)
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 100 at (1)
+irifun.f:5369:72:
+
+ 5369 | 1234                            mosum=mosum+mm(i)
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 1234 at (1)
+irifun.f:5549:72:
+
+ 5549 | 1          sum=sum*zlay
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 1 at (1)
+irifun.f:5628:72:
+
+ 5628 | 2                       A(K,L)    = AZV(L+1)
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 2 at (1)
+irifun.f:5636:72:
+
+ 5636 | 3                       AZV(M+1) = A(K,M) * AMAX
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 3 at (1)
+irifun.f:5643:72:
+
+ 5643 | 5                               A(L,M) = A(L,M) - AMAX * AZV(M+1)
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 5 at (1)
+irifun.f:5650:72:
+
+ 5650 | 7                               AMAX = AMAX + A(K,L) * A(N,L)
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 7 at (1)
+irifun.f:5689:72:
+
+ 5689 |                 DO 1 I=1,5
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: Shared DO termination label 1 at (1)
+irifun.f:5690:72:
+
+ 5690 | 1                       ALI(J,I) = 0.
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 1 at (1)
+irifun.f:5693:72:
+
+ 5693 | 3                       XLI(I,K) = RLAY( X(K), HM, SC(I), HX(I) )
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 3 at (1)
+irifun.f:5695:72:
+
+ 5695 | 4                       XLI(I,K) = D1LAY( X(K), HM, SC(I), HX(I) )
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 4 at (1)
+irifun.f:5697:72:
+
+ 5697 | 5                       XLI(I,K) = D2LAY( X(K), HM, SC(I), HX(I) )
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 5 at (1)
+irifun.f:5702:72:
+
+ 5702 |                         DO 6 I=1,N
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: Shared DO termination label 6 at (1)
+irifun.f:5704:72:
+
+ 5704 |      &                                  * XLI(J,K)
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 6 at (1)
+irifun.f:5709:72:
+
+ 5709 | 8                       VAR(I) = ALI(N,I)
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 8 at (1)
+irifun.f:6141:72:
+
+ 6141 |         DO 001 K=1,3
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: Shared DO termination label 1 at (1)
+irifun.f:6142:72:
+
+ 6142 |         DO 001 J=1,2
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: Shared DO termination label 1 at (1)
+irifun.f:6143:72:
+
+ 6143 |         DO 001 I=1,7
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: Shared DO termination label 1 at (1)
+irifun.f:6148:72:
+
+ 6148 |  001    D(I,J,K,M)=Y4(N)
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 1 at (1)
+irifun.f:6151:72:
+
+ 6151 |         DO 002 J=1,2
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: Shared DO termination label 2 at (1)
+irifun.f:6152:72:
+
+ 6152 |         DO 002 I=1,7
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: Shared DO termination label 2 at (1)
+irifun.f:6155:72:
+
+ 6155 |  002    B1(I,J,M)=Y6(N1)
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 2 at (1)
+libtool: compile:  f77 -g -O2 -c irifun.f -o irifun.o >/dev/null 2>&1
+/bin/bash ../../libtool  --tag=F77   --mode=compile f77  -g -O2 -c -o cira.lo cira.f
+libtool: compile:  f77 -g -O2 -c cira.f  -fPIC -o .libs/cira.o
+libtool: compile:  f77 -g -O2 -c cira.f -o cira.o >/dev/null 2>&1
+/bin/bash ../../libtool  --tag=F77   --mode=compile f77  -g -O2 -c -o igrf.lo igrf.f
+libtool: compile:  f77 -g -O2 -c igrf.f  -fPIC -o .libs/igrf.o
+libtool: compile:  f77 -g -O2 -c igrf.f -o igrf.o >/dev/null 2>&1
+/bin/bash ../../libtool  --tag=F77   --mode=compile f77  -g -O2 -c -o iritec.lo iritec.f
+libtool: compile:  f77 -g -O2 -c iritec.f  -fPIC -o .libs/iritec.o
+iritec.f:136:72:
+
+  136 | 2918            if (hr(i).gt.hend) hr(i)=hend
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 2918 at (1)
+libtool: compile:  f77 -g -O2 -c iritec.f -o iritec.o >/dev/null 2>&1
+/bin/bash ../../libtool  --tag=F77   --mode=compile f77  -g -O2 -c -o iridreg.lo iridreg.f
+libtool: compile:  f77 -g -O2 -c iridreg.f  -fPIC -o .libs/iridreg.o
+libtool: compile:  f77 -g -O2 -c iridreg.f -o iridreg.o >/dev/null 2>&1
+/bin/bash ../../libtool  --tag=F77   --mode=compile f77  -g -O2 -c -o solar_loc.lo solar_loc.f
+libtool: compile:  f77 -g -O2 -c solar_loc.f  -fPIC -o .libs/solar_loc.o
+libtool: compile:  f77 -g -O2 -c solar_loc.f -o solar_loc.o >/dev/null 2>&1
+/bin/bash ../../libtool  --tag=F77   --mode=compile f77  -g -O2 -c -o eqn_of_time.lo eqn_of_time.f
+libtool: compile:  f77 -g -O2 -c eqn_of_time.f  -fPIC -o .libs/eqn_of_time.o
+libtool: compile:  f77 -g -O2 -c eqn_of_time.f -o eqn_of_time.o >/dev/null 2>&1
+/bin/bash ../../libtool  --tag=F77   --mode=compile f77  -g -O2 -c -o cnvcoord.lo cnvcoord.f
+libtool: compile:  f77 -g -O2 -c cnvcoord.f  -fPIC -o .libs/cnvcoord.o
+libtool: compile:  f77 -g -O2 -c cnvcoord.f -o cnvcoord.o >/dev/null 2>&1
+/bin/bash ../../libtool  --tag=F77   --mode=compile f77  -g -O2 -c -o cnv_sec_mdhms.lo cnv_sec_mdhms.f
+libtool: compile:  f77 -g -O2 -c cnv_sec_mdhms.f  -fPIC -o .libs/cnv_sec_mdhms.o
+libtool: compile:  f77 -g -O2 -c cnv_sec_mdhms.f -o cnv_sec_mdhms.o >/dev/null 2>&1
+/bin/bash ../../libtool  --tag=F77   --mode=compile f77  -g -O2 -c -o igrf12.lo igrf12.f
+libtool: compile:  f77 -g -O2 -c igrf12.f  -fPIC -o .libs/igrf12.o
+igrf12.f:707:72:
+
+  707 |    10 m     = m + 1
+      |                                                                        1
+Warning: Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 10 at (1)
+libtool: compile:  f77 -g -O2 -c igrf12.f -o igrf12.o >/dev/null 2>&1
+/bin/bash ../../libtool  --tag=F77   --mode=compile f77  -g -O2 -c -o gmetbv.lo gmetbv.f
+libtool: compile:  f77 -g -O2 -c gmetbv.f  -fPIC -o .libs/gmetbv.o
+libtool: compile:  f77 -g -O2 -c gmetbv.f -o gmetbv.o >/dev/null 2>&1
+/bin/bash ../../libtool  --tag=F77   --mode=compile f77  -g -O2 -c -o tprod.lo tprod.f
+libtool: compile:  f77 -g -O2 -c tprod.f  -fPIC -o .libs/tprod.o
+libtool: compile:  f77 -g -O2 -c tprod.f -o tprod.o >/dev/null 2>&1
+/bin/bash ../../libtool  --tag=F77   --mode=compile f77  -g -O2 -c -o uvect.lo uvect.f
+libtool: compile:  f77 -g -O2 -c uvect.f  -fPIC -o .libs/uvect.o
+libtool: compile:  f77 -g -O2 -c uvect.f -o uvect.o >/dev/null 2>&1
+/bin/bash ../../libtool  --tag=F77   --mode=compile f77  -g -O2 -c -o vprod.lo vprod.f
+libtool: compile:  f77 -g -O2 -c vprod.f  -fPIC -o .libs/vprod.o
+libtool: compile:  f77 -g -O2 -c vprod.f -o vprod.o >/dev/null 2>&1
+/bin/bash ../../libtool  --tag=F77   --mode=compile f77  -g -O2 -c -o vrecip.lo vrecip.f
+libtool: compile:  f77 -g -O2 -c vrecip.f  -fPIC -o .libs/vrecip.o
+libtool: compile:  f77 -g -O2 -c vrecip.f -o vrecip.o >/dev/null 2>&1
+/bin/bash ../../libtool  --tag=F77   --mode=link f77  -g -O2   -o libgeo.la -rpath /home/david/Documents/faraday-experiment/MADROOT/lib carmel.lo convrt.lo coord.lo coordf.lo coordff.lo csconv.lo diplat.lo dsf.lo gaspct.lo gdmag.lo gdran.lo gdv.lo gmet.lo gtd7.lo hfun.lo integ.lo invar.lo invlat.lo iterat.lo lines.lo lintra.lo look.lo milmag.lo minv.lo mtran3.lo point.lo rfun.lo rpcart.lo sprod.lo startr.lo tnf.lo vadd.lo vctcnv.lo vmag.lo vsub.lo geo-cgm.lo calndr.lo dater.lo dates.lo iday.lo izlr.lo idmyck.lo jdater.lo jday.lo moname.lo monum.lo wkname.lo TS04.lo Geopack_2008.lo sfc_convert_geo_coord.lo cgm_to_altitude.lo altitude_to_cgm.lo rylm.lo blkdat95.lo isrim.lo basis.lo conduct.lo irisub.lo irifun.lo cira.lo igrf.lo iritec.lo iridreg.lo solar_loc.lo eqn_of_time.lo cnvcoord.lo cnv_sec_mdhms.lo igrf12.lo gmetbv.lo tprod.lo uvect.lo vprod.lo vrecip.lo  
+libtool: link: f77 -shared  -fPIC  .libs/carmel.o .libs/convrt.o .libs/coord.o .libs/coordf.o .libs/coordff.o .libs/csconv.o .libs/diplat.o .libs/dsf.o .libs/gaspct.o .libs/gdmag.o .libs/gdran.o .libs/gdv.o .libs/gmet.o .libs/gtd7.o .libs/hfun.o .libs/integ.o .libs/invar.o .libs/invlat.o .libs/iterat.o .libs/lines.o .libs/lintra.o .libs/look.o .libs/milmag.o .libs/minv.o .libs/mtran3.o .libs/point.o .libs/rfun.o .libs/rpcart.o .libs/sprod.o .libs/startr.o .libs/tnf.o .libs/vadd.o .libs/vctcnv.o .libs/vmag.o .libs/vsub.o .libs/geo-cgm.o .libs/calndr.o .libs/dater.o .libs/dates.o .libs/iday.o .libs/izlr.o .libs/idmyck.o .libs/jdater.o .libs/jday.o .libs/moname.o .libs/monum.o .libs/wkname.o .libs/TS04.o .libs/Geopack_2008.o .libs/sfc_convert_geo_coord.o .libs/cgm_to_altitude.o .libs/altitude_to_cgm.o .libs/rylm.o .libs/blkdat95.o .libs/isrim.o .libs/basis.o .libs/conduct.o .libs/irisub.o .libs/irifun.o .libs/cira.o .libs/igrf.o .libs/iritec.o .libs/iridreg.o .libs/solar_loc.o .libs/eqn_of_time.o .libs/cnvcoord.o .libs/cnv_sec_mdhms.o .libs/igrf12.o .libs/gmetbv.o .libs/tprod.o .libs/uvect.o .libs/vprod.o .libs/vrecip.o    -g -O2   -Wl,-soname -Wl,libgeo.so.0 -o .libs/libgeo.so.0.0.0
+libtool: link: (cd ".libs" && rm -f "libgeo.so.0" && ln -s "libgeo.so.0.0.0" "libgeo.so.0")
+libtool: link: (cd ".libs" && rm -f "libgeo.so" && ln -s "libgeo.so.0.0.0" "libgeo.so")
+libtool: link: ar cr .libs/libgeo.a  carmel.o convrt.o coord.o coordf.o coordff.o csconv.o diplat.o dsf.o gaspct.o gdmag.o gdran.o gdv.o gmet.o gtd7.o hfun.o integ.o invar.o invlat.o iterat.o lines.o lintra.o look.o milmag.o minv.o mtran3.o point.o rfun.o rpcart.o sprod.o startr.o tnf.o vadd.o vctcnv.o vmag.o vsub.o geo-cgm.o calndr.o dater.o dates.o iday.o izlr.o idmyck.o jdater.o jday.o moname.o monum.o wkname.o TS04.o Geopack_2008.o sfc_convert_geo_coord.o cgm_to_altitude.o altitude_to_cgm.o rylm.o blkdat95.o isrim.o basis.o conduct.o irisub.o irifun.o cira.o igrf.o iritec.o iridreg.o solar_loc.o eqn_of_time.o cnvcoord.o cnv_sec_mdhms.o igrf12.o gmetbv.o tprod.o uvect.o vprod.o vrecip.o
+libtool: link: ranlib .libs/libgeo.a
+libtool: link: ( cd ".libs" && rm -f "libgeo.la" && ln -s "../libgeo.la" "libgeo.la" )
+/bin/bash ../../libtool  --tag=F77   --mode=link f77  -g -O2   -o testGeolib testGeolib.o libgeo.la 
+libtool: link: f77 -g -O2 -o .libs/testGeolib testGeolib.o  ./.libs/libgeo.so -Wl,-rpath -Wl,/home/david/Documents/faraday-experiment/MADROOT/lib
+make[2]: Leaving directory '/home/david/Documents/faraday-experiment/MADROOT/source/madf/geolib'
+Making all in madf/applications
+make[2]: Entering directory '/home/david/Documents/faraday-experiment/MADROOT/source/madf/applications'
+f77  -g -O2 -c -o looker1.o looker1.f
+/bin/bash ../../libtool  --tag=F77   --mode=link f77  -g -O2   -o looker1 looker1.o -L../geolib -lgeo 
+libtool: link: f77 -g -O2 -o .libs/looker1 looker1.o  -L../geolib /home/david/Documents/faraday-experiment/MADROOT/source/madf/geolib/.libs/libgeo.so -Wl,-rpath -Wl,/home/david/Documents/faraday-experiment/MADROOT/lib
+make[2]: Leaving directory '/home/david/Documents/faraday-experiment/MADROOT/source/madf/applications'
+Making all in madc/madrec
+make[2]: Entering directory '/home/david/Documents/faraday-experiment/MADROOT/source/madc/madrec'
+/bin/bash ../../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../..    -I../include -g -O2 -MT madrec.lo -MD -MP -MF .deps/madrec.Tpo -c -o madrec.lo madrec.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../.. -I../include -g -O2 -MT madrec.lo -MD -MP -MF .deps/madrec.Tpo -c madrec.c  -fPIC -DPIC -o .libs/madrec.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../.. -I../include -g -O2 -MT madrec.lo -MD -MP -MF .deps/madrec.Tpo -c madrec.c -o madrec.o >/dev/null 2>&1
+mv -f .deps/madrec.Tpo .deps/madrec.Plo
+/bin/bash ../../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../..    -I../include -g -O2 -MT cedar.lo -MD -MP -MF .deps/cedar.Tpo -c -o cedar.lo cedar.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../.. -I../include -g -O2 -MT cedar.lo -MD -MP -MF .deps/cedar.Tpo -c cedar.c  -fPIC -DPIC -o .libs/cedar.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../.. -I../include -g -O2 -MT cedar.lo -MD -MP -MF .deps/cedar.Tpo -c cedar.c -o cedar.o >/dev/null 2>&1
+mv -f .deps/cedar.Tpo .deps/cedar.Plo
+/bin/bash ../../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../..    -I../include -g -O2 -MT cedarIO.lo -MD -MP -MF .deps/cedarIO.Tpo -c -o cedarIO.lo cedarIO.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../.. -I../include -g -O2 -MT cedarIO.lo -MD -MP -MF .deps/cedarIO.Tpo -c cedarIO.c  -fPIC -DPIC -o .libs/cedarIO.o
+cedarIO.c: In function 'getNextCedarAsciiRecord':
+cedarIO.c:446:16: warning: ignoring return value of 'fgets' declared with attribute 'warn_unused_result' [-Wunused-result]
+  446 |         (void) fgets(ss, 200, fp); /* Finish off first line */
+      |                ^~~~~~~~~~~~~~~~~~
+cedarIO.c:453:19: warning: ignoring return value of 'fgets' declared with attribute 'warn_unused_result' [-Wunused-result]
+  453 |            (void) fgets(ss, 200, fp);
+      |                   ^~~~~~~~~~~~~~~~~~
+cedarIO.c: In function 'getNextCosRecord':
+cedarIO.c:713:16: warning: ignoring return value of 'fread' declared with attribute 'warn_unused_result' [-Wunused-result]
+  713 |         (void) fread(ctrlwrd, (size_t) 1, (size_t) 8, fp);
+      |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+cedarIO.c: In function 'writeCbfControlWord':
+cedarIO.c:1108:16: warning: ignoring return value of 'fread' declared with attribute 'warn_unused_result' [-Wunused-result]
+ 1108 |         (void) fread(ctrlwrd, (size_t) 1, (size_t) 8, fp);
+      |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+cedarIO.c: In function 'cedarFileType':
+cedarIO.c:1647:12: warning: ignoring return value of 'fread' declared with attribute 'warn_unused_result' [-Wunused-result]
+ 1647 |     (void) fread(buf, (size_t) 1, (size_t) LBUF, fp);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../.. -I../include -g -O2 -MT cedarIO.lo -MD -MP -MF .deps/cedarIO.Tpo -c cedarIO.c -o cedarIO.o >/dev/null 2>&1
+mv -f .deps/cedarIO.Tpo .deps/cedarIO.Plo
+/bin/bash ../../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../..    -I../include -g -O2 -MT date.lo -MD -MP -MF .deps/date.Tpo -c -o date.lo date.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../.. -I../include -g -O2 -MT date.lo -MD -MP -MF .deps/date.Tpo -c date.c  -fPIC -DPIC -o .libs/date.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../.. -I../include -g -O2 -MT date.lo -MD -MP -MF .deps/date.Tpo -c date.c -o date.o >/dev/null 2>&1
+mv -f .deps/date.Tpo .deps/date.Plo
+/bin/bash ../../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../..    -I../include -g -O2 -MT geometry.lo -MD -MP -MF .deps/geometry.Tpo -c -o geometry.lo geometry.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../.. -I../include -g -O2 -MT geometry.lo -MD -MP -MF .deps/geometry.Tpo -c geometry.c  -fPIC -DPIC -o .libs/geometry.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../.. -I../include -g -O2 -MT geometry.lo -MD -MP -MF .deps/geometry.Tpo -c geometry.c -o geometry.o >/dev/null 2>&1
+mv -f .deps/geometry.Tpo .deps/geometry.Plo
+/bin/bash ../../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../..    -I../include -g -O2 -MT select.lo -MD -MP -MF .deps/select.Tpo -c -o select.lo select.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../.. -I../include -g -O2 -MT select.lo -MD -MP -MF .deps/select.Tpo -c select.c  -fPIC -DPIC -o .libs/select.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../.. -I../include -g -O2 -MT select.lo -MD -MP -MF .deps/select.Tpo -c select.c -o select.o >/dev/null 2>&1
+mv -f .deps/select.Tpo .deps/select.Plo
+/bin/bash ../../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../..    -I../include -g -O2 -MT maddata.lo -MD -MP -MF .deps/maddata.Tpo -c -o maddata.lo maddata.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../.. -I../include -g -O2 -MT maddata.lo -MD -MP -MF .deps/maddata.Tpo -c maddata.c  -fPIC -DPIC -o .libs/maddata.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../.. -I../include -g -O2 -MT maddata.lo -MD -MP -MF .deps/maddata.Tpo -c maddata.c -o maddata.o >/dev/null 2>&1
+mv -f .deps/maddata.Tpo .deps/maddata.Plo
+/bin/bash ../../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../..    -I../include -g -O2 -MT madDeriveEngine.lo -MD -MP -MF .deps/madDeriveEngine.Tpo -c -o madDeriveEngine.lo madDeriveEngine.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../.. -I../include -g -O2 -MT madDeriveEngine.lo -MD -MP -MF .deps/madDeriveEngine.Tpo -c madDeriveEngine.c  -fPIC -DPIC -o .libs/madDeriveEngine.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../.. -I../include -g -O2 -MT madDeriveEngine.lo -MD -MP -MF .deps/madDeriveEngine.Tpo -c madDeriveEngine.c -o madDeriveEngine.o >/dev/null 2>&1
+mv -f .deps/madDeriveEngine.Tpo .deps/madDeriveEngine.Plo
+/bin/bash ../../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../..    -I../include -g -O2 -MT madDeriveMethods.lo -MD -MP -MF .deps/madDeriveMethods.Tpo -c -o madDeriveMethods.lo madDeriveMethods.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../.. -I../include -g -O2 -MT madDeriveMethods.lo -MD -MP -MF .deps/madDeriveMethods.Tpo -c madDeriveMethods.c  -fPIC -DPIC -o .libs/madDeriveMethods.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../.. -I../include -g -O2 -MT madDeriveMethods.lo -MD -MP -MF .deps/madDeriveMethods.Tpo -c madDeriveMethods.c -o madDeriveMethods.o >/dev/null 2>&1
+mv -f .deps/madDeriveMethods.Tpo .deps/madDeriveMethods.Plo
+/bin/bash ../../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../..    -I../include -g -O2 -MT solpos.lo -MD -MP -MF .deps/solpos.Tpo -c -o solpos.lo solpos.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../.. -I../include -g -O2 -MT solpos.lo -MD -MP -MF .deps/solpos.Tpo -c solpos.c  -fPIC -DPIC -o .libs/solpos.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../.. -I../include -g -O2 -MT solpos.lo -MD -MP -MF .deps/solpos.Tpo -c solpos.c -o solpos.o >/dev/null 2>&1
+mv -f .deps/solpos.Tpo .deps/solpos.Plo
+/bin/bash ../../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../..    -I../include -g -O2 -MT madrecF77.lo -MD -MP -MF .deps/madrecF77.Tpo -c -o madrecF77.lo madrecF77.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../.. -I../include -g -O2 -MT madrecF77.lo -MD -MP -MF .deps/madrecF77.Tpo -c madrecF77.c  -fPIC -DPIC -o .libs/madrecF77.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../.. -I../include -g -O2 -MT madrecF77.lo -MD -MP -MF .deps/madrecF77.Tpo -c madrecF77.c -o madrecF77.o >/dev/null 2>&1
+mv -f .deps/madrecF77.Tpo .deps/madrecF77.Plo
+/bin/bash ../../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../..    -I../include -g -O2 -MT maddataF77.lo -MD -MP -MF .deps/maddataF77.Tpo -c -o maddataF77.lo maddataF77.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../.. -I../include -g -O2 -MT maddataF77.lo -MD -MP -MF .deps/maddataF77.Tpo -c maddataF77.c  -fPIC -DPIC -o .libs/maddataF77.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../.. -I../include -g -O2 -MT maddataF77.lo -MD -MP -MF .deps/maddataF77.Tpo -c maddataF77.c -o maddataF77.o >/dev/null 2>&1
+mv -f .deps/maddataF77.Tpo .deps/maddataF77.Plo
+/bin/bash ../../libtool  --tag=CC   --mode=link gcc -I../include -g -O2   -o libmadrec.la -rpath /home/david/Documents/faraday-experiment/MADROOT/lib madrec.lo cedar.lo cedarIO.lo date.lo geometry.lo select.lo maddata.lo madDeriveEngine.lo madDeriveMethods.lo solpos.lo madrecF77.lo maddataF77.lo  
+libtool: link: gcc -shared  -fPIC -DPIC  .libs/madrec.o .libs/cedar.o .libs/cedarIO.o .libs/date.o .libs/geometry.o .libs/select.o .libs/maddata.o .libs/madDeriveEngine.o .libs/madDeriveMethods.o .libs/solpos.o .libs/madrecF77.o .libs/maddataF77.o    -g -O2   -Wl,-soname -Wl,libmadrec.so.0 -o .libs/libmadrec.so.0.0.0
+libtool: link: (cd ".libs" && rm -f "libmadrec.so.0" && ln -s "libmadrec.so.0.0.0" "libmadrec.so.0")
+libtool: link: (cd ".libs" && rm -f "libmadrec.so" && ln -s "libmadrec.so.0.0.0" "libmadrec.so")
+libtool: link: ar cr .libs/libmadrec.a  madrec.o cedar.o cedarIO.o date.o geometry.o select.o maddata.o madDeriveEngine.o madDeriveMethods.o solpos.o madrecF77.o maddataF77.o
+libtool: link: ranlib .libs/libmadrec.a
+libtool: link: ( cd ".libs" && rm -f "libmadrec.la" && ln -s "../libmadrec.la" "libmadrec.la" )
+make[2]: Leaving directory '/home/david/Documents/faraday-experiment/MADROOT/source/madc/madrec'
+make[2]: Entering directory '/home/david/Documents/faraday-experiment/MADROOT/source'
+make[2]: Leaving directory '/home/david/Documents/faraday-experiment/MADROOT/source'
+make[1]: Leaving directory '/home/david/Documents/faraday-experiment/MADROOT/source'
+********** make check **********
+Making check in madf/geolib
+make[1]: Entering directory '/home/david/Documents/faraday-experiment/MADROOT/source/madf/geolib'
+make  sfctest testISRIM
+make[2]: Entering directory '/home/david/Documents/faraday-experiment/MADROOT/source/madf/geolib'
+f77  -g -O2 -c -o sfctest.o sfctest.f
+/bin/bash ../../libtool  --tag=F77   --mode=link f77  -g -O2   -o sfctest sfctest.o libgeo.la 
+libtool: link: f77 -g -O2 -o .libs/sfctest sfctest.o  ./.libs/libgeo.so -Wl,-rpath -Wl,/home/david/Documents/faraday-experiment/MADROOT/lib
+f77  -g -O2 -c -o testISRIM.o testISRIM.f
+/bin/bash ../../libtool  --tag=F77   --mode=link f77  -g -O2   -o testISRIM testISRIM.o libgeo.la 
+libtool: link: f77 -g -O2 -o .libs/testISRIM testISRIM.o  ./.libs/libgeo.so -Wl,-rpath -Wl,/home/david/Documents/faraday-experiment/MADROOT/lib
+make[2]: Leaving directory '/home/david/Documents/faraday-experiment/MADROOT/source/madf/geolib'
+make[1]: Leaving directory '/home/david/Documents/faraday-experiment/MADROOT/source/madf/geolib'
+Making check in madf/applications
+make[1]: Entering directory '/home/david/Documents/faraday-experiment/MADROOT/source/madf/applications'
+make[1]: Nothing to be done for 'check'.
+make[1]: Leaving directory '/home/david/Documents/faraday-experiment/MADROOT/source/madf/applications'
+Making check in madc/madrec
+make[1]: Entering directory '/home/david/Documents/faraday-experiment/MADROOT/source/madc/madrec'
+make  testMadrec
+make[2]: Entering directory '/home/david/Documents/faraday-experiment/MADROOT/source/madc/madrec'
+gcc -DHAVE_CONFIG_H -I. -I../..    -I../include -g -O2 -MT testMadrec.o -MD -MP -MF .deps/testMadrec.Tpo -c -o testMadrec.o testMadrec.c
+mv -f .deps/testMadrec.Tpo .deps/testMadrec.Po
+/bin/bash ../../libtool  --tag=CC   --mode=link gcc -I../include -g -O2   -o testMadrec testMadrec.o -lmadrec -L../../madf/geolib -lgeo -L/usr/lib/gcc/x86_64-linux-gnu/9 -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/9/../../.. -lgfortran -lm -lquadmath 
+libtool: link: gcc -I../include -g -O2 -o .libs/testMadrec testMadrec.o  /home/david/Documents/faraday-experiment/MADROOT/source/madc/madrec/.libs/libmadrec.so -L../../madf/geolib /home/david/Documents/faraday-experiment/MADROOT/source/madf/geolib/.libs/libgeo.so -L/usr/lib/gcc/x86_64-linux-gnu/9 -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/9/../../.. -lgfortran -lm -lquadmath -Wl,-rpath -Wl,/home/david/Documents/faraday-experiment/MADROOT/lib
+make[2]: Leaving directory '/home/david/Documents/faraday-experiment/MADROOT/source/madc/madrec'
+make[1]: Leaving directory '/home/david/Documents/faraday-experiment/MADROOT/source/madc/madrec'
+make[1]: Entering directory '/home/david/Documents/faraday-experiment/MADROOT/source'
+make[1]: Leaving directory '/home/david/Documents/faraday-experiment/MADROOT/source'
+********** make install **********
+Making install in madf/geolib
+make[1]: Entering directory '/home/david/Documents/faraday-experiment/MADROOT/source/madf/geolib'
+make[2]: Entering directory '/home/david/Documents/faraday-experiment/MADROOT/source/madf/geolib'
+ /usr/bin/mkdir -p '/home/david/Documents/faraday-experiment/MADROOT/lib'
+ /bin/bash ../../libtool   --mode=install /usr/bin/install -c   libgeo.la '/home/david/Documents/faraday-experiment/MADROOT/lib'
+libtool: install: /usr/bin/install -c .libs/libgeo.so.0.0.0 /home/david/Documents/faraday-experiment/MADROOT/lib/libgeo.so.0.0.0
+libtool: install: (cd /home/david/Documents/faraday-experiment/MADROOT/lib && { ln -s -f libgeo.so.0.0.0 libgeo.so.0 || { rm -f libgeo.so.0 && ln -s libgeo.so.0.0.0 libgeo.so.0; }; })
+libtool: install: (cd /home/david/Documents/faraday-experiment/MADROOT/lib && { ln -s -f libgeo.so.0.0.0 libgeo.so || { rm -f libgeo.so && ln -s libgeo.so.0.0.0 libgeo.so; }; })
+libtool: install: /usr/bin/install -c .libs/libgeo.lai /home/david/Documents/faraday-experiment/MADROOT/lib/libgeo.la
+libtool: install: /usr/bin/install -c .libs/libgeo.a /home/david/Documents/faraday-experiment/MADROOT/lib/libgeo.a
+libtool: install: chmod 644 /home/david/Documents/faraday-experiment/MADROOT/lib/libgeo.a
+libtool: install: ranlib /home/david/Documents/faraday-experiment/MADROOT/lib/libgeo.a
+libtool: finish: PATH="/home/david/anaconda3/envs/faraday-experiment/bin:/home/david/anaconda3/condabin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/sbin" ldconfig -n /home/david/Documents/faraday-experiment/MADROOT/lib
+----------------------------------------------------------------------
+Libraries have been installed in:
+   /home/david/Documents/faraday-experiment/MADROOT/lib
+
+If you ever happen to want to link against installed libraries
+in a given directory, LIBDIR, you must either use libtool, and
+specify the full pathname of the library, or use the '-LLIBDIR'
+flag during linking and do at least one of the following:
+   - add LIBDIR to the 'LD_LIBRARY_PATH' environment variable
+     during execution
+   - add LIBDIR to the 'LD_RUN_PATH' environment variable
+     during linking
+   - use the '-Wl,-rpath -Wl,LIBDIR' linker flag
+   - have your system administrator add LIBDIR to '/etc/ld.so.conf'
+
+See any operating system documentation about shared libraries for
+more information, such as the ld(1) and ld.so(8) manual pages.
+----------------------------------------------------------------------
+ /usr/bin/mkdir -p '/home/david/Documents/faraday-experiment/MADROOT/bin'
+  /bin/bash ../../libtool   --mode=install /usr/bin/install -c testGeolib '/home/david/Documents/faraday-experiment/MADROOT/bin'
+libtool: install: /usr/bin/install -c .libs/testGeolib /home/david/Documents/faraday-experiment/MADROOT/bin/testGeolib
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/home/david/Documents/faraday-experiment/MADROOT/source/madf/geolib'
+make[1]: Leaving directory '/home/david/Documents/faraday-experiment/MADROOT/source/madf/geolib'
+Making install in madf/applications
+make[1]: Entering directory '/home/david/Documents/faraday-experiment/MADROOT/source/madf/applications'
+make[2]: Entering directory '/home/david/Documents/faraday-experiment/MADROOT/source/madf/applications'
+ /usr/bin/mkdir -p '/home/david/Documents/faraday-experiment/MADROOT/bin'
+  /bin/bash ../../libtool   --mode=install /usr/bin/install -c looker1 '/home/david/Documents/faraday-experiment/MADROOT/bin'
+libtool: install: /usr/bin/install -c .libs/looker1 /home/david/Documents/faraday-experiment/MADROOT/bin/looker1
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/home/david/Documents/faraday-experiment/MADROOT/source/madf/applications'
+make[1]: Leaving directory '/home/david/Documents/faraday-experiment/MADROOT/source/madf/applications'
+Making install in madc/madrec
+make[1]: Entering directory '/home/david/Documents/faraday-experiment/MADROOT/source/madc/madrec'
+make[2]: Entering directory '/home/david/Documents/faraday-experiment/MADROOT/source/madc/madrec'
+ /usr/bin/mkdir -p '/home/david/Documents/faraday-experiment/MADROOT/lib'
+ /bin/bash ../../libtool   --mode=install /usr/bin/install -c   libmadrec.la '/home/david/Documents/faraday-experiment/MADROOT/lib'
+libtool: install: /usr/bin/install -c .libs/libmadrec.so.0.0.0 /home/david/Documents/faraday-experiment/MADROOT/lib/libmadrec.so.0.0.0
+libtool: install: (cd /home/david/Documents/faraday-experiment/MADROOT/lib && { ln -s -f libmadrec.so.0.0.0 libmadrec.so.0 || { rm -f libmadrec.so.0 && ln -s libmadrec.so.0.0.0 libmadrec.so.0; }; })
+libtool: install: (cd /home/david/Documents/faraday-experiment/MADROOT/lib && { ln -s -f libmadrec.so.0.0.0 libmadrec.so || { rm -f libmadrec.so && ln -s libmadrec.so.0.0.0 libmadrec.so; }; })
+libtool: install: /usr/bin/install -c .libs/libmadrec.lai /home/david/Documents/faraday-experiment/MADROOT/lib/libmadrec.la
+libtool: install: /usr/bin/install -c .libs/libmadrec.a /home/david/Documents/faraday-experiment/MADROOT/lib/libmadrec.a
+libtool: install: chmod 644 /home/david/Documents/faraday-experiment/MADROOT/lib/libmadrec.a
+libtool: install: ranlib /home/david/Documents/faraday-experiment/MADROOT/lib/libmadrec.a
+libtool: finish: PATH="/home/david/anaconda3/envs/faraday-experiment/bin:/home/david/anaconda3/condabin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/sbin" ldconfig -n /home/david/Documents/faraday-experiment/MADROOT/lib
+----------------------------------------------------------------------
+Libraries have been installed in:
+   /home/david/Documents/faraday-experiment/MADROOT/lib
+
+If you ever happen to want to link against installed libraries
+in a given directory, LIBDIR, you must either use libtool, and
+specify the full pathname of the library, or use the '-LLIBDIR'
+flag during linking and do at least one of the following:
+   - add LIBDIR to the 'LD_LIBRARY_PATH' environment variable
+     during execution
+   - add LIBDIR to the 'LD_RUN_PATH' environment variable
+     during linking
+   - use the '-Wl,-rpath -Wl,LIBDIR' linker flag
+   - have your system administrator add LIBDIR to '/etc/ld.so.conf'
+
+See any operating system documentation about shared libraries for
+more information, such as the ld(1) and ld.so(8) manual pages.
+----------------------------------------------------------------------
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/home/david/Documents/faraday-experiment/MADROOT/source/madc/madrec'
+make[1]: Leaving directory '/home/david/Documents/faraday-experiment/MADROOT/source/madc/madrec'
+make[1]: Entering directory '/home/david/Documents/faraday-experiment/MADROOT/source'
+make[2]: Entering directory '/home/david/Documents/faraday-experiment/MADROOT/source'
+make[2]: Nothing to be done for 'install-exec-am'.
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/home/david/Documents/faraday-experiment/MADROOT/source'
+make[1]: Leaving directory '/home/david/Documents/faraday-experiment/MADROOT/source'
+********** configureScripts **********
+/home/david/Documents/faraday-experiment/MADROOT/source/madpy/scripts/bin/convertToMadrigal3.py -> /home/david/Documents/faraday-experiment/MADROOT/bin/convertToMadrigal3.py
+/home/david/Documents/faraday-experiment/MADROOT/source/madpy/scripts/bin/exportToHdf.py -> /home/david/Documents/faraday-experiment/MADROOT/bin/exportToHdf.py
+/home/david/Documents/faraday-experiment/MADROOT/source/madpy/scripts/bin/rebuildInstParmTab.py -> /home/david/Documents/faraday-experiment/MADROOT/bin/rebuildInstParmTab.py
+/home/david/Documents/faraday-experiment/MADROOT/source/madpy/scripts/bin/rebuildInstKindatTab.py -> /home/david/Documents/faraday-experiment/MADROOT/bin/rebuildInstKindatTab.py
+/home/david/Documents/faraday-experiment/MADROOT/source/madpy/scripts/bin/checkMetadata.py -> /home/david/Documents/faraday-experiment/MADROOT/bin/checkMetadata.py
+/home/david/Documents/faraday-experiment/MADROOT/source/madpy/scripts/bin/setAccess -> /home/david/Documents/faraday-experiment/MADROOT/bin/setAccess
+/home/david/Documents/faraday-experiment/MADROOT/source/madpy/scripts/bin/isprint -> /home/david/Documents/faraday-experiment/MADROOT/bin/isprint
+/home/david/Documents/faraday-experiment/MADROOT/source/madpy/scripts/bin/isprint_deprecated.py -> /home/david/Documents/faraday-experiment/MADROOT/bin/isprint_deprecated.py
+/home/david/Documents/faraday-experiment/MADROOT/source/madpy/scripts/bin/tarExperiments -> /home/david/Documents/faraday-experiment/MADROOT/bin/tarExperiments
+/home/david/Documents/faraday-experiment/MADROOT/source/madpy/scripts/bin/checkGeoUpdate.py -> /home/david/Documents/faraday-experiment/MADROOT/bin/checkGeoUpdate.py
+/home/david/Documents/faraday-experiment/MADROOT/source/madpy/scripts/bin/updateFileTab.py -> /home/david/Documents/faraday-experiment/MADROOT/bin/updateFileTab.py
+/home/david/Documents/faraday-experiment/MADROOT/source/madpy/scripts/bin/createExpWithFile.py -> /home/david/Documents/faraday-experiment/MADROOT/bin/createExpWithFile.py
+/home/david/Documents/faraday-experiment/MADROOT/source/madpy/scripts/bin/createRTExp.py -> /home/david/Documents/faraday-experiment/MADROOT/bin/createRTExp.py
+/home/david/Documents/faraday-experiment/MADROOT/source/madpy/scripts/bin/addFileToExp.py -> /home/david/Documents/faraday-experiment/MADROOT/bin/addFileToExp.py
+/home/david/Documents/faraday-experiment/MADROOT/source/madpy/scripts/bin/updateFileInExp.py -> /home/david/Documents/faraday-experiment/MADROOT/bin/updateFileInExp.py
+/home/david/Documents/faraday-experiment/MADROOT/source/madpy/scripts/bin/removeFileFromExp.py -> /home/david/Documents/faraday-experiment/MADROOT/bin/removeFileFromExp.py
+/home/david/Documents/faraday-experiment/MADROOT/source/madpy/scripts/bin/changeFileStatus.py -> /home/david/Documents/faraday-experiment/MADROOT/bin/changeFileStatus.py
+/home/david/Documents/faraday-experiment/MADROOT/source/madpy/scripts/bin/changeExpStatus.py -> /home/david/Documents/faraday-experiment/MADROOT/bin/changeExpStatus.py
+/home/david/Documents/faraday-experiment/MADROOT/source/madpy/scripts/bin/createRecordPlots.py -> /home/david/Documents/faraday-experiment/MADROOT/bin/createRecordPlots.py
+/home/david/Documents/faraday-experiment/MADROOT/source/madpy/scripts/bin/updateMaster -> /home/david/Documents/faraday-experiment/MADROOT/bin/updateMaster
+/home/david/Documents/faraday-experiment/MADROOT/source/madpy/scripts/bin/applyDirConvention.py -> /home/david/Documents/faraday-experiment/MADROOT/bin/applyDirConvention.py
+/home/david/Documents/faraday-experiment/MADROOT/source/madpy/scripts/bin/configureExperiments.py -> /home/david/Documents/faraday-experiment/MADROOT/configureExperiments
+/home/david/Documents/faraday-experiment/MADROOT/source/madpy/scripts/bin/updateExpTimes.py -> /home/david/Documents/faraday-experiment/MADROOT/bin/updateExpTimes.py
+/home/david/Documents/faraday-experiment/MADROOT/source/madpy/scripts/bin/isTrusted.py -> /home/david/Documents/faraday-experiment/MADROOT/bin/isTrusted.py
+/home/david/Documents/faraday-experiment/MADROOT/source/madpy/scripts/bin/switchMadrigal.py -> /home/david/Documents/faraday-experiment/MADROOT/bin/switchMadrigal.py
+/home/david/Documents/faraday-experiment/MADROOT/source/madpy/scripts/bin/createCachedFiles.py -> /home/david/Documents/faraday-experiment/MADROOT/bin/createCachedFiles.py
+/home/david/Documents/faraday-experiment/MADROOT/source/madpy/scripts/bin/createCachedHdf5Files.py -> /home/david/Documents/faraday-experiment/MADROOT/bin/createCachedHdf5Files.py
+/home/david/Documents/faraday-experiment/MADROOT/source/madpy/scripts/bin/createMadrigalHdf5FromMatlab.py -> /home/david/Documents/faraday-experiment/MADROOT/bin/createMadrigalHdf5FromMatlab.py
+/home/david/Documents/faraday-experiment/MADROOT/source/madpy/scripts/bin/registrationAdmin.py -> /home/david/Documents/faraday-experiment/MADROOT/bin/registrationAdmin.py
+/home/david/Documents/faraday-experiment/MADROOT/source/madpy/scripts/bin/testWebConfig.py -> /home/david/Documents/faraday-experiment/MADROOT/bin/testWebConfig.py
+/home/david/Documents/faraday-experiment/MADROOT/source/madpy/scripts/bin/checkParmsCodes.py -> /home/david/Documents/faraday-experiment/MADROOT/bin/checkParmsCodes.py
+/home/david/Documents/faraday-experiment/MADROOT/source/madpy/scripts/bin/updateMadDerivations.py -> /home/david/Documents/faraday-experiment/MADROOT/bin/updateMadDerivations.py
+/home/david/Documents/faraday-experiment/MADROOT/source/madpy/scripts/bin/checkSiteIs3.py -> /home/david/Documents/faraday-experiment/MADROOT/bin/checkSiteIs3.py
+********** Installing bootstrap calendar **********
+voy a borrar
+borre
+DESCOMPRIMIENDO
+nuevo comando
+running install
+running bdist_egg
+running egg_info
+writing django_bootstrap_calendar.egg-info/PKG-INFO
+writing dependency_links to django_bootstrap_calendar.egg-info/dependency_links.txt
+writing requirements to django_bootstrap_calendar.egg-info/requires.txt
+writing top-level names to django_bootstrap_calendar.egg-info/top_level.txt
+reading manifest file 'django_bootstrap_calendar.egg-info/SOURCES.txt'
+reading manifest template 'MANIFEST.in'
+warning: no files found matching '*.gif' under directory 'django_bootstrap_calendar'
+warning: no files found matching '*jpg' under directory 'django_bootstrap_calendar'
+warning: no files found matching '*jpeg' under directory 'django_bootstrap_calendar'
+warning: no files found matching '*svg' under directory 'django_bootstrap_calendar'
+adding license file 'LICENSE'
+adding license file 'AUTHORS.rst'
+writing manifest file 'django_bootstrap_calendar.egg-info/SOURCES.txt'
+installing library code to build/bdist.linux-x86_64/egg
+running install_lib
+running build_py
+creating build
+creating build/lib
+creating build/lib/django_bootstrap_calendar
+copying django_bootstrap_calendar/urls.py -> build/lib/django_bootstrap_calendar
+copying django_bootstrap_calendar/serializers.py -> build/lib/django_bootstrap_calendar
+copying django_bootstrap_calendar/utils.py -> build/lib/django_bootstrap_calendar
+copying django_bootstrap_calendar/models.py -> build/lib/django_bootstrap_calendar
+copying django_bootstrap_calendar/__init__.py -> build/lib/django_bootstrap_calendar
+copying django_bootstrap_calendar/views.py -> build/lib/django_bootstrap_calendar
+creating build/lib/django_bootstrap_calendar/.ropeproject
+copying django_bootstrap_calendar/.ropeproject/config.py -> build/lib/django_bootstrap_calendar/.ropeproject
+creating build/lib/django_bootstrap_calendar/static
+creating build/lib/django_bootstrap_calendar/static/css
+copying django_bootstrap_calendar/static/css/calendar.css -> build/lib/django_bootstrap_calendar/static/css
+copying django_bootstrap_calendar/static/css/calendar.min.css -> build/lib/django_bootstrap_calendar/static/css
+copying django_bootstrap_calendar/static/css/django_bootstrap_calendar.css -> build/lib/django_bootstrap_calendar/static/css
+creating build/lib/django_bootstrap_calendar/static/img
+copying django_bootstrap_calendar/static/img/dark_wood.png -> build/lib/django_bootstrap_calendar/static/img
+copying django_bootstrap_calendar/static/img/slide-bg.png -> build/lib/django_bootstrap_calendar/static/img
+copying django_bootstrap_calendar/static/img/tick.png -> build/lib/django_bootstrap_calendar/static/img
+creating build/lib/django_bootstrap_calendar/static/js
+copying django_bootstrap_calendar/static/js/bootstrap.min.js -> build/lib/django_bootstrap_calendar/static/js
+copying django_bootstrap_calendar/static/js/calendar.js -> build/lib/django_bootstrap_calendar/static/js
+copying django_bootstrap_calendar/static/js/calendar.min.js -> build/lib/django_bootstrap_calendar/static/js
+copying django_bootstrap_calendar/static/js/jquery.min.js -> build/lib/django_bootstrap_calendar/static/js
+copying django_bootstrap_calendar/static/js/template.js -> build/lib/django_bootstrap_calendar/static/js
+copying django_bootstrap_calendar/static/js/underscore-min.js -> build/lib/django_bootstrap_calendar/static/js
+creating build/lib/django_bootstrap_calendar/static/js/language
+copying django_bootstrap_calendar/static/js/language/bs-BA.js -> build/lib/django_bootstrap_calendar/static/js/language
+copying django_bootstrap_calendar/static/js/language/cs-CZ.js -> build/lib/django_bootstrap_calendar/static/js/language
+copying django_bootstrap_calendar/static/js/language/da-DK.js -> build/lib/django_bootstrap_calendar/static/js/language
+copying django_bootstrap_calendar/static/js/language/de-AT.js -> build/lib/django_bootstrap_calendar/static/js/language
+copying django_bootstrap_calendar/static/js/language/de-DE.js -> build/lib/django_bootstrap_calendar/static/js/language
+copying django_bootstrap_calendar/static/js/language/el-GR.js -> build/lib/django_bootstrap_calendar/static/js/language
+copying django_bootstrap_calendar/static/js/language/es-ES.js -> build/lib/django_bootstrap_calendar/static/js/language
+copying django_bootstrap_calendar/static/js/language/es-MX.js -> build/lib/django_bootstrap_calendar/static/js/language
+copying django_bootstrap_calendar/static/js/language/fr-FR.js -> build/lib/django_bootstrap_calendar/static/js/language
+copying django_bootstrap_calendar/static/js/language/it-IT.js -> build/lib/django_bootstrap_calendar/static/js/language
+copying django_bootstrap_calendar/static/js/language/ko-KR.js -> build/lib/django_bootstrap_calendar/static/js/language
+copying django_bootstrap_calendar/static/js/language/nl-NL.js -> build/lib/django_bootstrap_calendar/static/js/language
+copying django_bootstrap_calendar/static/js/language/no-NO.js -> build/lib/django_bootstrap_calendar/static/js/language
+copying django_bootstrap_calendar/static/js/language/pl-PL.js -> build/lib/django_bootstrap_calendar/static/js/language
+copying django_bootstrap_calendar/static/js/language/pt-BR.js -> build/lib/django_bootstrap_calendar/static/js/language
+copying django_bootstrap_calendar/static/js/language/ru-RU.js -> build/lib/django_bootstrap_calendar/static/js/language
+copying django_bootstrap_calendar/static/js/language/sl-SL.js -> build/lib/django_bootstrap_calendar/static/js/language
+copying django_bootstrap_calendar/static/js/language/sv-SE.js -> build/lib/django_bootstrap_calendar/static/js/language
+copying django_bootstrap_calendar/static/js/language/template.js -> build/lib/django_bootstrap_calendar/static/js/language
+copying django_bootstrap_calendar/static/js/language/tr-TR.js -> build/lib/django_bootstrap_calendar/static/js/language
+copying django_bootstrap_calendar/static/js/language/zh-CN.js -> build/lib/django_bootstrap_calendar/static/js/language
+creating build/lib/django_bootstrap_calendar/static/tmpls
+copying django_bootstrap_calendar/static/tmpls/day.html -> build/lib/django_bootstrap_calendar/static/tmpls
+copying django_bootstrap_calendar/static/tmpls/events-list.html -> build/lib/django_bootstrap_calendar/static/tmpls
+copying django_bootstrap_calendar/static/tmpls/modal.html -> build/lib/django_bootstrap_calendar/static/tmpls
+copying django_bootstrap_calendar/static/tmpls/month-day.html -> build/lib/django_bootstrap_calendar/static/tmpls
+copying django_bootstrap_calendar/static/tmpls/month.html -> build/lib/django_bootstrap_calendar/static/tmpls
+copying django_bootstrap_calendar/static/tmpls/week-days.html -> build/lib/django_bootstrap_calendar/static/tmpls
+copying django_bootstrap_calendar/static/tmpls/week.html -> build/lib/django_bootstrap_calendar/static/tmpls
+copying django_bootstrap_calendar/static/tmpls/year-month.html -> build/lib/django_bootstrap_calendar/static/tmpls
+copying django_bootstrap_calendar/static/tmpls/year.html -> build/lib/django_bootstrap_calendar/static/tmpls
+creating build/lib/django_bootstrap_calendar/templates
+copying django_bootstrap_calendar/templates/base.html -> build/lib/django_bootstrap_calendar/templates
+creating build/lib/django_bootstrap_calendar/templates/django_bootstrap_calendar
+copying django_bootstrap_calendar/templates/django_bootstrap_calendar/calendar.html -> build/lib/django_bootstrap_calendar/templates/django_bootstrap_calendar
+copying django_bootstrap_calendar/templates/django_bootstrap_calendar/calendar_events.html -> build/lib/django_bootstrap_calendar/templates/django_bootstrap_calendar
+creating build/lib/django_bootstrap_calendar/templates/django_bootstrap_calendar/partial
+copying django_bootstrap_calendar/templates/django_bootstrap_calendar/partial/calendar.html -> build/lib/django_bootstrap_calendar/templates/django_bootstrap_calendar/partial
+copying django_bootstrap_calendar/templates/django_bootstrap_calendar/partial/calendar_controls.html -> build/lib/django_bootstrap_calendar/templates/django_bootstrap_calendar/partial
+copying django_bootstrap_calendar/templates/django_bootstrap_calendar/partial/calendar_css.html -> build/lib/django_bootstrap_calendar/templates/django_bootstrap_calendar/partial
+copying django_bootstrap_calendar/templates/django_bootstrap_calendar/partial/calendar_init.html -> build/lib/django_bootstrap_calendar/templates/django_bootstrap_calendar/partial
+copying django_bootstrap_calendar/templates/django_bootstrap_calendar/partial/calendar_js.html -> build/lib/django_bootstrap_calendar/templates/django_bootstrap_calendar/partial
+creating build/lib/django_bootstrap_calendar/templatetags
+copying django_bootstrap_calendar/templatetags/__init__.py -> build/lib/django_bootstrap_calendar/templatetags
+copying django_bootstrap_calendar/templatetags/bootstrap_calendar.py -> build/lib/django_bootstrap_calendar/templatetags
+creating build/bdist.linux-x86_64
+creating build/bdist.linux-x86_64/egg
+creating build/bdist.linux-x86_64/egg/django_bootstrap_calendar
+copying build/lib/django_bootstrap_calendar/urls.py -> build/bdist.linux-x86_64/egg/django_bootstrap_calendar
+copying build/lib/django_bootstrap_calendar/serializers.py -> build/bdist.linux-x86_64/egg/django_bootstrap_calendar
+copying build/lib/django_bootstrap_calendar/utils.py -> build/bdist.linux-x86_64/egg/django_bootstrap_calendar
+creating build/bdist.linux-x86_64/egg/django_bootstrap_calendar/static
+creating build/bdist.linux-x86_64/egg/django_bootstrap_calendar/static/js
+copying build/lib/django_bootstrap_calendar/static/js/jquery.min.js -> build/bdist.linux-x86_64/egg/django_bootstrap_calendar/static/js
+copying build/lib/django_bootstrap_calendar/static/js/calendar.min.js -> build/bdist.linux-x86_64/egg/django_bootstrap_calendar/static/js
+copying build/lib/django_bootstrap_calendar/static/js/bootstrap.min.js -> build/bdist.linux-x86_64/egg/django_bootstrap_calendar/static/js
+copying build/lib/django_bootstrap_calendar/static/js/calendar.js -> build/bdist.linux-x86_64/egg/django_bootstrap_calendar/static/js
+creating build/bdist.linux-x86_64/egg/django_bootstrap_calendar/static/js/language
+copying build/lib/django_bootstrap_calendar/static/js/language/cs-CZ.js -> build/bdist.linux-x86_64/egg/django_bootstrap_calendar/static/js/language
+copying build/lib/django_bootstrap_calendar/static/js/language/zh-CN.js -> build/bdist.linux-x86_64/egg/django_bootstrap_calendar/static/js/language
+copying build/lib/django_bootstrap_calendar/static/js/language/sv-SE.js -> build/bdist.linux-x86_64/egg/django_bootstrap_calendar/static/js/language
+copying build/lib/django_bootstrap_calendar/static/js/language/de-AT.js -> build/bdist.linux-x86_64/egg/django_bootstrap_calendar/static/js/language
+copying build/lib/django_bootstrap_calendar/static/js/language/sl-SL.js -> build/bdist.linux-x86_64/egg/django_bootstrap_calendar/static/js/language
+copying build/lib/django_bootstrap_calendar/static/js/language/el-GR.js -> build/bdist.linux-x86_64/egg/django_bootstrap_calendar/static/js/language
+copying build/lib/django_bootstrap_calendar/static/js/language/da-DK.js -> build/bdist.linux-x86_64/egg/django_bootstrap_calendar/static/js/language
+copying build/lib/django_bootstrap_calendar/static/js/language/fr-FR.js -> build/bdist.linux-x86_64/egg/django_bootstrap_calendar/static/js/language
+copying build/lib/django_bootstrap_calendar/static/js/language/pl-PL.js -> build/bdist.linux-x86_64/egg/django_bootstrap_calendar/static/js/language
+copying build/lib/django_bootstrap_calendar/static/js/language/pt-BR.js -> build/bdist.linux-x86_64/egg/django_bootstrap_calendar/static/js/language
+copying build/lib/django_bootstrap_calendar/static/js/language/tr-TR.js -> build/bdist.linux-x86_64/egg/django_bootstrap_calendar/static/js/language
+copying build/lib/django_bootstrap_calendar/static/js/language/bs-BA.js -> build/bdist.linux-x86_64/egg/django_bootstrap_calendar/static/js/language
+copying build/lib/django_bootstrap_calendar/static/js/language/es-ES.js -> build/bdist.linux-x86_64/egg/django_bootstrap_calendar/static/js/language
+copying build/lib/django_bootstrap_calendar/static/js/language/ru-RU.js -> build/bdist.linux-x86_64/egg/django_bootstrap_calendar/static/js/language
+copying build/lib/django_bootstrap_calendar/static/js/language/es-MX.js -> build/bdist.linux-x86_64/egg/django_bootstrap_calendar/static/js/language
+copying build/lib/django_bootstrap_calendar/static/js/language/de-DE.js -> build/bdist.linux-x86_64/egg/django_bootstrap_calendar/static/js/language
+copying build/lib/django_bootstrap_calendar/static/js/language/template.js -> build/bdist.linux-x86_64/egg/django_bootstrap_calendar/static/js/language
+copying build/lib/django_bootstrap_calendar/static/js/language/nl-NL.js -> build/bdist.linux-x86_64/egg/django_bootstrap_calendar/static/js/language
+copying build/lib/django_bootstrap_calendar/static/js/language/it-IT.js -> build/bdist.linux-x86_64/egg/django_bootstrap_calendar/static/js/language
+copying build/lib/django_bootstrap_calendar/static/js/language/ko-KR.js -> build/bdist.linux-x86_64/egg/django_bootstrap_calendar/static/js/language
+copying build/lib/django_bootstrap_calendar/static/js/language/no-NO.js -> build/bdist.linux-x86_64/egg/django_bootstrap_calendar/static/js/language
+copying build/lib/django_bootstrap_calendar/static/js/template.js -> build/bdist.linux-x86_64/egg/django_bootstrap_calendar/static/js
+copying build/lib/django_bootstrap_calendar/static/js/underscore-min.js -> build/bdist.linux-x86_64/egg/django_bootstrap_calendar/static/js
+creating build/bdist.linux-x86_64/egg/django_bootstrap_calendar/static/img
+copying build/lib/django_bootstrap_calendar/static/img/slide-bg.png -> build/bdist.linux-x86_64/egg/django_bootstrap_calendar/static/img
+copying build/lib/django_bootstrap_calendar/static/img/dark_wood.png -> build/bdist.linux-x86_64/egg/django_bootstrap_calendar/static/img
+copying build/lib/django_bootstrap_calendar/static/img/tick.png -> build/bdist.linux-x86_64/egg/django_bootstrap_calendar/static/img
+creating build/bdist.linux-x86_64/egg/django_bootstrap_calendar/static/tmpls
+copying build/lib/django_bootstrap_calendar/static/tmpls/events-list.html -> build/bdist.linux-x86_64/egg/django_bootstrap_calendar/static/tmpls
+copying build/lib/django_bootstrap_calendar/static/tmpls/modal.html -> build/bdist.linux-x86_64/egg/django_bootstrap_calendar/static/tmpls
+copying build/lib/django_bootstrap_calendar/static/tmpls/year.html -> build/bdist.linux-x86_64/egg/django_bootstrap_calendar/static/tmpls
+copying build/lib/django_bootstrap_calendar/static/tmpls/day.html -> build/bdist.linux-x86_64/egg/django_bootstrap_calendar/static/tmpls
+copying build/lib/django_bootstrap_calendar/static/tmpls/month-day.html -> build/bdist.linux-x86_64/egg/django_bootstrap_calendar/static/tmpls
+copying build/lib/django_bootstrap_calendar/static/tmpls/month.html -> build/bdist.linux-x86_64/egg/django_bootstrap_calendar/static/tmpls
+copying build/lib/django_bootstrap_calendar/static/tmpls/week-days.html -> build/bdist.linux-x86_64/egg/django_bootstrap_calendar/static/tmpls
+copying build/lib/django_bootstrap_calendar/static/tmpls/year-month.html -> build/bdist.linux-x86_64/egg/django_bootstrap_calendar/static/tmpls
+copying build/lib/django_bootstrap_calendar/static/tmpls/week.html -> build/bdist.linux-x86_64/egg/django_bootstrap_calendar/static/tmpls
+creating build/bdist.linux-x86_64/egg/django_bootstrap_calendar/static/css
+copying build/lib/django_bootstrap_calendar/static/css/calendar.min.css -> build/bdist.linux-x86_64/egg/django_bootstrap_calendar/static/css
+copying build/lib/django_bootstrap_calendar/static/css/calendar.css -> build/bdist.linux-x86_64/egg/django_bootstrap_calendar/static/css
+copying build/lib/django_bootstrap_calendar/static/css/django_bootstrap_calendar.css -> build/bdist.linux-x86_64/egg/django_bootstrap_calendar/static/css
+copying build/lib/django_bootstrap_calendar/models.py -> build/bdist.linux-x86_64/egg/django_bootstrap_calendar
+copying build/lib/django_bootstrap_calendar/__init__.py -> build/bdist.linux-x86_64/egg/django_bootstrap_calendar
+creating build/bdist.linux-x86_64/egg/django_bootstrap_calendar/templates
+copying build/lib/django_bootstrap_calendar/templates/base.html -> build/bdist.linux-x86_64/egg/django_bootstrap_calendar/templates
+creating build/bdist.linux-x86_64/egg/django_bootstrap_calendar/templates/django_bootstrap_calendar
+copying build/lib/django_bootstrap_calendar/templates/django_bootstrap_calendar/calendar_events.html -> build/bdist.linux-x86_64/egg/django_bootstrap_calendar/templates/django_bootstrap_calendar
+copying build/lib/django_bootstrap_calendar/templates/django_bootstrap_calendar/calendar.html -> build/bdist.linux-x86_64/egg/django_bootstrap_calendar/templates/django_bootstrap_calendar
+creating build/bdist.linux-x86_64/egg/django_bootstrap_calendar/templates/django_bootstrap_calendar/partial
+copying build/lib/django_bootstrap_calendar/templates/django_bootstrap_calendar/partial/calendar_js.html -> build/bdist.linux-x86_64/egg/django_bootstrap_calendar/templates/django_bootstrap_calendar/partial
+copying build/lib/django_bootstrap_calendar/templates/django_bootstrap_calendar/partial/calendar_css.html -> build/bdist.linux-x86_64/egg/django_bootstrap_calendar/templates/django_bootstrap_calendar/partial
+copying build/lib/django_bootstrap_calendar/templates/django_bootstrap_calendar/partial/calendar_init.html -> build/bdist.linux-x86_64/egg/django_bootstrap_calendar/templates/django_bootstrap_calendar/partial
+copying build/lib/django_bootstrap_calendar/templates/django_bootstrap_calendar/partial/calendar.html -> build/bdist.linux-x86_64/egg/django_bootstrap_calendar/templates/django_bootstrap_calendar/partial
+copying build/lib/django_bootstrap_calendar/templates/django_bootstrap_calendar/partial/calendar_controls.html -> build/bdist.linux-x86_64/egg/django_bootstrap_calendar/templates/django_bootstrap_calendar/partial
+creating build/bdist.linux-x86_64/egg/django_bootstrap_calendar/templatetags
+copying build/lib/django_bootstrap_calendar/templatetags/bootstrap_calendar.py -> build/bdist.linux-x86_64/egg/django_bootstrap_calendar/templatetags
+copying build/lib/django_bootstrap_calendar/templatetags/__init__.py -> build/bdist.linux-x86_64/egg/django_bootstrap_calendar/templatetags
+copying build/lib/django_bootstrap_calendar/views.py -> build/bdist.linux-x86_64/egg/django_bootstrap_calendar
+creating build/bdist.linux-x86_64/egg/django_bootstrap_calendar/.ropeproject
+copying build/lib/django_bootstrap_calendar/.ropeproject/config.py -> build/bdist.linux-x86_64/egg/django_bootstrap_calendar/.ropeproject
+byte-compiling build/bdist.linux-x86_64/egg/django_bootstrap_calendar/urls.py to urls.cpython-36.pyc
+byte-compiling build/bdist.linux-x86_64/egg/django_bootstrap_calendar/serializers.py to serializers.cpython-36.pyc
+byte-compiling build/bdist.linux-x86_64/egg/django_bootstrap_calendar/utils.py to utils.cpython-36.pyc
+byte-compiling build/bdist.linux-x86_64/egg/django_bootstrap_calendar/models.py to models.cpython-36.pyc
+byte-compiling build/bdist.linux-x86_64/egg/django_bootstrap_calendar/__init__.py to __init__.cpython-36.pyc
+byte-compiling build/bdist.linux-x86_64/egg/django_bootstrap_calendar/templatetags/bootstrap_calendar.py to bootstrap_calendar.cpython-36.pyc
+byte-compiling build/bdist.linux-x86_64/egg/django_bootstrap_calendar/templatetags/__init__.py to __init__.cpython-36.pyc
+byte-compiling build/bdist.linux-x86_64/egg/django_bootstrap_calendar/views.py to views.cpython-36.pyc
+byte-compiling build/bdist.linux-x86_64/egg/django_bootstrap_calendar/.ropeproject/config.py to config.cpython-36.pyc
+creating build/bdist.linux-x86_64/egg/EGG-INFO
+copying django_bootstrap_calendar.egg-info/PKG-INFO -> build/bdist.linux-x86_64/egg/EGG-INFO
+copying django_bootstrap_calendar.egg-info/SOURCES.txt -> build/bdist.linux-x86_64/egg/EGG-INFO
+copying django_bootstrap_calendar.egg-info/dependency_links.txt -> build/bdist.linux-x86_64/egg/EGG-INFO
+copying django_bootstrap_calendar.egg-info/not-zip-safe -> build/bdist.linux-x86_64/egg/EGG-INFO
+copying django_bootstrap_calendar.egg-info/requires.txt -> build/bdist.linux-x86_64/egg/EGG-INFO
+copying django_bootstrap_calendar.egg-info/top_level.txt -> build/bdist.linux-x86_64/egg/EGG-INFO
+creating dist
+creating 'dist/django_bootstrap_calendar-0.1.0-py3.6.egg' and adding 'build/bdist.linux-x86_64/egg' to it
+removing 'build/bdist.linux-x86_64/egg' (and everything under it)
+Processing django_bootstrap_calendar-0.1.0-py3.6.egg
+creating /home/david/anaconda3/envs/faraday-experiment/lib/python3.6/site-packages/django_bootstrap_calendar-0.1.0-py3.6.egg
+Extracting django_bootstrap_calendar-0.1.0-py3.6.egg to /home/david/anaconda3/envs/faraday-experiment/lib/python3.6/site-packages
+Adding django-bootstrap-calendar 0.1.0 to easy-install.pth file
+
+Installed /home/david/anaconda3/envs/faraday-experiment/lib/python3.6/site-packages/django_bootstrap_calendar-0.1.0-py3.6.egg
+Processing dependencies for django-bootstrap-calendar==0.1.0
+Searching for jsmin
+Reading https://pypi.org/simple/jsmin/
+Downloading https://files.pythonhosted.org/packages/5e/73/e01e4c5e11ad0494f4407a3f623ad4d87714909f50b17a06ed121034ff6e/jsmin-3.0.1.tar.gz#sha256=c0959a121ef94542e807a674142606f7e90214a2b3d1eb17300244bbb5cc2bfc
+Best match: jsmin 3.0.1
+Processing jsmin-3.0.1.tar.gz
+Writing /tmp/easy_install-fgok55ze/jsmin-3.0.1/setup.cfg
+Running jsmin-3.0.1/setup.py -q bdist_egg --dist-dir /tmp/easy_install-fgok55ze/jsmin-3.0.1/egg-dist-tmp-d9k56k3n
+zip_safe flag not set; analyzing archive contents...
+Moving jsmin-3.0.1-py3.6.egg to /home/david/anaconda3/envs/faraday-experiment/lib/python3.6/site-packages
+Adding jsmin 3.0.1 to easy-install.pth file
+
+Installed /home/david/anaconda3/envs/faraday-experiment/lib/python3.6/site-packages/jsmin-3.0.1-py3.6.egg
+Finished processing dependencies for django-bootstrap-calendar==0.1.0
+QUE PASO
+********** Installing madrigal python library **********
+Ante del comando Madrigal
+running install
+running bdist_egg
+running egg_info
+writing madrigal.egg-info/PKG-INFO
+writing dependency_links to madrigal.egg-info/dependency_links.txt
+writing top-level names to madrigal.egg-info/top_level.txt
+reading manifest file 'madrigal.egg-info/SOURCES.txt'
+writing manifest file 'madrigal.egg-info/SOURCES.txt'
+installing library code to build/bdist.linux-x86_64/egg
+running install_lib
+running build_py
+creating build
+creating build/lib.linux-x86_64-3.6
+creating build/lib.linux-x86_64-3.6/madrigal
+copying madrigal/__init__.py -> build/lib.linux-x86_64-3.6/madrigal
+copying madrigal/admin.py -> build/lib.linux-x86_64-3.6/madrigal
+copying madrigal/cedar.py -> build/lib.linux-x86_64-3.6/madrigal
+copying madrigal/data.py -> build/lib.linux-x86_64-3.6/madrigal
+copying madrigal/derivation.py -> build/lib.linux-x86_64-3.6/madrigal
+copying madrigal/isprint.py -> build/lib.linux-x86_64-3.6/madrigal
+copying madrigal/metadata.py -> build/lib.linux-x86_64-3.6/madrigal
+copying madrigal/openmadrigal.py -> build/lib.linux-x86_64-3.6/madrigal
+creating build/lib.linux-x86_64-3.6/madrigal/ui
+copying madrigal/ui/__init__.py -> build/lib.linux-x86_64-3.6/madrigal/ui
+copying madrigal/ui/madrigalPlot.py -> build/lib.linux-x86_64-3.6/madrigal/ui
+copying madrigal/ui/userData.py -> build/lib.linux-x86_64-3.6/madrigal/ui
+copying madrigal/ui/web.py -> build/lib.linux-x86_64-3.6/madrigal/ui
+running build_ext
+building 'madrigal/_Madrec' extension
+creating build/temp.linux-x86_64-3.6
+creating build/temp.linux-x86_64-3.6/madrigal
+gcc -pthread -B /home/david/anaconda3/envs/faraday-experiment/compiler_compat -Wl,--sysroot=/ -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -I/home/david/Documents/faraday-experiment/MADROOT/source/madc/include -I/home/david/Documents/faraday-experiment/MADROOT/source -I/home/david/anaconda3/envs/faraday-experiment/lib/python3.6/site-packages/numpy/core/include -I/home/david/anaconda3/envs/faraday-experiment/include/python3.6m -c madrigal/_Madrec.c -o build/temp.linux-x86_64-3.6/madrigal/_Madrec.o
+In file included from /home/david/anaconda3/envs/faraday-experiment/lib/python3.6/site-packages/numpy/core/include/numpy/ndarraytypes.h:1822,
+                 from /home/david/anaconda3/envs/faraday-experiment/lib/python3.6/site-packages/numpy/core/include/numpy/ndarrayobject.h:12,
+                 from madrigal/_Madrec.c:22:
+/home/david/anaconda3/envs/faraday-experiment/lib/python3.6/site-packages/numpy/core/include/numpy/npy_1_7_deprecated_api.h:17:2: warning: #warning "Using deprecated NumPy API, disable it with " "#define NPY_NO_DEPRECATED_API NPY_1_7_API_VERSION" [-Wcpp]
+   17 | #warning "Using deprecated NumPy API, disable it with " \
+      |  ^~~~~~~
+madrigal/_Madrec.c:5520:16: warning: function declaration isn’t a prototype [-Wstrict-prototypes]
+ 5520 | PyMODINIT_FUNC PyInit__Madrec()
+      |                ^~~~~~~~~~~~~~
+gcc -pthread -shared -B /home/david/anaconda3/envs/faraday-experiment/compiler_compat -L/home/david/anaconda3/envs/faraday-experiment/lib -Wl,-rpath=/home/david/anaconda3/envs/faraday-experiment/lib -Wl,--no-as-needed -Wl,--sysroot=/ build/temp.linux-x86_64-3.6/madrigal/_Madrec.o -L/home/david/Documents/faraday-experiment/MADROOT/lib -Wl,-R/home/david/Documents/faraday-experiment/MADROOT/lib -lmadrec -lgeo -o build/lib.linux-x86_64-3.6/madrigal/_Madrec.cpython-36m-x86_64-linux-gnu.so
+building 'madrigal/_derive' extension
+gcc -pthread -B /home/david/anaconda3/envs/faraday-experiment/compiler_compat -Wl,--sysroot=/ -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -I/home/david/Documents/faraday-experiment/MADROOT/source/madc/include -I/home/david/Documents/faraday-experiment/MADROOT/source -I/home/david/anaconda3/envs/faraday-experiment/lib/python3.6/site-packages/numpy/core/include -I/home/david/anaconda3/envs/faraday-experiment/include/python3.6m -c madrigal/_derive.c -o build/temp.linux-x86_64-3.6/madrigal/_derive.o
+In file included from /home/david/anaconda3/envs/faraday-experiment/lib/python3.6/site-packages/numpy/core/include/numpy/ndarraytypes.h:1822,
+                 from /home/david/anaconda3/envs/faraday-experiment/lib/python3.6/site-packages/numpy/core/include/numpy/ndarrayobject.h:12,
+                 from madrigal/_derive.c:25:
+/home/david/anaconda3/envs/faraday-experiment/lib/python3.6/site-packages/numpy/core/include/numpy/npy_1_7_deprecated_api.h:17:2: warning: #warning "Using deprecated NumPy API, disable it with " "#define NPY_NO_DEPRECATED_API NPY_1_7_API_VERSION" [-Wcpp]
+   17 | #warning "Using deprecated NumPy API, disable it with " \
+      |  ^~~~~~~
+gcc -pthread -shared -B /home/david/anaconda3/envs/faraday-experiment/compiler_compat -L/home/david/anaconda3/envs/faraday-experiment/lib -Wl,-rpath=/home/david/anaconda3/envs/faraday-experiment/lib -Wl,--no-as-needed -Wl,--sysroot=/ build/temp.linux-x86_64-3.6/madrigal/_derive.o -L/home/david/Documents/faraday-experiment/MADROOT/lib -Wl,-R/home/david/Documents/faraday-experiment/MADROOT/lib -lmadrec -lgeo -o build/lib.linux-x86_64-3.6/madrigal/_derive.cpython-36m-x86_64-linux-gnu.so
+creating build/bdist.linux-x86_64
+creating build/bdist.linux-x86_64/egg
+creating build/bdist.linux-x86_64/egg/madrigal
+copying build/lib.linux-x86_64-3.6/madrigal/cedar.py -> build/bdist.linux-x86_64/egg/madrigal
+copying build/lib.linux-x86_64-3.6/madrigal/_Madrec.cpython-36m-x86_64-linux-gnu.so -> build/bdist.linux-x86_64/egg/madrigal
+creating build/bdist.linux-x86_64/egg/madrigal/ui
+copying build/lib.linux-x86_64-3.6/madrigal/ui/web.py -> build/bdist.linux-x86_64/egg/madrigal/ui
+copying build/lib.linux-x86_64-3.6/madrigal/ui/madrigalPlot.py -> build/bdist.linux-x86_64/egg/madrigal/ui
+copying build/lib.linux-x86_64-3.6/madrigal/ui/__init__.py -> build/bdist.linux-x86_64/egg/madrigal/ui
+copying build/lib.linux-x86_64-3.6/madrigal/ui/userData.py -> build/bdist.linux-x86_64/egg/madrigal/ui
+copying build/lib.linux-x86_64-3.6/madrigal/derivation.py -> build/bdist.linux-x86_64/egg/madrigal
+copying build/lib.linux-x86_64-3.6/madrigal/isprint.py -> build/bdist.linux-x86_64/egg/madrigal
+copying build/lib.linux-x86_64-3.6/madrigal/admin.py -> build/bdist.linux-x86_64/egg/madrigal
+copying build/lib.linux-x86_64-3.6/madrigal/metadata.py -> build/bdist.linux-x86_64/egg/madrigal
+copying build/lib.linux-x86_64-3.6/madrigal/_derive.cpython-36m-x86_64-linux-gnu.so -> build/bdist.linux-x86_64/egg/madrigal
+copying build/lib.linux-x86_64-3.6/madrigal/__init__.py -> build/bdist.linux-x86_64/egg/madrigal
+copying build/lib.linux-x86_64-3.6/madrigal/data.py -> build/bdist.linux-x86_64/egg/madrigal
+copying build/lib.linux-x86_64-3.6/madrigal/openmadrigal.py -> build/bdist.linux-x86_64/egg/madrigal
+byte-compiling build/bdist.linux-x86_64/egg/madrigal/cedar.py to cedar.cpython-36.pyc
+byte-compiling build/bdist.linux-x86_64/egg/madrigal/ui/web.py to web.cpython-36.pyc
+byte-compiling build/bdist.linux-x86_64/egg/madrigal/ui/madrigalPlot.py to madrigalPlot.cpython-36.pyc
+byte-compiling build/bdist.linux-x86_64/egg/madrigal/ui/__init__.py to __init__.cpython-36.pyc
+byte-compiling build/bdist.linux-x86_64/egg/madrigal/ui/userData.py to userData.cpython-36.pyc
+byte-compiling build/bdist.linux-x86_64/egg/madrigal/derivation.py to derivation.cpython-36.pyc
+byte-compiling build/bdist.linux-x86_64/egg/madrigal/isprint.py to isprint.cpython-36.pyc
+byte-compiling build/bdist.linux-x86_64/egg/madrigal/admin.py to admin.cpython-36.pyc
+byte-compiling build/bdist.linux-x86_64/egg/madrigal/metadata.py to metadata.cpython-36.pyc
+byte-compiling build/bdist.linux-x86_64/egg/madrigal/__init__.py to __init__.cpython-36.pyc
+byte-compiling build/bdist.linux-x86_64/egg/madrigal/data.py to data.cpython-36.pyc
+byte-compiling build/bdist.linux-x86_64/egg/madrigal/openmadrigal.py to openmadrigal.cpython-36.pyc
+creating stub loader for madrigal/_Madrec.cpython-36m-x86_64-linux-gnu.so
+creating stub loader for madrigal/_derive.cpython-36m-x86_64-linux-gnu.so
+byte-compiling build/bdist.linux-x86_64/egg/madrigal/_Madrec.py to _Madrec.cpython-36.pyc
+byte-compiling build/bdist.linux-x86_64/egg/madrigal/_derive.py to _derive.cpython-36.pyc
+creating build/bdist.linux-x86_64/egg/EGG-INFO
+copying madrigal.egg-info/PKG-INFO -> build/bdist.linux-x86_64/egg/EGG-INFO
+copying madrigal.egg-info/SOURCES.txt -> build/bdist.linux-x86_64/egg/EGG-INFO
+copying madrigal.egg-info/dependency_links.txt -> build/bdist.linux-x86_64/egg/EGG-INFO
+copying madrigal.egg-info/top_level.txt -> build/bdist.linux-x86_64/egg/EGG-INFO
+writing build/bdist.linux-x86_64/egg/EGG-INFO/native_libs.txt
+zip_safe flag not set; analyzing archive contents...
+madrigal.__pycache__._Madrec.cpython-36: module references __file__
+madrigal.__pycache__._derive.cpython-36: module references __file__
+creating 'dist/madrigal-3.1.3-py3.6-linux-x86_64.egg' and adding 'build/bdist.linux-x86_64/egg' to it
+removing 'build/bdist.linux-x86_64/egg' (and everything under it)
+Processing madrigal-3.1.3-py3.6-linux-x86_64.egg
+creating /home/david/anaconda3/envs/faraday-experiment/lib/python3.6/site-packages/madrigal-3.1.3-py3.6-linux-x86_64.egg
+Extracting madrigal-3.1.3-py3.6-linux-x86_64.egg to /home/david/anaconda3/envs/faraday-experiment/lib/python3.6/site-packages
+Adding madrigal 3.1.3 to easy-install.pth file
+
+Installed /home/david/anaconda3/envs/faraday-experiment/lib/python3.6/site-packages/madrigal-3.1.3-py3.6-linux-x86_64.egg
+Processing dependencies for madrigal==3.1.3
+Finished processing dependencies for madrigal==3.1.3
+despues del comando
+********** Installing madrigalWeb python library **********
+running install
+running build
+running build_py
+creating build
+creating build/lib
+creating build/lib/madrigalWeb
+copying madrigalWeb/globalIsprint.py -> build/lib/madrigalWeb
+copying madrigalWeb/globalDownload.py -> build/lib/madrigalWeb
+copying madrigalWeb/madrigalWeb.py -> build/lib/madrigalWeb
+copying madrigalWeb/__init__.py -> build/lib/madrigalWeb
+running build_scripts
+creating build/scripts-3.6
+copying and adjusting madrigalWeb/globalIsprint.py -> build/scripts-3.6
+copying and adjusting madrigalWeb/globalDownload.py -> build/scripts-3.6
+copying madrigalWeb/examples/exampleMadrigalWebServices.py -> build/scripts-3.6
+changing mode of build/scripts-3.6/globalIsprint.py from 664 to 775
+changing mode of build/scripts-3.6/globalDownload.py from 664 to 775
+changing mode of build/scripts-3.6/exampleMadrigalWebServices.py from 664 to 775
+running install_lib
+creating /home/david/anaconda3/envs/faraday-experiment/lib/python3.6/site-packages/madrigalWeb
+copying build/lib/madrigalWeb/globalIsprint.py -> /home/david/anaconda3/envs/faraday-experiment/lib/python3.6/site-packages/madrigalWeb
+copying build/lib/madrigalWeb/globalDownload.py -> /home/david/anaconda3/envs/faraday-experiment/lib/python3.6/site-packages/madrigalWeb
+copying build/lib/madrigalWeb/madrigalWeb.py -> /home/david/anaconda3/envs/faraday-experiment/lib/python3.6/site-packages/madrigalWeb
+copying build/lib/madrigalWeb/__init__.py -> /home/david/anaconda3/envs/faraday-experiment/lib/python3.6/site-packages/madrigalWeb
+byte-compiling /home/david/anaconda3/envs/faraday-experiment/lib/python3.6/site-packages/madrigalWeb/globalIsprint.py to globalIsprint.cpython-36.pyc
+byte-compiling /home/david/anaconda3/envs/faraday-experiment/lib/python3.6/site-packages/madrigalWeb/globalDownload.py to globalDownload.cpython-36.pyc
+byte-compiling /home/david/anaconda3/envs/faraday-experiment/lib/python3.6/site-packages/madrigalWeb/madrigalWeb.py to madrigalWeb.cpython-36.pyc
+byte-compiling /home/david/anaconda3/envs/faraday-experiment/lib/python3.6/site-packages/madrigalWeb/__init__.py to __init__.cpython-36.pyc
+running install_scripts
+copying build/scripts-3.6/globalIsprint.py -> /home/david/anaconda3/envs/faraday-experiment/bin
+copying build/scripts-3.6/exampleMadrigalWebServices.py -> /home/david/anaconda3/envs/faraday-experiment/bin
+copying build/scripts-3.6/globalDownload.py -> /home/david/anaconda3/envs/faraday-experiment/bin
+changing mode of /home/david/anaconda3/envs/faraday-experiment/bin/globalIsprint.py to 775
+changing mode of /home/david/anaconda3/envs/faraday-experiment/bin/exampleMadrigalWebServices.py to 775
+changing mode of /home/david/anaconda3/envs/faraday-experiment/bin/globalDownload.py to 775
+running install_egg_info
+Writing /home/david/anaconda3/envs/faraday-experiment/lib/python3.6/site-packages/madrigalWeb-3.1.12-py3.6.egg-info
+********** Verifying this site is set to at least 3 in siteTab.txt **********
+checking if any soft links to experiments directory(s) needed...
+No soft links needed
+********** configureExperiments **********
+configureExperiments is converting any experiment from a different Madrigal site into a local experiment. Will also convert experiments moved into different experiments[0-9]* directories.
+No non-local experiments found
+********** Updating metadata tables **********

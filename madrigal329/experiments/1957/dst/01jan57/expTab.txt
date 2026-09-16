@@ -1,0 +1,1 @@
+9990000011,http://localhost/madrigal/madtoc/experiments/1957/dst/01jan57,DST Index,999,19570101,000000,20260719,235959,212,0

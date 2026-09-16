@@ -1,0 +1,30 @@
+Metadata-Version: 2.4
+Name: madrigal
+Version: 3.2.9
+Summary: Madrigal Python API - now uses python 3
+Home-page: https://cedar.openmadrigal.org
+Author: Bill Rideout
+Author-email: Bill Rideout <brideout@mit.edu>
+License: MIT
+Project-URL: Homepage, https://cedar.openmadrigal.org
+Keywords: Madrigal
+Classifier: License :: OSI Approved :: MIT License
+Requires-Dist: svn
+Requires-Dist: numpy
+Requires-Dist: h5py
+Requires-Dist: scipy
+Requires-Dist: django
+Requires-Dist: libnetcdf<4.9
+Requires-Dist: netCDF4
+Requires-Dist: matplotlib
+Requires-Dist: setupext
+Requires-Dist: aacgmv2
+Requires-Dist: filelock
+Requires-Dist: pymap3d
+Requires-Dist: sqlparse
+Requires-Dist: django-bootstrap3
+Requires-Dist: aacgmv2
+Requires-Dist: packaging
+Requires-Dist: madrigalweb
+Dynamic: author
+Dynamic: home-page

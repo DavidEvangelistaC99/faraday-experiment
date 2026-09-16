@@ -1,0 +1,71 @@
+C                                                         
+C       Missing parameters are assigned a value NaN    
+C                                                                              
+CKINDAT This header record is designated KINDAT=180X.                 
+C
+C       These data are derived from the Faraday rotation experiment, one
+C       of the primary modes of operation of the Jicamarca Radio Observatory.
+C       Jicamarca (11.9 deg S, 76 deg W) is a 50 MHz incoherent scatter
+C       radar that has been in continuous operation since the early 1960s.
+C       The standard Faraday rotation double-pulse experiment (KINDAT=1800) 
+C       remains the most suitable for measuring F region plasma density and 
+C       temperatures. During the day, the plasma is assumed to be
+C       entirely O+, but Te and Ti are permitted to differ. At night,
+C       we assume Te=Ti in the fitting but allow for H+ ions.
+C
+C       In 2000, the Faraday double-pulse experiment was upgraded
+C       with the addition of randomized alternating codes (KINDAT=1801).
+C       The alternating coded pulses permit accurate parameter estimation 
+C       in the topside. Plasma temperature and composition are estimated from 
+C       alternating-code data above 450 km altitude, where we assume Te=Ti
+C       in the fitting except during a brief interval around sunrise. 
+C       Below 450 km, where clutter from the electrojet is strong and ever
+C       present, the autocorrelation functions are still estimated from the 
+C       double-pulse data. In fitting these data, the plasma is assumed to be
+C       entirely O+, but Te and Ti are permitted to differ during the day.
+C
+C       In 2007, a long-pulse experiment incorporating a full-profile analysis
+C       (KINDAT=1802) was introduced to increase sensitivity further. As 
+C       in the alternating code experiment, parameters are estimated on 
+C       the basis of double-pulse data below 450 km altitude. Above 450 km, 
+C       parameters including Te, Ti, H+ fraction, and He+ fraction are 
+C       estimated on the basis of the long-pulse data. 
+C
+C       Users must be aware that radar data acquired at the magnetic dip
+C       equator are prone to contamination from coherent scatter associated
+C       with plasma irregularities in the equatorial electrojet, the 150-km
+C       region, and with equatorial spread F. Complete removal of the strong
+C       coherent scatter is not possible, leading to what might be interpreted
+C       as anomalously large plasma densities in contaminated regions. All
+C       parameters below 140 km (180 km at midday) should be disregarded,
+C       as should parameters measured at night during periods of spread F.
+C       In cases of doubt, users should contact the data providers.
+C
+C       For more information, consult the following references:
+C
+C       [1] Farley, D. T., Faraday rotation measurements using incoherent
+C       scatter, Radio Science, 4, 143, 1969a
+C
+C       [2] Farley, D. T. , Incoherent scatter correlation function
+C       measurements, Radio Science, 4, 935, 1969b.
+C
+C       [3] Pingree, J. E., Incoherent scatter measurements and
+C       inferred energy fluxes in the equatorial F region ionosphere,
+C       Ph.D. dissertation, Cornell Univ., Ithaca, NY, 1990.
+C
+C       [4] Hysell, D. L., Incoherent scatter experiments at Jicamarca 
+C       using alternating codes, Radio Sci., 35, 1425, 2000.
+C
+C       [5] Hysell, D. L., F. S. Rodrigues, J. L. Chau, and J. D. Huba,
+C       Full profile incoherent scatter analysis at Jicamarca,
+C       Annales Geophysicae, 26(1), 59, 2008.
+C
+C       Further questions and comments should be addressed to:
+C
+C       David Hysell
+C       Dept. of Earth and Atmospheric Sciences
+C       Cornell University
+C       Ithaca, NY 14853 USA
+C       (607) 255-0630 (607) 254-4780 (F)
+C       dlh37@cornell.edu
+C

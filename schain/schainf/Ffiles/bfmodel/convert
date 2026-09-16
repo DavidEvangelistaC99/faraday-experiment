@@ -1,0 +1,2 @@
+cat $1 | awk -f script > $2
+cat $1 | awk -f script2 > $3

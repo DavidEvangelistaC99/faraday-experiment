@@ -1,0 +1,1 @@
+9990000012,http://localhost/madrigal/madtoc/experiments/1963/imf/27nov63,Interplanetary Mag Field and Solar Wind,999,19631127,000000,20260624,235959,120,0

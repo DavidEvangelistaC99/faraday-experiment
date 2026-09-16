@@ -1,0 +1,31 @@
+# Loops over all files in the Madrigal distribution and changes their
+# permissions to user and group write
+
+# usage: setPermissions
+
+# $Id: setPermissions 6494 2018-05-15 17:02:12Z brideout $
+
+set fp [open MANIFEST r]
+
+puts "Make all files in distribution world readable, and "
+puts "user and group writeable"
+while {[gets $fp f] >= 0} {
+    puts "Processing $f"
+    if { [catch { exec chmod a=r,ug+w $f } ] } {
+        puts "**** WARNING: File in MANIFEST not found: $f ****"
+    }
+	
+}
+close $fp
+
+# Change userdata directory and users.xml.template to be world
+# readable, and user and group writable
+exec chmod 777 metadata/userdata
+exec chmod ugo+w metadata/userdata/users.xml.template
+
+
+# make access logs writable if possible
+set accessFiles [glob -nocomplain metadata/userdata/access_*.log]
+for {set i 0} {$i < [llength $accessFiles]} {incr i} {
+    catch {exec chmod -f  a+w [lindex $accessFiles $i] }
+}

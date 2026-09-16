@@ -1,0 +1,301 @@
+#!/bin/sh
+#
+#   This script installs the entire Madrigal database.
+#   Use -c to skip conversion from Madrigal 2->3 files
+#
+# See the latest documentation at http://madrigal.haystack.mit.edu/madrigal/admin.html
+#   for the latest installation instructions
+#
+# $Id: installMadrigal 7050 2019-10-07 20:15:33Z brideout $
+
+function timer()
+{
+    if [[ $# -eq 0 ]]; then
+        echo $(date '+%s')
+    else
+        local  stime=$1
+        etime=$(date '+%s')
+
+        if [[ -z "$stime" ]]; then stime=$etime; fi
+
+        dt=$((etime - stime))
+        ds=$((dt % 60))
+        dm=$(((dt / 60) % 60))
+        dh=$((dt / 3600))
+        printf '%d:%02d:%02d' $dh $dm $ds
+    fi
+}
+
+tmr=$(timer)
+
+# verify we are indeed in the right pwd
+if [ ! -f installMadrigal ]
+then
+   echo "You must run this script from the MADROOT directory"
+   exit -1
+fi
+
+# if MADROOT is set, be sure it matches PWD
+if [ "$MADROOT" != "" ]
+then
+   if [ $MADROOT != $PWD ]
+   then
+      echo "Environmental variable MADROOT = $MADROOT does not match PWD = $PWD"
+      exit -1
+   fi
+else
+   export MADROOT=$PWD
+fi
+
+# test that h5repack installed
+path_to_executable=$(which h5repack)
+ if [ -x "$path_to_executable" ] ; then
+    echo "h5repack installed"
+ else
+    echo "h5repack needs to be installed"
+    exit -1
+ fi
+
+
+# check whether test experiments have been installed
+if [[ (! -f experiments/1998/mlh/20jan98/mil980120g.002 ) && ( ! -f experiments/1998/mlh/20jan98/mil980120g.002.hdf5)  && ( ! -f experiments/1998/mlh/20jan98/mlh980120g.002.hdf5) ]]
+then
+   echo "The standard test data must be installed before installing Madrigal"
+   echo "See install instructions at http://madrigal.haystack.mit.edu/madrigal/ad_install.html"
+   echo "Standard test experiments can be found at http://madrigal.haystack.mit.edu/madrigal/madDownload.html"
+   exit -1
+fi
+
+# check if should convert to Madrigal3
+convert=1
+if [ $# -gt 0 ]
+then
+   for arg in $@
+   do
+      if [ $arg = "-c" ]
+      then
+         convert=0
+      fi
+   done
+fi
+
+
+
+# use the tclsh to run simple installation scripts
+TCLSH=$(which tclsh)
+if [ "$TCLSH" = "" ]
+then
+   echo
+   echo "tclsh needs to be installed and in PATH"
+   exit -1
+fi
+
+echo "Installing Madrigal in $MADROOT"
+
+
+# Set all file permissions to owner and group write
+echo "********** setPermissions **********"
+$TCLSH setPermissions
+if [ $? -ne 0 ]
+then
+    exit -1
+fi
+
+echo "********** configureSource **********"
+$TCLSH configureSource
+if [ $? -ne 0 ]
+then
+    exit -1
+fi
+
+# Compile the Libraries and Programs
+# ----------------------------------
+cd source
+
+
+echo "********** rebuilding dist with autotools **********"
+aclocal
+if [ $? -ne 0 ]
+then
+    exit -1
+fi
+autoconf
+if [ $? -ne 0 ]
+then
+    exit -1
+fi
+libtoolize
+if [ $? -ne 0 ]
+then
+    exit -1
+fi
+autoheader
+if [ $? -ne 0 ]
+then
+    exit -1
+fi
+automake --add-missing
+if [ $? -ne 0 ]
+then
+    exit -1
+fi
+
+echo "********** ./configure **********"
+./configure --prefix=$MADROOT
+if [ $? -ne 0 ]
+then
+    exit -1
+fi
+
+echo "********** make clean **********"
+make clean
+if [ $? -ne 0 ]
+then
+    exit -1
+fi
+
+echo "********** make **********"
+make
+if [ $? -ne 0 ]
+then
+    exit -1
+fi
+
+echo "********** make check **********"
+make check
+if [ $? -ne 0 ]
+then
+    exit -1
+fi
+
+echo "********** make install **********"
+make install
+if [ $? -ne 0 ]
+then
+    exit -1
+fi
+
+cd ..
+
+
+echo "********** configureScripts **********"
+$TCLSH configureScripts
+if [ $? -ne 0 ]
+then
+    exit -1
+fi
+
+echo "********** Installing bootstrap calendar **********"
+
+cd source/madpy/djangoMad/bootstrap_calendar/dist
+#source /home/soporte/mad_test/bin/activate
+echo "voy a borrar"
+rm -rf django-bootstrap-calendar-0.1.0
+echo "borre"
+tar -xzf django-bootstrap-calendar-0.1.0.tar.gz
+echo "DESCOMPRIMIENDO"
+cd django-bootstrap-calendar-0.1.0
+echo "nuevo comando"
+#$MADROOT
+python setup.py install
+echo "QUE PASO"
+
+if [ $? -ne 0 ]
+then
+    exit -1
+fi
+cd ../../../../../..
+
+
+
+echo "********** Installing madrigal python library **********"
+cd source/madpy
+rm -f -r build
+#$MADROOT/bin/
+echo "Ante del comando Madrigal"
+python setup.py install
+echo "despues del comando"
+if [ $? -ne 0 ]
+then
+    exit -1
+fi
+rm -f -r build
+
+echo "********** Installing madrigalWeb python library **********"
+cd madrigalWeb
+rm -f -r build
+#$MADROOT/bin/
+python setup.py install
+if [ $? -ne 0 ]
+then
+    exit -1
+fi
+cd ../../..
+
+echo "********** Verifying this site is set to at least 3 in siteTab.txt **********"
+#$MADROOT/bin/
+python source/madpy/scripts/bin/checkSiteIs3.py
+if [ $? -ne 0 ]
+then
+    exit -1
+fi
+
+
+# Install Experiments
+# -------------------
+echo "********** configureExperiments **********"
+python configureExperiments
+if [ $? -ne 0 ]
+then
+    exit -1
+fi
+
+# Update metadata
+# -------------------
+echo "********** Updating metadata tables **********"
+python bin/updateMaster
+if [ $? -ne 0 ]
+then
+    exit -1
+fi
+echo "********** The following script will create all the summary and hdf5 files needed **********"
+python bin/rebuildInstParmTab.py
+if [ $? -ne 0 ]
+then
+    exit -1
+fi
+
+if [ $convert = 1 ]
+then
+    python bin/convertToMadrigal3.py --numCPU=2
+    if [ $? -ne 0 ]
+    then
+        exit -1
+    fi
+fi
+
+
+# Test the Libraries and Programs
+echo "********** Testing installation **********"
+# ------------------------------
+bin/testGeolib
+if [ $? -ne 0 ]
+then
+    exit -1
+fi
+echo "--diff testGeolib.out source/madf/geolib/testGeolib.out.rock"
+diff testGeolib.out source/madf/geolib/testGeolib.out.rock
+
+echo "running test on Madrigal web services..."
+python source/madpy/madrigalWeb/madrigalWeb/examples/testMadrigalWebServices.py
+
+echo "checking whether the web server needs extra configuration"
+python source/madpy/scripts/bin/testWebConfig.py
+
+
+# Install complete
+# ---------------------
+echo ""
+printf 'Elapsed time: %s\n' $(timer $tmr) 
+echo "Madrigal installation complete"
+

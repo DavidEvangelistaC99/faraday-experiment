@@ -1,0 +1,1 @@
+360000002,http://jro.igp.gob.pe/MADROOT/madtoc/experiments/1957/dst/01jan57,DST Index,36,19570101,000000,20200510,235959,212,0

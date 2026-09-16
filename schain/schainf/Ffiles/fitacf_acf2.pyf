@@ -1,0 +1,70 @@
+!    -*- f90 -*-
+! Note: the context of this file is case sensitive.
+
+python module fitacf_acf2 ! in 
+    interface  ! in :fitacf_acf2
+        subroutine acf2(wl,tau,te1,ti1,fi1,ven1,vin1,wi1,nion1,alpha1,dens1,bfld1,acf) ! in :fitacf_acf2:fitacf.f
+            real intent(in):: wl
+            real intent(in):: tau
+            real intent(in):: te1
+            real intent(in),dimension(nion1) :: ti1
+            real intent(in),dimension(nion1),depend(nion1) :: fi1
+            real intent(in):: ven1
+            real intent(in),dimension(nion1),depend(nion1) :: vin1
+            integer intent(in),dimension(nion1),depend(nion1) :: wi1
+            integer intent(in), optional,check(len(ti1)>=nion1),depend(ti1) :: nion1=len(ti1)
+            real intent(in):: alpha1
+            real intent(in):: dens1
+            real intent(in):: bfld1
+            real intent(in,out):: acf
+            real :: te
+            real dimension(10) :: ti
+            real dimension(10) :: fi
+            real :: ven
+            real dimension(10) :: vin
+            real :: alpha
+            real :: dens
+            real :: bfld
+            integer :: nion
+            integer dimension(10) :: wi
+            real :: ak
+            common /spec/ te,ti,fi,ven,vin,alpha,dens,bfld,nion,wi,ak
+        end subroutine acf2
+        function spect1(omega) ! in :fitacf_fit_short:fitacf.f
+            real :: omega
+            real :: te
+            real dimension(10) :: ti
+            real dimension(10) :: fi
+            real :: ven
+            real dimension(10) :: vin
+            real :: alpha
+            real :: dens
+            real :: bfld
+            integer :: nion
+            integer dimension(10) :: wi
+            real :: ak
+            integer :: imode
+            real :: spect1
+            common /spec/ te,ti,fi,ven,vin,alpha,dens,bfld,nion,wi,ak
+            common /mode/ imode
+        end function spect1
+        subroutine gaussq(tau,acf) ! in :fitacf_fit_short:fitacf.f
+            real :: tau
+            real :: acf
+            real :: te
+            real dimension(10) :: ti
+            real dimension(10) :: fi
+            real :: ven
+            real dimension(10) :: vin
+            real :: alpha
+            real :: dens
+            real :: bfld
+            integer :: nion
+            integer dimension(10) :: wi
+            real :: ak
+            common /spec/ te,ti,fi,ven,vin,alpha,dens,bfld,nion,wi,ak
+    end interface 
+end python module fitacf_acf2
+
+! This file was auto-generated with f2py (version:2).
+! See http://cens.ioc.ee/projects/f2py2e/

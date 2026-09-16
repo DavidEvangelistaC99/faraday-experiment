@@ -1,0 +1,5 @@
+The source directory contains the madrigal source code with the
+exception of gci scripts, which are in the www directory. There
+are three subdirecories, madf, madc and madj which contain
+FORTRAN, C and Java language source files. Madc also contains
+scripts written for the madtclsh extension of tcl. 

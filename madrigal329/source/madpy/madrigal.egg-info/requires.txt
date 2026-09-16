@@ -1,0 +1,17 @@
+svn
+numpy
+h5py
+scipy
+django
+libnetcdf<4.9
+netCDF4
+matplotlib
+setupext
+aacgmv2
+filelock
+pymap3d
+sqlparse
+django-bootstrap3
+aacgmv2
+packaging
+madrigalweb
