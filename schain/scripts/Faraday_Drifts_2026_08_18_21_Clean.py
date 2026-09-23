@@ -11,7 +11,8 @@ controller.setup(id = '001',
                  description='DP')
 
 
-figpath = '/home/david/Documents/DATA-3/Faraday/18_21_Aug_26/new-int/clean-test/20_Aug_26/'
+#figpath = '/home/david/Documents/DATA-3/Faraday/18_21_Aug_26/new-int/clean-test/21_Aug_26/'
+figpath = '/home/david/Documents/DATA-3/Faraday/18_21_Aug_26//clean-test/20_Aug_26-test/'
 # figpath = '/home/david/Documents/DATA-3/Faraday/18_21_Aug_26/20_Aug_26/'
 figpath_server=figpath
 
@@ -151,14 +152,14 @@ op20.addParameter(name='ymin', value='180')
 op20.addParameter(name='ymax', value='600')
 op20.addParameter(name='save', value=figpath_server)'''
 
-'''op21 = proc_spectra.addOperation(name='EDensityPlot')
+op21 = proc_spectra.addOperation(name='EDensityPlot')
 op21.addParameter(name='id', value='179')
 op21.addParameter(name='wintitle', value='Electron Density')
 op21.addParameter(name='ymin', value='180')
 op21.addParameter(name='ymax', value='920')
 op21.addParameter(name='xmin', value='1e3')
 op21.addParameter(name='xmax', value='1e7')
-op21.addParameter(name='save', value=figpath_server)'''
+op21.addParameter(name='save', value=figpath_server)
 
 '''op22 = proc_spectra.addOperation(name='TempsDPPlot')
 op22.addParameter(name='id', value='175')
@@ -181,7 +182,7 @@ op16.addParameter(name='zmax', value='1e7')
 op16.addParameter(name='xrange', value=str(24))
 op16.addParameter(name='save', value=figpath_server)'''
 
-op17 = proc_spectra.addOperation(name='ETempRTIPlot')
+'''op17 = proc_spectra.addOperation(name='ETempRTIPlot')
 op17.addParameter(name='id', value='175')
 op17.addParameter(name='wintitle', value='Electron Temperature RTI')
 op17.addParameter(name='xmin', value='0')
@@ -203,7 +204,7 @@ op18.addParameter(name='xmax', value='24')
 op18.addParameter(name='zmin', value='100')
 op18.addParameter(name='zmax', value='4000')
 op18.addParameter(name='xrange', value=str(24))
-op18.addParameter(name='save', value=figpath_server)
+op18.addParameter(name='save', value=figpath_server)'''
 
 one = {'gdlatr': 'lat', 'gdlonr': 'lon', 'inttms': 'paramInterval'} #reader gdlatr-->lat only 1D
 

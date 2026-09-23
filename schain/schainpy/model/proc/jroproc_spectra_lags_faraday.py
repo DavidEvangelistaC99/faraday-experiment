@@ -182,7 +182,7 @@ class SpectraLagProc(ProcessingUnit):
             # self.buffer = [2,12,99]
 
         # Usually FFTPoints should be equal to nProfiles N = L
-        # So, Buffer dimensions [channels (2), FFTPoints (24), Heights (99)]
+        # So, Buffer dimensions [channels (2), FFTPoints (12), Heights (99)]
 
         ### Sets the .buffer and .profIndex
         if self.dataIn.flagDataAsBlock: # Data was readed as block of [channel, profile, height] 

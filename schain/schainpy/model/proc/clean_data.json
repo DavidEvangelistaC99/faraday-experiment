@@ -299,15 +299,9 @@
     {"year": 2025, "doy": 139, "initial_time": [5,35], "final_time": [6,10], "aux_index": [ null, 17], "only":"te"},
     {"year": 2025, "doy": 139, "initial_time": [5,50], "final_time": [6,25], "aux_index": [ 26, null], "only":"te"},
     {"year": 2025, "doy": 139, "initial_time": [6,10], "final_time": [6,10], "aux_index": [ 23, 24], "only":"te"},
-    
-    {"year": 2025, "doy": 311, "initial_time": [2,45], "final_time": [3,24], "aux_index": [ null, null]},
-    
-    {"year": 2025, "doy": 311, "initial_time": [6,52], "final_time": [7,5], "aux_index": [ null, null]},
-    {"year": 2025, "doy": 311, "initial_time": [8,36], "final_time": [8,49], "aux_index": [ null, null]},
-    {"year": 2025, "doy": 311, "initial_time": [16,24], "final_time": [17,29], "aux_index": [ null, null]},
-    {"year": 2025, "doy": 311, "initial_time": [17,42], "final_time": [17,55], "aux_index": [ null, null]},
-    {"year": 2025, "doy": 311, "initial_time": [20,44], "final_time": [21,49], "aux_index": [ null, null]},
-    {"year": 2025, "doy": 312, "initial_time": [1,56], "final_time": [4,8], "aux_index": [ null, null]},
+
+
+
     
     {"year": 2025, "doy": 312, "initial_time": [5,37], "final_time": [8,0], "aux_index": [ null, null]},
     {"year": 2025, "doy": 312, "initial_time": [16,27], "final_time": [16,40], "aux_index": [ null, null]},

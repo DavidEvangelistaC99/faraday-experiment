@@ -6,9 +6,11 @@ from schainpy.controller import Project
 
 import json
 
-#  dpath = '/home/cportilla/jars/ALL_ISR/hybrid'
+# dpath = '/home/cportilla/jars/ALL_ISR/hybrid'
 # dpath = '/home/cportilla/Minotaur/2025_11/Faraday/main_radar/rawdata'
-dpath = '/mnt/compartido2'
+# dpath = '/mnt/share-2/Faraday/main_radar/rawdata'
+dpath = '/mnt/share-3/Faraday/main_radar/rawdata'
+
 #dpath= '/media/cportilla/HDD/Faraday/Hybrid'
 #dpath = '/home/cportilla/PC_DATA/Hybrid'
 
@@ -17,7 +19,9 @@ controller.setup(id = '001',
                  name='Hybrid',
                  description='DP+LP')
 
-figpath='/home/idi/Documents/DATA/All-ISR'
+figpath='/home/david/Documents/DATA-3/Faraday/15_19_Jun_26/17_Jun_26'
+#figpath='/home/david/Documents/DATA-3/Faraday/6_14_Nov_25/7_Nov_25'
+
 figpath_server=figpath
 procpath = figpath
 Show_plots = 1
@@ -29,9 +33,9 @@ nint_DP = int(navg*nint_LP)
 
 read_unit = controller.addReadUnit(datatype='VoltageReader',
                                    path=dpath,
-                                   startDate='2025/11/07',
-                                   endDate='2025/11/07',
-                                   startTime='00:00:00',
+                                   startDate='2026/06/17',
+                                   endDate='2026/06/17',
+                                   startTime='00:05:00',
                                    endTime='23:59:59',
                                    online=0,
                                    getByBlock='True',
@@ -143,7 +147,7 @@ op022 = merge.addOperation(name='ACFs')
 op0122 = merge.addOperation(name='LongPulseAnalysis')
 op0122.addParameter(name='NACF', value='90')
 
-op026 = merge.addOperation(name='ACFsPlot')
+'''op026 = merge.addOperation(name='ACFsPlot')
 op026.addParameter(name='id', value='177')
 op026.addParameter(name='wintitle', value='ACFs DP')
 op026.addParameter(name='ymin', value='180')
@@ -155,7 +159,7 @@ op026 = merge.addOperation(name='ACFsLPPlot')
 op026.addParameter(name='id', value='177')
 op026.addParameter(name='wintitle', value='ACFs LP')
 op026.addParameter(name='ymin', value='550')
-op026.addParameter(name='save', value=figpath_server)
+op026.addParameter(name='save', value=figpath_server)'''
 
 op026 = merge.addOperation(name='EDensityHPPlot')
 op026.addParameter(name='id', value='179')
@@ -166,21 +170,21 @@ op026.addParameter(name='xmin', value='1e0')
 op026.addParameter(name='xmax', value='1e9')
 op026.addParameter(name='save', value=figpath_server)
 
-op0166 = merge.addOperation(name='TempsHPPlot')
+'''op0166 = merge.addOperation(name='TempsHPPlot')
 op0166.addParameter(name='id', value='1755')
 op0166.addParameter(name='wintitle', value='Temperatures')
 op0166.addParameter(name='ymin', value='160')
-op0166.addParameter(name='save', value=figpath_server)
+op0166.addParameter(name='save', value=figpath_server)'''
 
-op0177 = merge.addOperation(name='FracsHPPlot')
+'''op0177 = merge.addOperation(name='FracsHPPlot')
 op0177.addParameter(name='id', value='1700')
 op0177.addParameter(name='wintitle', value='Composition')
 op0177.addParameter(name='ymin', value='160')
-op0177.addParameter(name='save', value=figpath_server)
+op0177.addParameter(name='save', value=figpath_server)'''
 
 op018 = merge.addOperation(name='DataSaveCleanerHP')
 
-op181 = merge.addOperation(name='ETempRTIPlot')
+'''op181 = merge.addOperation(name='ETempRTIPlot')
 op181.addParameter(name='id', value='176')
 op181.addParameter(name='wintitle', value='ElectronTemp')
 op181.addParameter(name='xmin', value='0')
@@ -190,9 +194,9 @@ op181.addParameter(name='ymax', value='1350')
 op181.addParameter(name='zmin', value='500')
 op181.addParameter(name='zmax', value='6500')
 op181.addParameter(name='xrange', value=str(24*1))
-op181.addParameter(name='save', value=figpath_server)
+op181.addParameter(name='save', value=figpath_server)'''
 
-op182 = merge.addOperation(name='ITempRTIPlot')
+'''op182 = merge.addOperation(name='ITempRTIPlot')
 op182.addParameter(name='id', value='176')
 op182.addParameter(name='wintitle', value='IonTemp')
 op182.addParameter(name='xmin', value='0')
@@ -202,9 +206,9 @@ op182.addParameter(name='ymax', value='1350')
 op182.addParameter(name='zmin', value='500')
 op182.addParameter(name='zmax', value='6500')
 op182.addParameter(name='xrange', value=str(24*1))
-op182.addParameter(name='save', value=figpath_server)
+op182.addParameter(name='save', value=figpath_server)'''
 
-op183 = merge.addOperation(name='HFracRTIPlot')
+'''op183 = merge.addOperation(name='HFracRTIPlot')
 op183.addParameter(name='id', value='176')
 op183.addParameter(name='wintitle', value='H+ Frac')
 op183.addParameter(name='xmin', value='0')
@@ -214,9 +218,9 @@ op183.addParameter(name='ymax', value='1350')
 op183.addParameter(name='zmin', value='0')
 op183.addParameter(name='zmax', value='1')
 op183.addParameter(name='xrange', value=str(24*1))
-op183.addParameter(name='save', value=figpath_server)
+op183.addParameter(name='save', value=figpath_server)'''
 
-op184 = merge.addOperation(name='HeFracRTIPlot')
+'''op184 = merge.addOperation(name='HeFracRTIPlot')
 op184.addParameter(name='id', value='176')
 op184.addParameter(name='wintitle', value='He+ Frac')
 op184.addParameter(name='xmin', value='0')
@@ -226,7 +230,7 @@ op184.addParameter(name='ymax', value='1350')
 op184.addParameter(name='zmin', value='0')
 op184.addParameter(name='zmax', value='0.5')
 op184.addParameter(name='xrange', value=str(24*1))
-op184.addParameter(name='save', value=figpath_server)
+op184.addParameter(name='save', value=figpath_server)'''
 
 op16 = merge.addOperation(name='DenRTIPlot')
 op16.addParameter(name='id', value='174')
