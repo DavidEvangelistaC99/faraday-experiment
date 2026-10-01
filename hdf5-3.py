@@ -9,11 +9,11 @@ import os
 # CONFIGURACIÓN
 # ============================================================
 
-file_path = (
-    "/home/david/Documents/DATA-3/Faraday/18_21_Aug_26/"
-    "new-int/clean-test/20_Aug_26/"
-    "jro20260820_050853.hdf5"
-)
+#file_path = ("/home/david/Documents/DATA-3/Faraday/18_21_Aug_26/new-int/clean-test/18_Aug_26/jro20260818_160853.hdf5")
+file_path = ("/home/david/Documents/DATA-3/Faraday/18_21_Aug_26/new-int/clean-test/19_Aug_26/jro20260819_050853.hdf5")
+#file_path = ("/home/david/Documents/DATA-3/Faraday/18_21_Aug_26/new-int/clean-test/20_Aug_26/jro20260820_050853.hdf5")
+# file_path = ("/home/david/Documents/DATA-3/Faraday/18_21_Aug_26/new-int/clean-test/21_Aug_26/jro20260821_050853.hdf5")
+
 
 directory = os.path.dirname(file_path)
 

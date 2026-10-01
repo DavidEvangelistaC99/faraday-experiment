@@ -600,8 +600,12 @@ class Spectra(JROData):
     def getPower(self):
 
         factor = self.normFactor
+        #print('factor',factor)
         z = self.data_spc / factor
         z = numpy.where(numpy.isfinite(z), z, numpy.NAN)
+
+
+        #print('z.shape',z.shape)
         #avg = numpy.average(z, axis=1)
         avg = numpy.nanmean(z, axis=1)
 

@@ -299,6 +299,15 @@
     {"year": 2025, "doy": 139, "initial_time": [5,35], "final_time": [6,10], "aux_index": [ null, 17], "only":"te"},
     {"year": 2025, "doy": 139, "initial_time": [5,50], "final_time": [6,25], "aux_index": [ 26, null], "only":"te"},
     {"year": 2025, "doy": 139, "initial_time": [6,10], "final_time": [6,10], "aux_index": [ 23, 24], "only":"te"},
+    
+    {"year": 2025, "doy": 311, "initial_time": [2,45], "final_time": [3,24], "aux_index": [ null, null]},
+    
+    {"year": 2025, "doy": 311, "initial_time": [6,52], "final_time": [7,5], "aux_index": [ null, null]},
+    {"year": 2025, "doy": 311, "initial_time": [8,36], "final_time": [8,49], "aux_index": [ null, null]},
+    {"year": 2025, "doy": 311, "initial_time": [16,24], "final_time": [17,29], "aux_index": [ null, null]},
+    {"year": 2025, "doy": 311, "initial_time": [17,42], "final_time": [17,55], "aux_index": [ null, null]},
+    {"year": 2025, "doy": 311, "initial_time": [20,44], "final_time": [21,49], "aux_index": [ null, null]},
+    {"year": 2025, "doy": 312, "initial_time": [1,56], "final_time": [4,8], "aux_index": [ null, null]},
 
 
 
@@ -325,10 +334,14 @@
     
 
 
+    {"year": 2026, "doy": 230, "initial_time": [16,8], "final_time": [23,56], "aux_index": [null,14]},
+    {"year": 2026, "doy": 231, "initial_time": [0,8], "final_time": [4,44], "aux_index": [null,14]},
     {"year": 2026, "doy": 230, "initial_time": [19,32], "final_time": [20,20], "aux_index": [null,null]},
     {"year": 2026, "doy": 230, "initial_time": [21,20], "final_time": [21,21], "aux_index": [null,null]},
 
-
+    
+    {"year": 2026, "doy": 231, "initial_time": [5,8], "final_time": [23,56], "aux_index": [null,14]},
+    {"year": 2026, "doy": 232, "initial_time": [0,8], "final_time": [4,44], "aux_index": [null,14]},
     {"year": 2026, "doy": 231, "initial_time": [8,8], "final_time": [8,44], "aux_index": [null,null]},
     {"year": 2026, "doy": 231, "initial_time": [16,44], "final_time": [16,45], "aux_index": [null,null]},
     {"year": 2026, "doy": 231, "initial_time": [18,32], "final_time": [18,44], "aux_index": [null,null]},
@@ -341,7 +354,8 @@
     {"year": 2026, "doy": 232, "initial_time": [1,44], "final_time": [1,45], "aux_index": [null,21]},
     {"year": 2026, "doy": 232, "initial_time": [1,56], "final_time": [2,56], "aux_index": [null,20]},
 
-
+    {"year": 2026, "doy": 232, "initial_time": [5,8], "final_time": [23,56], "aux_index": [null,14]},
+    {"year": 2026, "doy": 233, "initial_time": [0,8], "final_time": [4,44], "aux_index": [null,14]},
 
     {"year": 2026, "doy": 233, "initial_time": [4,20], "final_time": [4,44], "aux_index": [null,null]},
 
@@ -350,6 +364,11 @@
     {"year": 2026, "doy": 232, "initial_time": [9,56], "final_time": [9,57], "aux_index": [40,null]},
     {"year": 2026, "doy": 232, "initial_time": [11,20], "final_time": [11,21], "aux_index": [40,null]},
     {"year": 2026, "doy": 232, "initial_time": [12,8], "final_time": [12,9], "aux_index": [40,null]},
+
+    {"year": 2026, "doy": 232, "initial_time": [12,32], "final_time": [12,33], "aux_index": [47, null], "only":"te"},
+    {"year": 2026, "doy": 232, "initial_time": [12,56], "final_time": [12,57], "aux_index": [47, null], "only":"te"},
+
+    {"year": 2026, "doy": 233, "initial_time": [5,8], "final_time": [12,56], "aux_index": [null,14]},
 
     {"year": 2026, "doy": 233, "initial_time": [0,44], "final_time": [0,56], "aux_index": [null,22]},
     {"year": 2026, "doy": 233, "initial_time": [1,8], "final_time": [1,44], "aux_index": [null,23]},

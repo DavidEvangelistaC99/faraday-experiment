@@ -10,17 +10,18 @@ controller.setup(id = '001',
                  name='Faraday',
                  description='DP')
 
-
-figpath = '/home/david/Documents/DATA-3/Faraday/18_21_Aug_26/new-int/19_Aug_26/'
-# figpath = '/home/david/Documents/DATA-3/Faraday/18_21_Aug_26/20_Aug_26/'
-figpath_server=figpath
-
 # data_path = '/mnt/isr_all/Faraday'
 # data_path = '/mnt/share/2026_08/Faraday/main_radar/rawdata'
 data_path = '/mnt/share/Faraday/main_radar/rawdata'
 
-startDate = '2026/08/19'
-endDate = '2026/08/19'
+# figpath = '/home/david/Documents/DATA-3/Faraday/18_21_Aug_26/new-int/clean-test/21_Aug_26/'
+# figpath = '/home/david/Documents/DATA-3/Faraday/18_21_Aug_26/20_Aug_26/'
+figpath = '/home/david/Documents/DATA-3/Faraday/18_21_Aug_26/new-int/clean-test/21_Aug_26/'
+
+figpath_server=figpath
+
+startDate = '2026/08/21'
+endDate = '2026/08/21'
 startTime='00:07:00'
 endTime='23:59:59'
 
@@ -112,15 +113,15 @@ op08.addParameter(name='n', value='214') #107
 
 op6 = proc_spectra.addOperation(name='removeDCLagFlip')
 
-op9 = proc_spectra.addOperation(name='SpectraPlot')
+'''op9 = proc_spectra.addOperation(name='SpectraPlot')
 op9.addParameter(name='id', value='20')
 op9.addParameter(name='wintitle', value='Spectra DP')
 op9.addParameter(name='zmin', value=db_range[0])
 op9.addParameter(name='zmax', value=db_range[1])
-#op9.addParameter(name='xaxis', value='frequency')
+# op9.addParameter(name='xaxis', value='frequency')
 op9.addParameter(name='showprofile', value='1')
 op9.addParameter(name='show', value='1')
-op9.addParameter(name='save', value=figpath)
+op9.addParameter(name='save', value=figpath)'''
 
 op10 = proc_spectra.addOperation(name='SpectraDataToFaraday')
 
@@ -151,14 +152,14 @@ op20.addParameter(name='ymin', value='180')
 op20.addParameter(name='ymax', value='600')
 op20.addParameter(name='save', value=figpath_server)'''
 
-op21 = proc_spectra.addOperation(name='EDensityPlot')
+'''op21 = proc_spectra.addOperation(name='EDensityPlot')
 op21.addParameter(name='id', value='179')
 op21.addParameter(name='wintitle', value='Electron Density')
 op21.addParameter(name='ymin', value='180')
 op21.addParameter(name='ymax', value='920')
 op21.addParameter(name='xmin', value='1e3')
 op21.addParameter(name='xmax', value='1e7')
-op21.addParameter(name='save', value=figpath_server)
+op21.addParameter(name='save', value=figpath_server)'''
 
 '''op22 = proc_spectra.addOperation(name='TempsDPPlot')
 op22.addParameter(name='id', value='175')
@@ -169,7 +170,7 @@ op22.addParameter(name='save', value=figpath_server)'''
 
 op013 = proc_spectra.addOperation(name='DataSaveCleaner')
 
-op16 = proc_spectra.addOperation(name='DenRTIPlot')
+'''op16 = proc_spectra.addOperation(name='DenRTIPlot')
 op16.addParameter(name='id', value='174')
 op16.addParameter(name='wintitle', value='Electron Density RTI')
 op16.addParameter(name='xmin', value='0')
@@ -179,7 +180,7 @@ op16.addParameter(name='ymax', value='920')
 op16.addParameter(name='zmin', value='1e4')
 op16.addParameter(name='zmax', value='1e7')
 op16.addParameter(name='xrange', value=str(24))
-op16.addParameter(name='save', value=figpath_server)
+op16.addParameter(name='save', value=figpath_server)'''
 
 '''op17 = proc_spectra.addOperation(name='ETempRTIPlot')
 op17.addParameter(name='id', value='175')
@@ -215,13 +216,13 @@ two = {
     'DTE': ('EElecTempFinal', 0),
     'TI': ('IonTempFinal', 0),
     'DTI': ('EIonTempFinal', 0),
-    } #writer
+    } # writer
 f=open('/home/david/Documents/faraday-experiment/schain/moder_test.txt','r')
 file_contents=f.read()
 ind = ['gdalt']
 meta = {
-    'kinst': 10, #instrument code
-    'kindat': 1800, #type of data
+    'kinst': 10, # instrument code
+    'kindat': 1800, # type of data
     'catalog': {
         'principleInvestigator': 'Danny Scipión',
         'expPurpose': 'Electron Density',

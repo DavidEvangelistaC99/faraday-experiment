@@ -308,6 +308,9 @@
     {"year": 2025, "doy": 311, "initial_time": [17,42], "final_time": [17,55], "aux_index": [ null, null]},
     {"year": 2025, "doy": 311, "initial_time": [20,44], "final_time": [21,49], "aux_index": [ null, null]},
     {"year": 2025, "doy": 312, "initial_time": [1,56], "final_time": [4,8], "aux_index": [ null, null]},
+
+
+
     
     {"year": 2025, "doy": 312, "initial_time": [5,37], "final_time": [8,0], "aux_index": [ null, null]},
     {"year": 2025, "doy": 312, "initial_time": [16,27], "final_time": [16,40], "aux_index": [ null, null]},
@@ -328,41 +331,47 @@
     
     {"year": 2026, "doy": 147, "initial_time": [3,15], "final_time": [3,16], "aux_index": [37,38]},
     {"year": 2026, "doy": 147, "initial_time": [1,51], "final_time": [1,52], "aux_index": [50,null]},
+    
+
+
+    {"year": 2026, "doy": 230, "initial_time": [19,32], "final_time": [20,20], "aux_index": [null,null]},
+    {"year": 2026, "doy": 230, "initial_time": [21,20], "final_time": [21,21], "aux_index": [null,null]},
+
+
+    {"year": 2026, "doy": 231, "initial_time": [8,8], "final_time": [8,44], "aux_index": [null,null]},
+    {"year": 2026, "doy": 231, "initial_time": [16,44], "final_time": [16,45], "aux_index": [null,null]},
+    {"year": 2026, "doy": 231, "initial_time": [18,32], "final_time": [18,44], "aux_index": [null,null]},
+
+    {"year": 2026, "doy": 231, "initial_time": [7,32], "final_time": [7,44], "aux_index": [null,21]},
+    {"year": 2026, "doy": 231, "initial_time": [7,56], "final_time": [7,57], "aux_index": [null,23]},
+    {"year": 2026, "doy": 231, "initial_time": [8,56], "final_time": [9,8], "aux_index": [null,21]},
+    {"year": 2026, "doy": 232, "initial_time": [0,44], "final_time": [0,45], "aux_index": [null,21]},
+    {"year": 2026, "doy": 232, "initial_time": [0,56], "final_time": [1,32], "aux_index": [null,22]},
+    {"year": 2026, "doy": 232, "initial_time": [1,44], "final_time": [1,45], "aux_index": [null,21]},
+    {"year": 2026, "doy": 232, "initial_time": [1,56], "final_time": [2,56], "aux_index": [null,20]},
 
 
 
+    {"year": 2026, "doy": 233, "initial_time": [4,20], "final_time": [4,44], "aux_index": [null,null]},
 
-    {"year": 2026, "doy": 230, "initial_time": [16,0], "final_time": [16,1], "aux_index": [null,null]},
-    {"year": 2026, "doy": 230, "initial_time": [19,36], "final_time": [20,12], "aux_index": [null,null]},
-    {"year": 2026, "doy": 230, "initial_time": [21,12], "final_time": [21,24], "aux_index": [null,null]},
+    {"year": 2026, "doy": 232, "initial_time": [8,56], "final_time": [8,57], "aux_index": [40,null]},
+    {"year": 2026, "doy": 232, "initial_time": [9,32], "final_time": [9,33], "aux_index": [40,null]},
+    {"year": 2026, "doy": 232, "initial_time": [9,56], "final_time": [9,57], "aux_index": [40,null]},
+    {"year": 2026, "doy": 232, "initial_time": [11,20], "final_time": [11,21], "aux_index": [40,null]},
+    {"year": 2026, "doy": 232, "initial_time": [12,8], "final_time": [12,9], "aux_index": [40,null]},
 
-
-
-    {"year": 2026, "doy": 231, "initial_time": [7,0], "final_time": [7,1], "aux_index": [null,17]},
-    {"year": 2026, "doy": 231, "initial_time": [7,24], "final_time": [7,48], "aux_index": [null,23]},
-    {"year": 2026, "doy": 231, "initial_time": [7,48], "final_time": [7,49], "aux_index": [26,27]},
-    {"year": 2026, "doy": 231, "initial_time": [8,0], "final_time": [8,36], "aux_index": [null,null]},
-    {"year": 2026, "doy": 231, "initial_time": [8,48], "final_time": [9,0], "aux_index": [null,22]},
-    {"year": 2026, "doy": 231, "initial_time": [9,12], "final_time": [9,13], "aux_index": [null,17]},
-
-    {"year": 2026, "doy": 231, "initial_time": [16,36], "final_time": [16,48], "aux_index": [null,null]},
-    {"year": 2026, "doy": 231, "initial_time": [18,24], "final_time": [18,48], "aux_index": [null,null]},
-
-    {"year": 2026, "doy": 231, "initial_time": [18,36], "final_time": [18,37], "aux_index": [null,null]},
-    {"year": 2026, "doy": 232, "initial_time": [0,12], "final_time": [0,24], "aux_index": [null,18]},
-    {"year": 2026, "doy": 232, "initial_time": [0,36], "final_time": [2,0], "aux_index": [null,23]},
+    {"year": 2026, "doy": 233, "initial_time": [0,44], "final_time": [0,56], "aux_index": [null,22]},
+    {"year": 2026, "doy": 233, "initial_time": [1,8], "final_time": [1,44], "aux_index": [null,23]},
+    {"year": 2026, "doy": 233, "initial_time": [1,56], "final_time": [1,57], "aux_index": [null,22]},
+    {"year": 2026, "doy": 233, "initial_time": [2,8], "final_time": [2,44], "aux_index": [null,21]},
+    {"year": 2026, "doy": 233, "initial_time": [2,56], "final_time": [3,56], "aux_index": [null,20]},
+    {"year": 2026, "doy": 233, "initial_time": [3,20], "final_time": [3,21], "aux_index": [null,18]},
+    {"year": 2026, "doy": 233, "initial_time": [3,32], "final_time": [3,33], "aux_index": [null,17]},
 
 
 
-    {"year": 2026, "doy": 233, "initial_time": [0,36], "final_time": [0,37], "aux_index": [null,22]},
-    {"year": 2026, "doy": 233, "initial_time": [0,48], "final_time": [1,36], "aux_index": [null,23]},
-    {"year": 2026, "doy": 233, "initial_time": [1,48], "final_time": [2,0], "aux_index": [null,22]},
-    {"year": 2026, "doy": 233, "initial_time": [2,12], "final_time": [3,12], "aux_index": [null,20]},
-    {"year": 2026, "doy": 233, "initial_time": [3,24], "final_time": [3,36], "aux_index": [null,18]},
-    {"year": 2026, "doy": 233, "initial_time": [4,12], "final_time": [4,36], "aux_index": [null,null]},
+    {"year": 2026, "doy": 233, "initial_time": [5,8], "final_time": [5,9], "aux_index": [40,null]}
 
-
-    {"year": 2026, "doy": 233, "initial_time": [5,0], "final_time": [5,1], "aux_index": [null,null]}
 
 ]}
 

@@ -50,6 +50,7 @@ class SpectraPlot(Plot):
         #exit(1)
         data['spc'] = spc
         data['rti'] = dataOut.getPower()
+        #print("data['rti'].shape",data['rti'].shape)
         #print(data['rti'][0])
         #exit(1)
         #print("NormFactor: ",dataOut.normFactor)
@@ -94,7 +95,11 @@ class SpectraPlot(Plot):
         self.y = y
 
         data = self.data[-1]
+
         z = data['spc']
+
+        '''for key, value in data.items():
+            print (key)'''
 
         self.CODE2 = 'spc_oblique'
 

@@ -1549,6 +1549,7 @@ class selectHeights(Operation):
             if hasattr(self.dataOut, "ByLags"):
                 if self.dataOut.ByLags:
                     self.dataOut.dataLag_spc = self.dataOut.dataLag_spc[:, :, minIndex:maxIndex + 1]
+                    #print('self.dataOut.dataLag_spc.shape.shape',self.dataOut.dataLag_spc.shape)
 
             data_cspc = None
             if self.dataOut.data_cspc is not None:

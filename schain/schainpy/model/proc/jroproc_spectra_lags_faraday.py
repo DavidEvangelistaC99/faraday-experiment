@@ -120,15 +120,22 @@ class SpectraLagProc(ProcessingUnit):
         ### Calculate self-spectra
         # Reorder the frequency distribution to set 0 at center
         fft_volt = numpy.fft.fftshift(fft_volt, axes = (1,)) 
+        # Potencia espectral
         spc = fft_volt * numpy.conjugate(fft_volt)
         spc = spc.real
-
+        #print('spc.size',spc.size)
+        #print('spc.shape',spc.shape)
+        #print('dc.size',dc.size)
+        #print('dc.shape',dc.shape)
         blocksize = 0
         blocksize += dc.size
         blocksize += spc.size
 
         cspc = None
         pairIndex = 0
+        #print('self.dataOut.pairsList',self.dataOut.pairsList)
+        #print('self.dataOut.nPairs',self.dataOut.nPairs)
+        # self.dataOut.pairsList -> [(0, 1)]
         if self.dataOut.pairsList != None:
             # Calculate cross-spectra
             cspc = numpy.zeros(
@@ -325,6 +332,7 @@ class SpectraLagProc(ProcessingUnit):
                         self.dataOut.dataLag_spc.append(self.dataOut.data_spc)
                         self.dataOut.dataLag_cspc.append(self.dataOut.data_cspc)
                         self.dataOut.dataLag_dc.append(self.dataOut.data_dc)
+                        #print('self.dataOut.dataLag_spc.shape', len(self.dataOut.dataLag_spc))
 
 
                 if not self.dataOut.flagNoData:
@@ -332,11 +340,15 @@ class SpectraLagProc(ProcessingUnit):
                     self.dataOut.dataLag_spc=numpy.array(self.dataOut.dataLag_spc)
                     self.dataOut.dataLag_cspc=numpy.array(self.dataOut.dataLag_cspc)
                     self.dataOut.dataLag_dc = numpy.array(self.dataOut.dataLag_dc)
+
+                    #print('self.dataOut.dataLag_spc.shape', self.dataOut.dataLag_spc.shape)
                     
                     # Return the shape of the data to[channel, profile, heigh, lag]
                     self.dataOut.dataLag_spc = self.dataOut.dataLag_spc.transpose(1, 2, 3, 0)
                     self.dataOut.dataLag_cspc=self.dataOut.dataLag_cspc.transpose(1,2,3,0)
                     self.dataOut.dataLag_dc = self.dataOut.dataLag_dc.transpose(1, 2, 0)
+
+                    #print('self.dataOut.dataLag_spc.shape', self.dataOut.dataLag_spc.shape)
                     
                     # Save the Lagdata into a copy with the channel select to be plotted
                     self.dataOut.data_spc=self.dataOut.dataLag_spc[:,:,:,self.dataOut.LagPlot]
@@ -1245,7 +1257,7 @@ class IntegrationFaradaySpectra(Operation):
         """
         Add a profile to the __buffer_spc and increase in one the __profileIndex
         """
-
+        # self.__buffer_ have (n,nCh,nFFTs,nHeights,nLag) dimmension
         self.__buffer_spc.append(data_spc)
 
 
@@ -1333,11 +1345,13 @@ class IntegrationFaradaySpectra(Operation):
 
         self.__buffer_spc=numpy.array(self.__buffer_spc)
         self.__buffer_cspc = numpy.array(self.__buffer_cspc)
+        # self.__buffer_spc.shape   (214, 2, 12, 67, 11)
+        # self.__buffer_cspc.shape  (214, 1, 12, 67, 11)
         
         freq_dc = int(self.__buffer_spc.shape[2] / 2)
-        #print("FREQ_DC",freq_dc)
-        #print(self.__buffer_spc[:,1,5,37,0])
-        #lag_array=[0,2,4,6,8,10,12,14,16,18,20]
+        # print("FREQ_DC",freq_dc)
+        # print(self.__buffer_spc[:,1,5,37,0])
+        # lag_array=[0,2,4,6,8,10,12,14,16,18,20]
 
         '''
         l lags
@@ -1350,7 +1364,9 @@ class IntegrationFaradaySpectra(Operation):
         '''
 
         for l in range(self.DPL):#dataOut.DPL):
-            #breakFlag=False
+            # breakFlag=False
+            # print('self.nHeights', self.nHeights)
+            # nHeights = valor definido en selectHeights + 1 (67)
             for k in range(7,self.nHeights):
                 buffer_cspc=numpy.copy(self.__buffer_cspc[:,0,:,k,l])
                 outliers_IDs_cspc=[]
@@ -1486,8 +1502,12 @@ class IntegrationFaradaySpectra(Operation):
         avgdata_cspc = None
         avgdata_dc = None
 
+        # Acumulando perfiles
         self.putData(*args)
         # print('dataOut.flagNoData',self.dataOut.flagNoData)
+
+        #print('self.__profIndex', self.__profIndex)
+
         if self.__profIndex == self.n:
 
             avgdata_spc, avgdata_cspc, avgdata_dc, n = self.pushData()
@@ -1546,6 +1566,7 @@ class IntegrationFaradaySpectra(Operation):
         avgdata_cspc = None
         avgdata_dc = None
 
+        # Acumulando perfiles
         self.putData(*args)
 
         if (datatime - self.__initime) >= self.__integrationtime:
@@ -1596,7 +1617,7 @@ class IntegrationFaradaySpectra(Operation):
 
         #print('self.__integrationtime', self.__integrationtime)
 
-        DAY = 86400
+        '''DAY = 86400
         TARGET = 5 * 3600
         WARNING = 5
 
@@ -1604,13 +1625,13 @@ class IntegrationFaradaySpectra(Operation):
         target = day_start + TARGET
 
         if target - dataOut.utctime <= WARNING and target > dataOut.utctime:
-            print("Hola")
+            print("Hola")'''
 
         #print('self.__lastdatatime', self.__lastdatatime)
 
-
         ''' Assignation setup of integration time or number of integrations '''
         if not self.isConfig: #assignation setup of integration time or number of integrations
+            # Configuracion de self.n = n
             self.setup(n, timeInterval, overlapping)
             self.isConfig = True
         
@@ -1629,6 +1650,9 @@ class IntegrationFaradaySpectra(Operation):
                                                                                 dataOut.dataLag_spc,
                                                                                 dataOut.dataLag_cspc,
                                                                                 dataOut.dataLag_dc)
+            #                                                                   dataOut.dataLag_spc.shape (2, 12, 67, 11)
+            #                                                                   dataOut.dataLag_cspc.shape (1, 12, 67, 11)
+            #                                                                   dataOut.dataLag_dc.shape (2, 67, 11)
 
         '''Asignate integrated data to output'''
         if self.__dataReady:
