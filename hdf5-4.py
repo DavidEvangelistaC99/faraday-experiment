@@ -10,11 +10,20 @@ import os
 # CONFIGURACIÓN
 # ============================================================
 
+# Faraday
+'''file_paths = [
+    "/home/david/Documents/DATA-3/Faraday/18_21_Aug_26/new-int/clean-test/campaign/B/jro20260818_160853.hdf5",
+    "/home/david/Documents/DATA-3/Faraday/18_21_Aug_26/new-int/clean-test/campaign/B/jro20260819_050853.hdf5",
+    "/home/david/Documents/DATA-3/Faraday/18_21_Aug_26/new-int/clean-test/campaign/B/jro20260820_050853.hdf5",
+    "/home/david/Documents/DATA-3/Faraday/18_21_Aug_26/new-int/clean-test/campaign/B/jro20260821_050853.hdf5",
+]'''
+
+# Valley
 file_paths = [
-    "/home/david/Documents/DATA-3/Faraday/18_21_Aug_26/new-int/clean-test/18_Aug_26/jro20260818_160853.hdf5",
-    "/home/david/Documents/DATA-3/Faraday/18_21_Aug_26/new-int/clean-test/19_Aug_26/jro20260819_050853.hdf5",
-    "/home/david/Documents/DATA-3/Faraday/18_21_Aug_26/new-int/clean-test/20_Aug_26/jro20260820_050853.hdf5",
-    "/home/david/Documents/DATA-3/Faraday/18_21_Aug_26/new-int/clean-test/21_Aug_26/jro20260821_050853.hdf5",
+    "/home/david/Documents/DATA-3/Valley/25_28_Aug_26/campaign/A/jro20260825_130105.hdf5",
+    "/home/david/Documents/DATA-3/Valley/25_28_Aug_26/campaign/A/jro20260826_050001.hdf5",
+    "/home/david/Documents/DATA-3/Valley/25_28_Aug_26/campaign/A/jro20260827_050002.hdf5",
+    "/home/david/Documents/DATA-3/Valley/25_28_Aug_26/campaign/A/jro20260828_050001.hdf5",
 ]
 
 
@@ -26,7 +35,8 @@ directory = os.path.dirname(file_paths[0])
 
 html_file = os.path.join(
     directory,
-    "madrigal_interactive_4days.html"
+    #"madrigal_interactive_4days_faraday.html"
+    "madrigal_interactive_4days_valley.html"
 )
 
 
@@ -35,10 +45,17 @@ html_file = os.path.join(
 # ============================================================
 
 ZMIN = 0
-ZMAX = 2.4e12
+#Valley
+ZMAX = 2.4e6 #12
+#ZMAX = 2.4e12
 
-HEIGHT_MIN = 180
-HEIGHT_MAX = 920
+#Faraday
+#HEIGHT_MIN = 180
+#HEIGHT_MAX = 920
+
+#Valley
+HEIGHT_MIN = 70 #180
+HEIGHT_MAX = 400 #920
 
 N_LEVELS = 15
 
@@ -744,8 +761,9 @@ fig.update_layout(
     # --------------------------------------------------------
 
     title=dict(
-
-        text="Electron Density — 18–21 August 2026",
+        #Faraday
+        #text="Electron Density — 18–21 August 2026",
+        text="Electron Density — 25–28 August 2026",
 
         x=0.5
 

@@ -17,7 +17,7 @@ dpath = '/mnt/share-3/Faraday/main_radar/rawdata'
 controller = Project()
 controller.setup(id = '001',
                  name='Hybrid',
-                 description='DP+LP')
+                 description='DP+LP/EWDrifts')
 
 figpath='/home/david/Documents/DATA-3/Faraday/15_19_Jun_26/17_Jun_26'
 #figpath='/home/david/Documents/DATA-3/Faraday/6_14_Nov_25/7_Nov_25'

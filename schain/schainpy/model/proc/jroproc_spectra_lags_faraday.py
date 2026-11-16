@@ -1255,9 +1255,9 @@ class IntegrationFaradaySpectra(Operation):
 
     def putData(self, data_spc, data_cspc, data_dc):
         """
-        Add a profile to the __buffer_spc and increase in one the __profileIndex
+        Add a profile to the __buffer_spc, __buffer_cspc and __buffer_dc and increase in one the __profileIndex
         """
-        # self.__buffer_ have (n,nCh,nFFTs,nHeights,nLag) dimmension
+        # self.__buffer_ has (n,nCh,nFFTs,nHeights,nLag) dimmension
         self.__buffer_spc.append(data_spc)
 
 
@@ -1379,7 +1379,7 @@ class IntegrationFaradaySpectra(Operation):
                         continue
                         #pass
                     else:
-                        buffer1=numpy.copy(self.__buffer_spc[:,i,:,k,l]) # [int, profile]
+                        buffer1=numpy.copy(self.__buffer_spc[:,i,:,k,l]) # [nInt, nProfile]
                         indexes=[]
                         #sortIDs=[]
                         outliers_IDs=[]
@@ -1388,7 +1388,7 @@ class IntegrationFaradaySpectra(Operation):
                                 continue
                             if i==1 and j==0: #NOT CONSIDERING DC PROFILE AT CHANNEL 1
                                 continue
-                            buffer=buffer1[:,j] # [int]
+                            buffer=buffer1[:,j] # [int] n times for one spectra profile
                             
                             '''Finding the outlier index with Hildebrand Sekhon algorithm'''
                             index=int(_HS_algorithm.HS_algorithm(numpy.sort(buffer, axis=None),1))
@@ -1477,8 +1477,11 @@ class IntegrationFaradaySpectra(Operation):
         #print(self.__buffer_spc[:,1,3,20,0])
         #print(self.__buffer_spc[:,1,5,37,0])
         '''Integration of the improved spectra and cross-spectra'''
+        print('self.__buffer_spc.shape',self.__buffer_spc.shape)
         data_spc = numpy.sum(self.__buffer_spc,axis=0)
         data_cspc = numpy.sum(self.__buffer_cspc,axis=0)
+
+        print('data_spc.shape',data_spc.shape)
 
         #print(numpy.shape(data_spc))
         #data_spc[1,4,20,0]=numpy.nan
@@ -1600,6 +1603,8 @@ class IntegrationFaradaySpectra(Operation):
         if n == 1:
             dataOut.VelRange = dataOut.getVelRange(0)
             return dataOut
+        
+
 
         #print('self.__profIndex', self.__profIndex)
         #print(dataOut.flagNoMoreFiles)
@@ -1646,6 +1651,9 @@ class IntegrationFaradaySpectra(Operation):
             self.nChannels=dataOut.nChannels
             self.nHeights=dataOut.nHeights
             self.DPL=dataOut.DPL
+
+            print('dataOut.utctime',dataOut.utctime)
+            print('dataOut.dataLag_spc',dataOut.dataLag_spc.shape)
             avgdatatime, avgdata_spc, avgdata_cspc, avgdata_dc = self.integrate(dataOut.utctime,
                                                                                 dataOut.dataLag_spc,
                                                                                 dataOut.dataLag_cspc,
@@ -1666,12 +1674,19 @@ class IntegrationFaradaySpectra(Operation):
                 dataOut.dataLag_cspc = avgdata_cspc
                 dataOut.dataLag_dc = avgdata_dc
 
+                print('dataOut.dataLag_spc.shape', dataOut.dataLag_spc.shape)
+
                 dataOut.data_spc=dataOut.dataLag_spc[:,:,:,dataOut.LagPlot]
                 dataOut.data_cspc=dataOut.dataLag_cspc[:,:,:,dataOut.LagPlot]
                 dataOut.data_dc=dataOut.dataLag_dc[:,:,dataOut.LagPlot]
+                
+                print('dataOut.data_spc.shape', dataOut.data_spc.shape)
 
             dataOut.VelRange = dataOut.getVelRange(0)
+
+            print('dataOut.VelRange', dataOut.VelRange)
             dataOut.nIncohInt *= self.n
+            
             dataOut.utctime = avgdatatime
             dataOut.flagNoData = False
 
@@ -4368,7 +4383,20 @@ class SpectraDataToFaraday(Operation): #ISR MODE
         tmpx_b2=numpy.zeros((dataOut.NDP,dataOut.DPL,2),'float32')
         tmpx_abr=numpy.zeros((dataOut.NDP,dataOut.DPL,2),'float32')
         tmpx_abi=numpy.zeros((dataOut.NDP,dataOut.DPL,2),'float32')
-        dataOut.kabxys_integrated=[tmpx,tmpx,tmpx,tmpx,tmpx_a2,tmpx,tmpx_b2,tmpx,tmpx_abr,tmpx,tmpx_abi,tmpx,tmpx,tmpx]
+        dataOut.kabxys_integrated=[tmpx,        #0
+                                   tmpx,        #1
+                                   tmpx,        #2
+                                   tmpx,        #3
+                                   tmpx_a2,     #4
+                                   tmpx,        #5
+                                   tmpx_b2,     #6
+                                   tmpx,        #7
+                                   tmpx_abr,    #8
+                                   tmpx,        #9
+                                   tmpx_abi,    #10
+                                   tmpx,        #11
+                                   tmpx,        #12
+                                   tmpx]        #13
         '''
         dataOut.rnint2=numpy.zeros(dataOut.DPL,'float32')
         for l in range(dataOut.DPL):
@@ -4382,6 +4410,11 @@ class SpectraDataToFaraday(Operation): #ISR MODE
 
 
         self.dataLag_spc=(dataOut.dataLag_spc.sum(axis=1))*(dataOut.rnint2[0]/dataOut.nProfiles)
+        # dataOut.dataLag_spc (2,12,67,11)
+        # self.dataLag_spc (2,67,11)
+
+        #print("self.dataLag_spc.shape",self.dataLag_spc.shape)
+        #print("dataOut.dataLag_spc.shape",dataOut.dataLag_spc.shape)
         self.dataLag_cspc=(dataOut.dataLag_cspc.sum(axis=1))*(dataOut.rnint2[0]/dataOut.nProfiles)
 
 
@@ -4390,13 +4423,17 @@ class SpectraDataToFaraday(Operation): #ISR MODE
         self.dataLag_cspc=(dataOut.dataLag_cspc.sum(axis=1))*(dataOut.rnint2[0]/dataOut.nProfiles)
         #self.dataLag_dc=dataOut.dataLag_dc.sum(axis=1)/dataOut.rnint2[0]
         '''
-
+        
+        # tmpx_a2
         dataOut.kabxys_integrated[4][:,:,0]=self.dataLag_spc[0,:,:].real
         #dataOut.kabxys_integrated[5][:,:,0]+=self.dataLag_spc[0,:,:].imag
+        # tmpx_b2
         dataOut.kabxys_integrated[6][:,:,0]=self.dataLag_spc[1,:,:].real
         #dataOut.kabxys_integrated[7][:,:,0]+=self.dataLag_spc[1,:,:].imag
 
+        # tmpx_abr
         dataOut.kabxys_integrated[8][:,:,0]=self.dataLag_cspc[0,:,:].real
+        # tmpx_abi
         dataOut.kabxys_integrated[10][:,:,0]=self.dataLag_cspc[0,:,:].imag
 
         '''
@@ -4580,7 +4617,9 @@ class SpectraDataToFaraday(Operation): #ISR MODE
 
         self.normFactor(dataOut)
         #print(dataOut.NDP)
-        dataOut.NDP=dataOut.nHeights #  Number of heights for Double Pulse.*
+        dataOut.NDP=dataOut.nHeights #  Number of elements of heights for Double Pulse.*
+        #print('dataOut.NDP', dataOut.NDP)
+        #exit(1)
         dataOut.NR=len(dataOut.channelList) # num receptores (channels)
         dataOut.DH=dataOut.heightList[1]-dataOut.heightList[0] # delta H
         dataOut.H0=int(dataOut.heightList[0]) # H(0)

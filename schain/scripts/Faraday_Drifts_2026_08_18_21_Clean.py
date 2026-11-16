@@ -16,7 +16,8 @@ data_path = '/mnt/share/Faraday/main_radar/rawdata'
 
 # figpath = '/home/david/Documents/DATA-3/Faraday/18_21_Aug_26/new-int/clean-test/21_Aug_26/'
 # figpath = '/home/david/Documents/DATA-3/Faraday/18_21_Aug_26/20_Aug_26/'
-figpath = '/home/david/Documents/DATA-3/Faraday/18_21_Aug_26/new-int/clean-test/20_Aug_26/'
+# figpath = '/home/david/Documents/DATA-3/Faraday/18_21_Aug_26/new-int/clean-test/20_Aug_26/'
+figpath = '/home/david/Documents/DATA-3/Faraday/18_21_Aug_26/test/test-3/'
 
 figpath_server=figpath
 

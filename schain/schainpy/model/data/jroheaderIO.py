@@ -360,6 +360,7 @@ class RadarControllerHeader(Header):
             return 0
 
         size = int(header['nSize'][0])
+        #size = int(216)
         self.expType = int(header['nExpType'][0])
         self.nTx = int(header['nNTx'][0])
         self.ipp = float(header['fIpp'][0])
