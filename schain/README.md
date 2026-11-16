@@ -6,7 +6,7 @@ data.
 
 ## Dependencies
 
-- GCC (gcc or gfortran)
+- GCC (gcc and gfortran)
 - Python.h (python-dev or python-devel)
 - Python-TK (python-tk)
 - HDF5 libraries (libhdf5-dev)
