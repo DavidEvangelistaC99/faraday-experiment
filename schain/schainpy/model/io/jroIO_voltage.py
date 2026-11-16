@@ -247,8 +247,6 @@ class VoltageReader(JRODataReader, ProcessingUnit):
             (self.systemHeaderObj.nChannels, self.processingHeaderObj.profilesPerBlock * self.nTxs, int(self.processingHeaderObj.nHeights / self.nTxs)))
 
         self.dataOut.nProfiles = self.processingHeaderObj.profilesPerBlock * self.nTxs
-        #print(self.dataOut.nProfiles)
-        #print("hola")
         self.dataOut.heightList = numpy.arange(self.processingHeaderObj.nHeights / self.nTxs) * \
             self.processingHeaderObj.deltaHeight + self.processingHeaderObj.firstHeight
         self.dataOut.radarControllerHeaderObj.ippSeconds = self.radarControllerHeaderObj.ippSeconds / self.nTxs
@@ -400,13 +398,8 @@ class VoltageReader(JRODataReader, ProcessingUnit):
         """
 
         ##print("10--OKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK")
-        #print(self.dataOut.flagNoMoreFiles)
         if self.flagNoMoreFiles:
-            self.dataOut.flagNoMoreFiles = True
-            # print(self.dataOut.flagNoMoreFiles)
             self.dataOut.flagNoData = True
-            #valor de prueba para lectura de flagnomoredata
-            
             return 0
         self.flagDiscontinuousBlock = 0
         self.flagIsNewBlock = 0
@@ -440,7 +433,6 @@ class VoltageReader(JRODataReader, ProcessingUnit):
             """
                 Return a block
             """
-            # print("Numero de perfiles: ", self.dataOut.data.shape)
             if self.selBlocksize == None:
                 self.selBlocksize = self.dataOut.nProfiles
             if self.selBlocktime != None:
@@ -455,8 +447,6 @@ class VoltageReader(JRODataReader, ProcessingUnit):
                                                self.profileIndex:self.profileIndex + self.selBlocksize, :]
             self.profileIndex += self.selBlocksize
             datasize = self.dataOut.data.shape[1]
-
-            # print("out of voltageReader: ", self.dataOut.data.shape)
 
             if datasize < self.selBlocksize:
                 buffer = numpy.zeros(

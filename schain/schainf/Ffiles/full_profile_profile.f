@@ -1,19 +1,17 @@
 c
-c     $Id: full_profile.f,v 1.3 2013/09/12 19:11:48 daveh Exp daveh $ DLH 
+c     $Id: full_profile.f,v 1.3 2013/09/12 19:11:48 daveh Exp daveh $ DLH
+c     Updated with Hysell code 2025
 c      
-
       subroutine profile(acf_sum,acf_err,power,en,alag,thb2,bfm2,
      & ote,ete,oti,eti,oph,eph,ophe,ephe,range2,ut,
-     &     NHTS,NACF,IBITS,acf_avg_real,status)
+     &     NHTS,NACF,IBITS,acf_avg,status)
 c
-      complex acf_sum(4,NHTS,IBITS)
-      real acf_avg_real(NHTS,IBITS)
+      complex acf_sum(4,NHTS,IBITS),acf_avg(NHTS,IBITS)
       real acf_err(NHTS,IBITS),range2(NHTS)
       real power(NHTS),en(NHTS),alag(IBITS),thb2(NHTS),bfm2(NHTS)
       real ote(NHTS),ete(NHTS),oti(NHTS),eti(NHTS),oph(NHTS),eph(NHTS)
       real ophe(NHTS),ephe(NHTS)
       integer NHTS,NACF,IBITS
-      real status(1)
       common /chisq/chi2
 c
 c     arguments above, internal variables below: have to make these match
@@ -42,19 +40,8 @@ c
 c
       pi=4.0*atan(1.0)
       uttime=ut
-c      write(*,*) "ut: ",ut
-c      write(*,*) "NHTS: ",NHTS
-c      write(*,*) "NACF: ",NACF
-c      write(*,*) "IBITS: ",IBITS
-c      call exit
-c      write(*,*) "acf_sum: ", acf_sum(1,111,11)      
-c      write(*,*) "Starting Profile Process"
+
 c     set up basic physical parameters
-c      dens=639747.44
-c      dens=509664.781
-c      te=3971.98926
-c      write(*,*) "acf_sum: ", acf_sum(1,31,2)
-c      call    exit
 
       wl=3.0
       ak=2.0*pi/wl
@@ -66,6 +53,7 @@ c     analysis starts at gate 15
       r0=range2(ir0)
       dr=range2(ir0+1)-range2(ir0)
 
+
       do i=1,nfield ! nrange+10   memory hole
          bfld_prof(i)=bfm2(i+ir0-1)
          alpha_prof(i)=thb2(i+ir0-1)*pi/180.0
@@ -74,16 +62,13 @@ c     analysis starts at gate 15
       do i=1,nrange+nl ! careful ... check nfield compared to nrange+nl
          densp(i)=en(i+ir0-1)
          do j=1,nl
-c            write(*,*) acf_sum(1,i+ir0-1,j)
             plag(j,i)=acf_sum(1,i+ir0-1,j)
-            
             plag_errors(j,i)=acf_err(i+ir0-1,j)
-c            write(*,*) j,i,plag_errors(j,i)
          end do
       end do      
-c      call exit
+
 c     set some fitting conventions
-c      write(*,*) "plag: ",plag(2,2)
+
       imode=2
       nion=3
 
@@ -114,21 +99,13 @@ c     initial guess - set density, He+ profiles here
          bcoef(i,5)=atanh(2.0*tmp-1.0) ! not so critical
       end do        
 
-c      write(*,*) bcoef
-c      call exit
-
 c     grid search for other params to help set initial guess
 c     could include Ne, He+ in grid search too
-c      write(*,fmt='("before GRID")')
+      
       call grid()
-c      write(*,fmt='("After GRID")')
-      write(*,*) "chi2 after grid:",chi2
-c      write(*,fmt='("Just After chi")')
-c      call exit
-      if(chi2.le.3.5) then
 
-c      write(*,fmt='("After chi")')
-c      call exit
+      if(chi2.le.5.5) then ! normally 2.5
+
       tol=1.0e-9
 
 c      call lmdif1(fcn_lpreg,nfun-nl*nl,nvar,bcoef,fvec,tol,
@@ -148,26 +125,19 @@ c     &     info,iwa,wa,lwa)
       mode = 1
       nprint = 0
       mp5n = m + 5*n
-c      write(*,*) wa(5*n+1)
-c      call exit
-      write(*,*) "before densp:", densp(1),bcoef(1,2)
       call lmdif(fcn_lpreg,m,n,bcoef,fvec,ftol,xtol,gtol,
      &     maxfev,epsfcn,wa(1),
      *           mode,factor,nprint,info,nfev,wa(mp5n+1),m,iwa,
      *           wa(n+1),wa(2*n+1),wa(3*n+1),wa(4*n+1),wa(5*n+1))
 
-c      write(*,fmt='("After lmdif")')
-c      write(*,*) info
-      write(*,*) "densp_after:", densp(1),bcoef(1,2)
-c      call exit
+      write(*,*) info
 
 c
 c     error handling; evalate solution point first, then Jacobian
 c
       iflag=0
-c      write(*,fmt='("before fcn_lpreg")')
       call fcn_lpreg(m,n,bcoef,fvec,iflag) ! common sys constant throughout
-c      write(*,fmt='("After fcn_lpreg")')
+
       nm1=n*m+1
       call fdjac2(fcn_lpreg,m,n,bcoef,fvec,wa,m,iflag,epsfcn,wa(nm1))
 
@@ -208,22 +178,15 @@ c     theoretical lag products and other quantities for plotting
 c
 
       call lagp(plag,wl,r0,dr,nl,nrange)
-      write(*,*) "plag_plag",REAL(plag(12,58))
-      write(*,*) "plag_plag",REAL(plag(12,72))
-c      write(*,*) "plag_plag",AIMAG(plag(12,72))
       do i=1,nrange                        !
          en(i+ir0-1)=densp(i)
          do j=1,nl
-            acf_avg_real(i+ir0-1,j)=REAL(plag(j,i))
-c            acf_avg_imag(i+ir0-1,j)=AIMAG(acf_sum(1,i+ir0-1,j))
+            acf_avg(i+ir0-1,j)=plag(j,i)
          end do
       end do      
-      write(*,*) "acf",acf_avg_real(72,12)
-c      write(*,*) "acf",acf_avg_imag(72,12)
+
       end if
-      status(1)=chi2
-      
-c      write(*,*) "status: ",status
+      status=chi2
 
  5    return
       end
@@ -282,8 +245,8 @@ c
       do iloop=1,2
          if(iloop.eq.1) then
             l1=2
-            l2=26
-            m1=2
+            l2=28
+            m1=4
             m2=10
             n1=2
             n2=16
@@ -319,20 +282,19 @@ c            end if
          end do
 
          do m=m1,m2,iskip ! H+ scale height search DLH 2015
-            
             do n=n1,n2,iskip ! H+ crossing  height search
-	      
+
                do k=1,nspline
                   tmp=float(k-nspline/4-n)*(float(m-1)*5.0e-2+0.1)
                   bcoef(k,4)=tmp
                end do
-               
+
                do i=1,nrange
                   call get_spline(altp(i),densp(i),tep(i),tip(i),
      &                 hfp(i),hefp(i))
 
                end do
-	       
+
                goto 4
                call setorigin(6.5,3.5,90.0)
                call setscale("L",altp(1),altp(nrange),1)
@@ -348,42 +310,28 @@ c            end if
                   call plotline("B,L",hfp,altp,nrange,2,0)
                end if
  4             continue
-	       
+
 c     calculate chi-2
-c               write(*,*) "wl: ",wl, "r0: ",r0
-c               write(*,*) "dr: ",dr,"nl: ",n,"nrange", nrange
-c	       write(*,*) "before lagp inside grid"
+               
                call lagp(plag2,wl,r0,dr,nl,nrange)
-c               write(*,*) "plag2: ",plag2(12,72)
-c               write(*,*) "plag2: ",plag2
-c               call exit	       
+
                call get_scale(plag2)
-c               write(*,*) "plag: ",plag(13,70)
-c               write(*,*) "plag2: ",plag2(13,70)
-c	       write(*,*) "plag_errors: ",plag_errors(13,70)
-c	       write(*,*) "sconst: ",sconst              
-c               call exit
-c               write(*,*) "cal chi2.1: ", chi2
-c               call exit
+	       write(*,*) sconst              
+ 
                chi2=0.0
                ipt=0
-c               write(*,*) "cal chi2.1: ", chi2
                do j=nl+1,nrange
                   do i=1,nl
                      ipt=ipt+1
                      fvec(ipt)=(plag(i,j)-plag2(i,j)*sconst)/
      &                    plag_errors(i,j)
 c                     write(*,*) j,i,plag(i,j),plag2(i,j),
-c     &                    plag_errors(i,j),sconst
-c		     call exit
+c     &                    plag_errors(i,j)
                      chi2=chi2+fvec(ipt)**2
-c                     write(*,*) "cal chi2.1: ", chi2
                   end do
-c                  call exit
                end do
-c               write(*,*) "cal chi2.2: ", chi2
-c               call exit
-               chi2=sqrt(chi2/float(nrange*nl))!+float(l)*0.005 ! DLH??
+               chi2=sqrt(chi2/float(nrange*nl))
+               if(uttime.lt.10.0) chi2=chi2+float(l)**2*0.0025 ! DLH 2023
                if(chi2.lt.chmin) then
                   lmin=l
                   mmin=m
@@ -391,23 +339,22 @@ c               call exit
                   chmin=chi2
                end if
 
-               write(*,*) "A",l,m,n,chi2,chmin,"B" ! best
-c               call exit
-c	        write(*,fmt='("intermediate")')
+               write(*,*) l,m,n,chi2,chmin ! best
+
             end do
          end do
       end do
 
       end do
-c      write(*,fmt='("befire flush")')
+
 c      call where()
       write(22,*) lmin,mmin,nmin,chmin
       call flush(22)
-c      write(*,fmt='("after flush")')
+
 c     best result here
 
       do k=1,nspline
-         tmp=-2.5+float(k-1)*float(lmin-1)*1.3e-2 
+         tmp=-2.5+float(k-1)*float(lmin-1)*1.3e-2 ! can kluge this
 c         if(uttime.ge.2.0.and.uttime.lt.10.0) then
 c         tmp=-1.5+float(k-1)*float(lmin-1)*8.0e-3 
 c         else
@@ -425,20 +372,18 @@ c         end if
          bcoef(k,4)=tmp
       end do
 
+
 c     reset system constant
 
       do i=1,nrange
          call get_spline(altp(i),densp(i),tep(i),tip(i),
      &        hfp(i),hefp(i))
       end do
-c      write(*,fmt='("------------before lagp------------")')
-c      write(*,*) chi2
-c      call exit
-      call lagp(plag2,wl,r0,dr,nl,nrange)   
-c      write(*,fmt='("after lagp")')      
+
+      call lagp(plag2,wl,r0,dr,nl,nrange)         
       call get_scale(plag2)
-c      write(*,*) chi2
       chi2=chmin
+
       return
       end
 
@@ -453,9 +398,6 @@ c
 
 
       do i=1,nrange
-
-         write(*,*) "densp:", densp(i),bcoef(1,2)
-c         call exit
 c                  
          edensp(i)=bvalue(ta,xe(1+0*nspline),nspline,norder,altp(i),0)
      &        *densp(i)*2.30
@@ -463,9 +405,9 @@ c
          etep(i)=bvalue(ta,xe(1+1*nspline),nspline,norder,altp(i),0)
      &        *(t1/2.0)/cosh(x)**2 ! DLH 10/14 was 3500
 
-         write(*,*) i,altp(i),x,
-     &        bvalue(ta,xe(1+1*nspline),nspline,norder,altp(i),0),
-     &        (3500.0/2.0)/cosh(x)**2,xe(1+i/4+1*nspline)
+c         write(*,*) i,altp(i),x,
+c     &        bvalue(ta,xe(1+1*nspline),nspline,norder,altp(i),0),
+c     &        (3500.0/2.0)/cosh(x)**2,xe(1+i/4+1*nspline)
 
          x=bvalue(ta,bcoef(1,3),nspline,norder,altp(i),0)
          etip(i)=bvalue(ta,xe(1+2*nspline),nspline,norder,altp(i),0)
@@ -477,8 +419,7 @@ c
          ehefp(i)=bvalue(ta,xe(1+4*nspline),nspline,norder,altp(i),0)
      &        *(1.0/2.0)/cosh(x)**2
 
-         write(*,*) altp(i),edensp(i),etep(i),etip(i),ehfp(i),ehefp(i)
-c         call exit
+c         write(*,*) altp(i),edensp(i),etep(i),etip(i),ehfp(i),ehefp(i)
       end do
 
 c      stop
@@ -492,24 +433,21 @@ c
       include 'fpa.h'
       include 'fitter.h'
 c
-      integer m,n,iflag,iflaglast
+      integer m,n,iflag
       real x(n),fvec(m),pen(nstate+npen)
       real plag2(nl,nrange)
       real regu(nstate+npen)
-      data regu/1.0e1,5.0e1,10.0e1,1.0e2,5.0e1,
+      data regu/1.0e1,5.0e1,10.0e1,10.0e1,5.0e1,  
      &     1.0e1,2.0e0,1.0e0,5.0e-3,1.0e0/ 
 
 c     2019 
-      common /iflaglast/iflaglast
+
       common /chisq/chi2
       common /utime/uttime
 c
 c      write(*,*)uttime," 3 *"
 
 c     zero out, copy over some arrays
-
-c      write(*,*) "Starting fcn_lpreg"
-      write(*,*) "x:",x(2)
 
       do j=1,nstate+npen
          pen(j)=0.0
@@ -525,23 +463,19 @@ c            write(*,*)j,i,bcoef(i,j)
       end do
 
 c     populate profiles from splines
-      write(*,*) "densp1:",densp(1)
+
       do i=1,nrange
          altp(i)=r0+dr*float(i-1)
-c         write(*,*) "densp1:",densp(i)
          call get_spline(altp(i),densp(i),tep(i),tip(i),
      &        hfp(i),hefp(i))
-c         write(*,*) "densp2:",densp(i)
-c         call exit
       end do
-      write(*,*) "densp2:",densp(1)
+      
 c     regularize spline coefficients, establish boundary conditions
-c      write(*,*) "After spline_fcn_lpreg"
+ 
       ipt=0
       do i=2,nspline-1
          do j=1,nstate
-
-            fac=1.2  ! DLH 7/14 could be bendy (or else get spurious He+)
+            fac=1.2  ! could be bendy (or else get spurious He+)
             if((uttime.lt.10.0.or.uttime.gt.15.0).and.j.eq.2) fac=4.0
             
             ipt=ipt+1
@@ -560,11 +494,11 @@ c     rescale for clearer diagnostic (just for printing)
 c      write(*,*) x
 
 c     compute model prediction error to minimize in LS sense
-c      write(*,*) "before lagp_fcn_lpreg"
+
       call lagp(plag2,wl,r0,dr,nl,nrange)
-c      write(*,*) "before lagp_fcn_lpreg"
+
 c     adjust system constant
-      write(*,*) "flgas:",iflag,iflaglast
+
       if(iflag.eq.1.and.iflaglast.eq.2) then
          sclast=sconst
          call get_scale(plag2)
@@ -603,8 +537,10 @@ c     have to adjust penalties for different conditions (e.g. sunrise, night)
 
       end do
 
-      pen(nstate+4)=(tip(1)-700.0)**2*float(nrange) ! or 800?
+      pen(nstate+4)=(tip(1)-700.0)**2*float(nrange) ! or 700 solar min.
       pen(nstate+5)=(hfp(nrange)-1.0)**2*float(nrange)
+     &     + hefp(nl)**2*400.0*float(nrange) ! DLH 2023
+c      write(*,*)"hefp: ",hefp(nl)
 
       do i=1,npen
          tmp=sqrt(pen(nstate+i))*regu(nstate+i)
@@ -612,13 +548,13 @@ c     have to adjust penalties for different conditions (e.g. sunrise, night)
          fvec(ipt)=tmp
          pen(nstate+i)=tmp/sqrt(float(nrange))
       end do
-      
-c      write(*,*) "chi2:",chi2," sys const:",sconst,
-c     &     " flag:",iflag," penalties:"
-c      write(*,*)(pen(i),i=1,5)
-c      write(*,*)(pen(i),i=6,10)
-c      write(*,*) "ut:",uttime
-c      write(*,*) fvec(222)
+
+      write(*,*) "chi2:",chi2," sys const:",sconst,
+     &     " flag:",iflag," penalties:"
+      write(*,*)(pen(i),i=1,5)
+      write(*,*)(pen(i),i=6,10)
+      write(*,*) "ut:",uttime
+c      write(*,*) fvec
 
       return
       end
@@ -639,8 +575,9 @@ c         write(*,*) j,plag(1,j),plag2(1,j)
 
       sconst=b/a
       
-      write(*,*)"sconst_inside_get_scape:",sconst,a,b
+c      write(*,*)"sconst:",sconst,a,b
 c      stop
       
       return
       end
+

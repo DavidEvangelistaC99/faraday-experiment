@@ -247,8 +247,6 @@ class SpectraReader(JRODataReader, ProcessingUnit):
         """
 
         if self.flagNoMoreFiles:
-            self.dataOut.flagNoMoreFiles = True
-            # print(self.dataOut.flagNoMoreFiles)
             self.dataOut.flagNoData = True
             return 0
 

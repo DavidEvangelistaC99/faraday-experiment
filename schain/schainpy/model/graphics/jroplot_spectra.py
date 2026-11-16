@@ -42,7 +42,7 @@ class SpectraPlot(Plot):
         meta = {}
 
         spc = 10*numpy.log10(dataOut.data_spc/dataOut.normFactor)
-        # print("dataOut.normFactor", dataOut.normFactor)
+        #print("dataOut.normFactor", dataOut.normFactor)
         #print("dataOut.normFactor: ", dataOut.normFactor)
         #print("spc: ", dataOut.data_spc[0,0,0])
         #spc = 10*numpy.log10(dataOut.data_spc)
@@ -50,7 +50,6 @@ class SpectraPlot(Plot):
         #exit(1)
         data['spc'] = spc
         data['rti'] = dataOut.getPower()
-        #print("data['rti'].shape",data['rti'].shape)
         #print(data['rti'][0])
         #exit(1)
         #print("NormFactor: ",dataOut.normFactor)
@@ -95,11 +94,7 @@ class SpectraPlot(Plot):
         self.y = y
 
         data = self.data[-1]
-
         z = data['spc']
-
-        '''for key, value in data.items():
-            print (key)'''
 
         self.CODE2 = 'spc_oblique'
 
@@ -118,8 +113,7 @@ class SpectraPlot(Plot):
                 if self.zlimits is not None:
                     self.zmin, self.zmax = self.zlimits[n]
 
-                ax.plt = ax.pcolormesh(x[:z[n].T.shape[1]], #x, # Change for adjust index in DP experiment spectraPlot 
-                                       y, z[n].T,
+                ax.plt = ax.pcolormesh(x, y, z[n].T,
                                        vmin=self.zmin,
                                        vmax=self.zmax,
                                        cmap=plt.get_cmap(self.colormap),
@@ -269,97 +263,6 @@ class SpectraObliquePlot(Plot):
 
             self.titles.append('CH {}: {:3.2f}dB'.format(n, noise))
 
-
-'''class CrossSpectraPlot(Plot):
-
-    CODE = 'cspc'
-    colormap = 'jet'
-    plot_type = 'pcolor'
-    zmin_coh = None
-    zmax_coh = None
-    zmin_phase = None
-    zmax_phase = None
-
-    def setup(self):
-
-        self.ncols = 4
-        self.nplots = len(self.data.pairs) * 2
-        self.nrows = int((1.0 * self.nplots / self.ncols) + 0.9)
-        self.width = 3.1 * self.ncols
-        self.height = 5 * self.nrows
-        self.ylabel = 'Range [km]'
-        self.showprofile = False
-        self.plots_adjust.update({'left': 0.08, 'right': 0.92, 'wspace': 0.5, 'hspace':0.4, 'top':0.95, 'bottom': 0.08})
-
-    def update(self, dataOut):
-
-        data = {}
-        meta = {}
-
-        spc = dataOut.data_spc
-        cspc = dataOut.data_cspc
-        meta['xrange'] = (dataOut.getFreqRange(1)/1000., dataOut.getAcfRange(1), dataOut.getVelRange(1))
-        meta['pairs'] = dataOut.pairsList
-
-        tmp = []
-
-        for n, pair in enumerate(meta['pairs']):
-            out = cspc[n] / numpy.sqrt(spc[pair[0]] * spc[pair[1]])
-            coh = numpy.abs(out)
-            phase = numpy.arctan2(out.imag, out.real) * 180 / numpy.pi
-            tmp.append(coh)
-            tmp.append(phase)
-
-        data['cspc'] = numpy.array(tmp)
-
-        return data, meta
-
-    def plot(self):
-
-        if self.xaxis == "frequency":
-            x = self.data.xrange[0]
-            self.xlabel = "Frequency (kHz)"
-        elif self.xaxis == "time":
-            x = self.data.xrange[1]
-            self.xlabel = "Time (ms)"
-        else:
-            x = self.data.xrange[2]
-            self.xlabel = "Velocity (m/s)"
-
-        self.titles = []
-
-        y = self.data.yrange
-        self.y = y
-
-        data = self.data[-1]
-        cspc = data['cspc']
-
-        for n in range(len(self.data.pairs)):
-            pair = self.data.pairs[n]
-            coh = cspc[n*2]
-            phase = cspc[n*2+1]
-            ax = self.axes[2 * n]
-            if ax.firsttime:
-                ax.plt = ax.pcolormesh(x, y, coh.T,
-                                       vmin=0,
-                                       vmax=1,
-                                       cmap=plt.get_cmap(self.colormap_coh)
-                                       )
-            else:
-                ax.plt.set_array(coh.T.ravel())
-            self.titles.append(
-                'Coherence Ch{} * Ch{}'.format(pair[0], pair[1]))
-
-            ax = self.axes[2 * n + 1]
-            if ax.firsttime:
-                ax.plt = ax.pcolormesh(x, y, phase.T,
-                                       vmin=-180,
-                                       vmax=180,
-                                       cmap=plt.get_cmap(self.colormap_phase)
-                                       )
-            else:
-                ax.plt.set_array(phase.T.ravel())
-            self.titles.append('Phase CH{} * CH{}'.format(pair[0], pair[1]))'''
 
 class CrossSpectraPlot(Plot):
 
@@ -878,6 +781,7 @@ class SpectrogramPlot(Plot):
 
     CODE = 'Spectrogram_Profile'
     colormap = 'binary'
+    #colormap = 'jet'
     plot_type = 'pcolorbuffer'
 
     def setup(self):
@@ -980,41 +884,6 @@ class SpectrogramPlot(Plot):
             #self.CODE.upper(), x, y[hei], y[hei],y[hei]+(DH*nProfiles)))
 
 
-
-
-'''class CoherencePlot(RTIPlot):
-    
-    #Plot for Coherence data
-    
-
-    CODE = 'coh'
-
-    def setup(self):
-        self.xaxis = 'time'
-        self.ncols = 1
-        self.nrows = int(len(self.data.pairs))
-        self.nplots = len(self.data.pairs)
-        self.ylabel = 'Range [km]'
-        self.xlabel = 'Time'
-        self.plots_adjust.update({'hspace':0.6, 'left': 0.1, 'bottom': 0.1,'right':0.95})
-        if self.CODE == 'coh':
-            self.cb_label = ''
-            self.titles = [
-                'Coherence Map Ch{} * Ch{}'.format(x[0], x[1]) for x in self.data.pairs]
-        else:
-            self.cb_label = 'Degrees'
-            self.titles = [
-                'Phase Map Ch{} * Ch{}'.format(x[0], x[1]) for x in self.data.pairs]
-
-    def update(self, dataOut):
-
-        data = {}
-        meta = {}
-        data['coh'] = dataOut.getCoherence()
-        meta['pairs'] = dataOut.pairsList
-
-        return data, meta'''
-
 class CoherencePlot(RTIPlot):
     '''
     Plot for Coherence data
@@ -1078,7 +947,7 @@ class CoherencePlot(RTIPlot):
                 ax.plt = ax.pcolormesh(x, y, z,
                                        vmin=vmin,
                                        vmax=vmax,
-                                       cmap=plt.get_cmap(cmap_name))
+                                       cmap=plt.get_cmap('binary'))#cmap_name))
                 
                 if self.showprofile:
                     profile_val = coh_data[pair_idx][-1]
@@ -1092,27 +961,43 @@ class CoherencePlot(RTIPlot):
                 ax.plt = ax.pcolormesh(x, y, z,
                                        vmin=vmin,
                                        vmax=vmax,
-                                       cmap=plt.get_cmap(cmap_name))
+                                       cmap=plt.get_cmap('binary')) #cmap_name))
                 if self.showprofile:
                     profile_val = coh_data[pair_idx][-1]
                     ax.plot_profile.set_data(profile_val, self.y)
 
-'''class PhasePlot(CoherencePlot):
-    
-    # Plot for Phase map data
-    
+class CoherencePlot_CP(RTIPlot):
+    '''
+    Plot for Coherence data
+    '''
 
-    CODE = 'phase'
-    colormap = 'seismic'
+    CODE = 'coh'
+
+    def setup(self):
+        self.xaxis = 'time'
+        self.ncols = 2
+        self.nrows = int(len(self.data.pairs)/2)
+        self.nplots = len(self.data.pairs)
+        self.ylabel = 'Range [km]'
+        self.xlabel = 'Time'
+        self.plots_adjust.update({'hspace':0.6, 'left': 0.1, 'bottom': 0.1,'right':0.95})
+        if self.CODE == 'coh':
+            self.cb_label = ''
+            self.titles = [
+                'Coherence Map Ch{} * Ch{}'.format(x[0], x[1]) for x in self.data.pairs]
+        else:
+            self.cb_label = 'Degrees'
+            self.titles = [
+                'Phase Map Ch{} * Ch{}'.format(x[0], x[1]) for x in self.data.pairs]
 
     def update(self, dataOut):
 
         data = {}
         meta = {}
-        data['phase'] = dataOut.getCoherence(phase=True)
+        data['coh'] = dataOut.getCoherence()
         meta['pairs'] = dataOut.pairsList
 
-        return data, meta'''
+        return data, meta
 
 class PhasePlot(CoherencePlot):
     '''
@@ -1130,55 +1015,6 @@ class PhasePlot(CoherencePlot):
         meta['pairs'] = dataOut.pairsList
 
         return data, meta
-
-    def plot(self):
-        self.x = self.data.times
-        self.y = self.data.yrange
-        
-        # Enmascarar datos inválidos (NaNs)
-        # coh_data = numpy.ma.masked_invalid(self.data['coh'])
-        phase_data = numpy.ma.masked_invalid(self.data['phase'])
-
-        if self.decimation is None:
-            # x, y, coh_z = self.fill_gaps(self.x, self.y, coh_data)
-            x, y, phase_z = self.fill_gaps(self.x, self.y, phase_data)
-        else:
-            # Si se usa diezmado, asegúrate de procesar ambos conjuntos de datos
-            # Nota: el método decimate del padre podría necesitar ajustes si solo espera self.z
-            pass # Aquí puedes implementar el self.fill_gaps para decimation si lo usas
-        
-        for n, ax in enumerate(self.axes):
-            # Determinar si el eje actual es fase o coherencia
-            is_phase = (n % 2 != 0) 
-            pair_idx = n // 2       
-
-            
-            z = phase_z[pair_idx].T
-            vmin, vmax = -180, 180
-            cmap_name = 'RdBu_r'
-            
-            if ax.firsttime:
-                ax.plt = ax.pcolormesh(x, y, z,
-                                       vmin=vmin,
-                                       vmax=vmax,
-                                       cmap=plt.get_cmap(cmap_name))
-                
-                if self.showprofile:
-                    profile_val = phase_data[pair_idx][-1]
-                    ax.plot_profile = self.pf_axes[n].plot(profile_val, self.y)[0]
-                    # Ajustar los límites del eje X del perfil de acuerdo a la variable
-                    self.pf_axes[n].set_xlim(vmin, vmax)
-                    self.pf_axes[n].grid(True, axis='x', linestyle='--', linewidth=0.5)
-
-            else:
-                ax.plt.remove()
-                ax.plt = ax.pcolormesh(x, y, z,
-                                       vmin=vmin,
-                                       vmax=vmax,
-                                       cmap=plt.get_cmap(cmap_name))
-                if self.showprofile:
-                    profile_val = phase_data[pair_idx][-1]
-                    ax.plot_profile.set_data(profile_val, self.y)
 
 class NoisePlot(Plot):
     '''

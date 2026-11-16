@@ -9,7 +9,7 @@ c      character*47 L
       character(512) :: ppath
       character(512) :: cpath
       integer the_len
-      ppath = "/home/david/Documents/faraday-experiment/schain"
+      ppath = "/home/cportilla/DIR_MADRIGAL/schain"
       cpath = "/schainf/Ffiles/jlib26feb2001"
       fqual_temp = TRIM(ppath)//TRIM(cpath)
       the_len = LEN_TRIM(fqual_temp)

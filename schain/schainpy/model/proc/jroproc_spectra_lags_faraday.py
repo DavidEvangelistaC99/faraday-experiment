@@ -111,31 +111,21 @@ class SpectraLagProc(ProcessingUnit):
 
         fft_volt = numpy.fft.fft(
             self.buffer, n=self.dataOut.nFFTPoints, axis=1)
-        # self.buffer = [2,12,99]
-        # FFT(self.buffer[i, :, k])
-        # fft_volt = [2,12,99]
         fft_volt = fft_volt.astype(numpy.dtype('complex'))
         dc = fft_volt[:, 0, :]
 
         ### Calculate self-spectra
         # Reorder the frequency distribution to set 0 at center
         fft_volt = numpy.fft.fftshift(fft_volt, axes = (1,)) 
-        # Potencia espectral
         spc = fft_volt * numpy.conjugate(fft_volt)
         spc = spc.real
-        #print('spc.size',spc.size)
-        #print('spc.shape',spc.shape)
-        #print('dc.size',dc.size)
-        #print('dc.shape',dc.shape)
+
         blocksize = 0
         blocksize += dc.size
         blocksize += spc.size
 
         cspc = None
         pairIndex = 0
-        #print('self.dataOut.pairsList',self.dataOut.pairsList)
-        #print('self.dataOut.nPairs',self.dataOut.nPairs)
-        # self.dataOut.pairsList -> [(0, 1)]
         if self.dataOut.pairsList != None:
             # Calculate cross-spectra
             cspc = numpy.zeros(
@@ -160,10 +150,6 @@ class SpectraLagProc(ProcessingUnit):
         self.dataOut.blockSize = blocksize
         self.dataOut.flagShiftFFT = False
 
-        # print("self.dataOut.data_spc", self.dataOut.data_spc.shape)
-        # print("self.dataOut.data_cspc", self.dataOut.data_cspc.shape)
-        # print("self.dataOut.data_dc", self.dataOut.data_dc.shape)
-
         #return spc,cspc,dc
 
 
@@ -186,10 +172,9 @@ class SpectraLagProc(ProcessingUnit):
                                        nProfiles,
                                        self.dataIn.nHeights),
                                       dtype='complex')
-            # self.buffer = [2,12,99]
 
         # Usually FFTPoints should be equal to nProfiles N = L
-        # So, Buffer dimensions [channels (2), FFTPoints (12), Heights (99)]
+        # So, Buffer dimensions [channels (2), FFTPoints (24), Heights (99)]
 
         ### Sets the .buffer and .profIndex
         if self.dataIn.flagDataAsBlock: # Data was readed as block of [channel, profile, height] 
@@ -229,7 +214,7 @@ class SpectraLagProc(ProcessingUnit):
                 self.dataOut.pairsList = [pair for pair in itertools.combinations(self.dataOut.channelList, 2)]
             else:
                 self.dataOut.pairsList = pairsList
-            # (4)
+
             self.__getFft()  # Calculate FFT
             
             self.dataOut.flagNoData = False
@@ -274,7 +259,7 @@ class SpectraLagProc(ProcessingUnit):
                     self.dataOut.data_cspc = numpy.roll(self.dataOut.data_cspc, shift, axis=1)
             if pairsList:
                 self.__selectPairs(pairsList)
-        # (1)
+
         elif self.dataIn.type == "Voltage":
 
             if not self.dataOut.ByLags:
@@ -285,22 +270,19 @@ class SpectraLagProc(ProcessingUnit):
                 self.dataOut.TimeBlockSeconds=self.dataIn.TimeBlockSeconds
                 self.VoltageType(nFFTPoints,nProfiles,ippFactor,pairsList)
             else:
-                # (2)
                 self.dataOut.nLags = nLags
                 self.dataOut.DPL=self.dataIn.DPL
-                # DPL = 11
                 #self.dataOut.NDP=self.dataIn.NDP
                 self.dataOut.datalags=self.dataIn.datalags
-                # self.dataOut.datalags = [2,12,99,11]
                 self.dataOut.dataLag_spc=[]
                 self.dataOut.dataLag_cspc=[]
                 self.dataOut.dataLag_dc=[]
                 if self.buffer_Lag is None:
-                    # self.buffer_Lag = [2,12,99,11]
                     self.buffer_Lag = numpy.zeros((self.dataIn.nChannels,
                                                nProfiles,
                                                self.dataIn.nHeights,self.dataOut.nLags),
                                               dtype='complex')
+
                 for i in range(self.dataOut.nLags):
                     self.dataOut.data=self.dataIn.data=self.dataIn.datalags[:,:,:,i]
 
@@ -315,7 +297,6 @@ class SpectraLagProc(ProcessingUnit):
                         # buffer <- bufferlag with lag i
                         self.buffer[:,:self.id_max-self.dataIn.data.shape[1],:]=self.buffer_Lag[:,:self.id_max-self.dataIn.data.shape[1],:,i]
 
-                    # (3)
                     # Voltage to Spectra
                     self.VoltageType(nFFTPoints,nProfiles,ippFactor,pairsList)
 
@@ -332,7 +313,6 @@ class SpectraLagProc(ProcessingUnit):
                         self.dataOut.dataLag_spc.append(self.dataOut.data_spc)
                         self.dataOut.dataLag_cspc.append(self.dataOut.data_cspc)
                         self.dataOut.dataLag_dc.append(self.dataOut.data_dc)
-                        #print('self.dataOut.dataLag_spc.shape', len(self.dataOut.dataLag_spc))
 
 
                 if not self.dataOut.flagNoData:
@@ -340,15 +320,11 @@ class SpectraLagProc(ProcessingUnit):
                     self.dataOut.dataLag_spc=numpy.array(self.dataOut.dataLag_spc)
                     self.dataOut.dataLag_cspc=numpy.array(self.dataOut.dataLag_cspc)
                     self.dataOut.dataLag_dc = numpy.array(self.dataOut.dataLag_dc)
-
-                    #print('self.dataOut.dataLag_spc.shape', self.dataOut.dataLag_spc.shape)
                     
                     # Return the shape of the data to[channel, profile, heigh, lag]
                     self.dataOut.dataLag_spc = self.dataOut.dataLag_spc.transpose(1, 2, 3, 0)
                     self.dataOut.dataLag_cspc=self.dataOut.dataLag_cspc.transpose(1,2,3,0)
                     self.dataOut.dataLag_dc = self.dataOut.dataLag_dc.transpose(1, 2, 0)
-
-                    #print('self.dataOut.dataLag_spc.shape', self.dataOut.dataLag_spc.shape)
                     
                     # Save the Lagdata into a copy with the channel select to be plotted
                     self.dataOut.data_spc=self.dataOut.dataLag_spc[:,:,:,self.dataOut.LagPlot]
@@ -364,7 +340,6 @@ class SpectraLagProc(ProcessingUnit):
         else:
             raise ValueError("The type of input object '%s' is not valid".format(
                 self.dataIn.type))
-
 
         #print("after",self.dataOut.data_spc[0,:,20])
 
@@ -484,7 +459,9 @@ class removeDCLagFlip(Operation):
 
     def remover(self,mode):
         jspectra = self.dataOut.data_spc
+        #print('jspectra.shape',jspectra.shape)
         jcspectra = self.dataOut.data_cspc
+        #print('jcspectra.shape',jcspectra.shape)
 
         num_chan = jspectra.shape[0]
         num_hei = jspectra.shape[2]
@@ -492,6 +469,8 @@ class removeDCLagFlip(Operation):
         if jcspectra is not None:
             jcspectraExist = True
             num_pairs = jcspectra.shape[0]
+
+            #print('num_pairs',num_pairs)
         else:
             jcspectraExist = False
         
@@ -530,10 +509,13 @@ class removeDCLagFlip(Operation):
                     ''' Flipped case.- DC at 0 index  '''
                     
                     ind_freq_flip=[-1, -2, 1, 2]
+                    print('len(ind_freq_flip)',len(ind_freq_flip))
 
                     yy = jspectra[ich, ind_freq_flip, :]
+                    print('yy.shape',yy.shape)
 
                     jspectra[ich, 0, :] = numpy.dot(xx_aux, yy)
+                    print('jspectra.shape',jspectra.shape)
 
                     junkid = jspectra[ich, 0, :] <= 0
                     cjunkid = sum(junkid)
@@ -574,6 +556,29 @@ class removeDCLagFlip(Operation):
         #print("***********************************Remove DC***********************************")
         ##print(dataOut.FlipChannels)
         #exit(1)
+
+        #print(vars(self.dataOut))
+        '''print('############# atributos ###########"')
+
+        for nombre, valor in vars(dataOut).items():
+            print(f"\nNombre: {nombre}")
+            print(f"Tipo: {type(valor).__name__}")
+
+            if isinstance(valor, numpy.ndarray):
+                print(f"Dimensiones: {valor.shape}")'''
+
+        '''import pickle
+
+        path = "/media/cportilla/HDD/files/dataObject/Faraday/"
+        name_object = "dataOut" + self.__class__.__name__ + ".pkl"
+        file_path = path+name_object
+
+        with open(file_path, "wb") as archivo:
+            pickle.dump(dataOut, archivo)
+
+        print(f"Object saved successfully at: {file_path}")'''
+
+        # creando objeto de removeDCLagFlp llamado self.dataOut
         self.dataOut = dataOut
         if not dataOut.ByLags:
             self.remover(mode)
@@ -583,6 +588,8 @@ class removeDCLagFlip(Operation):
                 self.dataOut.data_cspc=self.dataOut.dataLag_cspc[:,:,:,i]
                 self.dataOut.data_dc=self.dataOut.dataLag_dc[:,:,i]
                 self.dataOut.dataLag_spc[:,:,:,i],self.dataOut.dataLag_cspc[:,:,:,i]=self.remover(mode)
+                print('self.dataOut.dataLag_spc[:,:,:,i].shape',self.dataOut.dataLag_spc[:,:,:,i].shape)
+                print('self.dataOut.dataLag_cspc[:,:,:,i].shape',self.dataOut.dataLag_cspc[:,:,:,i].shape)
 
             self.dataOut.data_spc=self.dataOut.dataLag_spc[:,:,:,self.dataOut.LagPlot]
             self.dataOut.data_cspc=self.dataOut.dataLag_cspc[:,:,:,self.dataOut.LagPlot]
@@ -1204,8 +1211,6 @@ class IntegrationFaradaySpectra(Operation):
     __buffer_dc = None
 
     __dataReady = False
-    #new attribute
-    __flag5UTC = False
 
     __timeInterval = None
 
@@ -1230,16 +1235,12 @@ class IntegrationFaradaySpectra(Operation):
         self.__initime = None
         self.__lastdatatime = 0
 
-        
-
         self.__buffer_spc = []
         self.__buffer_cspc = []
         self.__buffer_dc = 0
 
         self.__profIndex = 0
         self.__dataReady = False
-        self.__flag5UTC = False
-
         self.__byTime = False
 
         if n is None and timeInterval is None:
@@ -1255,9 +1256,9 @@ class IntegrationFaradaySpectra(Operation):
 
     def putData(self, data_spc, data_cspc, data_dc):
         """
-        Add a profile to the __buffer_spc, __buffer_cspc and __buffer_dc and increase in one the __profileIndex
+        Add a profile to the __buffer_spc and increase in one the __profileIndex
         """
-        # self.__buffer_ has (n,nCh,nFFTs,nHeights,nLag) dimmension
+
         self.__buffer_spc.append(data_spc)
 
 
@@ -1345,13 +1346,11 @@ class IntegrationFaradaySpectra(Operation):
 
         self.__buffer_spc=numpy.array(self.__buffer_spc)
         self.__buffer_cspc = numpy.array(self.__buffer_cspc)
-        # self.__buffer_spc.shape   (214, 2, 12, 67, 11)
-        # self.__buffer_cspc.shape  (214, 1, 12, 67, 11)
         
         freq_dc = int(self.__buffer_spc.shape[2] / 2)
-        # print("FREQ_DC",freq_dc)
-        # print(self.__buffer_spc[:,1,5,37,0])
-        # lag_array=[0,2,4,6,8,10,12,14,16,18,20]
+        #print("FREQ_DC",freq_dc)
+        #print(self.__buffer_spc[:,1,5,37,0])
+        #lag_array=[0,2,4,6,8,10,12,14,16,18,20]
 
         '''
         l lags
@@ -1364,9 +1363,7 @@ class IntegrationFaradaySpectra(Operation):
         '''
 
         for l in range(self.DPL):#dataOut.DPL):
-            # breakFlag=False
-            # print('self.nHeights', self.nHeights)
-            # nHeights = valor definido en selectHeights + 1 (67)
+            #breakFlag=False
             for k in range(7,self.nHeights):
                 buffer_cspc=numpy.copy(self.__buffer_cspc[:,0,:,k,l])
                 outliers_IDs_cspc=[]
@@ -1379,7 +1376,7 @@ class IntegrationFaradaySpectra(Operation):
                         continue
                         #pass
                     else:
-                        buffer1=numpy.copy(self.__buffer_spc[:,i,:,k,l]) # [nInt, nProfile]
+                        buffer1=numpy.copy(self.__buffer_spc[:,i,:,k,l]) # [int, profile]
                         indexes=[]
                         #sortIDs=[]
                         outliers_IDs=[]
@@ -1388,7 +1385,7 @@ class IntegrationFaradaySpectra(Operation):
                                 continue
                             if i==1 and j==0: #NOT CONSIDERING DC PROFILE AT CHANNEL 1
                                 continue
-                            buffer=buffer1[:,j] # [int] n times for one spectra profile
+                            buffer=buffer1[:,j] # [int]
                             
                             '''Finding the outlier index with Hildebrand Sekhon algorithm'''
                             index=int(_HS_algorithm.HS_algorithm(numpy.sort(buffer, axis=None),1))
@@ -1477,11 +1474,8 @@ class IntegrationFaradaySpectra(Operation):
         #print(self.__buffer_spc[:,1,3,20,0])
         #print(self.__buffer_spc[:,1,5,37,0])
         '''Integration of the improved spectra and cross-spectra'''
-        print('self.__buffer_spc.shape',self.__buffer_spc.shape)
         data_spc = numpy.sum(self.__buffer_spc,axis=0)
         data_cspc = numpy.sum(self.__buffer_cspc,axis=0)
-
-        print('data_spc.shape',data_spc.shape)
 
         #print(numpy.shape(data_spc))
         #data_spc[1,4,20,0]=numpy.nan
@@ -1505,62 +1499,15 @@ class IntegrationFaradaySpectra(Operation):
         avgdata_cspc = None
         avgdata_dc = None
 
-        # Acumulando perfiles
         self.putData(*args)
-        # print('dataOut.flagNoData',self.dataOut.flagNoData)
-
-        #print('self.__profIndex', self.__profIndex)
 
         if self.__profIndex == self.n:
 
             avgdata_spc, avgdata_cspc, avgdata_dc, n = self.pushData()
             self.n = n
             self.__dataReady = True
+
         return avgdata_spc, avgdata_cspc, avgdata_dc
-
-    '''def byProfiles(self, datatime, *args):
-
-        """Call variables and push data"""
-        self.__dataReady = False
-
-        avgdata_spc = None
-        avgdata_cspc = None
-        avgdata_dc = None
-
-        self.putData(*args)
-
-        # Integración normal
-        if self.__profIndex == self.n:
-
-            avgdata_spc, avgdata_cspc, avgdata_dc, n = self.pushData()
-
-            self.n = n
-            self.__dataReady = True
-
-        # Integración parcial a las 05:00 UTC
-        else:
-            print("PRIMER ELSE ...")
-
-            DAY = 86400
-            TARGET = 5 * 3600
-            WARNING = 5
-
-            day_start = (int(datatime) // DAY) * DAY
-            target = day_start + TARGET
-
-            if (0 <= target - datatime <= WARNING
-                    and not self.__flag5UTC):
-
-                print("ENTRAMOS")
-
-                self.__flag5UTC = True
-
-                avgdata_spc, avgdata_cspc, avgdata_dc, n = self.pushData()
-
-                self.n = n
-                self.__dataReady = True
-
-        return avgdata_spc, avgdata_cspc, avgdata_dc'''
 
     def byTime(self, datatime, *args):
 
@@ -1569,7 +1516,6 @@ class IntegrationFaradaySpectra(Operation):
         avgdata_cspc = None
         avgdata_dc = None
 
-        # Acumulando perfiles
         self.putData(*args)
 
         if (datatime - self.__initime) >= self.__integrationtime:
@@ -1590,7 +1536,6 @@ class IntegrationFaradaySpectra(Operation):
             avgdata_spc, avgdata_cspc, avgdata_dc = self.byTime(
                 datatime, *args)
         else:
-            #avgdata_spc, avgdata_cspc, avgdata_dc = self.byProfiles(datatime, *args)#*args)
             avgdata_spc, avgdata_cspc, avgdata_dc = self.byProfiles(*args)
 
         if not self.__dataReady:
@@ -1603,40 +1548,10 @@ class IntegrationFaradaySpectra(Operation):
         if n == 1:
             dataOut.VelRange = dataOut.getVelRange(0)
             return dataOut
-        
-
-
-        #print('self.__profIndex', self.__profIndex)
-        #print(dataOut.flagNoMoreFiles)
-
-        #dataOut.flagNoMoreFiles=False
-        #print(type(dataOut))
 
         dataOut.flagNoData = True
-        #print('dataOut.flagNoData',dataOut.flagNoData)
-        # print('dataOut.flagNoData',dataOut.flagNoData)
-        
-        #print('dataOut.flagNoMoreFiles', dataOut.flagNoMoreFiles)
-        #print('self.__initime', self.__initime)
-        #print('dataOut.utctime', dataOut.utctime)
-
-        #print('self.__integrationtime', self.__integrationtime)
-
-        '''DAY = 86400
-        TARGET = 5 * 3600
-        WARNING = 5
-
-        day_start = (int(dataOut.utctime) // DAY) * DAY
-        target = day_start + TARGET
-
-        if target - dataOut.utctime <= WARNING and target > dataOut.utctime:
-            print("Hola")'''
-
-        #print('self.__lastdatatime', self.__lastdatatime)
-
         ''' Assignation setup of integration time or number of integrations '''
         if not self.isConfig: #assignation setup of integration time or number of integrations
-            # Configuracion de self.n = n
             self.setup(n, timeInterval, overlapping)
             self.isConfig = True
         
@@ -1651,16 +1566,10 @@ class IntegrationFaradaySpectra(Operation):
             self.nChannels=dataOut.nChannels
             self.nHeights=dataOut.nHeights
             self.DPL=dataOut.DPL
-
-            print('dataOut.utctime',dataOut.utctime)
-            print('dataOut.dataLag_spc',dataOut.dataLag_spc.shape)
             avgdatatime, avgdata_spc, avgdata_cspc, avgdata_dc = self.integrate(dataOut.utctime,
                                                                                 dataOut.dataLag_spc,
                                                                                 dataOut.dataLag_cspc,
                                                                                 dataOut.dataLag_dc)
-            #                                                                   dataOut.dataLag_spc.shape (2, 12, 67, 11)
-            #                                                                   dataOut.dataLag_cspc.shape (1, 12, 67, 11)
-            #                                                                   dataOut.dataLag_dc.shape (2, 67, 11)
 
         '''Asignate integrated data to output'''
         if self.__dataReady:
@@ -1674,19 +1583,12 @@ class IntegrationFaradaySpectra(Operation):
                 dataOut.dataLag_cspc = avgdata_cspc
                 dataOut.dataLag_dc = avgdata_dc
 
-                print('dataOut.dataLag_spc.shape', dataOut.dataLag_spc.shape)
-
                 dataOut.data_spc=dataOut.dataLag_spc[:,:,:,dataOut.LagPlot]
                 dataOut.data_cspc=dataOut.dataLag_cspc[:,:,:,dataOut.LagPlot]
                 dataOut.data_dc=dataOut.dataLag_dc[:,:,dataOut.LagPlot]
-                
-                print('dataOut.data_spc.shape', dataOut.data_spc.shape)
 
             dataOut.VelRange = dataOut.getVelRange(0)
-
-            print('dataOut.VelRange', dataOut.VelRange)
             dataOut.nIncohInt *= self.n
-            
             dataOut.utctime = avgdatatime
             dataOut.flagNoData = False
 
@@ -2430,6 +2332,7 @@ class IntegrationFaradaySpectra2(Operation):
                 self.FlipChannelsExist=1
             except:
                 self.FlipChannelsExist=0
+            print("dataOut.FlipChannels", dataOut.FlipChannels)
             self.isConfig = True
 
         self.nProfiles=dataOut.nProfiles
@@ -4383,20 +4286,7 @@ class SpectraDataToFaraday(Operation): #ISR MODE
         tmpx_b2=numpy.zeros((dataOut.NDP,dataOut.DPL,2),'float32')
         tmpx_abr=numpy.zeros((dataOut.NDP,dataOut.DPL,2),'float32')
         tmpx_abi=numpy.zeros((dataOut.NDP,dataOut.DPL,2),'float32')
-        dataOut.kabxys_integrated=[tmpx,        #0
-                                   tmpx,        #1
-                                   tmpx,        #2
-                                   tmpx,        #3
-                                   tmpx_a2,     #4
-                                   tmpx,        #5
-                                   tmpx_b2,     #6
-                                   tmpx,        #7
-                                   tmpx_abr,    #8
-                                   tmpx,        #9
-                                   tmpx_abi,    #10
-                                   tmpx,        #11
-                                   tmpx,        #12
-                                   tmpx]        #13
+        dataOut.kabxys_integrated=[tmpx,tmpx,tmpx,tmpx,tmpx_a2,tmpx,tmpx_b2,tmpx,tmpx_abr,tmpx,tmpx_abi,tmpx,tmpx,tmpx]
         '''
         dataOut.rnint2=numpy.zeros(dataOut.DPL,'float32')
         for l in range(dataOut.DPL):
@@ -4410,11 +4300,6 @@ class SpectraDataToFaraday(Operation): #ISR MODE
 
 
         self.dataLag_spc=(dataOut.dataLag_spc.sum(axis=1))*(dataOut.rnint2[0]/dataOut.nProfiles)
-        # dataOut.dataLag_spc (2,12,67,11)
-        # self.dataLag_spc (2,67,11)
-
-        #print("self.dataLag_spc.shape",self.dataLag_spc.shape)
-        #print("dataOut.dataLag_spc.shape",dataOut.dataLag_spc.shape)
         self.dataLag_cspc=(dataOut.dataLag_cspc.sum(axis=1))*(dataOut.rnint2[0]/dataOut.nProfiles)
 
 
@@ -4423,17 +4308,13 @@ class SpectraDataToFaraday(Operation): #ISR MODE
         self.dataLag_cspc=(dataOut.dataLag_cspc.sum(axis=1))*(dataOut.rnint2[0]/dataOut.nProfiles)
         #self.dataLag_dc=dataOut.dataLag_dc.sum(axis=1)/dataOut.rnint2[0]
         '''
-        
-        # tmpx_a2
+
         dataOut.kabxys_integrated[4][:,:,0]=self.dataLag_spc[0,:,:].real
         #dataOut.kabxys_integrated[5][:,:,0]+=self.dataLag_spc[0,:,:].imag
-        # tmpx_b2
         dataOut.kabxys_integrated[6][:,:,0]=self.dataLag_spc[1,:,:].real
         #dataOut.kabxys_integrated[7][:,:,0]+=self.dataLag_spc[1,:,:].imag
 
-        # tmpx_abr
         dataOut.kabxys_integrated[8][:,:,0]=self.dataLag_cspc[0,:,:].real
-        # tmpx_abi
         dataOut.kabxys_integrated[10][:,:,0]=self.dataLag_cspc[0,:,:].imag
 
         '''
@@ -4607,19 +4488,43 @@ class SpectraDataToFaraday(Operation): #ISR MODE
         #exit(1)
 
     def run(self,dataOut):
+
+
+        '''import inspect
+
+        import numpy as np
+
+        print("\n========== ATRIBUTOS DE dataOut ==========#####")
+
+        for nombre, valor in vars(dataOut).items():
+            print(f"\nNombre: {nombre}")
+            print(f"Tipo: {type(valor).__name__}")
+
+            if isinstance(valor, np.ndarray):
+                print(f"Dimensiones: {valor.shape}")
+                #print(f"Contenido completo:\n{valor}")
+            else:
+                pass'''
+                #print(f"Valor: {valor}")
+
         #print(dataOut.nIncohInt)
         #exit(1)
         dataOut.paramInterval=dataOut.nIncohInt*2*2#nIncohInt*numero de fft/nprofiles*segundos de cada muestra
+
+        #print(dataOut.nIncohInt)
+        #print(dataOut.paramInterval)
+
+
         dataOut.lat=-11.95
         dataOut.lon=-76.87
+
+
 
         data_to_remov_eej = dataOut.dataLag_spc[:,:,:,0]
 
         self.normFactor(dataOut)
         #print(dataOut.NDP)
-        dataOut.NDP=dataOut.nHeights #  Number of elements of heights for Double Pulse.*
-        #print('dataOut.NDP', dataOut.NDP)
-        #exit(1)
+        dataOut.NDP=dataOut.nHeights #  Number of heights for Double Pulse.*
         dataOut.NR=len(dataOut.channelList) # num receptores (channels)
         dataOut.DH=dataOut.heightList[1]-dataOut.heightList[0] # delta H
         dataOut.H0=int(dataOut.heightList[0]) # H(0)
@@ -5394,9 +5299,16 @@ class SpcVoltageDataToHybrid(SpectraDataToFaraday):
 
     def run(self,dataOut):
 
-        dataOut.paramInterval=0#int(dataOut.nint*dataOut.header[7][0]*2 )
+        dataOut.paramInterval= int(dataOut.nint*dataOut.header[7][0]*2 )
         dataOut.lat=-11.95
         dataOut.lon=-76.87
+
+        # For madrigal save need to be checked if the experiment change
+        dataOut.elm = 87.5
+        dataOut.azm = -19.15
+        dataOut.pl = 1e-4
+        dataOut.tfreq = 5e+7
+
         #print(numpy.shape(dataOut.dataLag_spc))
         #exit(1)
         data_to_remov_eej = dataOut.dataLag_spc[:,:,:,0]

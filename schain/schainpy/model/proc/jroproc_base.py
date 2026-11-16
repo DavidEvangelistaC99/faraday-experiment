@@ -38,7 +38,6 @@ class ProcessingUnit(object):
         attr = 'dataIn'
         for i, u in enumerate(unit):
             if i==0:
-                #print("hola")
                 #print(u.dataOut.flagNoData)
                 #exit(1)
                 self.dataIn = u.dataOut#.copy()
@@ -70,8 +69,7 @@ class ProcessingUnit(object):
     def call(self, **kwargs):
         '''
         '''
-        #print('self.dataOut.flagNoData', self.dataOut.flagNoData)
-        #print('self.dataOut.flagNoMoreFiles',self.dataOut.flagNoMoreFiles)
+
         try:
             if self.dataIn is not None and self.dataIn.flagNoData and not self.dataIn.error:
             #if self.dataIn is not None and self.dataIn.flagNoData and not self.dataIn.error and not self.dataIn.runNextUnit:

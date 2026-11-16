@@ -20,8 +20,7 @@ import matplotlib
 if 'BACKEND' in os.environ:
     matplotlib.use(os.environ['BACKEND'])
 elif 'linux' in sys.platform:
-    # matplotlib.use("TkAgg")
-    matplotlib.use("Agg")
+    matplotlib.use("TkAgg")
 elif 'darwin' in sys.platform:
     matplotlib.use('MacOSX')
 else:

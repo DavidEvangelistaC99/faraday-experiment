@@ -33,13 +33,6 @@ git checkout `branch-name` (optional)
 sudo pip install ./
 ```
 
-For All-ISR (Christian) needs to import pandas library. 
-
-```
-pip install pandas
-```
-
-
 ### Using Docker
 
 Download Dockerfile from the repository, and create a docker image:

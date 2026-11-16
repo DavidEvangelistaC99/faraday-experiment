@@ -25,7 +25,7 @@ try:
 except:
     log.warning('Missing Faraday fortran libs')
 
-import matplotlib.pyplot as plt
+import copy
 
 class VoltageProc(ProcessingUnit):
 
@@ -43,21 +43,9 @@ class VoltageProc(ProcessingUnit):
             self.__updateObjFromAmisrInput()
 
         if self.dataIn.type == 'Voltage':
+
             self.dataOut.copy(self.dataIn)
             self.dataOut.runNextUnit = runNextUnit
-
-            #print(self.dataOut.flagNoData)
-            #print(self.dataOut.flagNoMoreData)
-            # print("data shape: ", self.dataOut.data.shape)
-            #exit(1)
-
-        #for i in range(len(self.dataOut.heightList)):
-        #    print(self.dataOut.heightList[i])
-        #print("len(self.dataOut.heightList)", len(self.dataOut.heightList))
-        #print("self.dataOut.heightList[0]", self.dataOut.heightList[0])
-        #print("self.dataOut.heightList[-1]", self.dataOut.heightList[-1])
-        
-        
 
     def __updateObjFromAmisrInput(self):
 
@@ -85,9 +73,6 @@ class VoltageProc(ProcessingUnit):
         self.dataOut.beam.azimuthList = self.dataIn.beam.azimuthList
         self.dataOut.beam.zenithList = self.dataIn.beam.zenithList
 
-
-    # print(self.dataOut.data)
-
 class selectChannels(Operation):
 
     def run(self, dataOut, channelList):
@@ -101,9 +86,6 @@ class selectChannels(Operation):
             index = self.dataOut.channelList.index(channel)
             channelIndexList.append(index)
         self.selectChannelsByIndex(channelIndexList)
-
-        # print("data shape : ", self.dataOut.data.shape)
-
 
         return self.dataOut
 
@@ -188,6 +170,15 @@ class CombineChannels(Operation):
     '''Digital hybrid implementation'''
 
     def run(self, dataout, sum_list=[], sub_list=[]):
+
+        '''print('@@@@@@@@@@@@@@@ atributos ###########"')
+
+        for nombre, valor in vars(dataout).items():
+            print(f"\nNombre: {nombre}")
+            print(f"Tipo: {type(valor).__name__}")
+
+            if isinstance(valor, numpy.ndarray):
+                print(f"Dimensiones: {valor.shape}")'''
         '''
         Input:
             sum_list    : list of pairs [[0,2],[1,3]]
@@ -310,6 +301,8 @@ class saturatedBlock(Operation):
         # pad array to simplify indexing; choose edge padding to avoid introducing zeros in quiet backgrounds
         if pad_mode == 'edge':
             p = numpy.pad(power, pad_width=pad, mode='edge')
+        elif pad_mode == 'reflect':
+            p = numpy.pad(power, pad_width=pad, mode='reflect')
         else:
             p = numpy.pad(power, pad_width=pad, mode='constant', constant_values=0.0)
 
@@ -460,50 +453,159 @@ class saturatedBlock_Sat(saturatedBlock):
     hardcoded for the moment to Hybrid experiment
     '''
 
-    def run(self, dataOut, limit = 70, mode = 0):
+    def run(self, dataOut, limit = 70, mode = 0, ByLags = True, min_h = 40, max_h = 200, rep = False):
+        
 
         #self.setup()
         #print("TEST is equal Ch 0 ", dataOut.data[0,0:15,:])
         #print("TEST is equal Ch 1 ", dataOut.data[0,0:15,:])
         z = numpy.abs(dataOut.data)
-        
-        # Working place
-        # data z  (4, 150, 334) -> (4,128,334)
-        z_new = z [:,:128,:]
-        dataOut_extra = dataOut.data[:, 128:, :]
-        z_new = z_new.reshape(4, 8, 16, 334)
-        dataOut_z_new = z_new.reshape(4, 8, 16, 334)
-
-        idx = []
-        jars_fix = 1 # to solve, the samplpes are not enough correct
-        sample_trh = slice(40,200 - jars_fix)
         time_text = datetime.datetime.utcfromtimestamp(dataOut.utctime)
-        if time_text.hour > 23 or time_text.hour < 5: sample_trh = slice(45,200 - jars_fix) #10
+        idx = []
+        jars_fix = 0 # to solve, the samplpes are not enough correct
+
+        if ByLags == False:
+            print("ByLags", ByLags)
+            # Working place
+            # data z  (4, 4000, 200)
+            z_new = z #[:,:128,:]
+            #z_new = z_new.reshape(4, 8, 16, 334)
+            sample_trh = slice(min_h, max_h)
+
+        elif ByLags == True:
+            # Working place
+            # data z  (4, 150, 334) -> (4,128,334)
+            z_new = z [:,:128,:]
+            dataOut_extra = dataOut.data[:, 128:, :]
+            z_new = z_new.reshape(4, 8, 16, 334)
+            dataOut_z_new = z_new.reshape(4, 8, 16, 334)
+            sample_trh = slice(40,200 - jars_fix)
+
+        else: print("error")
+        
+        # if time_text.hour > 23 or time_text.hour < 5: sample_trh = slice(45,200 - jars_fix) #10
 
         # Identify the saturated profile groups
-        dataOut.sat_indices = numpy.zeros([2,200 - jars_fix])
-        for i in range(8):
+        #dataOut.sat_indices = numpy.zeros([dataOut.nChannels, 200 - jars_fix]) # Fix for Lags
+        # sat_indices - to plot
+        # sat_detection - flag in each profile and channel
+        profiles =  dataOut.nProfiles #4000
+        dataOut.sat_indices = numpy.zeros([dataOut.nChannels, dataOut.nHeights]) # Fix for Lags
+        dataOut.sat_detection = numpy.zeros([dataOut.nChannels, profiles, dataOut.nHeights])
+        
+        if rep == True and getattr(dataOut, "sat_tresshold", None) is not None:
+            print("sat exist")
+            for i in range(profiles):
+                for Ch in range(dataOut.nChannels):
+
+                    z_slice = z_new[Ch, i, sample_trh]
+                    thr     = dataOut.sat_tresshold[Ch, i, sample_trh]
+
+                    #if numpy.isnan(thr).all(): continue
+
+                    detection = z_slice > thr
+                    dataOut.sat_detection[Ch, i, sample_trh] = numpy.where(detection, z_slice, 0)
+
+
+            ###
+                    if Ch == 0 and i == 1000:
+                        
+                        import matplotlib.pyplot as plt
+                        plt.plot(dataOut.heightList[sample_trh], thr, 'b--')
+                        plt.plot(dataOut.heightList[sample_trh], z_slice)
+                        plt.plot(dataOut.heightList[sample_trh], dataOut.data[Ch, i, sample_trh].real, color='skyblue', lw=0.8, alpha=0.65)
+                        plt.plot(dataOut.heightList[sample_trh], dataOut.data[Ch, i, sample_trh].imag, color='salmon', lw=0.8, alpha=0.65)
+                        plt.title("CFAR " + str(datetime.datetime.utcfromtimestamp(dataOut.getTimeRange()[0])))
+                        plt.scatter(dataOut.heightList[sample_trh][numpy.where(detection)[0]], z_slice[detection], color='orange', label='Detections', zorder=3)
+                        plt.xlabel("km")
+                        plt.xlim(dataOut.heightList[min_h], dataOut.heightList[max_h])
+                        #plt.xlim([min(dataOut.heightList[sample_trh]), max(dataOut.heightList[sample_trh])-10])
+                        
+                        save_path = "/media/cportilla/HDD/150km/cleaning/1/"
+                        if save_path is not None:
+                            # Generar nombre unico con timestamp para no sobreescribir
+                            base, ext = os.path.splitext(save_path)
+                            ext = ext if ext else '.png'
+
+                            ts   = datetime.datetime.utcnow().strftime('%Y%m%d_%H%M%S_%f')
+                            path = f"{base}_{ts}{ext}"
+
+                            os.makedirs(os.path.dirname(path) or '.', exist_ok=True)
+                            #plt.ylim([0,28000])
+                            plt.savefig(path, dpi=150, bbox_inches='tight')
+                            
+                            print(f"Saved1: {path}")
+                            plt.close()
+                        else: plt.close()# plt.show()
+
+            return dataOut
+        elif rep == True:
+            dataOut.sat_tresshold = numpy.full((dataOut.nChannels, profiles, dataOut.nHeights),numpy.nan)
+        else: pass
+
+        
+
+        for i in range(profiles):
             hardTarget = False
 
             if mode == 0:
                 hardTarget = (z_new[1,i,:,sample_trh] > limit).any()
 
             elif mode == 1:
-                Ch_list = [0,1]
+                Ch_list = [0] # fix ofr lag
                 detections = []
                 aux_hardTarget = []
-                sample_trh = slice(25,200 - jars_fix)
+                sample_trh = slice(min_h, max_h) #sample_trh = slice(25,200 - jars_fix) # Fix for lag
                 for Ch in Ch_list:
-                    self.z_new = numpy.average(z_new[Ch,i,:,sample_trh], axis=0)
+                    self.z_new = z_new[Ch,i,sample_trh] # numpy.average(z_new[Ch,i,sample_trh], axis=0)# fix
                     # Typical values T=12, G=8, pfa=4e-2 Hybrid experiment
-                    detection,_,_ = self.so_cfar_1d(self.z_new, T=12, G=8, pfa=4e-2, pad_mode='edge')
-                    #print("aa", detection)
+                    #sat_guard = int(dataOut.txA/dataOut.deltaHeight/2)
+                    detection, tresshold, reference = self.so_cfar_1d(self.z_new, T=14, G=10, pfa=4e-2, pad_mode='reflect')
+                    
+                    dataOut.sat_detection[Ch, i, sample_trh] = numpy.where(detection, self.z_new, 0) #detection
+                    #print("*******", dataOut.sat_detection[Ch, i, sample_trh])
+
                     detections.append(detection)
                     aux_hardTarget.append(sum(detection) >= 2)
 
-                    sat_indices = numpy.where(detection,0.125, 0)
+                    sat_indices = numpy.where(detection,1/profiles, 0)
                     #if detection.any() == True: print("aaBs", sat_indices)
                     dataOut.sat_indices[Ch, sample_trh] += sat_indices
+
+                    # Added
+                    if rep == True:
+                        dataOut.sat_tresshold[Ch, i, sample_trh] = tresshold
+
+                    if Ch == 0 and i == 1000:
+                        import matplotlib.pyplot as plt
+                        plt.plot(dataOut.heightList[sample_trh], tresshold, 'b--')
+                        plt.plot(dataOut.heightList[sample_trh], self.z_new)
+                        plt.plot(dataOut.heightList[sample_trh], dataOut.data[Ch, i, sample_trh].real, color='skyblue', lw=0.8, alpha=0.65)
+                        plt.plot(dataOut.heightList[sample_trh], dataOut.data[Ch, i, sample_trh].imag, color='salmon', lw=0.8, alpha=0.65)
+                        plt.title("CFAR " + str(datetime.datetime.utcfromtimestamp(dataOut.getTimeRange()[0])))
+                        plt.scatter(dataOut.heightList[sample_trh][numpy.where(detection)[0]], self.z_new[detection], color='orange', label='Detections', zorder=3)
+                        plt.xlabel("km")
+                        plt.xlim(dataOut.heightList[min_h], dataOut.heightList[max_h])
+                        #plt.xlim([min(dataOut.heightList[sample_trh]), max(dataOut.heightList[sample_trh])-10])
+                        
+                        save_path = "/media/cportilla/HDD/150km/cleaning/1/"
+                        if save_path is not None:
+                            # Generar nombre unico con timestamp para no sobreescribir
+                            base, ext = os.path.splitext(save_path)
+                            ext = ext if ext else '.png'
+
+                            ts   = datetime.datetime.utcnow().strftime('%Y%m%d_%H%M%S_%f')
+                            path = f"{base}_{ts}{ext}"
+
+                            os.makedirs(os.path.dirname(path) or '.', exist_ok=True)
+                            #plt.ylim([0,28000])
+                            plt.savefig(path, dpi=150, bbox_inches='tight')
+                            print(f"Saved s: {path}")
+                            plt.close()
+                        else: plt.close()# plt.show()
+                        
+                    #
+                    
 
                 #detections = numpy.array(sorted(list(set(numpy.concatenate(detections))))) # join satellites indexes
                 detections = numpy.logical_or.reduce(detections)
@@ -513,14 +615,15 @@ class saturatedBlock_Sat(saturatedBlock):
             else:
                 return log.warning("Any filter BLock mode selected")
 
-            if hardTarget:
-                idx.append(i)
-                print(f"Debris detected at {i}", (z_new[1,i,:,sample_trh] > limit).any()) # use to print each profile is being changed
-                #print(z_new[1,i,:,sample_trh])
+        '''if hardTarget:
+            idx.append(i) # fix
+            print("dataOut.sat_indices", dataOut.sat_indices)
+            #print(f"Debris detected at {i}", (z_new[1,i,sample_trh] > limit).any()) # use to print each profile is being changed
+            #print(z_new[1,i,:,sample_trh])'''
         
 
         # Deals what to do with saturated profile groups
-        if len(idx) < 7:#len(idx) != 8:
+        '''if len(idx) < 7:#len(idx) != 8:
             candidates = numpy.setdiff1d(numpy.arange(8), idx)
             result = numpy.array([candidates[numpy.abs(candidates - i).argmin()] for i in idx])
             for n,i in enumerate(idx):
@@ -529,12 +632,14 @@ class saturatedBlock_Sat(saturatedBlock):
                 get_block = lambda x: slice(x*16, (x+1)*16)
                 dataOut.data[:,get_block(i),:] = dataOut.data[:,get_block(result[n]),:]
         else:
-            print("All profiles saturated")
+            print("All profiles saturated")'''
 
         # Temporal correction of JARS2 sampling issue - AllISR 2025
         '''print(dataOut.data[0,10,197], dataOut.data[0,10,198], dataOut.data[0,10,199], dataOut.data[0,10,200], dataOut.data[0,10,201])
         print("Jars correction")'''
         dataOut.data[:,:,199] = dataOut.data[:,:,199- jars_fix]
+
+        dataOut.sat_detection_min = min_h
 
         return dataOut
 
@@ -951,11 +1056,11 @@ class LagsReshapeDP_V2(Operation):
             for j in range(dataOut.NDP):
                 for k in range(int(dataOut.NSCAN)):
 
-                    n=dataOut.lagind[k%dataOut.NLAG]
+                    n=dataOut.lagind[k%dataOut.NLAG] # which lagind is each profile
 
                     data_ChA=dataOut.data[0,k,dataOut.NRANGE+j+i*dataOut.NDT]#-dataOut.dc[0]
 
-                    if dataOut.NRANGE+j+i*dataOut.NDT+2*n<dataOut.read_samples:
+                    if dataOut.NRANGE+j+i*dataOut.NDT+2*n<dataOut.read_samples: # 2 in 2*n is TxLagRate?
 
                         data_ChB=dataOut.data[1,k,dataOut.NRANGE+j+i*dataOut.NDT+2*n]#-dataOut.dc[1]
                         #print(data_ChB)
@@ -1453,11 +1558,9 @@ class selectHeights(Operation):
             1 si el metodo se ejecuto con exito caso contrario devuelve 0
         """
 
-        # print(self.dataOut.heightList)
-        # print(self.dataOut.heightList[0])
-        # print(self.dataOut.heightList[-1])
-
         self.dataOut = dataOut
+
+        
 
         if minHei and maxHei:
         #if 1:
@@ -1492,7 +1595,6 @@ class selectHeights(Operation):
 
         self.selectHeightsByIndex(minIndex, maxIndex)
         #print(self.dataOut.nHeights)
-
 
         return self.dataOut
 
@@ -1532,6 +1634,11 @@ class selectHeights(Operation):
             #         firstHeight = self.dataOut.heightList[minIndex]
 
             self.dataOut.data = data
+
+            '''print('self.dataOut.heightList[0]', self.dataOut.heightList[0])
+            print('self.dataOut.heightList[-1]', self.dataOut.heightList[-1])
+            print('len(self.dataOut.heightList)', len(self.dataOut.heightList))'''
+
             self.dataOut.heightList = self.dataOut.heightList[minIndex:maxIndex]
 
             if self.dataOut.nHeights <= 1:
@@ -1549,7 +1656,6 @@ class selectHeights(Operation):
             if hasattr(self.dataOut, "ByLags"):
                 if self.dataOut.ByLags:
                     self.dataOut.dataLag_spc = self.dataOut.dataLag_spc[:, :, minIndex:maxIndex + 1]
-                    #print('self.dataOut.dataLag_spc.shape.shape',self.dataOut.dataLag_spc.shape)
 
             data_cspc = None
             if self.dataOut.data_cspc is not None:
@@ -1577,16 +1683,16 @@ class selectHeights(Operation):
 class filterByHeights(Operation):
 
     def run(self, dataOut, window):
-        # len(heightList) = 990
-        # heightList = [0, 1.5, 3.0, 4.5, ..., 1480.5, 1482.0, 1483.5] aprox. 1500 km
+        #print("nHeights \n", dataOut.nHeights)
+        #print("heighList \n", dataOut.heightList)
         deltaHeight = dataOut.heightList[1] - dataOut.heightList[0]
-        
+        #print("dataOut \n", dataOut, dataOut.len)
+        #print("dataOut.data \n", dataOut.data)
         if window == None:
             window = (dataOut.radarControllerHeaderObj.txA/dataOut.radarControllerHeaderObj.nBaud) / deltaHeight
 
         newdelta = deltaHeight * window
         r = dataOut.nHeights % window
-        # nHeights = 990
         newheights = (dataOut.nHeights-r)/window
         if newheights <= 1:
             raise ValueError("filterByHeights: Too few heights. Current number of heights is %d and window is %d" %(dataOut.nHeights, window))
@@ -1651,8 +1757,6 @@ class deFlip(Operation):
         if channelList==1:  #PARCHE #Lista de un solo canal produce error
             channelList=[1]
 
-        
-
         dataOut.FlipChannels=channelList
         if dataOut.flagDataAsBlock:
             flip = self.flip
@@ -1690,20 +1794,6 @@ class deFlip(Operation):
 
         dataOut.data = data
 
-        #print(dataOut.data.shape)
-        #print(dataOut.data[1,:,:])
-        #t = [i for i in range(len(dataOut.data[1,0,:]))]
-
-        #for i in range(300):
-        #    plt.figure(figsize=(8, 4))      # Nueva figura
-        #    plt.plot(t, numpy.real(dataOut.data[1, i, :]))
-        #    plt.plot(t, numpy.imag(dataOut.data[1, i, :]))
-        #    plt.savefig(f"/opt/results/faraday/plots/plot_1_abs_with_flip_{i:03d}.png",
-        #                dpi=300,
-        #                bbox_inches="tight")
-        #    plt.close()
-
-        # print("dataOut after flip", dataOut.data.shape)
         return dataOut
 
 class deFlipHP(Operation):
@@ -1870,7 +1960,7 @@ class LagsReshape(Operation):
         self.buffer_HRonelag=None
 
     def LagDistribution(self,dataOut):
-        # Considera los primeros NSCAN perfiles
+
         dataOut.datapure=numpy.copy(dataOut.data[:,0:dataOut.NSCAN,:])
         self.buffer = numpy.zeros((dataOut.nChannels,
                                    int(dataOut.NSCAN/dataOut.DPL),
@@ -1924,10 +2014,6 @@ class LagsReshape(Operation):
 
 
     def run(self,dataOut,DPL=11,NSCAN=132, TxLagRate=2):
-        # TxLagRate = 2, 2*newDeltaHeis = 30 km (para el canal 1 todos los perfiles y lags estan al inicio)
-
-        #print(dataOut.flagNoData)
-        # print(dataOut.flagNoMoreFiles)
         dataOut.TxLagRate = TxLagRate
         '''PA = dataOut.data[0,:,:]
         PB = dataOut.data[1,:,:]
@@ -1950,8 +2036,6 @@ class LagsReshape(Operation):
 
         dataOut.DPL=DPL
         dataOut.NSCAN=NSCAN
-
-        #print()
         dataOut.paramInterval=0#int(dataOut.nint*dataOut.header[7][0]*2 )
         dataOut.lat=-11.95
         dataOut.lon=-76.87
@@ -1978,42 +2062,6 @@ class LagsReshape(Operation):
         
         plt.tight_layout()
         plt.show()#'''
-
-        '''outdir = "/home/david/Documents/faraday-experiment/results/FaradayDP/Faraday_2025_01/plots_lags_reshape"
-        os.makedirs(outdir, exist_ok=True)'''
-
-        # Figura 1: dataOut.data
-        '''plt.figure(figsize=(12, 5))
-        plt.imshow(numpy.abs(dataOut.data[0, :, :]).T,
-                aspect='auto',
-                origin='lower')
-        plt.xlabel("Perfil")
-        plt.ylabel("Altura (bin)")
-        plt.title("Canal 0 - dataOut.data")
-        plt.colorbar(label="|Señal|")
-        plt.savefig(f"{outdir}/dataOut_data_ch0.png",
-                    dpi=300,
-                    bbox_inches="tight")
-        plt.close()'''
-
-        '''ch = 1
-        # Figura 2: dataOut.datalags
-        for i in range(11):
-
-            plt.figure(figsize=(8, 5))
-            plt.imshow(numpy.abs(dataOut.datalags[ch, :, :, i]),
-                    aspect='auto',
-                    origin='lower')
-            plt.xlabel("Altura (bin)")
-            plt.ylabel("Perfiles")
-            plt.title(f"Canal {ch} - Lag {i} - dataOut.datalags")
-            plt.colorbar(label="|Señal|")
-            plt.savefig(f"{outdir}/dataOut_datalags_ch{ch}_lag{i}.png",
-                        dpi=300,
-                        bbox_inches="tight")
-            plt.close()
-
-        print("Figuras guardadas correctamente.")'''
 
         return dataOut
 
@@ -3601,6 +3649,7 @@ class DoublePulseACFs(Operation):
             for l in range(dataOut.DPL):
                 dataOut.alag[l]=l*dataOut.DH*2.0/150.0
             self.aux=0
+        # Signal noise
         sn4=dataOut.pan*dataOut.pbn
         rhorn=0
         rhoin=0
@@ -3608,28 +3657,22 @@ class DoublePulseACFs(Operation):
 
         id = numpy.where(dataOut.heightList>700)[0]
         #print("kabxys: ", numpy.shape(dataOut.kabxys_integrated))
-        for i in range(dataOut.NDP):
-            for j in range(dataOut.DPL):
+        for i in range(dataOut.NDP): #Heights
+            for j in range(dataOut.DPL): # Lags
                 #################  Total power
                 pa=numpy.abs(dataOut.kabxys_integrated[4][i,j,0]+dataOut.kabxys_integrated[5][i,j,0])
-                #print("pa::",pa)
                 pb=numpy.abs(dataOut.kabxys_integrated[6][i,j,0]+dataOut.kabxys_integrated[7][i,j,0])
                 st4=pa*pb
-
                 '''
                 if i > id[0]:
                     dataOut.p[i,j] pa-dataOut.pan
                 else:
                     dataOut.p[i,j]=pa+pb-(dataOut.pan+dataOut.pbn)
                     '''
-                #print("init 2.6",pa,dataOut.pan)
-                #dataOut.pan = 23600/2
-                #dataOut.pbn = 23600/2
                 dataOut.p[i,j]=pa+pb-(dataOut.pan+dataOut.pbn)
-                #print(i,j,dataOut.p[i,j])
                 dataOut.sdp[i,j]=2*dataOut.rnint2[j]*((pa+pb)*(pa+pb))
+                
                 ## ACF
-
                 rhorp=dataOut.kabxys_integrated[8][i,j,0]+dataOut.kabxys_integrated[11][i,j,0]
                 rhoip=dataOut.kabxys_integrated[10][i,j,0]-dataOut.kabxys_integrated[9][i,j,0]
                 '''
@@ -3643,19 +3686,19 @@ class DoublePulseACFs(Operation):
                 plt.show()
                 '''
                 if ((pa>dataOut.pan)&(pb>dataOut.pbn)):
-
+                    
+                    # panrm is RMS of power, used to normalize ACFs
+                    # H. note: rework error analysis, assuming uncorrelated noise
                     ss4=numpy.abs((pa-dataOut.pan)*(pb-dataOut.pbn))
                     panrm[i,j]=math.sqrt(ss4)
                     rnorm=1/panrm[i,j]
                     ##  ACF
                     dataOut.rhor[i,j]=rhorp*rnorm
                     dataOut.rhoi[i,j]=rhoip*rnorm
-                    #if i==13 and j== 0 or i ==14 and j==0:
-                        #print(numpy.sum(rhorp))
-                    #exit(1)
+
                     #############  Compute standard error for ACF
-                    stoss4=st4/ss4
-                    snoss4=sn4/ss4
+                    stoss4=st4/ss4 #(signal + noise) / signal
+                    snoss4=sn4/ss4 #(noise) / signal
                     rp2=((rhorp*rhorp)+(rhoip*rhoip))/st4
                     rn2=((rhorn*rhorn)+(rhoin*rhoin))/sn4
                     rs2=(dataOut.rhor[i,j]*dataOut.rhor[i,j])+(dataOut.rhoi[i,j]*dataOut.rhoi[i,j])
@@ -3663,26 +3706,14 @@ class DoublePulseACFs(Operation):
                     stn=1.0+rs2*(snoss4-(2*math.sqrt(stoss4*snoss4)))
                     dataOut.sd[i,j]=((stoss4*((1.0+rp2)*st+(2.0*rp2*rs2*snoss4)-4.0*math.sqrt(rs2*rp2)))+(0.25*snoss4*((1.0+rn2)*stn+(2.0*rn2*rs2*stoss4)-4.0*math.sqrt(rs2*rn2))))*dataOut.rnint2[j]
                     dataOut.sd[i,j]=numpy.abs(dataOut.sd[i,j])
-                    '''
-                    if i == 4:
-                        print(i,j,dataOut.sd[i,j])
-                        '''
-                    #print(i,j,dataOut.rhor[i,j])
-                    #exit(1)
+
                 else: #default values for bad points
                     rnorm=1/math.sqrt(st4)
                     dataOut.sd[i,j]=1.e30
                     dataOut.ibad[i,j]=4
                     dataOut.rhor[i,j]=rhorp*rnorm
                     dataOut.rhoi[i,j]=rhoip*rnorm
-                '''
-                if i==47:
-                    print("j",j)
-                    print("pa",pa/dataOut.pan)
-                    print("pb",pb/dataOut.pbn)
-                    print((pa/dataOut.pan-1.0))
-                    print((pb/dataOut.pbn-1.0))
-                    '''
+
                 #'''
                 if ((pb/dataOut.pbn-1.0)>2.25*(pa/dataOut.pan-1.0)): #To flag bad points from the pulse and EEJ for lags != 0 for Channel B
                     #print(dataOut.heightList[i],"EJJ")
@@ -3697,23 +3728,7 @@ class DoublePulseACFs(Operation):
                     #print("EJJ")
                     dataOut.igcej[i,j]=1
                     '''
-            '''
-            if i == 4:
-                exit(1)
-                '''
-        #print(numpy.sum(dataOut.kabxys_integrated[8][:,:,0]+dataOut.kabxys_integrated[11][:,:,0]))
-        #print(numpy.sum(dataOut.kabxys_integrated[10][:,:,0]-dataOut.kabxys_integrated[9][:,:,0]))
-        #print(numpy.sum(dataOut.rhor))
-        #print("bad points: ",dataOut.igcej[47,:])
-        #exit(1)
-        '''
-        for l in range(11):
-            print("p: ",dataOut.p[:,l])
-        exit(1)
-        '''
-        #print(pa)
-        #print("pa: ", numpy.shape(pa))
-        #print(numpy.shape(dataOut.heightList))
+
         '''
         import matplotlib.pyplot as plt
         plt.plot(dataOut.p[:,-1],dataOut.heightList)
@@ -3724,7 +3739,7 @@ class DoublePulseACFs(Operation):
         plt.show()
         #print("p: ",dataOut.p[33,:])
         #exit(1)
-        #'''
+        '''
         '''
         import matplotlib.pyplot as plt
         #plt.plot(numpy.abs(dataOut.kabxys_integrated[4][:,j,0]+dataOut.kabxys_integrated[5][:,j,0])+numpy.abs(dataOut.kabxys_integrated[6][:,j,0]+dataOut.kabxys_integrated[7][:,j,0]),dataOut.heightList)
@@ -3737,8 +3752,7 @@ class DoublePulseACFs(Operation):
         plt.grid()
         plt.show()
         '''
-        #print(numpy.sum(dataOut.rhor))
-        #exit(1)
+
         return dataOut
 
 class DoublePulseACFs_PerLag(Operation):
@@ -3793,15 +3807,10 @@ class DoublePulseACFs_PerLag(Operation):
 
         id = numpy.where(dataOut.heightList>700)[0]
 
-        PA = numpy.zeros((dataOut.NDP, dataOut.DPL), dtype=float)
-        PB = numpy.zeros((dataOut.NDP, dataOut.DPL), dtype=float)
-
         for i in range(dataOut.NDP): #Heights
             for j in range(dataOut.DPL): # Lags
                 #################  Total power
-                # Power channel A
                 pa=numpy.abs(dataOut.kabxys_integrated[4][i,j,0]+dataOut.kabxys_integrated[5][i,j,0])
-                # Power channel B
                 pb=numpy.abs(dataOut.kabxys_integrated[6][i,j,0]+dataOut.kabxys_integrated[7][i,j,0])
                 st4=pa*pb
                 '''
@@ -3812,21 +3821,23 @@ class DoublePulseACFs_PerLag(Operation):
                     '''
                 dataOut.p[i,j]=pa+pb-(dataOut.pan[j]+dataOut.pbn[j])
                 dataOut.sdp[i,j]=2*dataOut.rnint2[j]*((pa+pb)*(pa+pb))
+                
                 ## ACF
                 rhorp=dataOut.kabxys_integrated[8][i,j,0]+dataOut.kabxys_integrated[11][i,j,0]
                 rhoip=dataOut.kabxys_integrated[10][i,j,0]-dataOut.kabxys_integrated[9][i,j,0]
-                #PA[i,j] = pa; PB[i,j] = pb
+
                 if ((pa>dataOut.pan[j])&(pb>dataOut.pbn[j])):
+
                     # panrm is RMS of power, used to normalize ACFs
+                    # H. note: rework error analysis, assuming uncorrelated noise
                     ss4=numpy.abs((pa-dataOut.pan[j])*(pb-dataOut.pbn[j]))
-                    panrm[i,j]=math.sqrt(ss4)
+
+                    panrm[i,j]=math.sqrt(ss4) # geometric mean of signal powers
                     rnorm=1/panrm[i,j]
                     ##  ACF
                     dataOut.rhor[i,j]=rhorp*rnorm
                     dataOut.rhoi[i,j]=rhoip*rnorm
-                    #if i==13 and j== 0 or i ==14 and j==0:
-                        #print(numpy.sum(rhorp))
-                    #exit(1)
+
                     #############  Compute standard error for ACF
                     stoss4=st4/ss4
                     snoss4=sn4[j]/ss4
@@ -3837,26 +3848,14 @@ class DoublePulseACFs_PerLag(Operation):
                     stn=1.0+rs2*(snoss4-(2*math.sqrt(stoss4*snoss4)))
                     dataOut.sd[i,j]=((stoss4*((1.0+rp2)*st+(2.0*rp2*rs2*snoss4)-4.0*math.sqrt(rs2*rp2)))+(0.25*snoss4*((1.0+rn2)*stn+(2.0*rn2*rs2*stoss4)-4.0*math.sqrt(rs2*rn2))))*dataOut.rnint2[j]
                     dataOut.sd[i,j]=numpy.abs(dataOut.sd[i,j])
-                    '''
-                    if i == 4:
-                        print(i,j,dataOut.sd[i,j])
-                        '''
-                    #print(i,j,dataOut.rhor[i,j])
-                    #exit(1)
+
                 else: #default values for bad points
                     rnorm=1/math.sqrt(st4)
                     dataOut.sd[i,j]=1.e30
                     dataOut.ibad[i,j]=4
                     dataOut.rhor[i,j]=rhorp*rnorm
                     dataOut.rhoi[i,j]=rhoip*rnorm
-                '''
-                if i==47:
-                    print("j",j)
-                    print("pa",pa/dataOut.pan)
-                    print("pb",pb/dataOut.pbn)
-                    print((pa/dataOut.pan-1.0))
-                    print((pb/dataOut.pbn-1.0))
-                    '''
+
                 #'''
                 if ((pb/dataOut.pbn[j]-1.0)>2.25*(pa/dataOut.pan[j]-1.0)): #To flag bad points from the pulse and EEJ for lags != 0 for Channel B
                     #print(dataOut.heightList[i],j,"EJJ")
@@ -3871,38 +3870,7 @@ class DoublePulseACFs_PerLag(Operation):
                     #print("EJJ")
                     dataOut.igcej[i,j]=1
                     #'''
-        '''import matplotlib.pyplot as plt
-        fig, axes = plt.subplots(2, dataOut.DPL, figsize=(18, 6), sharex=True, sharey=True)
 
-        for i in range(dataOut.DPL):
-            axes[0,i].plot(PA[:, i], dataOut.heightList, label=f'PA {i+1}')
-            axes[0, i].axvline(dataOut.pan[i], color='gray', linestyle='--', linewidth=1) 
-            axes[0, i].set_title(f'Lag {i+1}')
-            axes[0, i].set_xscale("log")  # Log scale for y-axis
-            axes[0, i].set_xlim([0,1e+7])
-            axes[1,i].plot(PB[:, i], dataOut.heightList, label=f'PB {i+1}')
-            axes[1, i].axvline(dataOut.pbn[i], color='gray', linestyle='--', linewidth=1) 
-            axes[1, i].set_xscale("log")  # Log scale for y-axis
-            axes[1, i].set_xlim([0,1e+7])
-            
-        
-        plt.tight_layout()
-        plt.show()'''
-
-        
-        #print("dataOut.p",datetime.datetime.utcfromtimestamp(dataOut.utctime), dataOut.p)
-
-        #print(numpy.sum(dataOut.kabxys_integrated[8][:,:,0]+dataOut.kabxys_integrated[11][:,:,0]))
-        #print(numpy.sum(dataOut.kabxys_integrated[10][:,:,0]-dataOut.kabxys_integrated[9][:,:,0]))
-        #print(numpy.sum(dataOut.rhor))
-        #print("bad points: ",dataOut.igcej[47,:])
-        #exit(1)
-        '''
-        for l in range(11):
-            print("p: ",dataOut.p[:,l])
-        exit(1)
-        '''
-        #print(pa)
         '''
         import matplotlib.pyplot as plt
         #plt.plot(dataOut.p[:,-1],dataOut.heightList)
@@ -4365,21 +4333,6 @@ class NormalizeDPPowerRoberto_V2(Operation):
         #'''
         print("Bounds 2: ", dataOut.heightList[i1],dataOut.heightList[i2])
 
-        print("\n========== ANTES DE NORMALIZAR ==========")
-        print(f"Tiempo UTC: {datetime.datetime.utcfromtimestamp(dataOut.utctime)}")
-        print("Rango de alturas impreso: 300.0 - 500.0 km")
-
-        print(f"{'Altura(km)':>12} {'Faraday':>15} {'Power':>15}")
-
-        # Índices correspondientes a 200 y 500 km
-        idx1 = numpy.where(dataOut.heightList >= 200)[0][0]
-        idx2 = numpy.where(dataOut.heightList <= 500)[0][-1]
-
-        for i in range(idx1, idx2 + 1):
-            print(f"{dataOut.heightList[i]:12.1f} "
-                f"{dataOut.dphi[i]:15.6e} "
-                f"{dataOut.ph2[i]:15.6e}")
-
         try:
             dataOut.cf=self.normal(dataOut.dphi[i1::], dataOut.ph2[i1::], i2-i1, 1)
 
@@ -4457,7 +4410,7 @@ class NormalizeDPPowerRoberto_V2(Operation):
         YEAR = (datetime.datetime.utcfromtimestamp(localtime)).year # YEAR in UTC-5
         path = os.path.join(os.path.dirname(__file__), f'cf{str(YEAR)}{str(DOY)}.csv')
 
-        if ~os.path.exists(path): flagcfcorrection = False; print("No cf path")
+        if not os.path.exists(path): flagcfcorrection = False; print("No cf path")
 
         if flagcfcorrection:
             df = pd.read_csv(path)
@@ -4501,23 +4454,6 @@ class NormalizeDPPowerRoberto_V2(Operation):
         #print(dataOut.ph2)
         #print(dataOut.sdp2)
         #exit(1)
-
-        print("\n========== DESPUÉS DE NORMALIZAR ==========")
-        print(f"cf = {dataOut.cf:.6e}")
-        print(f"{'Altura(km)':>12} {'Faraday':>15} {'Power norm':>15} {'Relación':>12}")
-
-        # Índices para 200-500 km
-        idx1 = numpy.where(dataOut.heightList >= 100)[0][0]
-        idx2 = numpy.where(dataOut.heightList <= 800)[0][-1]
-
-        for i in range(idx1, idx2 + 1):
-            ratio = dataOut.ph2[i] / dataOut.dphi[i] if dataOut.dphi[i] != 0 else numpy.nan
-
-            print(f"{dataOut.heightList[i]:12.1f} "
-                f"{dataOut.dphi[i]:15.6e} "
-                f"{dataOut.ph2[i]:15.6e} "
-                f"{ratio:12.4f} "
-                f"{i}")
 
         for i in range(dataOut.NSHTS):
             dataOut.ph2[i]=(max(1.0, dataOut.ph2[i]))
@@ -4635,7 +4571,7 @@ class DPTemperaturesEstimation(Operation):
         dataOut.ephy2=numpy.zeros(dataOut.NSHTS,order='F',dtype='float32')
         dataOut.info2=numpy.zeros(dataOut.NDP,order='F',dtype='float32')
         dataOut.params=numpy.zeros(10,order='F',dtype='float32')
-        dataOut.cov=numpy.zeros(dataOut.IBITS*dataOut.IBITS,order='F',dtype='float32')
+        dataOut.cov=numpy.zeros(dataOut.IBITS*dataOut.IBITS,order='F',dtype='float32') #16*16
         dataOut.covinv=numpy.zeros(dataOut.IBITS*dataOut.IBITS,order='F',dtype='float32')
 
         #null_fd = os.open(os.devnull, os.O_RDWR)
@@ -4678,7 +4614,7 @@ class DPTemperaturesEstimation(Operation):
                 cc=1.
                 ss=0.
             # keep only uncontaminated data, don't pass zero lag to fitter
-            l1=0
+            l1=0 # Good lags
             '''
             if i==13 or i==14:
                 print(numpy.sum(dataOut.rhor))
@@ -4688,17 +4624,18 @@ class DPTemperaturesEstimation(Operation):
                 '''
             for l in range(0+1,dataOut.DPL):
                 if dataOut.igcej[i][l]==0 and dataOut.ibad[i][l]==0:
+                    # (cc+ i ss) = (rhor + i rhoi)/acfm representes rho(0)**dagger/|rho|**2, so y is the ACF rotated to have zero lag in Real axis
                     y[l1]=dataOut.rhor[i][l]*cc + dataOut.rhoi[i][l]*ss
                     x[l1]=dataOut.alag[l]*1.0e-3 # *1.0e-3
                     dataOut.sd[i][l]=dataOut.sd[i][l]/((acfm)**2)# important
                     e[l1]=dataOut.sd[i][l] #this is the variance, not the st. dev.
                     l1=l1+1
 
-            for l in range(l1*(l1+1)):
+            for l in range(l1*(l1+1)): # More than l1xl1 elements due Fortran space management
                 dataOut.cov[l]=0.0
             for l in range(l1):
                 dataOut.cov[l*(1+l1)]=e[l]
-            angle=dataOut.thb[i]*0.01745
+            angle=dataOut.thb[i]*0.01745 # Bf angle at radians
             bm=dataOut.bfm[i]
             dataOut.params[0]=1.0     #norm
             dataOut.params[1]=1000.0  #te
@@ -4746,7 +4683,7 @@ class DPTemperaturesEstimation(Operation):
                     dataOut.covinv,e,dataOut.params,eb,dataOut.m=fitacf_fit_short.fit(wl,x,y,dataOut.cov,dataOut.covinv,e,dataOut.params,bm,angle,den,dataOut.range1[i],dataOut.year,dataOut.ifit,dataOut.m,l1) #
                 #exit(1)
                 if dataOut.params[2]>dataOut.params[1]*1.05:
-                    dataOut.ifit[2]=0
+                    dataOut.ifit[2]=0 # Stop calculating Ti and try again
                     dataOut.params[1]=dataOut.params[2]=t1
                     with suppress_stdout_stderr():
                         dataOut.covinv,e,dataOut.params,eb,dataOut.m=fitacf_fit_short.fit(wl,x,y,dataOut.cov,dataOut.covinv,e,dataOut.params,bm,angle,den,dataOut.range1[i],dataOut.year,dataOut.ifit,dataOut.m,l1) #
@@ -5073,7 +5010,7 @@ class DataSaveCleaner(Operation):
         dataOut.PhyFinal[0,:dataOut.NSHTS]=numpy.copy(dataOut.phy2)
         dataOut.EPhyFinal[0,:dataOut.NSHTS]=numpy.copy(dataOut.ephy2)
 
-        # Bypass
+        # Bypass to not use clean without breaking variables
         if bypass == True:
             # for MAD
             dataOut.flagNoData = numpy.all(numpy.isnan(dataOut.DensityFinal)) #Si todos los valores son NaN no se prosigue
@@ -5401,10 +5338,6 @@ class DataSaveCleaner(Operation):
             dataOut.EPhyFinal[0, :] = missing'''
         start = time()
         flagcleandata = True
-
-        print('dataOut.EDensityFinal.shape', dataOut.EDensityFinal.shape)
-        print(dataOut.EDensityFinal)
-
         if flagcleandata:
             #print("Final Cleaning Process", time_text.hour, time_text.minute)
             path = os.path.join(os.path.dirname(__file__), 'clean_data.json')
@@ -5448,11 +5381,7 @@ class DataSaveCleaner(Operation):
                     dataOut.EPhyFinal[0,indexi:indexf]=missing
                 else:
                     dataOut.DensityFinal[0,indexi:indexf]=missing
-                    print('dataOut.DensityFinal.shape', dataOut.DensityFinal.shape)
-                    print(dataOut.DensityFinal)
                     dataOut.EDensityFinal[0,indexi:indexf]=missing
-                    print('dataOut.EDensityFinal.shape', dataOut.EDensityFinal.shape)
-                    print(dataOut.EDensityFinal)
                     dataOut.ElecTempFinal[0,indexi:indexf]=missing
                     dataOut.EElecTempFinal[0,indexi:indexf]=missing
                     dataOut.IonTempFinal[0,indexi:indexf]=missing
@@ -5470,7 +5399,6 @@ class DataSaveCleaner(Operation):
 
         # for MAD
         dataOut.flagNoData = numpy.all(numpy.isnan(dataOut.DensityFinal)) #Si todos los valores son NaN no se prosigue
-
         '''Save of clean data information in temp csv file for den correction'''
         if not dataOut.flagNoData:
             if savecfclean:
@@ -6126,6 +6054,7 @@ class CohInt(Operation):
             # raise
             #   dataOut.timeInterval = dataOut.ippSeconds * dataOut.nCohInt
             dataOut.flagNoData = False
+
         return dataOut
 
 class TimesCode(Operation):
@@ -6349,6 +6278,9 @@ class SSheightProfiles(Operation):
             pass
 
         dataOut.data            = self.sshProfiles
+
+
+        print('dataOut.data.shape',dataOut.data.shape)
         dataOut.flagNoData      = False
         dataOut.heightList      = numpy.arange(self.buffer.shape[1]) *self.step*deltaHeight + dataOut.heightList[0]
         dataOut.nProfiles       = int(dataOut.nProfiles*self.nsamples)
@@ -7052,6 +6984,318 @@ class DecoderRoll(Operation):
         #print("SHAPE",numpy.shape(dataOut.data))
 
         return dataOut
+
+def shift_right(arr, k):
+    k = k % len(arr)  # por si k > tamaño
+    return arr[-k:] + arr[:-k]
+
+class Clean_Sat(Decoder, saturatedBlock_Sat):
+
+    def plot_debris(self, debris, data, j, max_h = 150):
+
+        import matplotlib.pyplot as plt
+        fig, axs = plt.subplots(1, 3, figsize=(15, 4))
+        # Señales alineadas
+        debris = debris[:max_h]
+        data   = data[0, j, :max_h]
+
+        # Izquierda: debris_signal
+        axs[0].plot(debris.real, label='Real')
+        axs[0].plot(debris.imag, label='Imag')
+        axs[0].set_title('debris_signal')
+        axs[0].legend()
+
+        # Centro: dataOut.data
+        axs[1].plot(data.real, label='Real')
+        axs[1].plot(data.imag, label='Imag')
+        axs[1].set_title('dataOut.data')
+        axs[1].legend()
+
+        # Derecha: diferencia (data - debris)
+        diff = data - debris
+        axs[2].plot(diff.real, label='Real')
+        axs[2].plot(diff.imag, label='Imag')
+        axs[2].set_title('difference (data - debris)')
+        axs[2].legend()
+
+        # --- Igualar límites en Y (subplots 2 y 3) ---
+        ymax = max(
+            numpy.max(numpy.abs(data.real)),
+            numpy.max(numpy.abs(data.imag)),
+            numpy.max(numpy.abs(diff.real)),
+            numpy.max(numpy.abs(diff.imag))
+        )
+        ylim = (-ymax, ymax)
+
+        axs[1].set_ylim(ylim)
+        axs[2].set_ylim(ylim)
+
+        plt.tight_layout()
+        plt.show()
+
+
+
+
+    def matched_filter(self, rx, code, osamp=1):
+        """
+        Matched filter with oversampled code.
+        """
+        code = numpy.repeat(code, osamp)
+
+        if rx.ndim == 2:
+            Np, Ns = rx.shape
+            H   = numpy.conj(numpy.fft.fft(code, Ns))
+            out = numpy.zeros_like(rx, dtype=complex)
+            for p in range(Np):
+                out[p] = numpy.fft.ifft(numpy.fft.fft(rx[p]) * H)
+            return out
+        else:
+            Ns  = len(rx)
+            H   = numpy.conj(numpy.fft.fft(code, Ns))
+            return numpy.fft.ifft(numpy.fft.fft(rx) * H)
+
+    def matched_filter_batch(self, rx, code, osamp=1):
+        # rx: (C, P, Ns)
+        # code: (nCode, L)
+
+        C, P, Ns = rx.shape
+        code = numpy.repeat(code, osamp, axis=-1)
+
+        # FFT de señales (vectorizado)
+        RX = numpy.fft.fft(rx, axis=-1)
+
+        # FFT de códigos (una sola vez)
+        H = numpy.conj(numpy.fft.fft(code, Ns, axis=-1))  # (nCode, Ns)
+
+        # Asignación cíclica de códigos
+        idx = numpy.arange(P) % H.shape[0]  # (P,)
+
+        # Broadcasting: (C, P, Ns) * (P, Ns)
+        OUT = numpy.fft.ifft(RX * H[idx][None, :, :], axis=-1)
+
+        return OUT
+    
+    def code_shift(self, arr, k):
+        k = k % len(arr)
+        return arr[-k:] + arr[:-k]
+
+    '''def Code(self, scene, code):
+        try:
+            Npulses, Nrange = scene.shape
+            
+            rx = numpy.zeros((Npulses, Nrange + len(code) - 1), dtype=complex)
+
+            for p in range(Npulses):
+                rx[p] = numpy.convolve(scene[p], code)
+
+            return rx[:,:Nrange]
+            
+        except:
+            Nrange = scene.shape
+            Nrange = Nrange[0]
+            #print(Nrange+ len(code) - 1)
+            
+            rx = numpy.zeros( Nrange + len(code) - 1, dtype=complex)
+
+            rx = numpy.convolve(scene, code)
+
+            return rx[:Nrange]'''
+
+    def Code(self, scene, code, osamp):
+
+        code = numpy.repeat(code, osamp)
+
+        code_len = len(code)
+
+        if scene.ndim == 2:
+            Npulses, Nrange = scene.shape
+            rx = numpy.zeros((Npulses, Nrange), dtype=complex)
+            for p in range(Npulses):
+                rx[p] = numpy.convolve(scene[p], code)[:Nrange]
+            return rx
+        else:
+            Nrange = len(scene)
+            return numpy.convolve(scene, code)[:Nrange]
+
+    def call_detection(self, signal, dataOut, sat_code, code, nCode, nBaud, 
+                   limit, mode, ByLags, min_h, max_h, osamp, check_sat = False):
+
+        
+        #signal.data = self.matched_filter_batch(dataOut.data, sat_code, osamp)
+
+        for i in range(dataOut.nChannels):
+                for j in range(numpy.shape(dataOut.data)[1]):
+                    _code = sat_code[j%nCode]
+                    signal.data[i,j,:] = self.matched_filter(dataOut.data[i,j,:],_code, osamp)
+
+        signal        = saturatedBlock_Sat.run(self, signal, limit, mode, ByLags, min_h, max_h, rep = True)
+        sat_detection = signal.sat_detection
+
+        
+        #print(dataOut.sat_detection[0,:,:])
+        #print(numpy.all(dataOut.sat_detection[0,:,:] == 0))
+        #print(numpy.shape(numpy.nonzero(dataOut.sat_detection[0,:,:]))[1])
+        #print(numpy.nonzero(dataOut.sat_detection[0,:,:])/2)
+
+
+        # Check satellite code
+        '''
+        if check_sat == True:
+            idxs = numpy.nonzero(sat_detection)
+            i_idx, j_idx, k_idx = idxs
+            pairs = numpy.unique(numpy.stack((i_idx, j_idx), axis=1), axis=0)
+
+            shift_codes = numpy.zeros((dataOut.nChannels, dataOut.nProfiles))
+            for i,j in pairs:
+                k   = numpy.argmax(numpy.abs(sat_detection[i, j, :]))
+                best_debris = numpy.sum(signal.data[i,j,slice(k-5, k+5)])
+                for shift in range(1,nCode):
+                    buffer_sat_code = shift_right(sat_code, shift)
+                    buffer_signal = self.matched_filter_batch(dataOut.data, buffer_sat_code, osamp)
+                    if numpy.sum(buffer_signal[i,j,slice(k-5, k+5)]) > best_debris:
+                        shift_codes[i,j] = shift
+                        print("Updated ", i, j, shift)'''
+                    
+
+
+
+
+
+        return signal, sat_detection
+
+    def plot_sub(self, dataOut, señal, residuo, min_h, max_h):
+        import matplotlib.pyplot as plt
+        fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(6, 4), sharex=True, 
+                            gridspec_kw={'height_ratios': [3, 1]})
+        # Panel Superior: I/Q
+        ax1.plot(dataOut.heightList, señal.real, label='Real', color='royalblue', lw=1)
+        ax1.plot(dataOut.heightList,señal.imag, label='Imag', color='darkorange', lw=1)
+        ax1.set_ylabel('Intensity')
+        ax1.set_title('CLEAN process - '+ str(datetime.datetime.utcfromtimestamp(dataOut.getTimeRange()[0])))
+        ax1.legend()
+        ax1.grid(True, linestyle='--', alpha=0.5)
+
+        # Panel Inferior: Residuos
+        ax2.plot(dataOut.heightList, residuo.real, color='royalblue', alpha=0.8)
+        ax2.plot(dataOut.heightList, residuo.imag, color='darkorange', alpha=0.8)
+        ax2.axhline(0, color='black', linestyle='-', lw=1) # Línea base en cero
+        ax2.set_ylabel('Sat. Residual')
+        ax2.set_xlabel('Range km')
+
+        ax1.set_xlim(dataOut.heightList[min_h], dataOut.heightList[max_h])
+        ax1.set_ylim(-3000, 3000)
+
+        plt.subplots_adjust(hspace=0.05) 
+        save_path = "/media/cportilla/HDD/150km/cleaning/2/"
+        if save_path is not None:
+            # Generar nombre unico con timestamp para no sobreescribir
+            base, ext = os.path.splitext(save_path)
+            ext = ext if ext else '.png'
+
+            ts   = datetime.datetime.utcnow().strftime('%Y%m%d_%H%M%S_%f')
+            path = f"{base}_{ts}{ext}"
+
+            os.makedirs(os.path.dirname(path) or '.', exist_ok=True)
+            fig.savefig(path, dpi=150, bbox_inches='tight')
+            print(f"Saved: {path}")
+
+        #plt.show()
+        plt.close()
+
+
+    def run(self, dataOut, sat_code=None, code=None, nCode=None, cross_code=None, nBaud=None,
+            limit=70, mode=0, ByLags=False, min_h=40, max_h=200, osamp=1):
+
+        max_iter = 100
+        peak_tol = 0
+        _iter    = 0
+        dataOut.sat_tresshold = None
+        import time
+        signal      = copy.deepcopy(dataOut)
+        #numpy.save('dataOut_data_koki.npz', dataOut.data)
+        #print("SAVED")
+        #exit(1)
+
+        #hardcoded imperfect data
+        '''code = numpy.array([-1.17708378-1.2928305j,   1.18363613+1.240862j,   -0.978173-0.88164111j,-1.00672255-1.17430584j,  1.05726928+1.15880646j, -0.92060588-0.7257356j,-0.75586095-0.63273933j, -0.98940561-1.38491504j,  1.02918776+0.74214671j,0.86350679+0.68744302j,  1.03854827+1.07857439j], dtype=complex)
+        code = [code, code[::-1], -code, -code[::-1]]'''
+
+        
+        save_debris = numpy.zeros_like(dataOut.data, dtype=complex)
+        self.plot_sub(dataOut, dataOut.data[0, 1000, :], save_debris[0,1000,:], min_h, max_h)
+
+        while _iter < max_iter:
+            if _iter == 1: 
+                sat_code = cross_code
+                code = cross_code
+                
+            print("Calling detection...")
+            start_time = time.perf_counter()
+            signal, sat_detection = self.call_detection(
+                signal, dataOut, sat_code, code, nCode, nBaud,
+                limit, mode, ByLags, min_h, max_h, osamp, check_sat = True)
+            print(f"Execution time: {time.perf_counter() - start_time:.4f} seconds")
+            
+
+            idxs = numpy.nonzero(sat_detection)
+            i_idx, j_idx, k_idx = idxs
+
+            if len(i_idx) <= peak_tol:
+                print("Converged."); break
+
+            pairs = numpy.unique(numpy.stack((i_idx, j_idx), axis=1), axis=0)
+            Ns    = dataOut.data.shape[-1]
+            save_debris = numpy.zeros_like(dataOut.data, dtype=complex)
+            
+
+            '''for i in range(dataOut.nChannels):
+                self.plot_sub(dataOut, dataOut.data[i, 2000, :], save_debris[i,2000,:], min_h, max_h)
+                idxs = numpy.nonzero(sat_detection[i,:,:]) # Prof, heights
+                print("idxs", idxs)
+                #with numpy.printoptions(threshold=numpy.inf):
+                #    print("#", idxs[0])
+                for j, k in zip(idxs[0], idxs[1]):
+                    _sat_code  = numpy.array(sat_code[j % nCode], dtype=complex)
+                    _echo_code = numpy.array(code[j % nCode],     dtype=complex)
+
+                    cross_gain = numpy.dot(numpy.conj(_sat_code), _echo_code) * osamp
+                    amp = 0.4 * signal.data[i,j,k]/nBaud
+                    debris_signal = numpy.zeros_like(dataOut.data[i,j,:], dtype=complex) 
+                    debris_signal[k] = amp
+                    debris_signal = self.Code(debris_signal, _echo_code, osamp)
+                    save_debris[i,j,:] += debris_signal
+
+                #self.plot_debris(save_debris[i,2000], dataOut.data, 2000)
+
+                dataOut.data[i,:,:] -= save_debris[i,:,:]
+
+                self.plot_sub(dataOut, dataOut.data[i, 2000, :], save_debris[i,2000,:], min_h, max_h)'''
+
+            debris_signal = numpy.zeros_like(dataOut.data, dtype=complex) 
+            
+            for i, j in pairs:
+                _sat_code  = numpy.array(sat_code[j % nCode], dtype=complex)
+                _echo_code = numpy.array(code[j % nCode],     dtype=complex)
+
+                cross_gain = numpy.dot(numpy.conj(_sat_code), _echo_code) * osamp
+
+                k   = numpy.argmax(numpy.abs(sat_detection[i, j, :]))
+                amp = 0.9*signal.data[i, j, k] / cross_gain  
+
+                tmp    = numpy.zeros(Ns, dtype=complex)
+                tmp[k] = amp
+                
+                debris_signal[i, j, :] = self.Code(tmp, _echo_code, osamp)
+                dataOut.data[i, j, :]  -= debris_signal[i, j, :]
+
+                #if _iter == 0 and j == 1000: # To Do: Make the imperfect code
+
+
+            self.plot_sub(dataOut, dataOut.data[0, 1000, :], debris_signal[0, 1000, :], min_h, max_h)
+            _iter += 1
+
+        return dataOut
+
 
 
 class ProfileConcat(Operation):
@@ -8260,6 +8504,58 @@ class LongPulseAnalysis(Operation):
         Operation.__init__(self, **kwargs)
         self.aux=1
 
+    def drif_estimation(self,dataOut):
+        '''
+        nis     Number of independent samples in the entire integration
+        gamma   Constant factor between phase and velocity LOS
+        beta    Bias from experimental devices
+        delta   Standard deviation of the velocity estimate
+        alpha   Weighted mean of the drift estimates
+        dphi2   Variance of the phase estimate
+
+        Notes: The Line-of-sight velocity can be determined using the ACF phase for each lag, but the results is worse!
+                Then, a minimun-variance estimator is used, avergaging in lags and heights to obtain a single drift velocity estimation.
+                pest is the drift estimation which is ranked and trimmed by 50%
+                gamma contains implicitly the radar wavelenght, shoul be changed for other radar usage
+                dphi2 its simply deduced from phase variance theory
+        '''
+
+        #nis=dataOut.NSCAN*dataOut.NAVG*dataOut.nint*10
+        nis = dataOut.nis #102400
+        alpha=beta=delta=0.0
+        nest=0
+        gamma=3.0/(2.0*numpy.pi*dataOut.lags_LP[1]*1.0e-3)
+        beta=gamma*(math.atan2(dataOut.output_LP_integrated.imag[14,0,2],dataOut.output_LP_integrated.real[14,0,2])-math.atan2(dataOut.output_LP_integrated.imag[1,0,2],dataOut.output_LP_integrated.real[1,0,2]))/13.0
+        # different gamma for each lag should be better
+
+        for i in range(1,3): #lags 1 and 2
+            gamma=3.0/(2.0*numpy.pi*dataOut.lags_LP[i]*1.0e-3)
+            #print("gamma",gamma)
+            for j in range(34,44): # heights
+                rho2=numpy.abs(dataOut.output_LP_integrated[i,j,0])/numpy.abs(dataOut.output_LP_integrated[0,j,0]) # normalized ACF
+                dataOut.dphi2=(1.0/rho2-1.0)/(float(2*nis)) # Variance
+                dataOut.dphi2*=gamma**2
+                pest=gamma*math.atan(dataOut.output_LP_integrated.imag[i,j,0]/dataOut.output_LP_integrated.real[i,j,0]) # atan2 should better
+                
+                self.drift[nest]=pest
+                self.ddrift[nest]=dataOut.dphi2
+                self.rdrift[nest]=float(nest)
+                nest+=1
+
+        ## Rank the drift estimates
+        sorted(self.drift[:nest])
+        for j in range(int(nest/4),int(3*nest/4)): #Chooses the centered 50%
+            #i=int(self.rdrift[j])
+            alpha+=self.drift[j]/self.ddrift[j]
+            delta+=1.0/self.ddrift[j]
+
+        alpha/=delta
+        delta=1./numpy.sqrt(delta)
+        dataOut.vdrift=alpha-beta
+        dataOut.dvdrift=delta
+        dataOut.alpha = alpha
+        #
+
     def run(self,dataOut,NACF):
 
         dataOut.NACF=NACF
@@ -8269,7 +8565,6 @@ class LongPulseAnalysis(Operation):
         #print(anoise0)
         #exit(1)
         if self.aux:
-            #dataOut.cut=31#26#height=31*15=465
             self.cal=numpy.zeros((dataOut.NLAG),'float32')
             self.drift=numpy.zeros((200),'float32')
             self.rdrift=numpy.zeros((200),'float32')
@@ -8296,7 +8591,7 @@ class LongPulseAnalysis(Operation):
             dataOut.errors=numpy.zeros((dataOut.IBITS,max(dataOut.NRANGE,dataOut.NSHTS)),order='F',dtype='float32')
             dataOut.fit_array_real=numpy.zeros((max(dataOut.NRANGE,dataOut.NSHTS),dataOut.NLAG),order='F',dtype='float32')
             dataOut.status=numpy.zeros(1,'float32')
-            dataOut.tx=240.0 #debería provenir del header #hybrid
+            dataOut.tx=240.0
             
             for i in range(dataOut.IBITS):
                 dataOut.lags_LP[i]=float(i)*(dataOut.tx/150.0)/float(dataOut.IBITS) # (float)i*(header.tx/150.0)/(float)IBITS;
@@ -8304,6 +8599,7 @@ class LongPulseAnalysis(Operation):
             self.aux=0
 
         ## Juntion point between DP and LP
+        #dataOut.cut=31#26#height=31*15=465
         dataOut.cut=30
         for i in range(30,15,-1):
             if numpy.nanmax(dataOut.acfs_error_to_plot[i,:])>=10 or dataOut.info2[i]==0:
@@ -8365,43 +8661,11 @@ class LongPulseAnalysis(Operation):
         print(numpy.shape(dataOut.output_LP_integrated))
 
 
-        ## Examine drifts here - based on 60 'indep.' estimates
 
-        #nis=dataOut.NSCAN*dataOut.NAVG*dataOut.nint*10
-        nis = dataOut.nis
-        #print("nis",nis)
-        alpha=beta=delta=0.0
-        nest=0
-        gamma=3.0/(2.0*numpy.pi*dataOut.lags_LP[1]*1.0e-3)
-        beta=gamma*(math.atan2(dataOut.output_LP_integrated.imag[14,0,2],dataOut.output_LP_integrated.real[14,0,2])-math.atan2(dataOut.output_LP_integrated.imag[1,0,2],dataOut.output_LP_integrated.real[1,0,2]))/13.0
-        #print(gamma,beta)
-
-        for i in range(1,3):
-            gamma=3.0/(2.0*numpy.pi*dataOut.lags_LP[i]*1.0e-3)
-            #print("gamma",gamma)
-            for j in range(34,44):
-                rho2=numpy.abs(dataOut.output_LP_integrated[i,j,0])/numpy.abs(dataOut.output_LP_integrated[0,j,0])
-                dataOut.dphi2=(1.0/rho2-1.0)/(float(2*nis))
-                dataOut.dphi2*=gamma**2
-                pest=gamma*math.atan(dataOut.output_LP_integrated.imag[i,j,0]/dataOut.output_LP_integrated.real[i,j,0])
-                #print("1",dataOut.output_LP_integrated.imag[i,j,0])
-                #print("2",dataOut.output_LP_integrated.real[i,j,0])
-                self.drift[nest]=pest
-                self.ddrift[nest]=dataOut.dphi2
-                self.rdrift[nest]=float(nest)
-                nest+=1
-
-        ## Rank the drift estimates
-        sorted(self.drift[:nest])
-        for j in range(int(nest/4),int(3*nest/4)):
-            #i=int(self.rdrift[j])
-            alpha+=self.drift[j]/self.ddrift[j]
-            delta+=1.0/self.ddrift[j]
-
-        alpha/=delta
-        delta=1./numpy.sqrt(delta)
-        vdrift=alpha-beta
-        dvdrift=delta
+        ### Examine drifts here - based on 60 'indep.' estimates ###
+        self.drif_estimation(dataOut)
+        alpha = dataOut.alpha
+        
 
         '''
         Hysell note: need to develop estimate of complete density profile using all
@@ -8464,9 +8728,7 @@ class LongPulseAnalysis(Operation):
         x_nnlswrap[:]=nnls(a_nnlswrap,b_nnlswrap)[0]
 
         self.powerb[:range2_nnls]=x_nnlswrap
-        #print(self.powerb[40])
-        #print(self.powerb[66])
-        #exit(1)
+ 
         #############END nnlswrap#############
 
         #print(numpy.sum(numpy.sqrt(self.perror[0:dataOut.NACF])))
@@ -8479,7 +8741,29 @@ class LongPulseAnalysis(Operation):
         #print(numpy.sum(dataOut.ene))
 
         ## Reconvolve long- and double-pulse power profiles with rectangular pulse
+        # added: we change the reconvolving since Hildebrand Sekhon substracts info when ISR is not strong
         aux=0
+
+        clean_mode = True
+        if clean_mode == True:
+            # copy of DataSaveCleaner
+            buffer_DensityFinal = numpy.copy(dataOut.ph2) # at km^⁻3
+            buffer_EDensityFinal = numpy.copy(dataOut.sdp2)
+            den_err_percent = numpy.array(100*buffer_EDensityFinal/buffer_DensityFinal)
+            max_den_err_per = 35 #Densidades con error mayor al 35% se setean en NaN
+            mask = numpy.where(den_err_percent[:40] < max_den_err_per)[0]
+            if len(mask) != 0:
+                idx = mask[-1] #Alturas mayores que 600
+                aux = (36 - aux) - idx
+                if aux < 0: aux = 0
+                
+            else: aux = 0
+            
+            print("den_err_percent", den_err_percent)
+            print("dataOut.NSHTS", dataOut.NSHTS)
+            print("aux", aux)
+        
+        # then continue
         for i in range(dataOut.IBITS,dataOut.NACF):
             self.dpulse[i]=self.lpulse[i]=0.0
             for j in range(dataOut.IBITS):
@@ -8505,17 +8789,11 @@ class LongPulseAnalysis(Operation):
 
         self.powerb[16:36-aux]=alpha*dataOut.ph2[16:36-aux]/dataOut.h2[16:36-aux]
         self.powerb[36-aux:dataOut.NACF]*=beta
-        #print(dataOut.h2)
-        #print(numpy.sum(alpha))
-        #print(numpy.sum(dataOut.ph2))
 
         # Form Ne estimate, fill in error estimate at low altitudes
 
         dataOut.ene[0:36-aux]=dataOut.sdp2[0:36-aux]/dataOut.ph2[0:36-aux]
         dataOut.ne[:dataOut.NACF]=self.powerb[:dataOut.NACF]*dataOut.h2[:dataOut.NACF]/alpha
-        #print(numpy.sum(self.powerb))
-        #print(numpy.sum(dataOut.ene))
-        #print(numpy.sum(dataOut.ne))
 
         ## Error propagation: store zero lag error covariance in u
 
@@ -8540,40 +8818,23 @@ class LongPulseAnalysis(Operation):
                     dataOut.errors[0,i]=numpy.sqrt(self.u[i,i])
                 else:
                     dataOut.errors[j,i]=numpy.sqrt(((dataOut.output_LP_integrated.real[0,i,0]+anoise0)*(dataOut.output_LP_integrated.real[0,i+j,0]+anoise0)+dataOut.output_LP_integrated.real[j,i,0]**2)/float(2*nis))
-        '''
-        print(numpy.sum(dataOut.output_LP_integrated))
-        print(numpy.sum(dataOut.errors))
-        print(numpy.sum(self.powerb))
-        print(numpy.sum(dataOut.ne))
-        print(numpy.sum(dataOut.lags_LP))
-        print(numpy.sum(dataOut.thb))
-        print(numpy.sum(dataOut.bfm))
-        print(numpy.sum(dataOut.te))
-        print(numpy.sum(dataOut.ete))
-        print(numpy.sum(dataOut.ti))
-        print(numpy.sum(dataOut.eti))
-        print(numpy.sum(dataOut.ph))
-        print(numpy.sum(dataOut.eph))
-        print(numpy.sum(dataOut.phe))
-        print(numpy.sum(dataOut.ephe))
-        print(numpy.sum(dataOut.range1))
-        print(numpy.sum(dataOut.ut))
-        print(numpy.sum(dataOut.NACF))
-        print(numpy.sum(dataOut.fit_array_real))
-        print(numpy.sum(dataOut.status))
-        print(numpy.sum(dataOut.NRANGE))
-        print(numpy.sum(dataOut.IBITS))
-        exit(1)
-        '''
-        '''
-        print(dataOut.te2[13:16])
-        print(numpy.sum(dataOut.te2))
-        exit(1)
-        '''
 
+        print("alpha, beta", alpha, beta)
+        
+        '''import matplotlib.pyplot as plt
+        fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(10, 4))
+        ax1.plot(dataOut.ne)
+        ax1.set_title('dataOut.ne')
+        ax1.set_yscale('log')
+        ax2.plot(self.powerb)
+        ax2.set_title('dataOut.powerb')
+        fig.suptitle('Antes NO AUX', fontsize=16)
+        plt.tight_layout()
+        plt.show()'''
         ###################Correlation pulse and itself
-
+        
         print("LP Estimation")
+        
         with suppress_stdout_stderr():
             #pass
             full_profile_profile.profile(numpy.transpose(dataOut.output_LP_integrated,(2,1,0)),
@@ -8583,6 +8844,17 @@ class LongPulseAnalysis(Operation):
                                         dataOut.status,dataOut.NRANGE,dataOut.IBITS)
 
         print("status: ",dataOut.status)
+
+        import matplotlib.pyplot as plt
+        fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(10, 4))
+        ax1.plot(dataOut.ne)
+        ax1.set_title('dataOut.ne')
+        ax1.set_yscale('log')
+        ax2.plot(self.powerb)
+        ax2.set_title('dataOut.powerb')
+        fig.suptitle('Despues NO AUX', fontsize=16)
+        plt.tight_layout()
+        plt.show()
 
         if dataOut.status>=3.5:
             dataOut.te[:]=numpy.nan

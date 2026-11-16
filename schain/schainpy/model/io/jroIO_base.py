@@ -946,15 +946,10 @@ class JRODataReader(Reader):
 
             self.getBasicHeader()
 
-            # print(self.nReadBlocks)
-
             if not self.isDateTimeInRange(self.dataOut.datatime, self.startDate, self.endDate, self.startTime, self.endTime):
                 print("[Reading] Block No. %d/%d -> %s [Skipping]" % (self.nReadBlocks,
                                                                       self.processingHeaderObj.dataBlocksPerFile,
                                                                       self.dataOut.datatime.ctime()))
-
-                # print("Holaaaa")
-                # print("data shape 3: ", self.nReadBlocks) # Error
                 continue
 
             break
@@ -966,7 +961,6 @@ class JRODataReader(Reader):
             #################DP#################
             self.dataOut.TimeBlockDate=self.dataOut.datatime.ctime()
             self.dataOut.TimeBlockSeconds=time.mktime(time.strptime(self.dataOut.datatime.ctime()))
-            # print("Holaaaa")
             #################DP#################
         return 1
 
@@ -1259,7 +1253,6 @@ class JRODataReader(Reader):
         print("[Reading] Number of read blocks %04d" % self.nTotalBlocks)
 
     def run(self, **kwargs):
-        #print(self.flagNoMoreFiles)
         """
 
         Arguments:

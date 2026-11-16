@@ -360,7 +360,6 @@ class RadarControllerHeader(Header):
             return 0
 
         size = int(header['nSize'][0])
-        #size = int(216)
         self.expType = int(header['nExpType'][0])
         self.nTx = int(header['nNTx'][0])
         self.ipp = float(header['fIpp'][0])
@@ -639,7 +638,6 @@ class ProcessingHeader(Header):
         self.dtype = int(header['nDataType'][0])
         self.blockSize = int(header['nSizeOfDataBlock'][0])
         self.profilesPerBlock = int(header['nProfilesperBlock'][0])
-        # print('self.profilesPerBlock', self.profilesPerBlock)
         self.dataBlocksPerFile = int(header['nDataBlocksperFile'][0])
         self.nWindows = int(header['nNumWindows'][0])
         self.processFlags = header['nProcessFlags']

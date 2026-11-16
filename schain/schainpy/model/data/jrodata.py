@@ -367,10 +367,6 @@ class Voltage(JROData):
         self.heightList = None
         self.channelList = None
         self.flagNoData = True
-
-        #valor de prueba para lectura de flagnomoredata
-        self.flagNoMoreFiles = False
-
         self.flagDiscontinuousBlock = False
         self.utctime = None
         self.timeZone = 0
@@ -464,7 +460,6 @@ class Spectra(JROData):
         self.channelList = None
         self.pairsList = None
         self.flagNoData = True
-        self.flagNoMoreFiles = False
         self.flagDiscontinuousBlock = False
         self.utctime = None
         self.nCohInt = None
@@ -600,12 +595,8 @@ class Spectra(JROData):
     def getPower(self):
 
         factor = self.normFactor
-        #print('factor',factor)
         z = self.data_spc / factor
         z = numpy.where(numpy.isfinite(z), z, numpy.NAN)
-
-
-        #print('z.shape',z.shape)
         #avg = numpy.average(z, axis=1)
         avg = numpy.nanmean(z, axis=1)
 

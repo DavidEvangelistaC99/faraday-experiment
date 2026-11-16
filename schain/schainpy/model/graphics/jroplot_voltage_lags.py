@@ -201,7 +201,7 @@ class SatRTILPPlot(RTIPlot):
     def setup(self):
         self.xaxis = 'time'
         self.ncols = 1
-        self.nrows = 2
+        self.nrows = 1
         self.nplots = self.nrows
 
         self.ylabel = 'Range [km]'
@@ -224,7 +224,8 @@ class SatRTILPPlot(RTIPlot):
         data = {}
         meta = {}
         data['rti'] = dataOut.sat_indices
-        data['NRANGE'] = dataOut.NRANGE
+        try: data['NRANGE'] = dataOut.NRANGE
+        except: data['NRANGE'] = dataOut.nHeights
         #print("dataOut.sat_indices", dataOut.sat_indices)
 
         return data, meta
@@ -258,7 +259,7 @@ class SatRTILPPlot(RTIPlot):
                 if self.zlimits is not None:
                     self.zmin, self.zmax = self.zlimits[n]
 
-                print("LOL",z[n].T)
+                print("LOL",z[n])
                 ax.plt = ax.pcolormesh(x, y, z[n].T,
                                        vmin=self.zmin,
                                        vmax=self.zmax,
@@ -307,7 +308,7 @@ class DenRTIPlot(RTIPlot):
         data = {}
         meta = {}
 
-        data['denrti'] = dataOut.DensityFinal * 1.e-6
+        data['denrti'] = dataOut.DensityFinal*1.e-6 #To Plot in cm^-3
 
         return data, meta
 
@@ -315,14 +316,10 @@ class DenRTIPlot(RTIPlot):
 
         self.x = self.data.times
         self.y = self.data.yrange
-        self.z = self.data[self.CODE]
-        
-        #print(self.z)
-        #print(self.z.shape)
-        self.z = numpy.ma.masked_invalid(self.z)
 
-        #print(self.z)
-        #print(self.z.shape)
+        self.z = self.data[self.CODE]
+
+        self.z = numpy.ma.masked_invalid(self.z)
 
         if self.decimation is None:
             x, y, z = self.fill_gaps(self.x, self.y, self.z)
@@ -639,7 +636,7 @@ class TempsHPPlot(Plot):
         if ax.firsttime:
 
             ax.errorbar(Te, self.y, xerr=errTe, fmt='r^',elinewidth=1.0,color='r',linewidth=2.0, label='Te')
-            ax.errorbar(Ti, self.y, fmt='k^', xerr=errTi,elinewidth=1.0,color='k',linewidth=2.0, label='Ti')
+            ax.errorbar(Ti, self.y, fmt='k^', xerr=errTi,elinewidth=1.0,color='',linewidth=2.0, label='Ti')
             plt.legend(loc='lower right')
             self.ystep_given = 200
             ax.yaxis.set_minor_locator(MultipleLocator(15))
@@ -1101,7 +1098,7 @@ class ACFsPlot(Plot):
         BadHei2 = data['Height_contaminated_2']
 
         self.xmin = 0.0
-        self.xmax = 2.0
+        #self.xmax = 2.0
         self.y = ACFs
 
         ax = self.axes[0]

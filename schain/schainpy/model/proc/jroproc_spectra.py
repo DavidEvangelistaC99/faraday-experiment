@@ -443,9 +443,6 @@ class SpectraProc(ProcessingUnit):
 
         self.dataOut.noise_estimation = noise.copy()
 
-        print()
-        
-
         return 1
 
 class GetSNR(Operation):
